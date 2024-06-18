@@ -9,6 +9,13 @@ export default {
         backgroundColor: "#b7bca9",
         LightText: "#959595",
       },
+      slidein: {
+        '0%': { transform: 'translateX(-100%)' },
+        '100%': { transform: 'translateX(0)' },
+      },
+    },
+    animation: {
+      slidein: 'slidein 3s ease-in 1s infinite reverse both running',
     },
   },
   plugins: [],
