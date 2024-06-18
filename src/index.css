@@ -192,3 +192,49 @@ body {
 .swiper-pagination .swiper-pagination-bullet-active {
   background: var(--primary);
 }
+
+@keyframes slidein {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideTop {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.slidein {
+  animation: 3s linear 1s 1 running slidein;
+}
+.slideout {
+  animation: 3s linear 1s reverse 1 running slideout;
+}
+
+.slideTop {
+  animation: 3s linear 1s 1 running slideTop;
+
+}
+
+.textPosition {
+ margin-top: 250px;
+}
+.imageContainer{
+  flex-direction: row;
+}
