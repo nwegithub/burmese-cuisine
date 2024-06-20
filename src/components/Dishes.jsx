@@ -18,7 +18,7 @@ const Dishes = () => {
                         return (
             
                                 <DishCard img={recipies.url}
-                                 title={recipies.name}/>
+                                 text={recipies.name}/>
                             
                         )
                     })
