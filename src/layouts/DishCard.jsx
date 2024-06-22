@@ -15,6 +15,7 @@ const DishCard = (props) => {
                 <Modals></Modals>
             </div>
         </div>
+        </div>
     );
 };
 export default DishCard;
