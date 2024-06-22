@@ -4,8 +4,6 @@ import img1 from "../assets/img1.jpg"
 import recipie from "../../recipie.json"
 import "../index.css"
 
-
-
 const Dishes = () => {
     return (
         <div className=" min-h-screen flex flex-col justify-center
@@ -16,10 +14,8 @@ const Dishes = () => {
                 {
                      recipie.Dish.map(recipies => {
                         return (
-            
                                 <DishCard img={recipies.url}
                                  text={recipies.name}/>
-                            
                         )
                     })
 
