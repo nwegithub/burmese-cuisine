@@ -10,7 +10,7 @@ const DishCard = (props) => {
                 <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3>
                 <div className='flex flex-row items-center justify-center gap-4'>
                     {/* <h3>{props.price}</h3> */}
-                    <Button title="Recipe" />
+                    {/* <Button title="Recipe" /> */}
                 </div>
             </div>
         </div>
