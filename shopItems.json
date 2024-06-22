@@ -1,0 +1,45 @@
+{
+  "Discount":[
+      {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/files/EE641AFB-8A0D-43C0-AC00-01C1069AAC66_180x@2x.png?v=1719003753",
+        "name":"Good Shel Instant Fish Sauce (ဂွတ်ရှယ် အသင့် စား ငပိရေကျို) - 400 gm",
+        "price":"5000MMK"
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/products/IMG-6970-removebg-preview_460x@2x.png?v=1672860160",
+        "name":"Grandma Boiled Danyin Thee (ဒ ညင်း သီး ပြုတ်)",
+        "price":"4000MMK"
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/files/E0F8412F-1F4A-4F44-9230-64FAD904AED0_460x@2x.jpg?v=1708716384",
+        "name":"Best Fried Jenjkol Bean (ဒ ညင်း ခွက် ကြော်)",
+        "price":"6000MMK"
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/files/D5903014-D0FE-4E7E-9B18-82FF4D8BF853_460x@2x.jpg?v=1719005071",
+        "name":"Sein Hintar Pickled Crataeva Nurvala Leaf (ခံတတ်ချဉ်)",
+        "price":"4000MMK"
+
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/products/IMG-6945-removebg-preview_460x@2x.png?v=1698413016",
+        "name":"OBO Mohinga (Fish Broth) အိုးဘိုမုန့်ဟင်းခါးဟင်းရည်အနှစ်ဘူး",
+        "price":"3500MMK"
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/files/0A3703A1-28E0-4A1C-A2B9-0539CFF0650E_460x@2x.png?v=1717781823",
+        "name":"Tomo Fried Fish Paste (Rakhine Style)(ရခိုင်ငါးပိကြော်)",
+        "price":"4200MMK"
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/products/IMG-6970-removebg-preview.png?v=1672860160",
+        "name":"Grandma Boiled Danyin Thee (ဒ ညင်း သီး ပြုတ်)",
+        "price":"3700MMK"
+    },
+    {
+        "url":"https://www.myanmarfoodusa.com/cdn/shop/files/64102F86-96BF-4635-9276-2F395333077F.jpg?v=1716039735",
+        "name":"Grandma Boiled Curcuma Zedoaria (မာလာဖူးပြုတ်)",
+        "price":"6700MMK"
+    }
+  ]
+}

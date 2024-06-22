@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Dishes from './components/Dishes';
 import HowTo from './components/pages/HowTo';
 import Articles from './components/pages/Articles';
-
+import Shop from './components/pages/Shop';
 
 const App = () => {
   return (
@@ -17,10 +17,9 @@ const App = () => {
           <Route path="/dishes" element={<Dishes />} />
           <Route path="/how-to" element={<HowTo />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/Shop" element={<Shop/>}/>
         </Routes>
-        
       </div>
   );
 };
-
 export default App;

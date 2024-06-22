@@ -7,7 +7,6 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-
 *,
 *::before,
 *::after {
@@ -137,7 +136,6 @@ body {
     transform: translateX(-80%) !important;
   }
 }
-
 @media (max-width: 990px) {
   .slider-controler .swiper-button-prev {
     left: 30% !important;
@@ -231,26 +229,27 @@ body {
   flex-direction: row;
 }
 
-.background{
-  background-color: rgb(237, 232, 226);
+.container{
+  background-color: rgb(241, 241, 241);
 }
 
 .header{
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  color: rgb(182, 153, 23);
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 30px;
+  
 }
 .title{
-  color: #654c26;
+  color: #100f0e;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
 }
 
 .body{
   color: darkgoldenrod;
-  
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
 }
-/* .images{
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
-} */
+.addCart{
+  color:#6a59ff;
+}
