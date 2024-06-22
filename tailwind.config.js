@@ -5,6 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        fontFamily: {
+          'playfair': ['"Playfair Display"', 'serif'],
+
+        },
         brightColor: "#F4511F",
         backgroundColor: "#b7bca9",
         LightText: "#959595",
