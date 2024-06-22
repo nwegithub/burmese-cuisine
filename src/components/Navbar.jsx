@@ -48,7 +48,7 @@ const Navbar = () => {
                 <div className='relative group'>
                     <div className='flex gap-1'>
                         <Link
-                            to='dishes'
+                            to='/categories'
                             spy="true"
                             smooth="true"
                             duration={500}
@@ -71,7 +71,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='dishes'
+                                to='salad'
                                 spy="true"
                                 smooth="true"
                                 duration={500}
@@ -82,7 +82,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='dishes'
+                                to='dessert'
                                 spy="true"
                                 smooth="true"
                                 duration={500}
@@ -112,7 +112,7 @@ const Navbar = () => {
                     Articles&Blog
                 </Link>
                 <Link
-                    to='/Shop'
+                    to='/shop'
                     spy="true"
                     smooth="true"
                     duration={500}
