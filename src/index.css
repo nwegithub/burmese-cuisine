@@ -7,7 +7,6 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-
 *,
 *::before,
 *::after {
@@ -137,7 +136,6 @@ body {
     transform: translateX(-80%) !important;
   }
 }
-
 @media (max-width: 990px) {
   .slider-controler .swiper-button-prev {
     left: 30% !important;
@@ -251,6 +249,7 @@ body {
   color: darkgoldenrod;
   font-family: 'Times New Roman', Times, serif;
   font-size: medium;
-  
 }
-
+.addCart{
+  color:#6a59ff;
+}

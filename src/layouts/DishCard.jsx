@@ -9,8 +9,8 @@ const DishCard = (props) => {
             <img className="rounded-xl" src={props.img} alt="img" />
             <div className="space-y-4  ">
                 <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3>
+
              
-            </div>
             <div>
                 <Modals></Modals>
             </div>

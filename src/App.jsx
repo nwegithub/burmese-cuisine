@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import HowTo from './components/pages/HowTo';
 import Articles from './components/pages/Articles';
+
 import Categories from './components/Categories';
 import Shop from './components/pages/Shop';
 
@@ -18,11 +19,10 @@ const App = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/how-to" element={<HowTo />} />
           <Route path="/articles" element={<Articles />} />
+
           <Route path="/shop"  element={<Shop />}/>
         </Routes>
-        
       </div>
   );
 };
-
 export default App;
