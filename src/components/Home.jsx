@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import homeBg from "../assets/homeBg.jpg"
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import arr from "../../recipie.json"
-import { Container,Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 
 const Home = () => {
@@ -32,7 +32,7 @@ const Home = () => {
           <p className="text-backgroundColor slideTop">"Delicious Recipes for Every Occasion"</p>
         </div>
 
-   
+
 
         <div>
           <div className="flex flex-row " style={{ marginTop: 80 }}>
@@ -90,21 +90,21 @@ const Home = () => {
 
 
           {
-            data.Dessert.map((item,index) => 
+            data.Dessert.map((item, index) =>
               <SwiperSlide>
                 <Container>
-      <Grid container spacing={2}>
-        <Grid item xs={120} sm={100} md={60} >
-        <img src={item.url} alt="" />
+                  <Grid container spacing={2}>
+                    <Grid item xs={120} sm={100} md={60} >
+                      <img src={item.url} alt="" />
 
-            </Grid>
-        
-      </Grid>
-    </Container>          </SwiperSlide>
+                    </Grid>
+
+                  </Grid>
+                </Container>          </SwiperSlide>
             )
           }
 
-         
+
           <div className="slider-controler">
             <div className="swiper-button-prev slider-arrow">
               <ion-icon name="arrow-back-outline"></ion-icon>
