@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="container min-h-screen">
-     
+
 
         <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} loop={true} slidesPerView={'auto'} coverflowEffect={{
           rotate: 0,
@@ -44,6 +44,7 @@ const Home = () => {
                   <Grid container spacing={2}>
                     <Grid item xs={120} sm={100} md={60} >
                       <img src={item.url} alt="" style={{ width: 300, height: 300 }} />
+
 
                     </Grid>
 
