@@ -1,15 +1,59 @@
 
 import React, { useState } from "react";
 import Modals from "./Modals";
+import { Button } from '@mui/material';
 
 const DishCard = (props) => {
+
+    const [openIngredientModal, setOpenIngredientModal] = useState(false);
+    const [openRecipeModal, setOpenRecipeModal] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
     return (
-        <div className="w-full lg:w-1/4 p-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg">
-            
-            <img className="rounded-xl" src={props.img} alt="img" />
-            <div className="space-y-4  ">
-                <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3>
-                 <Modals></Modals>
+
+        <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="w-full lg:w-1/4 p-2 rounded-lg card  onMouseEnter={handleMouseEnter} slideTop"
+
+        >
+            <img className="rounded-xl style={{ width: '100%', height: '100%'}}" src={props.img} alt="img" />
+
+
+            <div className="space-y-4 slideTop ">
+                {isHovered && (
+                    <div><div>
+                        <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3></div>
+
+                        <div className="flex justify-center space-x-2">
+                            <Button onClick={() => setOpenIngredientModal(true)}
+                                style={{ color: 'blue' }}>
+                                Ingredients
+                            </Button>
+
+
+                            <Button onClick={() => setOpenRecipeModal(true)}
+                                style={{ color: 'blue' }}>
+                                Recipe </Button>
+                        </div>
+                    </div>)}
+
+                <div>
+                    <Modals
+                        openIngredientModal={openIngredientModal}
+                        setOpenIngredientModal={setOpenIngredientModal}
+                        openRecipeModal={openRecipeModal}
+                        setOpenRecipeModal={setOpenRecipeModal}
+                    />
+                </div>
             </div>
         </div>
     );
