@@ -2,6 +2,7 @@ import React from "react";
 import DishCard from "../layouts/DishCard";
 import data from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
+import Modals from "../layouts/Modals";
 
 const Categories = () => {
     return (
@@ -9,18 +10,6 @@ const Categories = () => {
         items-center lg:px-32 px-5">
             <h1 className="text-4xl font-semibold text-center pt-24 pb-10">
                 Our Categories</h1>
-            {/* <Grid className="flex flex-wrap gap-8 justify-center ">
-                {
-                     recipie.Dish.map(recipies => {
-                        return (
-                                <DishCard img={recipies.url}
-                                 text={recipies.name}/>
-                        )
-                    })
-
-                }
-
-            </Grid> */}
 
             <Grid className="flex flex-wrap gap-8 justify-center ">
                 {
@@ -31,8 +20,6 @@ const Categories = () => {
                                 img={item.url}
                                 title={item.name}
                             />
-
-
                         )
                     }
                     )
@@ -48,8 +35,6 @@ const Categories = () => {
                                 img={item.url}
                                 title={item.name}
                             />
-
-
                         )
                     }
                     )
@@ -60,18 +45,16 @@ const Categories = () => {
                 {
                     data.Dessert.map((item, index) => {
                         return (
-
                             <DishCard
                                 img={item.url}
                                 title={item.name}
                             />
-
-
                         )
                     }
                     )
                 }
             </Grid>
+            
         </div >
     )
 }
