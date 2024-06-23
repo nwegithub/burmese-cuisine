@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { BiChevronDown, BiRestaurant } from 'react-icons/bi';
-import Button from '../layouts/Button';
 import { Link,  useLocation } from 'react-router-dom';
-import { Stack } from '@mui/material';
+import { Stack,Button, Modal} from '@mui/material';
+// import { FiShoppingCart } from 'react-icons/fi';
+import CartModals from '../carts/CartModals';
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
@@ -12,9 +13,7 @@ const Navbar = () => {
     const closeMenu = () => {
         setMenu(false);
     };
-
     const location = useLocation();
-
     const getLinkClassName = (path) => {
         return location.pathname === path ? 'text-activeColor' : 'hover:text-brightColor';
     };
@@ -27,8 +26,6 @@ const Navbar = () => {
             sx={{ position: "sticky", top: 0, backgroundColor: "#FFFFFF", boxShadow: "0px 3px 2px -2px gray", paddingLeft: 2, paddingRight: 2 }}
             zIndex={900}
         >
-
-
             <div className='flex flex-row items-center cursor-pointer'>
                 <span>
                     <BiRestaurant size={32} />
@@ -120,30 +117,11 @@ const Navbar = () => {
                 >
                     Shop
                 </Link>
-                <Button title="Login" />
+                {/* <Button onClick={()=>{
+                   <CartModals></CartModals>
+                }}><FiShoppingCart size={24}/></Button> */}
+                <CartModals></CartModals>
             </nav>
-            {/* <div className="md:hidden flex items-center">
-                        {menu ?
-                            (<AiOutlineClose size={25} onClick={handleChange} />) : (
-                                <AiOutlineMenuUnfold size={25} onClick={handleChange}/>
-                            )
-                        }
-                    </div>
-                <div className={`${menu ? "translate-x-0" : "-translatex-x-full"} lg:hidden flex flex-col absolute bg-black text-white left-0 top-20 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}>
-                    <Link to='home' spy={true} smooth={true} duration={500}
-                        className='hover:text-brightColor transition-all cursor-pointer'>Home</Link>
-                    <Link to='dishes' spy={true} smooth={true} duration={500}
-                        className='hover:text-brightColor transition-all cursor-pointer'>Categories</Link>
-                    <Link to='about' spy={true} smooth={true} duration={500}
-                        className='hover:text-brightColor transition-all cursor-pointer'>How to..</Link>
-                    <Link to='menu' spy={true} smooth={true} duration={500}
-                        className='hover:text-brightColor transition-all cursor-pointer'>Articles&Blog</Link>
-                    <Link to='reviews' spy={true} smooth={true} duration={500}
-                        className='hover:text-brightColor transition-all cursor-pointer'>Shop</Link>
-                    <Button title="Login" />
-                    
-                </div> */}
-
         </Stack>
     )
 }
