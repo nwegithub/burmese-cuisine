@@ -219,7 +219,7 @@ body {
 }
 
 .slideTop {
-  animation: 3s linear 1s 1 running slideTop;
+  animation: 3s linear 0s 1 running slideTop;
 
 }
 
@@ -254,5 +254,16 @@ body {
 }
 .addCart{
   color:#6a59ff;
-
 }
+.card{
+  transition: all 0.3s;
+}
+
+.card:hover{
+  transform: scale(1.15);
+}
+
+.card::before{
+  transform: rotateX('angle');
+}
+
