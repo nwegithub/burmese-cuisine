@@ -28,34 +28,6 @@ const Categories = () => {
                 }
             </Grid>
 
-            {/* <Grid className="flex flex-wrap gap-8 justify-center ">
-                {
-                    data.Salad.map((item, index) => {
-                        return (
-
-                            <DishCard
-                                img={item.url}
-                                title={item.name}
-                            />
-                        )
-                    }
-                    )
-                }
-            </Grid>
-
-            <Grid className="flex flex-wrap gap-8 justify-center ">
-                {
-                    data.Dessert.map((item, index) => {
-                        return (
-                            <DishCard
-                                img={item.url}
-                                title={item.name}
-                            />
-                        )
-                    }
-                    )
-                }
-            </Grid>
             
 
         </div >
