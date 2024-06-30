@@ -63,8 +63,10 @@ const Home = () => {
             <div className="swiper-pagination"></div>
           </div>
         </Swiper>
-        
+        <div>
         <Footer></Footer>
+        </div>
+        
     </div>
   )
 }

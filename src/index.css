@@ -268,13 +268,13 @@ body {
   color: #6a59ff;
 }
 
-.add-button{
+.add-button {
   font-weight: 700;
   font-size: 20px;
   border-radius: 5px;
   border: none;
   outline: none;
-  background-color:yellow;
+  background-color: yellow;
   color: black;
   width: 100%;
   height: 40px;
@@ -284,25 +284,30 @@ body {
   margin: 15px auto;
   text-align: center;
 }
-.product-image{
-  width:100%;
-  max-width:300px;
+
+.product-image {
+  width: 100%;
+  max-width: 300px;
   max-height: 250px;
   display: block;
   object-fit: cover;
 }
-.add-button:hover{
-background-color: red;
+
+.add-button:hover {
+  background-color: red;
 }
-.add-button:active{
+
+.add-button:active {
   transform: translateY(2px);
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-footer{
+
+footer {
   position: relative;
   width: 100%;
   background: #3586ff;
@@ -311,21 +316,24 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 
 }
-footer .social_icon{
+
+footer .social_icon {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-margin: 10px 0;
+  margin: 10px 0;
 
 }
-footer .social_icon li{
+
+footer .social_icon li {
   list-style: none;
 }
-footer .social_icon li a{
+
+footer .social_icon li a {
   font-size: 2em;
   color: #ffffff;
   margin: 0 10px;
@@ -333,17 +341,81 @@ footer .social_icon li a{
   transition: 0.5s;
 
 }
-footer .social_icon li a :hover{
+
+footer .social_icon li a :hover {
   transform: translateY(-10px);
+}
 
+footer .menu li a {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin: 0 10px;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0.75;
+}
 
-.card:hover{
+footer .menu li a:hover {
+  opacity: 1;
+}
+
+.card:hover {
   transform: scale(1.15);
 }
 
-
-.card::before{
+.card::before {
   transform: rotateX('angle');
 }
 
+footer .wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url(wave.png);
+  background-size: 1000px 100px;
+} 
+footer .wave#wave1{
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation:animateWave 4s linear infinite;
 }
+footer .wave#wave2{
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation:animateWave_02 4s linear infinite;
+}
+footer .wave#wave3{
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation:animateWave 3s linear infinite;
+}
+footer .wave#wave4{
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation:animateWave_02 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0%{
+    background-position-x: 1000px;
+  }
+  100%{
+    background-position-x: 0px;
+  }
+}
+  @keyframes animateWave_02 {
+    0%{
+      background-position-x: 0px;
+    }
+    100%{
+      background-position-x: 1000px;
+    }
+}
+
+

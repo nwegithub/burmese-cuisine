@@ -27,9 +27,6 @@ const Categories = () => {
                     )
                 }
             </Grid>
-
-            
-
         </div >
     )
 }
