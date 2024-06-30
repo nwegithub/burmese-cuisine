@@ -12,7 +12,6 @@ import { Container, Grid } from "@mui/material";
 import Footer from "./pages/Footer";
 
 
-
 const Home = () => {
 
   const data = arr
