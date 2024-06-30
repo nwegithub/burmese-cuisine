@@ -9,7 +9,7 @@ import homeBg from "../assets/homeBg.jpg"
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import arr from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
-
+import Footer from "./pages/Footer";
 
 const Home = () => {
 
@@ -65,7 +65,9 @@ const Home = () => {
             <div className="swiper-pagination"></div>
           </div>
         </Swiper>
-
+        <div>
+        <Footer></Footer>
+        </div>
         
     </div>
   )
