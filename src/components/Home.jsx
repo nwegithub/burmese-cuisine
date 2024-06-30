@@ -11,14 +11,13 @@ import arr from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
 import Footer from "./pages/Footer";
 
+
 const Home = () => {
 
   const data = arr
 
   return (
     <div className="container min-h-screen">
-
-
         <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} loop={true} slidesPerView={'auto'} coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -53,8 +52,6 @@ const Home = () => {
               </SwiperSlide>
             )
           }
-
-
           <div className="slider-controler">
             <div className="swiper-button-prev slider-arrow">
               <ion-icon name="arrow-back-outline"></ion-icon>
