@@ -1,7 +1,5 @@
 import React from "react";
 import { Grid, Typography, Paper } from '@mui/material';
-
-
 import "../../index.css";
 import recipie from "../../../recipie.json";
 
@@ -18,6 +16,7 @@ const Articles = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <p>{item.name}</p>
+                                <p></p>
                             </Grid>
                         </Grid>
                     );
@@ -26,5 +25,4 @@ const Articles = () => {
         </div>
     );
 };
-
 export default Articles;
