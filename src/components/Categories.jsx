@@ -3,6 +3,7 @@ import DishCard from "../layouts/DishCard";
 import data from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
 import Modals from "../layouts/Modals";
+
 const Categories = () => {
     return (
         <div className="flex flex-col justify-center

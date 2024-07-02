@@ -55,6 +55,55 @@ html {
 }
 
 
+.home-banner-container {
+  position: relative;
+  display: flex;
+  padding-top: 3rem;
+  padding-right:3rem;
+ 
+}
+.home-bannerImage-container {
+  position: absolute;
+  top: -100px;
+  right: 0px;
+  z-index: -2;
+  max-width: 450px;
+  max-height: 450px;
+ 
+}
+
+
+.home-image-section {
+  max-width: 400px;
+  flex: 1;
+width:100%;
+height: auto;
+filter: brightness(0.5) opacity(0.7);
+
+}
+
+
+
+.home-text-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.primary-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #4c4c4c;
+  /* line-height: 5rem; */
+  max-width: 600px;
+}
+.primary-text {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  max-width: 500px;
+  color: #6a6a6a;
+  margin: 1.5rem 0rem;
+}
+
 
 body {
   font-size: 1.6rem;
@@ -338,7 +387,7 @@ footer .social_icon li a {
   color: #ffffff;
   margin: 0 10px;
   display: inline-block;
-  transition: 0.5s;
+  transition: 1s;
 
 }
 
@@ -459,13 +508,13 @@ footer .wave#wave3{
   z-index: 1000;
   opacity: 0.2;
   bottom: 15px;
-  animation:animateWave 3s linear infinite;
+  animation:animateWave 9s linear infinite;
 }
 footer .wave#wave4{
   z-index: 999;
   opacity: 0.7;
   bottom: 20px;
-  animation:animateWave_02 3s linear infinite;
+  animation:animateWave_02 9s linear infinite;
 }
 
 @keyframes animateWave {

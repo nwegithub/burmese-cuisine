@@ -18,6 +18,7 @@ const Navbar = () => {
         return location.pathname === path ? 'text-activeColor' : 'hover:text-brightColor';
     };
     return (
+        
         <Stack
             direction="row"
             alignItems="center"
