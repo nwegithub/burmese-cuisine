@@ -1,7 +1,7 @@
 import React from "react";
 const Footer = () => {
     return (
-        <div>
+        <div class="container">
             <footer>
                 <div className="waves">
                     <div className="wave" id="wave1"></div>
@@ -9,17 +9,58 @@ const Footer = () => {
                     <div className="wave" id="wave3"></div>
                     <div className="wave" id="wave4"></div>
                 </div>
-                {/* <ul className="social_icon">
-                <li><a href=""><ion-icon name="logo-facebook"></ion-icon></a></li>
-                <li><a href=""><ion-icon name="logo-twitter"></ion-icon></a></li>
-                <li><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                <li><a href=""><ion-icon name="logo-instagram"></ion-icon></a></li>
-            </ul> */}
-                {/* <p></p>
-                <ul className="menu"></ul>*/}
+                <div class="sec aboutus">
+                    <h3>About Us</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                         Facere earum magnam laborum dolorum ad inventore. Ratione tempore
+                          officiis reprehenderit accusantium corrupti iusto eligendi
+                        perspiciatis modi officia ut! Assumenda, sint doloribus.</p>
+                    <ul className="social_icon">
+                        <li><a href=""><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href=""><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        <li><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                        <li><a href=""><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    </ul>
+                </div>
+                 <div class="sec quicklinks">
+                    <h2>Support</h2>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="sec quicklinks">
+                    <h2>Shop</h2>
+                    <ul>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">Kids</a></li>
+                        <li><a href="#">Shoes</a></li>
+                    </ul>
+                </div>
+                <div className="sec contact">
+                    <ul class="info">
+                        <li>
+                            <span><i class="fa-solid fa-phone"></i></span><p>
+                                <a href="tel:++9509766957373">+9509766957373</a>
+                            </p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-envelope"></i></span><p>
+                                <a href="mailto:knowmore@email.meee">knowmore@email.com</a>
+                            </p>
+                        </li>
+                    </ul>
+                    <h2>Contact Us</h2>
+                </div>
+            
             </footer>
+            
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
         </div>
     )
 }
