@@ -4,9 +4,13 @@ import { Link,  useLocation } from 'react-router-dom';
 import { Stack,Button, Modal} from '@mui/material';
 // import { FiShoppingCart } from 'react-icons/fi';
 import CartModals from '../carts/CartModals';
+import { useAuth } from '../Auth/AuthContext';
+
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
+    const { user, logout } = useAuth();
+
     const handleChange = () => {
         setMenu(!menu);
     };
@@ -17,6 +21,8 @@ const Navbar = () => {
     const getLinkClassName = (path) => {
         return location.pathname === path ? 'text-activeColor' : 'hover:text-brightColor';
     };
+
+
     return (
         <Stack
             direction="row"
@@ -117,6 +123,19 @@ const Navbar = () => {
                 >
                     Shop
                 </Link>
+                {user ? (
+        <>
+           
+          <span>{JSON.parse(user).name}</span>
+          <button onClick={logout}>Logout</button>
+
+        </>
+      ) : (
+        <>
+          <Link to="/Login">Login</Link>
+          <Link to="/SignUp">Sign Up</Link>
+        </>
+      )}
                 {/* <Button onClick={()=>{
                    <CartModals></CartModals>
                 }}><FiShoppingCart size={24}/></Button> */}

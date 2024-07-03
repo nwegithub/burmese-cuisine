@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,useLocation,useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import HowTo from './components/pages/HowTo';
@@ -7,9 +7,25 @@ import Articles from './components/pages/Articles';
 
 import Categories from './components/Categories';
 import Shop from './components/pages/Shop';
+import Login from './components/pages/Login';
+import SignUp from './components/pages/SignUp';
+import { useAuth,AuthProvider } from './Auth/AuthContext';
 
 
 const App = () => {
+
+  // const PrivateRoute = ({ element: Component, ...rest }) => {
+  //   const { user } = useAuth();
+  //   const location = useLocation();
+  //   const navigate = useNavigate();
+  
+  //   if (!user) {
+  //     navigate('/Login', { state: { from: location } });
+  //     return null;
+  //   }
+  
+  //   return <Component {...rest} />;
+  // };
   return (
       <div>
         <Navbar />
@@ -21,6 +37,10 @@ const App = () => {
           <Route path="/articles" element={<Articles />} />
 
           <Route path="/shop"  element={<Shop />}/>
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/SignUp" element={<SignUp/>}/>
+          {/* <Route path="/Home" element={<PrivateRoute element={<Home />} />} /> */}
+
         </Routes>
       </div>
   );
