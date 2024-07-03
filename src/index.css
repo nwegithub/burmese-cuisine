@@ -71,15 +71,10 @@ html {
   max-height: 450px;
  
 }
-
-
 .home-image-section {
   max-width: 400px;
   flex: 1;
 }
-
-
-
 .home-text-section {
   flex: 1;
   display: flex;
@@ -461,11 +456,10 @@ footer .menu li a {
   font-size: 1.2em;
   color: #ffffff;
   margin: 0 10px;
-  display: inline-block;
+  display:inline-block;
   text-decoration: none;
   opacity: 0.75;
 }
-
 footer .menu li a:hover {
   opacity: 1;
 }
@@ -533,7 +527,7 @@ footer .wave#wave4{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #008000; /* Green background color */
+  background-color:pink; /* Green background color */
   padding: 20px;
   border-radius: 10px;
   color: white;
@@ -593,4 +587,3 @@ p {
 .tinted-blue {
   filter: hue-rotate(117deg); /* Adjust hue-rotate value to change color */
 }
-
