@@ -76,10 +76,6 @@ html {
 .home-image-section {
   max-width: 400px;
   flex: 1;
-width:100%;
-height: auto;
-filter: brightness(0.5) opacity(0.7);
-
 }
 
 
@@ -532,5 +528,69 @@ footer .wave#wave4{
     100%{
       background-position-x: 1000px;
     }
+}
+.promotion-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #008000; /* Green background color */
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.content-container {
+  max-width: 500px;
+  padding: 20px;
+}
+
+.promo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rating-icons {
+  font-size: 24px; /* Adjust size for rating icons */
+}
+
+h2 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 16px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cta-button:hover {
+  background-color: darkgray;
+}
+
+.price-tag {
+  margin-top: 20px;
+  font-size: 24px;
+  background-color: red;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.image-container img {
+  max-width: 400px;
+  border-radius: 10px;
+}
+.tinted-blue {
+  filter: hue-rotate(117deg); /* Adjust hue-rotate value to change color */
 }
 

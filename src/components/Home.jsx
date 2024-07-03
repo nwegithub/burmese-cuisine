@@ -16,13 +16,15 @@ import pic1 from "../assets/pic1.jpg";
 const Home = () => {
 
   const data = arr
-
+  const imageStyle = {
+    filter: 'hue-rotate(180deg)' // Example: rotate hue by 180 degrees
+  };
   return (
     <div className="home-container">
        
       <div className="home-banner-container">
         <div className="home-bannerImage-container">
-          <img src={BannerBackground} alt="" />
+          <img  className="tinted-blue" src={BannerBackground} alt="" />
         </div>
         <div className="home-text-section">
 
