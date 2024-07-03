@@ -9,6 +9,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import arr from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
 import Footer from "./pages/Footer";
+import SearchBox from "./pages/SearchBar";
 import BannerBackground from "../assets/home-banner-background.png";
 import pic1 from "../assets/pic1.jpg";
 
@@ -18,6 +19,9 @@ const Home = () => {
   const data = arr
 
   return (
+    <>
+    <div className="container min-h-screen">
+
     <div className="home-container">
        
       <div className="home-banner-container">
@@ -75,21 +79,13 @@ const Home = () => {
               </SwiperSlide>
             )
           }
-          <div className="slider-controler">
-            <div className="swiper-button-prev slider-arrow">
-              <ion-icon name="arrow-back-outline"></ion-icon>
-            </div>
-            <div className="swiper-button-next slider-arrow">
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </div>
-            <div className="swiper-pagination"></div>
-          </div>
+          
         </Swiper>
-        <div>
-        <Footer></Footer>
-        </div>
-        
+        <SearchBox/>
     </div>
+            <Footer/>
+            </>
+
   )
 }
 export default Home;
