@@ -57,9 +57,7 @@ const Modals = ({
             <Typography className="relative m-h-[1000px] h-full w-full overflow-y-scroll top-8">
              
 {props.ingredents}
-{/* const paragraph = props.ingredents;
-    const sentences = paragraph.split(','); // Split by period followed by a space
-    setListItems(sentences); */}
+
               
               <div
                 className="flex justify-center space-x-2  overflow-y-scroll"
