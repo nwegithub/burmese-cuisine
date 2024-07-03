@@ -12,15 +12,15 @@ const data = [
 
 function TwoColumnGrid() {
   return (
-    <Grid container spacing={2}>
-      {data.map((item) => (
-        <Grid item xs={12} sm={6} key={item.id}>
-          <Paper elevation={2} style={{ padding: '16px' }}>
-            <Typography variant="h6">{item.title}</Typography>
-          </Paper>
-        </Grid>
-      ))}
-    </Grid>
+    <Grid container spacing={4}>
+    {data.map((item) => (
+      <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+        <Paper elevation={4} style={{ padding: '16px' }}>
+          <Typography variant="h6">{item.title}</Typography>
+        </Paper>
+      </Grid>
+    ))}
+  </Grid>
   );
 }
 

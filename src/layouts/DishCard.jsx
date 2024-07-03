@@ -18,45 +18,42 @@ const DishCard = (props) => {
 
 
     return (
-
-        <div
-            onMouseEnter={handleMouseEnter}
+        <div onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="w-full lg:w-1/4 p-2 rounded-lg card  onMouseEnter={handleMouseEnter} slideTop"
-
-        >
-            <img className="rounded-xl style={{ width: '100%', height: '100%'}}" src={props.img} alt="img" />
-
-
-            <div className="space-y-4 slideTop ">
-                {isHovered && (
-                    <div><div>
-                        <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3></div>
-
-                        <div className="flex justify-center space-x-2">
-                            <Button onClick={() => setOpenIngredientModal(true)}
-                                style={{ color: 'blue' }}>
-                                Ingredients
-                            </Button>
+            className=" slideTop m-8 border-5 border-red-500 card  "
+            style={{ backgroundColor: isHovered && '#b8860b', height: 290, borderRadius: 10 }}>
+            <img className="rounded-xl shadow-2xl shadow-slate-600" style={{ width: '100%', height: isHovered ? '70%' : '80%' }} src={props.img} alt="img" />
 
 
-                            <Button onClick={() => setOpenRecipeModal(true)}
-                                style={{ color: 'blue' }}>
-                                Recipe </Button>
-                        </div>
-                    </div>)}
+            {
+                isHovered ?
+                    (<div className="flex justify-center space-x-2 items-center"
+                        style={{ height: '30%' }}>
+                        <Button onClick={() => setOpenIngredientModal(true)} style={{ paddingInline: 10, backgroundColor: 'white', color: 'black' }}>
+                            Ingredients
+                        </Button>
+                        <Button onClick={() => setOpenRecipeModal(true)} style={{ paddingInline: 10, backgroundColor: 'white', color: 'black' }}>
+                            Recipe
+                        </Button>
+                    </div>
+                    )
+                    :
 
-                <div>
-                    <Modals
-                        openIngredientModal={openIngredientModal}
-                        setOpenIngredientModal={setOpenIngredientModal}
-                        openRecipeModal={openRecipeModal}
-                        setOpenRecipeModal={setOpenRecipeModal}
-                        props={props}
-                    />
-                </div>
-            </div>
+                    <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3>
+
+
+            }
+
+<Modals
+          openIngredientModal={openIngredientModal}
+          setOpenIngredientModal={setOpenIngredientModal}
+          openRecipeModal={openRecipeModal}
+          setOpenRecipeModal={setOpenRecipeModal}
+          props={props}
+        />
         </div>
+      
+
     );
 };
 export default DishCard;

@@ -5,26 +5,47 @@ import { Container, Grid } from "@mui/material";
 import Modals from "../layouts/Modals";
 const Categories = () => {
     return (
-        <div className="flex flex-col justify-center
-        items-center lg:px-32 px-5 slideTop">
+        <div className=" flex-col 
+           slideTop">
             <h1 className="text-4xl font-semibold text-center pt-24 pb-10">
                 Our Categories</h1>
-            <Grid className="flex flex-wrap  ">
-                {
-                    data.Dish.map((item, index) => {
-                        return (
-
-                            <DishCard
-                                img={item.url}
-                                title={item.name}
-                                ingredents={item.ingredents}
-                            />
-                        )
-                    }
-                    )
-                }
+            <Grid container spacing={0}>
+                {data.Dish.map((item) => (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
+                        <DishCard
+                img={item.url}
+                title={item.name}
+                ingredents={item.ingredents}
+            />
+                    </Grid>
+                ))}
             </Grid>
         </div >
     )
 }
 export default Categories;
+
+{/* <Grid container spacing={4}>
+    {data.map((item) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+            <Paper elevation={4} style={{ padding: '16px' }}>
+                <Typography variant="h6">{item.title}</Typography>
+            </Paper>
+        </Grid>
+    ))}
+</Grid>
+
+
+{
+    data.Dish.map((item, index) => {
+        return (
+
+            <DishCard
+                img={item.url}
+                title={item.name}
+                ingredents={item.ingredents}
+            />
+        )
+    }
+    )
+} */}

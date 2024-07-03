@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Button from "../layouts/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
@@ -16,11 +16,33 @@ import pic1 from "../assets/pic1.jpg";
 const Home = () => {
 
   const data = arr
+
+  const [product, setProduct] = useState(null);
+
+
+  useEffect(() => {
+
+    fetch('http://localhost:4000/products/allProduct') 
+        .then(response => response.json())
+        .then(data => {
+            setProduct(data);
+        })
+        .catch(error => {
+            console.error('There was an error fetching the product data!', error);
+        });
+}, []);
+
+if (!product) {
+    return <div>Loading...</div>;
+}
+
+console.log("data",product.result[0].name)
+
   const imageStyle = {
     filter: 'hue-rotate(180deg)' // Example: rotate hue by 180 degrees
   };
   return (
-    <div className="home-container">
+    <>
        
       <div className="home-banner-container">
         <div className="home-bannerImage-container">
@@ -77,21 +99,12 @@ const Home = () => {
               </SwiperSlide>
             )
           }
-          <div className="slider-controler">
-            <div className="swiper-button-prev slider-arrow">
-              <ion-icon name="arrow-back-outline"></ion-icon>
-            </div>
-            <div className="swiper-button-next slider-arrow">
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </div>
-            <div className="swiper-pagination"></div>
-          </div>
+         
         </Swiper>
         <div>
-        <Footer></Footer>
         </div>
-        
-    </div>
+<Footer/>
+    </>
   )
 }
 export default Home;
