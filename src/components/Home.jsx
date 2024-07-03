@@ -5,12 +5,13 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import homeBg from "../assets/homeBg.jpg"
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import arr from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
 import Footer from "./pages/Footer";
 import SearchBox from "./pages/SearchBar";
+import BannerBackground from "../assets/home-banner-background.png";
+import pic1 from "../assets/pic1.jpg";
 
 
 const Home = () => {
@@ -20,6 +21,30 @@ const Home = () => {
   return (
     <>
     <div className="container min-h-screen">
+
+    <div className="home-container">
+       
+      <div className="home-banner-container">
+        <div className="home-bannerImage-container">
+          <img src={BannerBackground} alt="" />
+        </div>
+        <div className="home-text-section">
+
+          <h1 className="primmary-heading">
+            Your Favourite Food Deliveryed Hot & Fresh
+          </h1>
+          <p className="primary-text">
+            Healthy switcher chefs do all the prep work,like peeding,
+            chopping 
+            & marinating, so you can cook a fresh food
+          </p>
+         
+        </div>
+        <div className="home-image-section">
+            <img src={pic1} alt="" />  
+
+        </div>
+      </div>
         <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} loop={true} slidesPerView={'auto'} coverflowEffect={{
           rotate: 0,
           stretch: 0,
