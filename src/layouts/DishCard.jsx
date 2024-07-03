@@ -51,6 +51,8 @@ const DishCard = (props) => {
           setOpenRecipeModal={setOpenRecipeModal}
           props={props}
         />
+
+
         </div>
       
 

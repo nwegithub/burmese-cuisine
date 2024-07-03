@@ -3,6 +3,7 @@ import DishCard from "../layouts/DishCard";
 import data from "../../recipie.json"
 import { Container, Grid } from "@mui/material";
 import Modals from "../layouts/Modals";
+
 const Categories = () => {
     return (
         <div className=" flex-col 
@@ -19,33 +20,11 @@ const Categories = () => {
             />
                     </Grid>
                 ))}
+
             </Grid>
         </div >
     )
 }
 export default Categories;
 
-{/* <Grid container spacing={4}>
-    {data.map((item) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
-            <Paper elevation={4} style={{ padding: '16px' }}>
-                <Typography variant="h6">{item.title}</Typography>
-            </Paper>
-        </Grid>
-    ))}
-</Grid>
 
-
-{
-    data.Dish.map((item, index) => {
-        return (
-
-            <DishCard
-                img={item.url}
-                title={item.name}
-                ingredents={item.ingredents}
-            />
-        )
-    }
-    )
-} */}
