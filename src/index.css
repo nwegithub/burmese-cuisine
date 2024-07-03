@@ -71,8 +71,6 @@ html {
   max-width: 450px;
   max-height: 450px;
 
-}
-
 .home-image-section {
   max-width: 400px;
   flex: 1;
@@ -459,11 +457,10 @@ footer .menu li a {
   font-size: 1.2em;
   color: #ffffff;
   margin: 0 10px;
-  display: inline-block;
+  display:inline-block;
   text-decoration: none;
   opacity: 0.75;
 }
-
 footer .menu li a:hover {
   opacity: 1;
 }
@@ -540,6 +537,7 @@ footer .wave#wave4 {
   align-items: center;
   justify-content: space-between;
   background-color: pink;
+
   padding: 20px;
   border-radius: 10px;
   color: white;
@@ -697,3 +695,4 @@ footer .container.contact .info{
 footer .container.contact .info li{
   display: grid;
 }
+
