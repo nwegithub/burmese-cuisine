@@ -86,6 +86,7 @@ const Home = () => {
         <SearchBox/>
     </div>
             <Footer/>
+            </div>
             </>
 
   )
