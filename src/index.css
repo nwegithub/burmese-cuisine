@@ -71,6 +71,7 @@ html {
   max-width: 450px;
   max-height: 450px;
 
+}
 .home-image-section {
   max-width: 400px;
   flex: 1;
@@ -106,8 +107,7 @@ body {
 
 .container {
   max-width: 124rem;
-  padding: 4rem 1rem;
-  margin: 0 auto;
+  /* padding: 4rem 1rem; */
 }
 
 .heading {
