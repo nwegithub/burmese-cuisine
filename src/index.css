@@ -497,21 +497,18 @@ footer .wave#wave2 {
   bottom: 10px;
   animation: animateWave_02 4s linear infinite;
 }
-
 footer .wave#wave3 {
   z-index: 1000;
   opacity: 0.2;
   bottom: 15px;
   animation: animateWave 9s linear infinite;
 }
-
 footer .wave#wave4 {
   z-index: 999;
   opacity: 0.7;
   bottom: 20px;
   animation: animateWave_02 9s linear infinite;
 }
-
 @keyframes animateWave {
   0% {
     background-position-x: 1000px;
@@ -521,17 +518,14 @@ footer .wave#wave4 {
     background-position-x: 0px;
   }
 }
-
 @keyframes animateWave_02 {
   0% {
     background-position-x: 0px;
   }
-
   100% {
     background-position-x: 1000px;
   }
 }
-
 .promotion-banner-container {
   display: flex;
   align-items: center;
@@ -542,28 +536,23 @@ footer .wave#wave4 {
   border-radius: 10px;
   color: white;
 }
-
 .content-container {
   max-width:500px;
   padding: 100px;
 }
-
 .promo-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .rating-icons {
   font-size: 24px;
   /* Adjust size for rating icons */
 }
-
 h2 {
   font-size: 36px;
   margin: 10px 0;
 }
-
 p {
   font-size: 16px;
 }
@@ -610,7 +599,6 @@ p {
   filter: hue-rotate(117deg);
   /* Adjust hue-rotate value to change color */
 }
-
 /* index.css */
 .rounded-button {
  
