@@ -20,23 +20,22 @@ const Home = () => {
   const [product, setProduct] = useState(null);
 
 
-  useEffect(() => {
+//   useEffect(() => {
 
-    fetch('http://localhost:4000/products/allProduct') 
-        .then(response => response.json())
-        .then(data => {
-            setProduct(data);
-        })
-        .catch(error => {
-            console.error('There was an error fetching the product data!', error);
-        });
-}, []);
+//     fetch('http://localhost:4000/products/allProduct') 
+//         .then(response => response.json())
+//         .then(data => {
+//             setProduct(data);
+//         })
+//         .catch(error => {
+//             console.error('There was an error fetching the product data!', error);
+//         });
+// }, []);
 
-if (!product) {
-    return <div>Loading...</div>;
-}
+// if (!product) {
+//     return <div>Loading...</div>;
+// }
 
-console.log("data",product.result[0].name)
 
   const imageStyle = {
     filter: 'hue-rotate(180deg)' // Example: rotate hue by 180 degrees
