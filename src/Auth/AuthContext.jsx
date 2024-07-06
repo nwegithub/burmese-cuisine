@@ -1,15 +1,24 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-// Create Auth Context
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isMya,setIsMya] = useState(true)
 
   useEffect(() => {
     const isUser = localStorage.getItem('user');
+    const isMyanmar = localStorage.getItem('language')
 
+console.log("isMya",isMyanmar)
+    if(isMyanmar === "eng"){
+      setIsMya(false)
+    }else{
+      setIsMya(true)
+    }
   setUser(isUser)
+
+
   }, []);
 
 
@@ -24,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout,isMya,setIsMya }}>
       {children}
     </AuthContext.Provider>
   );
@@ -32,22 +41,4 @@ export const AuthProvider = ({ children }) => {
 
 export const useAuth = () => React.useContext(AuthContext);
 
-const fetchUserData = async (token) => {
-    try {
-      const response = await fetch('http://localhost:4000/users/login', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch user data');
-      }
-
-      const userData = await response.json();
-      return { name: userData.name, token: token };
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      return null;
-    }
-  };

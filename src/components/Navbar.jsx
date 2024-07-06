@@ -9,7 +9,14 @@ import { useAuth } from '../Auth/AuthContext';
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
-    const { user, logout } = useAuth();
+    const { user, logout ,isMya, setIsMya} = useAuth();
+
+    const handleLanguage = async () => {
+        setIsMya(!isMya)
+       await localStorage.setItem('language',!isMya? "mm" : "eng")
+       console.log("state",isMya)
+    }
+
 
     const handleChange = () => {
         setMenu(!menu);
@@ -97,15 +104,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <Link
-                    to='/how-to'
-                    spy="true"
-                    smooth="true"
-                    duration={500}
-                    className={`${getLinkClassName('/how-to')} transition-all cursor-pointer`}
-                >
-                    How to..
-                </Link>
+                
                 <Link
                     to='/articles'
                     spy="true"
@@ -137,9 +136,10 @@ const Navbar = () => {
           <Link to="/SignUp">Sign Up</Link>
         </>
       )}
-                {/* <Button onClick={()=>{
-                   <CartModals></CartModals>
-                }}><FiShoppingCart size={24}/></Button> */}
+                         <button onClick={ handleLanguage}>
+                            {isMya ? "ကကကကကက" : "language"}
+                         </button>
+
                 <CartModals></CartModals>
             </nav>
         </Stack>

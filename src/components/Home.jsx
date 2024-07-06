@@ -11,6 +11,7 @@ import { Container, Grid } from "@mui/material";
 import Footer from "./pages/Footer";
 import BannerBackground from "../assets/home-banner-background.png";
 import pic1 from "../assets/pic1.jpg";
+
 import '../Style.css';
 import teasalad from '../assets/teasalad-removebg-preview.png';
 import noodle from '../assets/noodle.png';
@@ -19,7 +20,9 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Home = (props, item, handleClick) => {
   const data = arr
-  const [product, setProduct] = useState(null);
+
+
+
   const imageStyle = {
     filter: 'hue-rotate(180deg)' // Example: rotate hue by 180 degrees
   };
@@ -50,6 +53,7 @@ const Home = (props, item, handleClick) => {
           <img src={teasalad} alt="" />
         </div>
       </div>
+
       <div style={{ width: '100%', height: 500, position: 'relative' }}>
         <div
           style={{
