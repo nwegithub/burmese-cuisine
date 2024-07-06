@@ -15,16 +15,12 @@ const DishCard = (props) => {
     const handleMouseLeave = () => {
         setIsHovered(false);
     };
-
-
     return (
         <div onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className=" slideTop m-8 border-5 border-red-500 card  "
             style={{ backgroundColor: isHovered && '#b8860b', height: 290, borderRadius: 10 }}>
             <img className="rounded-xl shadow-2xl shadow-slate-600" style={{ width: '100%', height: isHovered ? '70%' : '80%' }} src={props.img} alt="img" />
-
-
             {
                 isHovered ?
                     (<div className="flex justify-center space-x-2 items-center"
@@ -40,10 +36,7 @@ const DishCard = (props) => {
                     :
 
                     <h3 className="font-semibold text-center text-xl pt-6">{props.title}</h3>
-
-
             }
-
 <Modals
           openIngredientModal={openIngredientModal}
           setOpenIngredientModal={setOpenIngredientModal}
@@ -51,11 +44,8 @@ const DishCard = (props) => {
           setOpenRecipeModal={setOpenRecipeModal}
           props={props}
         />
-
-
         </div>
-      
-
+    
     );
 };
 export default DishCard;
