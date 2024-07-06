@@ -9,8 +9,7 @@ import Categories from './components/Categories';
 import Shop from './components/pages/Shop';
 import Login from './components/pages/Login';
 import SignUp from './components/pages/SignUp';
-import { useAuth,AuthProvider } from './Auth/AuthContext';
-
+import Ingredient from './components/pages/IngredientDetail';
 
 const App = () => {
 
@@ -39,7 +38,7 @@ const App = () => {
           <Route path="/shop"  element={<Shop />}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
-          {/* <Route path="/Home" element={<PrivateRoute element={<Home />} />} /> */}
+          <Route path="/IngredientDetail" element={<Ingredient/>}/>
 
         </Routes>
       </div>
