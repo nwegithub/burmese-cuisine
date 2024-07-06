@@ -58,9 +58,8 @@ html {
 .home-banner-container {
   position: relative;
   display: flex;
-  padding-top: 3rem;
-  padding-right: 3rem;
-
+  padding-top: 5rem;
+  padding-right: 13rem;
 }
 
 .home-bannerImage-container {
@@ -68,15 +67,13 @@ html {
   top: -30px;
   right: 0px;
   z-index: -2;
-  max-width: 450px;
-  max-height: 450px;
-
+  max-width: 500px;
+  max-height: 500px;
 }
 .home-image-section {
-  max-width: 400px;
+  max-width:400px;
   flex: 1;
 }
-
 .home-text-section {
   flex: 1;
   display: flex;
@@ -84,22 +81,18 @@ html {
   justify-content: center;
   align-items: flex-start;
 }
-
 .primary-heading {
-  font-size: clamp(2rem, 5vw, 4rem);
-  color: #4c4c4c;
-  /* line-height: 5rem; */
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: #840b0b;
   max-width: 600px;
+  font-style: italic;
 }
-
 .primary-text {
   font-size: clamp(1rem, 3vw, 1.5rem);
   max-width: 500px;
   color: #6a6a6a;
   margin: 1.5rem 0rem;
 }
-
-
 body {
   font-size: 1.6rem;
   background: var(--bg);
@@ -109,7 +102,6 @@ body {
   max-width: 124rem;
   /* padding: 4rem 1rem; */
 }
-
 .heading {
   padding: 1rem 0;
   font-size: 3.5rem;
@@ -329,25 +321,34 @@ body {
 .product-image {
   width: 100%;
   max-width: 300px;
-  max-height: 250px;
+  max-height: 300px;
   display: block;
   object-fit: cover;
+}
+.product-image1 {
+  width: 200px; /* Set a small width */
+  height: 200px; /* Set a small height */
+  max-width: 300px;
+  max-height: 300px;
+  display: block;
+  object-fit: cover;
+}
+.product-image2{
+border-radius: 50%;
+border: 25px solid blue;
 }
 
 .add-button:hover {
   background-color: red;
 }
-
 .add-button:active {
   transform: translateY(2px);
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 footer {
   position: relative;
   width: 100%;
@@ -357,17 +358,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
-
 footer .social_icon {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px 0;
-
 }
 
 footer .social_icon li {
@@ -380,13 +377,10 @@ footer .social_icon li a {
   margin: 0 10px;
   display: inline-block;
   transition: 1s;
-
 }
-
 footer .social_icon li a :hover {
   transform: translateY(-10px);
 }
-
 footer .menu li a {
   font-size: 1.2em;
   color: #ffffff;
@@ -395,47 +389,37 @@ footer .menu li a {
   text-decoration: none;
   opacity: 0.75;
 }
-
 footer .menu li a:hover {
   opacity: 1;
 }
-
 .card:hover {
   transform: scale(1.15);
 }
-
 .card::before {
   transform: rotateX('angle');
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 footer {
   position: relative;
   width: 100%;
-  background: #3586ff;
+  background:#3586ff;
   min-height: 100px;
   padding: 20px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
-
 footer .social_icon {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px 0;
-
 }
-
 footer .social_icon li {
   list-style: none;
 }
@@ -596,8 +580,7 @@ p {
 }
 
 .tinted-blue {
-  filter: hue-rotate(117deg);
-  /* Adjust hue-rotate value to change color */
+  filter: hue-rotate(#aeae69);
 }
 /* index.css */
 .rounded-button {
@@ -629,9 +612,9 @@ p {
 
 .rotated-image {
   transform: rotate(90deg);
-  /* Rotate the image */
 }
-footer .container.sec h2
+
+/* footer .container.sec h2
 {
 position: relative;
 color:#333;
@@ -682,5 +665,73 @@ footer .container.contact .info{
 }
 footer .container.contact .info li{
   display: grid;
+} */
+/* ///////////// */
+/* .round-image {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%;
+  object-fit: cover; 
+  display: block;
+  border: none;
+}*/
+.image-row {
+  display: flex;
+  gap: 10px;
+} 
+footer {
+  position: relative;
+  width: 100;
+  background: #3586ff;
+  min-height: 100px;
+  /* padding: 20px 50px; /
+  display: flex;
+  / justify-content: center; */
+  align-items: center;
+
+
 }
 
+footer .social_icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+
+}
+
+footer .social_icon li {
+  list-style: none;
+}
+
+footer .social_icon li a {
+  font-size: 2em;
+  color: #ffffff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+
+}
+
+footer .social_icon li a :hover {
+  transform: translateY(-10px);
+}
+
+footer .menu li a {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin: 0 10px;
+  display:inline-block;
+  text-decoration: none;
+  opacity: 0.75;
+}
+footer .menu li a:hover {
+  opacity: 1;
+}
+.sec {
+  flex: 1;
+  /* margin: 5px;
+  min-width: 100px;
+  align-items: center; */
+}
