@@ -1,0 +1,11 @@
+.round-image {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    display: block;
+    border: none;
+  }
+  .image-row {
+    display: flex;
+  }
