@@ -4,27 +4,14 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import HowTo from './components/pages/HowTo';
 import Articles from './components/pages/Articles';
-
 import Categories from './components/Categories';
 import Shop from './components/pages/Shop';
 import Login from './components/pages/Login';
 import SignUp from './components/pages/SignUp';
 import Ingredient from './components/pages/IngredientDetail';
+import Readmore from './components/ReadMore';
 
 const App = () => {
-
-  // const PrivateRoute = ({ element: Component, ...rest }) => {
-  //   const { user } = useAuth();
-  //   const location = useLocation();
-  //   const navigate = useNavigate();
-  
-  //   if (!user) {
-  //     navigate('/Login', { state: { from: location } });
-  //     return null;
-  //   }
-  
-  //   return <Component {...rest} />;
-  // };
   return (
       <div>
         <Navbar />
@@ -34,12 +21,11 @@ const App = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/how-to" element={<HowTo />} />
           <Route path="/articles" element={<Articles />} />
-
           <Route path="/shop"  element={<Shop />}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
           <Route path="/IngredientDetail" element={<Ingredient/>}/>
-
+          <Route path="/Readmore" element={<Readmore/>}/>
         </Routes>
       </div>
   );

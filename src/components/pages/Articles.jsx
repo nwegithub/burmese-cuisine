@@ -1,28 +1,24 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Grid, Typography, Paper } from '@mui/material';
+import React from "react";
+import { Grid } from '@mui/material';
 import "../../index.css";
 import recipie from "../../../recipie.json";
-import promoImage from "../../assets/article.png"
+import promoImage from "../../assets/article.png";
 import Footer from "./Footer";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useNavigate } from "react-router-dom";
 
 const Articles = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [showReadMoreButton, setShowReadMoreButton] = useState(false);
-    const ref = useRef(null);
+    const navigate = useNavigate(); // Hook for navigation
 
-    useEffect(() => {
-        if (ref.current) {
-            console.log(ref.current.scrollHeight, ref.current.clientHeight);
-            setShowReadMoreButton(
-                ref.current.scrollHeight > ref.current.clientHeight
-            );
-        }
-    }, []);
+    const handleClick = (item) => {
+        navigate("/Readmore", { state: { item } }); // Navigate and pass state
+    };
+
     return (
-        <div className="container  relative">
-            <div className="promotion-banner-container">
+        <div className="container relative">
+            <div className="promotion-banner-container min-h-screen flex">
                 <div className="content-container">
-                    <p className="header">Welcome to our food blog,</p>
+                    <p className="header">Welcome to our food blog</p>
                     <p className="subheader">
                         a culinary journey that celebrates the rich and diverse flavors from around the world.
                         Here, we share mouthwatering recipes, cooking tips, and inspiring stories behind your favorite dishes.
@@ -44,25 +40,24 @@ const Articles = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <p>{item.name}</p>
-
-                                <p
-                                    style={isOpen ? null : { overflow: "clip", maxHeight: "4em" }} ref={ref}
-                                >
+                                <p>
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                                     Nisi nihil ea, harum voluptate in expedita architecto vitae
                                     sed nobis atque iure rem amet
                                     doloribus explicabo non numquam debitis? Nam, quidem.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quibusdam nulla
-                                    officiis autem expedita fuga possimus deserunt soluta consectetur beatae maiores nisi at praesentium adipisci
-                                    minima nemo corrupti, obcaecati rem!
                                 </p>
-                                {showReadMoreButton && (
-                                    <div>
-                                        <button onClick={() => setIsOpen(!isOpen)} className="rounded-button">
-                                            {isOpen ? 'Read less...' : 'Read more...'}
-                                        </button>
-                                    </div>
-                                )}
+                                <div>
+                                    <button
+                                        className='px-6 py-1 text-brightColor 
+                                         hover:bg-brightColor hover:text-white 
+                                         transition-all btn info rounded flex items-center'
+                                        style={{ backgroundColor: "pink" }}
+                                        onClick={() => handleClick(item)} // Pass item data to handleClick
+                                    >
+                                        Read More
+                                        <ArrowForwardIcon className="ml-2" />
+                                    </button>
+                                </div>
                             </Grid>
                         </Grid>
                     );
@@ -74,5 +69,3 @@ const Articles = () => {
 };
 
 export default Articles;
-
-
