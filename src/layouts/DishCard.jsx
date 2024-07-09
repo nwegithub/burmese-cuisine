@@ -4,16 +4,12 @@ import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../Auth/AuthContext';
 
-
 const DishCard = (props) => {
-
     const [openIngredientModal, setOpenIngredientModal] = useState(false);
     const [openRecipeModal, setOpenRecipeModal] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     const { isMya, setIsMya} = useAuth();
-
-
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
