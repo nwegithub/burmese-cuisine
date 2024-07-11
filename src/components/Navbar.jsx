@@ -11,11 +11,7 @@ const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const { user, logout, isMya, setIsMya } = useAuth();
 
-    // const handleLanguage = async () => {
-    //     setIsMya(!isMya)
-    //     await localStorage.setItem('language', !isMya ? "mm" : "eng")
-    //     console.log("state", isMya)
-    // }
+
 
     const handleLanguage = async (lang) => {
         setIsMya(lang === 'mm');
@@ -57,16 +53,15 @@ const Navbar = () => {
                     smooth="true"
                     duration={500}
                     className={`${getLinkClassName('/Home')} transition-all cursor-pointer`}
+                    onClick={() => setSelectedCategory('categories')}
+
                 >
                     {isMya ? "ပြင်မစာမျက်နှာ" : "Home"}
                 </Link>
                 <div className='relative group'>
                     <div className='flex gap-1'>
                         <Link
-                            to='/categories'
-                            spy="true"
-                            smooth="true"
-                            duration={500}
+                            to='/categories/All'
                             className={`${getLinkClassName('categories')} transition-all cursor-pointer`}
                         >
                             {isMya ? "အမျိုးအစားများ" : "Categories"}
@@ -75,21 +70,15 @@ const Navbar = () => {
                     <ul className='absolute hidden space-y-2 group-hover:block bg-white border border-gray-300 rounded-lg p-5'>
                         <li>
                             <Link
-                                to='Tagu'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Tagu'
                                 className={`${getLinkClassName('Tagu')} transition-all cursor-pointer`}
                             >
-                            {isMya ? "တန်ခူးလ" : "Tagu"}
+                                {isMya ? "တန်ခူးလ" : "Tagu"}
                             </Link>
                         </li>
                         <li>
                             <Link
-                                to='Kason'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Kason'
                                 className={`${getLinkClassName('Kason')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "ကဆုန်လ" : "Kason"}
@@ -97,10 +86,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Nayon'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Nayon'
                                 className={`${getLinkClassName('Nayon')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "နယုန်လ" : "Nayon"}
@@ -108,10 +94,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Waso'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Waso'
                                 className={`${getLinkClassName('Waso')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "ဝါဆိုလ" : "Waso"}
@@ -119,10 +102,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Wagaung'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Wagaung'
                                 className={`${getLinkClassName('Wagaung')} transition-all cursor-pointer`}
                             >
                                {isMya ? "ဝါခေါင်လ" : "Wagaung"} 
@@ -130,10 +110,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Tawthalin'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                            to='/categories/Tawthalin'
+                                
                                 className={`${getLinkClassName('Tawthalin')} transition-all cursor-pointer`}
                             >
                                {isMya ? "တော်သလင်းလ" : "Tawthalin"}
@@ -141,10 +119,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Thadingyut'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                            to='/categories/Thadingyut'
+                               
                                 className={`${getLinkClassName('Thadingyut')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "သီတင်းကျွတ်လ" : "Thadingyut"}
@@ -152,10 +128,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Tazaungmon'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Tazaungmon'
                                 className={`${getLinkClassName('Tazaungmon')} transition-all cursor-pointer`}
                             >
                                {isMya ? "တန်ဆောင်မုန်းလ" : "Tazaungmon"}
@@ -163,10 +136,7 @@ const Navbar = () => {
                         </li>
                         <li>
                         <Link
-                                to='Nadaw'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Nadaw'
                                 className={`${getLinkClassName('Nadaw')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "နတ်တော်လ" : "Nadaw"}
@@ -174,10 +144,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Pyatho'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Pyatho'
                                 className={`${getLinkClassName('Pyatho')} transition-all cursor-pointer`}
                             >
                                {isMya ? "ပြာသိုလ" : "Pyatho"}
@@ -185,10 +152,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Tabodwe'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Tabodwe'
                                 className={`${getLinkClassName('Tabodwe')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "တပို့တွဲလ" : "Tabodwe"}
@@ -196,10 +160,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                to='Tabaung'
-                                spy="true"
-                                smooth="true"
-                                duration={500}
+                                to='/categories/Tabaung'
                                 className={`${getLinkClassName('Tabaung')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "တပေါင်းလ" : "Tabaung"}
@@ -215,7 +176,7 @@ const Navbar = () => {
                     duration={500}
                     className={`${getLinkClassName('/articles')} transition-all cursor-pointer`}
                 >
-                    
+
                     {isMya ? "ဆောင်းပါးများ" : "Article&Blogs"}
                 </Link>
                 {/* <Link
@@ -244,7 +205,7 @@ const Navbar = () => {
                 <div className='relative group'>
                     <div className='flex gap-1'>
                         <Link
-                           
+
                             spy="true"
                             smooth="true"
                             duration={500}
@@ -260,7 +221,7 @@ const Navbar = () => {
                                 spy="true"
                                 smooth="true"
                                 duration={500}
-                                //className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
+                            //className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "အင်္ဂလိပ်" : "English"}
                             </Link>
@@ -271,12 +232,12 @@ const Navbar = () => {
                                 spy="true"
                                 smooth="true"
                                 duration={500}
-                                //className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
+                            //className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "မြန်မာ" : "Myanmar"}
                             </Link>
                         </li>
-                        
+
                     </ul>
                 </div>
                 {/* <button onClick={handleLanguage}>

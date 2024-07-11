@@ -10,6 +10,7 @@ import Login from './components/pages/Login';
 import SignUp from './components/pages/SignUp';
 import Ingredient from './components/pages/IngredientDetail';
 import Readmore from './components/ReadMore';
+import IngredientCalculation from './components/pages/IngredientCalculation';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/"  element={<Home />} />
           <Route path="/Home"  element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:category" element={<Categories />} />
           <Route path="/how-to" element={<HowTo />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/shop"  element={<Shop />}/>
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/SignUp" element={<SignUp/>}/>
           <Route path="/IngredientDetail" element={<Ingredient/>}/>
           <Route path="/Readmore" element={<Readmore/>}/>
+          <Route path="/IngredientCalculation" element={<IngredientCalculation/>} />
         </Routes>
       </div>
   );
