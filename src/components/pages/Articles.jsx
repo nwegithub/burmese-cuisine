@@ -34,8 +34,13 @@ const Articles = () => {
                 {recipie.Salad.map((item, index) => {
                     const reverse = index % 2 !== 0;
                     return (
-                        <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px' }} >
-                            <Grid item xs={6} style={{ marginTop: '20px' }}>
+                        <Grid container item xs={12} spacing={2}
+                            key={item.id}
+                            direction={reverse ? "row-reverse" : "row"}
+                            style={{ marginTop: '50px' }} >
+
+                            <Grid item xs={6}
+                                style={{ marginTop: '20px' }}>
                                 <img src={item.url} alt={item.name} />
                             </Grid>
                             <Grid item xs={6}>

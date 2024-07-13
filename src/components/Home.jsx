@@ -18,6 +18,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Aboutus from "../components/Aboutus";
 import LearnMore from "../components/LearnMore";
+import CustomerReview from "./pages/CustomerReview";
 
 const Home = (props, item, handleClick) => {
   const aboutRef = useRef(null);
@@ -72,7 +73,7 @@ const Home = (props, item, handleClick) => {
         </div>
       </div>
       <Aboutus ref={aboutRef} />
-  
+      <CustomerReview/>
       <Swiper effect={'coverflow'} grabCursor={true}
         centeredSlides={true} loop={true} slidesPerView={'auto'}
         coverflowEffect={{
