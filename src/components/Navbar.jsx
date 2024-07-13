@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import { BiChevronDown, BiRestaurant } from 'react-icons/bi';
+import React, { useState, useEffect, } from 'react';
+import { BiChevronDown, BiRestaurant, BiMenu, BiX } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
-import { Stack, Button, Modal } from '@mui/material';
-// import { FiShoppingCart } from 'react-icons/fi';
+import { Stack } from '@mui/material';
 import CartModals from '../carts/CartModals';
 import { useAuth } from '../Auth/AuthContext';
 
 
 const Navbar = () => {
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenu] = useState(false)
+    const [isMobile,setIsMobile] = useState(false)
     const { user, logout, isMya, setIsMya } = useAuth();
-
-
 
     const handleLanguage = async (lang) => {
         setIsMya(lang === 'mm');
@@ -19,19 +17,32 @@ const Navbar = () => {
         console.log("state", lang);
     };
 
-
     const handleChange = () => {
         setMenu(!menu);
     };
+
     const closeMenu = () => {
         setMenu(false);
     };
+
     const location = useLocation();
     const getLinkClassName = (path) => {
         return location.pathname === path ? 'text-activeColor' : 'hover:text-brightColor';
     };
-    return (
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (!event.target.closest('nav')) {
+                closeMenu();
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    return (
         <Stack
             direction="row"
             alignItems="center"
@@ -46,15 +57,34 @@ const Navbar = () => {
                 </span>
                 <h1 className='text-xl font-semibold'>BurmeseCuisine</h1>
             </div>
-            <nav className='hidden md:flex flex-row items-center text-lg font-medium gap-8'>
+
+            {/* Menu icon for mobile view */}
+            <div className='md:hidden'>
+                <button onClick={handleChange}>
+                    {menu ? <BiX size={32} /> : <BiMenu size={32} />}
+                </button>
+            </div>
+
+            {/* Navigation menu */}
+            <nav className={`${menu ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center text-lg font-medium gap-8 nav`}
+            // style = {{
+            //     position : 'fixed',
+            //     top : '54px',
+            //     right : '0px',
+            //     width : '300px',
+            //     height : '100vh',
+            //     background : 'white',
+            //     boxShadow : '0 40px 60px ',
+            //     padding : '40px 0 0 10px',       
+            //   }}
+            >
                 <Link
                     to='/Home'
                     spy="true"
                     smooth="true"
                     duration={500}
                     className={`${getLinkClassName('/Home')} transition-all cursor-pointer`}
-                    onClick={() => setSelectedCategory('categories')}
-
+                    onClick={closeMenu}
                 >
                     {isMya ? "ပြင်မစာမျက်နှာ" : "Home"}
                 </Link>
@@ -63,8 +93,9 @@ const Navbar = () => {
                         <Link
                             to='/categories/All'
                             className={`${getLinkClassName('categories')} transition-all cursor-pointer`}
+                            onClick={closeMenu}
                         >
-                            {isMya ? "အမျိုးအစားများ" : "Categories"}
+                            {isMya ? "ရာသီစာများ" : "Seasonal Food"}
                         </Link>
                     </div>
                     <ul className='absolute hidden space-y-2 group-hover:block bg-white border border-gray-300 rounded-lg p-5'>
@@ -72,6 +103,7 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Tagu'
                                 className={`${getLinkClassName('Tagu')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "တန်ခူးလ" : "Tagu"}
                             </Link>
@@ -80,6 +112,7 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Kason'
                                 className={`${getLinkClassName('Kason')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "ကဆုန်လ" : "Kason"}
                             </Link>
@@ -88,6 +121,7 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Nayon'
                                 className={`${getLinkClassName('Nayon')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "နယုန်လ" : "Nayon"}
                             </Link>
@@ -96,6 +130,7 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Waso'
                                 className={`${getLinkClassName('Waso')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "ဝါဆိုလ" : "Waso"}
                             </Link>
@@ -104,24 +139,25 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Wagaung'
                                 className={`${getLinkClassName('Wagaung')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
-                               {isMya ? "ဝါခေါင်လ" : "Wagaung"} 
+                                {isMya ? "ဝါခေါင်လ" : "Wagaung"}
                             </Link>
                         </li>
                         <li>
                             <Link
-                            to='/categories/Tawthalin'
-                                
+                                to='/categories/Tawthalin'
                                 className={`${getLinkClassName('Tawthalin')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
-                               {isMya ? "တော်သလင်းလ" : "Tawthalin"}
+                                {isMya ? "တော်သလင်းလ" : "Tawthalin"}
                             </Link>
                         </li>
                         <li>
                             <Link
-                            to='/categories/Thadingyut'
-                               
+                                to='/categories/Thadingyut'
                                 className={`${getLinkClassName('Thadingyut')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "သီတင်းကျွတ်လ" : "Thadingyut"}
                             </Link>
@@ -130,14 +166,16 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Tazaungmon'
                                 className={`${getLinkClassName('Tazaungmon')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
-                               {isMya ? "တန်ဆောင်မုန်းလ" : "Tazaungmon"}
+                                {isMya ? "တန်ဆောင်မုန်းလ" : "Tazaungmon"}
                             </Link>
                         </li>
                         <li>
-                        <Link
+                            <Link
                                 to='/categories/Nadaw'
                                 className={`${getLinkClassName('Nadaw')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "နတ်တော်လ" : "Nadaw"}
                             </Link>
@@ -146,14 +184,16 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Pyatho'
                                 className={`${getLinkClassName('Pyatho')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
-                               {isMya ? "ပြာသိုလ" : "Pyatho"}
+                                {isMya ? "ပြာသိုလ" : "Pyatho"}
                             </Link>
                         </li>
                         <li>
                             <Link
                                 to='/categories/Tabodwe'
                                 className={`${getLinkClassName('Tabodwe')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "တပို့တွဲလ" : "Tabodwe"}
                             </Link>
@@ -162,21 +202,21 @@ const Navbar = () => {
                             <Link
                                 to='/categories/Tabaung'
                                 className={`${getLinkClassName('Tabaung')} transition-all cursor-pointer`}
+                                onClick={closeMenu}
                             >
                                 {isMya ? "တပေါင်းလ" : "Tabaung"}
                             </Link>
                         </li>
                     </ul>
                 </div>
-
                 <Link
                     to='/articles'
                     spy="true"
                     smooth="true"
                     duration={500}
                     className={`${getLinkClassName('/articles')} transition-all cursor-pointer`}
+                    onClick={closeMenu}
                 >
-
                     {isMya ? "ဆောင်းပါးများ" : "Article&Blogs"}
                 </Link>
                 {/* <Link
@@ -190,62 +230,51 @@ const Navbar = () => {
                 </Link> */}
                 {user ? (
                     <>
-
                         <span>{JSON.parse(user).name}</span>
-                        <button onClick={logout}>{isMya ? 'ထွက်ရန်' : 'Login'}</button>
-
+                        <button onClick={logout}>{isMya ? 'ထွက်ရန်' : 'Logout'}</button>
                     </>
                 ) : (
                     <>
-                        <Link to="/Login">{isMya ? 'ဝင်ရန်' : 'Login'}</Link>
-                        <Link to="/SignUp">{isMya ? 'စာရင်းသွင်းရန်' : 'Sign Up'}</Link>
+                        <Link to="/Login" onClick={closeMenu}>{isMya ? 'ဝင်ရန်' : 'Login'}</Link>
+                        <Link to="/SignUp" onClick={closeMenu}>{isMya ? 'စာရင်းသွင်းရန်' : 'Sign Up'}</Link>
                     </>
                 )}
-
                 <div className='relative group'>
                     <div className='flex gap-1'>
                         <Link
-
                             spy="true"
                             smooth="true"
                             duration={500}
                             className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
+                            onClick={closeMenu}
                         >
-                            {isMya ? "ဘာသာစကား" : "language"}
+                            {isMya ? "ဘာသာစကား" : "Language"}
                         </Link>
                     </div>
                     <ul className='absolute hidden space-y-2 group-hover:block bg-white border border-gray-300 rounded-lg p-5'>
                         <li>
                             <Link
-                                onClick={() => handleLanguage('eng')}
-                                spy="true"
-                                smooth="true"
-                                duration={500}
-                            //className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
+                                onClick={() => { handleLanguage('eng'); closeMenu(); }}
+                                className={`${getLinkClassName('eng')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "အင်္ဂလိပ်" : "English"}
                             </Link>
                         </li>
                         <li>
                             <Link
-                                onClick={() => handleLanguage('mm')}
-                                spy="true"
-                                smooth="true"
-                                duration={500}
-                            //className={`${getLinkClassName('dishes')} transition-all cursor-pointer`}
+                                onClick={() => { handleLanguage('mm'); closeMenu(); }}
+                                className={`${getLinkClassName('mm')} transition-all cursor-pointer`}
                             >
                                 {isMya ? "မြန်မာ" : "Myanmar"}
                             </Link>
                         </li>
-
                     </ul>
                 </div>
-                {/* <button onClick={handleLanguage}>
-                    {isMya ? "ကကကကကက" : "language"}
-                </button> */}
-                <CartModals></CartModals>
             </nav>
+            {/* <CartModals /> */}
         </Stack>
-    )
-}
+    );
+};
+
 export default Navbar;
+
