@@ -55,6 +55,7 @@ const Articles = () => {
                         <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px' }} >
                             <Grid item xs={6} style={{ marginTop: '20px' }}>
                                 <img src={`http://localhost:4000/${item.image}`} alt={item.name} />
+
                             </Grid>
                             <Grid item xs={6}>
                                 <p>{item.name}</p>
