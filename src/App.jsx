@@ -11,6 +11,7 @@ import SignUp from './components/pages/SignUp';
 import Ingredient from './components/pages/IngredientDetail';
 import Readmore from './components/ReadMore';
 import IngredientCalculation from './components/pages/IngredientCalculation';
+import FeedBack from './components/pages/FeedBack';
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
           <Route path="/IngredientDetail" element={<Ingredient/>}/>
           <Route path="/Readmore" element={<Readmore/>}/>
           <Route path="/IngredientCalculation" element={<IngredientCalculation/>} />
+          <Route path="/FeedBack" element={<FeedBack/>}/>
+
         </Routes>
       </div>
   );

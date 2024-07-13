@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Grid } from '@mui/material';
 import "../../index.css";
 import recipie from "../../../recipie.json";
@@ -8,11 +8,29 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate } from "react-router-dom";
 
 const Articles = () => {
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate(); 
+    const [article,setArticle] = useState([])
 
     const handleClick = (item) => {
-        navigate("/Readmore", { state: { item } }); // Navigate and pass state
+        navigate("/Readmore", { state: { item } }); 
     };
+
+
+    useEffect(() => {
+        fetch('http://localhost:4000/articles/allArticle')
+            .then(response => response.json())
+            .then(data => {
+                setArticle(data);
+            })
+            .catch(error => {
+                console.error('There was an error fetching the product data!', error);
+            });
+    }, []);
+
+    if(!article){
+        return <div>Loading...</div>;
+    }
+
 
     return (
         <div className="container relative">
@@ -31,20 +49,18 @@ const Articles = () => {
                 </div>
             </div>
             <Grid container spacing={2}>
-                {recipie.Salad.map((item, index) => {
+                {article.map((item, index) => {
                     const reverse = index % 2 !== 0;
                     return (
                         <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px' }} >
                             <Grid item xs={6} style={{ marginTop: '20px' }}>
-                                <img src={item.url} alt={item.name} />
+                                <img src={`http://localhost:4000/${item.image}`} alt={item.name} />
+
                             </Grid>
                             <Grid item xs={6}>
                                 <p>{item.name}</p>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Nisi nihil ea, harum voluptate in expedita architecto vitae
-                                    sed nobis atque iure rem amet
-                                    doloribus explicabo non numquam debitis? Nam, quidem.
+                                   {item.description}
                                 </p>
                                 <div>
                                     <button
@@ -63,7 +79,6 @@ const Articles = () => {
                     );
                 })}
             </Grid>
-            <Footer />
         </div>
     );
 };
