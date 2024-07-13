@@ -588,6 +588,7 @@ footer .menu li a:hover {
   
   }
 }
+
 @media (max-width: 450px) {
   .nav {
     position: absolute;

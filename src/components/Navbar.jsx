@@ -42,6 +42,9 @@ const Navbar = () => {
         };
     }, []);
 
+
+    console.log("ssss")
+
     return (
         <Stack
             direction="row"
