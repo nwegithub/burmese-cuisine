@@ -7,7 +7,6 @@ const Shop = () => {
     const [show,setShow]=useState(true);
     const [cart,setCart]=useState([]);
     const [warning,setWarning]=useState(false);
-     
     const handleClick=(item)=>{
         let isPresent=false;
         cart.forEach((product)=>{
@@ -17,7 +16,6 @@ const Shop = () => {
         if (isPresent){
 
         }
-      
     setCart([...cart,item]);
     }
     return (
@@ -25,7 +23,6 @@ const Shop = () => {
         items-center lg:px-20 px-5">
             <h1 className="text-4xl font-semibold pt-24 pb-10">
                 Summer Sale!</h1>
-
             <Grid className="flex flex-wrap">
                 {
                     ShopItems.Discount.map(shopItems => {
