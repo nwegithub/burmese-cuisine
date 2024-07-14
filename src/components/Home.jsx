@@ -47,8 +47,8 @@ const Home = (props, item, handleClick) => {
             src={BannerBackground}
           />
         </div>
-        <div className="home-text-section p-10 md:p-20">
-          <h1 className="primary-heading">
+        <div className="home-text-section md:p-10">
+          <h1 className="primary">
             Golden Land Receipes...
           </h1>
           <p className="primary-text">Lorem, ipsum dolor sit amet consectetur

@@ -134,9 +134,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh; /* This ensures the container takes up the full height of the viewport */
+  height: 20vh; }
+  /* This ensures the container takes up the full height of the viewport /
 }
-/* .customerReview {
+
+/ .customerReview {
   background-color: yellow; 
   border: none; 
   color: black; 
@@ -150,8 +152,8 @@
   border-radius: 4px;
   text-emphasis: none;
   align-items: center;
-} */
-/* CSS */
+} /
+/ CSS */
 .button-52 {
   font-size: 20px;
   font-weight: 200;

@@ -72,12 +72,10 @@ const Articles = () => {
                     const truncatedDescription = truncateText(item.description, 30);
 
                     return (
-                        <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ justifyContent: 'center', alignItems: 'center' }}  >
-                            <Grid item xs={6} style={{ display: 'flex',justifyContent: 'center', alignItems: 'center' }}>
-                                <img src={`http://localhost:4000/${item.image}`} alt={item.name} 
-                                style={{width : 300,height : 300,}} 
-                                />
 
+                        <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px' }} >
+                            <Grid item xs={6} style={{ marginTop: '20px' }}>
+                                <img src={`http://localhost:4000/${item.image}`} alt={item.name} />
                             </Grid>
                             <Grid item xs={6} style={{ paddingRight: '20px', justifyContent: 'center', alignItems: 'center' }} >
                                 <p className="header">{item.name}</p>
