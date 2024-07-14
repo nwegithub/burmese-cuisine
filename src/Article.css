@@ -1,0 +1,53 @@
+.promotion-banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 65vh;
+}
+
+.content-image-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Adjust the gap between the content and the image */
+}
+
+.content-container {
+    flex: 1;
+}
+
+.header {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .subheader {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #555;
+    font-style: italic;
+    text-align: justify;
+  }
+
+.image-container {
+    flex: 1;
+}
+
+.rotated-image {
+    transform: rotate(90deg);
+    max-width: 100%;
+    height: auto;
+}
+
+.small-image {
+    width: 150px;
+    /* Set the desired width */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
