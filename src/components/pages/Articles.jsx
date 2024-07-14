@@ -14,8 +14,6 @@ const Articles = () => {
     const handleClick = (item) => {
         navigate("/Readmore", { state: { item } }); 
     };
-
-
     useEffect(() => {
         fetch('http://localhost:4000/articles/allArticle')
             .then(response => response.json())
@@ -30,8 +28,6 @@ const Articles = () => {
     if(!article){
         return <div>Loading...</div>;
     }
-
-
     return (
         <div className="container relative">
             <div className="promotion-banner-container min-h-screen flex">
@@ -55,7 +51,6 @@ const Articles = () => {
                         <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px' }} >
                             <Grid item xs={6} style={{ marginTop: '20px' }}>
                                 <img src={`http://localhost:4000/${item.image}`} alt={item.name} />
-
                             </Grid>
                             <Grid item xs={6}>
                                 <p>{item.name}</p>

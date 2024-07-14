@@ -1,20 +1,19 @@
-// src/IngredientDetail.js
+
 import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../Auth/AuthContext';
 import { useLocation } from 'react-router-dom';
-
+import girl from "../../assets/44fe4345f01fc8623c95ee77b45f9f0d-removebg-preview.png"
 
 const IngredientDetail = () => {
-
-    const location = useLocation();
+  const location = useLocation();
   const { props } = location.state;
   const { isMya } = useAuth();
-    
+
   const [numPeople, setNumPeople] = useState(1);
-  
+
   const handleNumPeopleChange = (e) => {
     setNumPeople(e.target.value);
   };
@@ -40,38 +39,49 @@ const IngredientDetail = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Ingredient Detail Calculator</h1>
-      <div className="mb-4">
-        <label htmlFor="numPeople" className="block text-gray-700">
-          Number of People:
-        </label>
-        <input
-          type="number"
-          id="numPeople"
-          value={numPeople}
-          onChange={handleNumPeopleChange}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-        />
-      </div>
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Ingredients:</h2>
-        <ul className="list-disc pl-5">
-          {props.ingredient.map((ingredient) => (
-            <li key={ingredient.name} className="mb-2">
-              {ingredient.name}: {ingredient.amount * numPeople} {ingredient.unit}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className='min-h-screen flex'>
+    <div className="container p-20">
+  <h1 
+  style={{ textAlign: 'center' }}
+  className="text-4xl font-bold mb-10">Ingredient Detail Calculator</h1>
+  <div className="flex flex-wrap">
+    <div className="w-full md:w-1/2 mb-4">
+      <label htmlFor="numPeople" className="text-3xl block font-lg font-bold text-yellow-700 mb-2">
+        Number of People:
+      </label>
+      <input
+        type="number"
+        id="numPeople"
+        value={numPeople}
+        onChange={handleNumPeopleChange}
+        className="mt-1 block p-3 border border-yellow-300 rounded-md"
+      />
+      <img
+            src={girl}
+            alt="img"
+            style={{ width: '350px', height: '450px',paddingTop: '20px'}} />
+    </div>
+    <div className="w-full md:w-1/2 mb-4">
+      <h2 className="text-3xl block font-lg font-bold text-yellow-700 mb-2">Ingredients:</h2>
+      <ul className="list-disc">
+        {props.ingredient.map((ingredient) => (
+          <li key={ingredient.name} className="mb-2">
+            {ingredient.name}: {ingredient.amount * numPeople} {ingredient.unit}
+          </li>
+        ))}
+      </ul>
+      
       <button
         onClick={generatePDF}
-        className="mt-4 bg-blue-500 text-white p-2 rounded-md"
+        className="mt-5 bg-yellow-300 text-black p-3 rounded-md"
       >
-        Download as PDF
+        Voucher as PDF
       </button>
+     
     </div>
-  );
-};
-
-export default IngredientDetail;
+  </div>
+</div>
+</div>
+  )
+}
+      export default IngredientDetail;

@@ -58,7 +58,6 @@ const Categories = (item) => {
             {
                 category === "All" ?
                     <Grid container spacing={0}>
-
                         {product.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
@@ -91,7 +90,6 @@ const Categories = (item) => {
                                 />
                             </Grid>
                         ))}
-
                     </Grid>
             }
             <div className="customer-review-container"
