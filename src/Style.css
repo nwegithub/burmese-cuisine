@@ -55,11 +55,12 @@
   align-items: flex-start;
 }
 
-.primary-heading {
+.primary {
   font-size: clamp(1.5rem, 4vw, 3rem);
   color: #840b0b;
   max-width: 600px;
   font-style: italic;
+  text-align: left;
 }
 
 .primary-text {
