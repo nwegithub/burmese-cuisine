@@ -44,6 +44,7 @@ const Navbar = () => {
 
 
     console.log("ssss")
+    console.log("ssss")
 
     return (
         <Stack
@@ -58,7 +59,7 @@ const Navbar = () => {
                 <span>
                     <BiRestaurant size={32} />
                 </span>
-                <h1 className='text-xl font-semibold text-left'>BurmeseCuisine</h1>
+                <h1 className='text-xl font-semibold'>BurmeseCuisine</h1>
             </div>
 
             {/* Menu icon for mobile view */}
