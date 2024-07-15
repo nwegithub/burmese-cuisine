@@ -74,7 +74,7 @@ const Home = (props, item, handleClick) => {
       </div>
       <Aboutus ref={aboutRef} />
       <CustomerReview/>
-      <Swiper effect={'coverflow'} grabCursor={true}
+      {/* <Swiper effect={'coverflow'} grabCursor={true}
         centeredSlides={true} loop={true} slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
@@ -103,7 +103,7 @@ const Home = (props, item, handleClick) => {
             </SwiperSlide>
           )
         }
-      </Swiper>
+      </Swiper> */}
       <div>
       </div>
       <Footer />

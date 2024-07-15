@@ -1,15 +1,33 @@
-import React, { useState, useEffect, } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BiChevronDown, BiRestaurant, BiMenu, BiX } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
 import { Stack } from '@mui/material';
 import CartModals from '../carts/CartModals';
 import { useAuth } from '../Auth/AuthContext';
+import { Button, Menu, MenuItem, styled } from '@mui/material';
+import axios from 'axios';
+
+const CustomMenu = styled(Menu)({
+    '& .MuiPaper-root': {
+        borderRadius: '8px',
+        boxShadow: '0 3px 5px rgba(0, 0, 0, 0.2)',
+        padding: '10px',
+    },
+});
+
 
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false)
-    const [isMobile,setIsMobile] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
     const { user, logout, isMya, setIsMya } = useAuth();
+
+    const [setting, setSetting] = useState('');
+    const [profileImage, setProfileImage] = useState(null);
+    const [message, setMessage] = useState('');
+    const [anchorEl, setAnchorEl] = useState(null);
+    const userId = user && JSON.parse(user)._id
+
 
     const handleLanguage = async (lang) => {
         setIsMya(lang === 'mm');
@@ -43,8 +61,50 @@ const Navbar = () => {
     }, []);
 
 
-    console.log("ssss")
-    console.log("ssss")
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleMenuItemClick = (value) => {
+        setSetting(value);
+        // handleClose();
+    };
+
+
+
+    const handleImageChange = (e) => {
+        setProfileImage(e.target.files[0]);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!profileImage) {
+            setMessage('Please select an image');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', profileImage); // Make sure this matches backend field name
+
+        try {
+            const response = await axios.patch(`http://localhost:4000/users/${userId}/profile`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            setMessage(response.data.message);
+        } catch (error) {
+            console.error(error);
+            setMessage('Error updating profile image');
+        }
+    };
+
 
     return (
         <Stack
@@ -232,17 +292,7 @@ const Navbar = () => {
                 >
                     Shop
                 </Link> */}
-                {user ? (
-                    <>
-                        <span>{JSON.parse(user).name}</span>
-                        <button onClick={logout}>{isMya ? 'ထွက်ရန်' : 'Logout'}</button>
-                    </>
-                ) : (
-                    <>
-                        <Link to="/Login" onClick={closeMenu}>{isMya ? 'ဝင်ရန်' : 'Login'}</Link>
-                        <Link to="/SignUp" onClick={closeMenu}>{isMya ? 'စာရင်းသွင်းရန်' : 'Sign Up'}</Link>
-                    </>
-                )}
+
                 <div className='relative group'>
                     <div className='flex gap-1'>
                         <Link
@@ -274,9 +324,72 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+                {user ? (
+                    <>
+                       
+                    </>
+                ) : (
+                    <>
+                        <Link to="/Login" onClick={closeMenu}>{isMya ? 'ဝင်ရန်' : 'Login'}</Link>
+                        <Link to="/SignUp" onClick={closeMenu}>{isMya ? 'စာရင်းသွင်းရန်' : 'Sign Up'}</Link>
+                    </>
+                )}
+                <div>
+                    <Button
+                        aria-controls="profile-settings-menu"
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                        style={{ borderRadius: '8px', }}
+                    >
+                        {user && (
+                            <>
+                                {JSON.parse(user).profileImage ? (
+                                    <img
+                                        src={`http://localhost:4000/${JSON.parse(user).profileImage}`}
+                                        alt="Profile"
+                                        // onClick={handleProfileClick}
+                                        style={{ cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%' }}
+                                    />
+                                ) : (
+                                    <FaUserCircle style={{ cursor: 'pointer', fontSize: '40px' }} />
+                                )}
+
+                            </>
+                        ) }
+                    </Button>
+                    <CustomMenu
+                        id="profile-settings-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <MenuItem onClick={() => handleMenuItemClick('account')}>{user && JSON.parse(user).name}</MenuItem>
+                        <MenuItem onClick={() => handleMenuItemClick('privacy')}>
+                            <form onSubmit={handleSubmit}>
+                                <div>
+                                    <label>Profile Image</label>
+                                    <input
+                                        type="file"
+                                        onChange={handleImageChange}
+                                        required
+                                    />
+                                </div>
+                                <button type="submit">Upload Image</button>
+                            </form>
+                            {message && <p>{message}
+                                </p>}
+                        </MenuItem>
+                        <MenuItem onClick={() => handleMenuItemClick('logout')}>
+                            <button onClick={logout} >
+                                {isMya ? 'ထွက်ရန်' : 'Logout'}
+                            </button>
+                        </MenuItem>
+                    </CustomMenu>
+                </div>
             </nav>
             {/* <CartModals /> */}
-        </Stack>
+        </Stack >
     );
 };
 

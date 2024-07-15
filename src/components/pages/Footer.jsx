@@ -3,7 +3,8 @@ import React from "react";
 const Footer = () => {
     return (
 
-        <div className="container">
+        <div 
+        style={{marginTop:200}}>
             <footer >
                 <div className="waves">
                     <div className="wave" id="wave1"></div>

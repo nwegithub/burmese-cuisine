@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Container, TextField, Button, Box, Grid } from '@mui/material';
 import { useAuth } from '../../Auth/AuthContext';
 import img from '../../assets/b979662260ef514033b369b4a90e3bac.jpg';
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -10,6 +12,7 @@ const Login = () => {
   });
   const { login } = useAuth();
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +42,8 @@ const Login = () => {
       const data = await response.json();
       if (data.msg === "Login success") {
         login(data.result, data.result.token);
+        alert('Sign up successful!');
+        navigate('/Home')
       } else {
         console.error('Login failed:', data);
       }
