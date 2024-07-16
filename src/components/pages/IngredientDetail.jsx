@@ -1,67 +1,87 @@
 import React from 'react';
-import '../../layouts/RecipeCard.css';
-import detail from "../../assets/fc739f95286b81646fa8e719a190ba41.jpg"
-import 'tailwindcss/tailwind.css';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Auth/AuthContext';
 import { GiSaltShaker } from 'react-icons/gi';
-import { useNavigate } from "react-router-dom";
 import '../../Style.css';
 
 const IngredientDetail = () => {
   const location = useLocation();
-  const { props } = location.state;
-  const { isMya } = useAuth();
   const navigate = useNavigate();
-  return (
-    <div className="min-h-screen flex justify-center items-center">
+  const { props } = location.state || {};
+  const { isMya } = useAuth();
 
-      <div className="recipe-card flex w-full h-full">
-        <div className="image-section w-1/2 flex justify-center items-center">
-          <img
-            src={`http://localhost:4000/${props.image}`}
-            alt="img"
-            ame="recipe-image"
-            className="w-full h-full object-cover rounded-t-md" />
-        </div>
-        <div className="text-section w-1/2 p-4 flex flex-col justify-center">
-          <div className="ingredients">
-            <ul>
-              <h1 className="text-3xl font-bold mb-4">{isMya ? props.name_mm : props.name}</h1>
-              <h2 className="text-3xl font-bold mb-4">{isMya ? "ပါဝင်ပစ္စည်းများ" : <div className="text-center">
-                <h1 className="gradient-text">Our family Secret Ingredients</h1>
-              </div>
-              }</h2>
-              {
-                isMya ?
-                  <ul className="list-disc list-inside">
-                    {props.ingredient.map((item, index) => (
-                      <li key={index} className="flex items-center text-gray-700 my-2 text-rose-500">
+  if (!props) {
+    navigate('/');
+    return null;
+  }
+
+  return (
+    <div className="min-h-screen flex justify-center items-center bg-gray-100 p-6">
+      <div className=" w-full y-full p-6">
+        <div className="flex flex-col md:flex-row">
+          {/* Image Column */}
+          <div className="md:w-1/3 p-4 flex justify-center items-center">
+            <img
+              className="rounded-lg"
+              src={`http://localhost:4000/${props.image}`}
+              alt="Recipe"
+              style={{ width: '420px', height: '420px' }}
+            />
+          </div>
+
+          {/* Ingredients and Directions Column */}
+          <div className="md:w-2/3 p-4 flex flex-col">
+            {/* Ingredients Box */}
+            <div className="bg-yellow-100 p-6 rounded-lg mb-6">
+              <h2 className="text-4xl font-semibold text-yellow-800 mb-4 text-center">
+                {isMya ? "ပါဝင်ပစ္စည်းများ" : "Ingredients"}
+              </h2>
+              <ul className="list-disc list-inside text-3xl">
+                {isMya
+                  ? props.ingredient.map((item, index) => (
+                      <li key={index} className="flex items-center my-2">
+                        <GiSaltShaker className="mr-2" /> {item.name} : {item.amount} {item.unit}
+                      </li>
+                    ))
+                  : props.ingredient_mm.map((item, index) => (
+                      <li key={index} className="flex items-center my-2">
                         <GiSaltShaker className="mr-2" /> {item.name} : {item.amount} {item.unit}
                       </li>
                     ))}
-                  </ul>
-                  :
-                  <ul className="list-disc list-inside">
-                    {props.ingredient_mm.map((item, index) => (
-                      <li key={index} className="flex items-center text-gray-700 my-2 text-rose-500">
-                        <GiSaltShaker className="mr-2" /> {item.name} : {item.amount} {item.unit}
-                      </li>
-                    ))}
-                  </ul>
-              }
-            </ul>
-            <button
-              className="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded mt-4"
-              onClick={() => navigate("/IngredientCalculation", { state: { props } })}>
-              Ingredients
-            </button>
+              </ul>
+            </div>
+
+            {/* Directions Box */}
+            <div className="bg-yellow-100 p-6 rounded-lg">
+              <h2 className="text-4xl font-semibold text-yellow-800 mb-4 text-center">Directions</h2>
+              <ol className="list-decimal list-inside text-gray-700 text-3xl">
+                {/* {props.directions.map((direction, index) => (
+                  <li key={index} className="mb-2">{direction}</li>
+                ))} */}
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo quae,
+                officiis deleniti sunt laborum optio officia natus ab perspiciatis
+                error nisi autem. Libero eaque dignissimos quia ipsam eligendi id maiores!
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum nobis necessitatibus fugit sed ducimus sequi atque, voluptatem expedita praesentium, error veniam excepturi 
+                corrupti accusantium aliquam quidem soluta vero ipsa rem?
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione laudantium dolorem animi tempora unde, incidunt, iste id dolorum aliquid temporibus qui architecto? Ratione 
+                saepe ipsam voluptatum blanditiis dignissimos repudiandae illo?
+              </ol>
+            </div>
           </div>
         </div>
-        <div>
+
+        <div className="flex justify-center mb-4">
+          <button
+            className="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded"
+            onClick={() => navigate("/IngredientCalculation", { state: { props } })}
+          >
+             Calculate Ingredients
+          </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
+
 export default IngredientDetail;
