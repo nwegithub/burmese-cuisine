@@ -31,7 +31,6 @@ const Articles = () => {
         }
         return text;
     };
-
     useEffect(() => {
         fetch('http://localhost:4000/articles/allArticle')
             .then(response => response.json())
@@ -46,7 +45,6 @@ const Articles = () => {
     if (!article) {
         return <div>Loading...</div>;
     }
-
     return (
         <div style={{backgroundColor : "#FFD16B"}}>
             <div className="promotion-banner-container">
@@ -65,15 +63,13 @@ const Articles = () => {
                     </div>
                 </div>
             </div>
-
-            <Grid container spacing={2} style={{ marginTop: '10px',padding: '30px'  }}>
+            <Grid container spacing={2} style={{ marginTop: '10px',padding: '30px',}}>
                 {article.map((item, index) => {
                     const reverse = index % 2 !== 0;
                     const truncatedDescription = truncateText(item.description, 30);
-
                     return (
 
-                        <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px' }} >
+                        <Grid container item xs={12} spacing={2} key={item.id} direction={reverse ? "row-reverse" : "row"} style={{ marginTop: '50px',justifyContent:'center',alignItems:'center'  }} >
                             <Grid item xs={6} style={{ marginTop: '20px' }}>
                                 <img src={`http://localhost:4000/${item.image}`} alt={item.name} />
                             </Grid>
