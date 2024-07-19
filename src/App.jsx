@@ -12,6 +12,10 @@ import Ingredient from './components/pages/IngredientDetail';
 import Readmore from './components/ReadMore';
 import IngredientCalculation from './components/pages/IngredientCalculation';
 import FeedBack from './components/pages/FeedBack';
+import Menu from './components/Menu'
+import Seasonalfood from './components/Seasonalfood';
+import Ethnicalfood from './components/Ethnicalfood';
+import Contactus from './components/pages/Contactus';
 
 const App = () => {
   return (
@@ -20,17 +24,22 @@ const App = () => {
         <Routes>
           <Route path="/"  element={<Home />} />
           <Route path="/Home"  element={<Home />} />
-          <Route path="/categories/:category" element={<Categories />} />
-          <Route path="/how-to" element={<HowTo />} />
+          
+          <Route path="/menu" element={<Menu />} />
+          
+          {/* <Route path="/how-to" element={<HowTo />} /> */}
           <Route path="/articles" element={<Articles />} />
           <Route path="/shop"  element={<Shop />}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/seasonalfood" element={<Seasonalfood />} />
+          <Route path="/ethnicalfood" element={<Ethnicalfood />} />
           <Route path="/IngredientDetail" element={<Ingredient/>}/>
           <Route path="/Readmore" element={<Readmore/>}/>
           <Route path="/IngredientCalculation" element={<IngredientCalculation/>} />
           <Route path="/FeedBack" element={<FeedBack/>}/>
-
+          <Route path="/Contactus" element={<Contactus/>}/>
         </Routes>
       </div>
   );
