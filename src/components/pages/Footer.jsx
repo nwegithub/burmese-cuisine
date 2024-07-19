@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/Contactus");}
     return (
+        
 
         <div className="container">
             <footer >
@@ -49,7 +56,7 @@ const Footer = () => {
                     </div> */}
                     <div className="sec contact"
                     style={{alignItems:"center",justifyContent:"center",textAlign : 'center'}}>
-                        <h5>Contact Us</h5>
+                       <button onClick={() => handleClick()}>Contact us</button>
                         <p><a>+959774272642</a></p>
                         <p><a>winthandar112000@gmail.com</a></p>
                     </div>

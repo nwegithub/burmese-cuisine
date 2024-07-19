@@ -92,7 +92,18 @@ const Navbar = () => {
                 >
                     {isMya ? "ပြင်မစာမျက်နှာ" : "Home"}
                 </Link>
-                <div className='relative group'>
+
+                <Link
+                    to='/menu'
+                    spy="true"
+                    smooth="true"
+                    duration={500}
+                    className={`${getLinkClassName('/menu')} transition-all cursor-pointer`}
+                    onClick={closeMenu}
+                >
+                    {isMya ? "မီနူး" : "Menu"}
+                </Link>
+                {/* <div className='relative group'>
                     <div className='flex gap-1'>
                         <Link
                             to='/categories/All'
@@ -212,7 +223,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                     </ul>
-                </div>
+                </div> */}
                 <Link
                     to='/articles'
                     spy="true"

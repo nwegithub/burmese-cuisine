@@ -1,0 +1,135 @@
+/*contanctus */
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .top_btn{
+    display: flex;
+    gap: 10px;
+    font-weight: 600px;
+  }
+  .form{
+    max-height: 300px;
+    
+  }
+  
+  .form_control{
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    position: relative;
+    font-weight: 400px;
+  }
+  .form_control:hover {
+    box-shadow: 3px 3px 3px rgba(252, 235, 3, 0.527);
+  }
+  .form_control input{
+    height: 35px;
+    border: 1px solid black;
+    margin-top: 15px;
+    padding-left: 30px;
+  }
+  .form_control label{
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    background-color: white;
+  }
+  .form_control textarea{
+    margin-top: 15px;
+    height: 100px;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+  .contact_form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 410px;
+  }
+  .submit{
+    margin-left: 210px;
+  }
+  .form_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+  }
+  /* .contact_image{
+    margin-top: 100px;
+    margin-left: 100px;
+  } */
+  img{
+    
+    height: 430px;
+    width: 450px;
+    margin-right: 80px;
+  }
+  
+  
+  html,body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600px;
+    max-width: 100%;
+  }
+  
+  /* cbutton */
+  .primary_btn{
+    padding: 10px 10px;
+    background-color:rgba(247, 212, 57, 0.63);
+    color: black;
+    min-height: 30px;
+    min-width: 205px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 16px;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 20px solid black;
+  }
+  .primary_btn:hover {
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24);
+    color: rgb(105, 86, 2);
+  }
+  .outline_btn{
+    padding: 10px 10px;
+    background-color:transparent;
+    color: black;
+    min-height: 30px;
+    min-width: 420px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 800px;
+    font-size: 16px;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .outline_btn:hover {
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24),0 10px 25px 0 rgba(0,0,0,0.19);
+    color: rgb(82, 60, 1);
+  }
+  
+  /* Contactheader*/
+  
+  .contact_section h1{
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0px;
+  }
+  .contact_section p{
+    font-size:15px;
+    font-weight: 15px;
+    margin: 0px;
+    text-transform:uppercase;
+  }
