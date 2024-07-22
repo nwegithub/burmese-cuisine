@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
 
-    const navigate = useNavigate();
+
+    const navigate = useNavigate()
+    const handleAboutUsClick = () => {
+        navigate('/FooterAboutUs')
+    }
 
     const handleClick = () => {
         navigate("/Contactus");}
@@ -23,7 +27,10 @@ const Footer = () => {
                 <div style={{display : "flex",justifyContent: "center",alignSelf:"center"}}>
                     <div className="sec aboutus"
                     style={{alignItems:"center",justifyContent:"center"}}>
+                        <button style={{textAlign:"center"}} onClick={() => handleAboutUsClick()}>
                         <h5 style={{textAlign:"center"}}>About Us</h5>
+
+                        </button>
                         <p style={{textAlign : "justify"}}>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere earum
                             magnam laborum dolorum ad inventore. Ratione tempore officiis reprehenderit

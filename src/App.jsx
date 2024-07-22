@@ -16,6 +16,7 @@ import Menu from './components/Menu'
 import Seasonalfood from './components/Seasonalfood';
 import Ethnicalfood from './components/Ethnicalfood';
 import Contactus from './components/pages/Contactus';
+import FooterAboutUs from './components/FooterAboutUs';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/IngredientCalculation" element={<IngredientCalculation/>} />
           <Route path="/FeedBack" element={<FeedBack/>}/>
           <Route path="/Contactus" element={<Contactus/>}/>
+          <Route path="/FooterAboutUs" element={<FooterAboutUs/>}/>
         </Routes>
       </div>
   );
