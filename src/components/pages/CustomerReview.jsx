@@ -26,7 +26,7 @@ const CustomerReview = () => {
 
 
     return (
-        <div className="flex flex-col items-center space-y-8 bg-yellow-200"
+        <div className="flex flex-col items-center bg-custom-gradient"
             style={{ paddingLeft: '20%',paddingRight:'20%',paddingTop:20,paddingBottom:20,  width: '80%', margin: 'auto', borderTop: 'round' }}
              >
 

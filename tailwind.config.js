@@ -17,6 +17,9 @@ export default {
         '0%': { transform: 'translateX(-100%)' },
         '100%': { transform: 'translateX(0)' },
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(45deg,#FFFFFF, #dbd08f,#FFD16B, #FFFFFF)',
+      },
     },
     animation: {
       slidein: 'slidein 3s ease-in 1s infinite reverse both running',

@@ -1,10 +1,8 @@
 
-
-
 import React, { useEffect, useState } from "react";
 import DishCard from "../layouts/DishCard";
 import data from "../../recipie.json"
-import { Container, Grid } from "@mui/material";
+import { colors, Container, Grid } from "@mui/material";
 import { useParams } from 'react-router-dom';
 import categorybg from "../assets/category-bg.jpeg"
 import '../Style.css';
@@ -79,33 +77,25 @@ const Ethnicalfood = (item) => {
             setFilterProduct(product);
         }
     }, [category, product]);
-    console.log(category);
+
     if (!product) {
         return <div>Loading...</div>;
     }
     return (
-        <div className=" flex-col" style={{background : 'pink'}}>
-            {/* <div className="relative " style={{ height: '40vh' }}>
-                <img
-                    src={categorybg}
-                    alt="Category"
-                    className="object-cover w-full h-full"
-                />
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    className="absolute bottom-40 left-1/2 transform -translate-x-1/2 h-10 px-4 text-lg text-gray-700 bg-white bg-opacity-80 rounded-full outline-none placeholder-gray-500 w-full sm:w-[600px]"
-                />
-            </div> */}
+        <div className=" bg-custom-gradient h-screen">
+        
 
 
             <h1 className="text-4xl font-semibold text-center pt-24 pb-10">
                 Our Ethnical Food</h1>
 
 
-            <div className="button-header">
+            <div className="button-header"
+            >
                 
-                <Slider {...settings}>
+                <Slider {...settings}
+                
+                >
                     
                     {buttonLabels.map((label, index) => (
                         <button key={index} className="button-item">

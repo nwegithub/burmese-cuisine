@@ -29,7 +29,7 @@ body {
 
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth;
+  scroll-behavior:smooth
 }
 
 @media (min-width: 1440px) {
@@ -51,7 +51,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 0%;
+  width: 20%;
 }
 
 body {
@@ -637,4 +637,15 @@ footer .menu li a:hover {
     box-shadow: 0 40px 60px;
     padding: 40px 0 0 10px;
   }
+}
+
+.reveal {
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.reveal.active {
+  transform: translateY(0px);
+  opacity: 1;
 }
