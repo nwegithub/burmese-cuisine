@@ -430,7 +430,9 @@ footer .wave {
   height: 100px;
   background-image: url(wave.png);
   background-size: 1000px 100px;
+  filter: hue-rotate(360deg) saturate(1000%)
 }
+
 
 footer .wave#wave1 {
   z-index: 1000;
@@ -550,7 +552,7 @@ p {
   padding: 5px 5px;
   margin-top: 20;
   border: yellow;
-  background-color: #2979cf;
+  background-color: #73bae1;
   color: black;
   cursor: pointer;
 }
@@ -561,24 +563,22 @@ p {
   overflow: visible;
   /* Allow content to overflow */
 }
-
 .rotated-image {
   /* transform: rotate(90deg); */
   max-width: 100%;
   height: auto;
 }
-
 .image-row {
   display: flex;
   gap: 10px;
 }
-
 footer {
   position: relative;
   width: 100;
-  background: #3586ff;
+  background:rgb(89, 174, 208);
   min-height: 100px;
   align-items: center;
+  filter: hue-rotate(360deg) saturate(1000%)
 }
 
 footer .social_icon {
