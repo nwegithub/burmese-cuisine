@@ -86,7 +86,7 @@ const Ethnicalfood = (item) => {
         
 
 
-            <h1 className="text-4xl font-semibold text-center pt-24 pb-10">
+            <h1 className="text-4xl font-semibold text-center pt-10 pb-5">
                 Our Ethnical Food</h1>
 
 
@@ -106,9 +106,7 @@ const Ethnicalfood = (item) => {
             </div>
 
             {
-
-
-                category === "All" ?
+             category === "All" ?
                     <Grid container spacing={0}>
                         {product.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
