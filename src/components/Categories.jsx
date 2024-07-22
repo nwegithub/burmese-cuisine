@@ -53,7 +53,7 @@ const Categories = (item) => {
                     className="absolute bottom-40 left-1/2 transform -translate-x-1/2 h-10 px-4 text-lg text-gray-700 bg-white bg-opacity-80 rounded-full outline-none placeholder-gray-500 w-full sm:w-[600px]"
                 />
             </div> */}
-            <h1 className="text-4xl font-semibold text-center pt-24 pb-10">
+            <h1 className="text-4xl font-semibold text-center pt-10 pb-5">
                 Our Categories</h1>
             {
                 category === "All" ?

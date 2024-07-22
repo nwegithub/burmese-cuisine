@@ -6,12 +6,51 @@ import { useParams } from 'react-router-dom';
 import categorybg from "../assets/category-bg.jpeg"
 import '../Style.css';
 import { useNavigate } from "react-router-dom";
+import '../Ethnicalfood.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+
+const buttonLabels = ['Tagu', 'Kason', 'Nayon', 'Waso', 'Wagaung', 'Tawthalin', 'Thadingyut','Tazaungmon','Nadaw','Pyatho','Tabodwe','Tabaung'];
 
 const Seasonalfood = (item) => {
     const navigate = useNavigate();
 
     const handleClick = (item) => {
         navigate("/Feedback", { state: { item } }); // Navigate and pass state
+    };
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     const { category } = useParams();
@@ -39,8 +78,7 @@ const Seasonalfood = (item) => {
         return <div>Loading...</div>;
     }
     return (
-        <div className=" flex-col 
-           ">
+        <div className=" flex-col" style={{background : 'pink'}}>
             {/* <div className="relative " style={{ height: '40vh' }}>
                 <img
                     src={categorybg}
@@ -53,8 +91,20 @@ const Seasonalfood = (item) => {
                     className="absolute bottom-40 left-1/2 transform -translate-x-1/2 h-10 px-4 text-lg text-gray-700 bg-white bg-opacity-80 rounded-full outline-none placeholder-gray-500 w-full sm:w-[600px]"
                 />
             </div> */}
-            <h1 className="text-4xl font-semibold text-center pt-24 pb-10">
-                Our Categories</h1>
+            <h1 className="text-4xl font-semibold text-center pt-10 pb-5">
+                Our Seasonal Food</h1>
+
+                <div className="button-header">
+                
+                <Slider {...settings}>
+                    
+                    {buttonLabels.map((label, index) => (
+                        <button key={index} className="button-item">
+                            {label}
+                        </button>
+                    ))}
+                </Slider>
+            </div>
             {
                 category === "All" ?
                     <Grid container spacing={0}>
