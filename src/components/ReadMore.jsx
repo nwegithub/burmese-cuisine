@@ -42,7 +42,6 @@ const ReadMore = () => {
             });
     }, []);
 
-    console.log("iii",articleId)
 
     return (
         <div className="container relative">

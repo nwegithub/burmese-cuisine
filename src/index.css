@@ -639,13 +639,44 @@ footer .menu li a:hover {
   }
 }
 
-.reveal {
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 2s ease;
+.title1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: #333;
 }
 
-.reveal.active {
-  transform: translateY(0px);
-  opacity: 1;
+.title2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #555;
+}
+
+.title3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #777;
+}
+
+.body1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.body2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #555;
+}
+
+.body3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 0.875rem;
+  color: #777;
 }
