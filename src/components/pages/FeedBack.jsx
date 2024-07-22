@@ -31,7 +31,7 @@ const Feedback = () => {
   console.log("user",userId)
 
   return (
-    <div className="feedback-container">
+    <div className="feedback-container bg-custom-gradient h-screen">
       <div className="modal">
         <div className="modal-header">
           <h2>We value your opinion.</h2>

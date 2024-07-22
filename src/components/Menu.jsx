@@ -20,7 +20,8 @@ const recipes = [
     image: image3,
     buttonText: 'Ethnical Food',
     route: '/ethnicalfood'
-  }
+  },
+
 ];
 
 const Menu = () => {
@@ -31,6 +32,7 @@ const Menu = () => {
   };
 
   return (
+
     <div  style={{backgroundColor:'#FFEDAC', padding:'20px'}}>
     
       <h1 className="text-4xl font-semibold text-center pt-5 pb-5 border-2 border-solid border-black">Delicioso Menus</h1>
@@ -38,7 +40,7 @@ const Menu = () => {
     <div className="recipe-container">
      
       {recipes.map((recipe, index) => (
-        <div key={index} className="recipe-card">
+        <div key={index} style={{height:350,width:200,margin:20}}>
           <img src={recipe.image} alt={recipe.buttonText} className="recipe-image" />
           <button onClick={() => handleClick(recipe.route)} className="recipe-button">
             {recipe.buttonText}
@@ -46,6 +48,7 @@ const Menu = () => {
         </div>
       ))}
     </div>
+
     </div>
   );
 };

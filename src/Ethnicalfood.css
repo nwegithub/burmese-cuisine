@@ -1,19 +1,19 @@
 .button-header {
   width: 80%;
   margin: auto;
-  padding: 20px 0;
+  padding:20;
   
  
 }
 
 .button-item {
-  padding: 10px 20px;
-  /* border: none; */
+  padding: 10px 20px !important;
+  margin: 5px !important;
   background-color: #fff;
   font-size: 16px;
   cursor: pointer;
   border: 1px solid #ccc;
-  margin: 0 5px;
+  border-radius: 10px;
   /* outline: none; */
 
 }

@@ -26,7 +26,9 @@ const Aboutus = React.forwardRef((props,ref) => {
                 className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin"
                 data-aos-once="true" />
         </div>
-        <div className="about-section-text-container  p-8 md:p-8">
+        <div
+         data-aos="fade-up"
+         className="about-section-text-container  p-8 md:p-8">
             <h1 className="primary-heading">
                 Food Is An Important Part Of A Balanced Diet
             </h1>

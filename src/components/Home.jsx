@@ -40,7 +40,7 @@ const Home = (props, item, handleClick) => {
 
   return (
     <>
-      <div className="home-banner-container min-h-screen flex">
+      <div className="home-banner-container min-h-screen flex ">
         <div className="home-bannerImage-container">
           <img
             className="tinted-blue"
@@ -51,7 +51,7 @@ const Home = (props, item, handleClick) => {
           <h1 className="primary">
             Golden Land Receipes...
           </h1>
-          <p className="primary-text">Lorem, ipsum dolor sit amet consectetur
+          <p data-aos="fade-up" className="primary-text">Lorem, ipsum dolor sit amet consectetur
             adipisicing elit. Rem impedit necessitatibus officia in incidunt,
             perferendis totam odio reiciendis harum quae cumque distinctio blanditiis praesentium ipsa. Labore sint voluptas suscipit obcaecati.</p>
           <div className="secondary-button">
