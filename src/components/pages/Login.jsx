@@ -14,6 +14,7 @@ const Login = () => {
   const { login } = useAuth();
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const {  isMya, setIsMya } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -101,7 +102,9 @@ const Login = () => {
           alignItems="center"
           padding="10rem"
         >
-          <h2 className="text-4xl font-semibold">Welcome Back..</h2>
+          <h2 className="text-4xl font-semibold title1">
+          {isMya ? "ကြိုဆိုပါတယ်.." : "Welcome Back.."}
+           </h2>
           <form onSubmit={handleSubmit} className="w-full">
             <TextField
               name="phone"
@@ -162,8 +165,9 @@ const Login = () => {
             />
             <button 
             type='submit'
-            className="recipe-button text-3xl font-bold text-center text-black">
-              Login
+            className="recipe-button text-3xl font-bold text-center text-black title3">
+               {isMya ? "ဝင်ရန်" : " Login"}
+             
             </button>
           </form>
         </Box>

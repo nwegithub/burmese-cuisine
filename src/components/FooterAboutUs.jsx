@@ -1,6 +1,9 @@
 import React from 'react'
 import '../FooterAboutUs.css'
+import { useAuth } from '../Auth/AuthContext';
+
 export default function FooterAboutUs() {
+  const {  isMya, setIsMya } = useAuth();
   function fok() {
     var j = document.getElementById("arr");
     j.style.backgroundImage =
@@ -66,76 +69,29 @@ export default function FooterAboutUs() {
      
       <main>
         <div id="front">
-          <h1 style={{ textAlign: "center" }} className='title1'>Welcome,To Ecera System</h1>
+          <h1 style={{ textAlign: "center" }} className='title1'>
+          {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
+          </h1>
           <img
             src="https://cdni.iconscout.com/illustration/premium/thumb/about-us-1805547-1537820.png"
             alt="font"
           />
           <p className='body1'>
-            " Our goal is to remove any technical or financial barriers that can
-            prevent you from making your own website. Our powerful tools empower
-            individuals and business owners to create a website, sell online, or
-            reach global audiences. Whether you're a beginner or website expert,
-            we're excited to help you on your journey! "
+          {isMya ? "ကျွန်ုမတို့သည် အစားအသောက်ချစ်သူများ၊စားဖိုမှူးများနှင့်ရိုးရှင်းစွာချက်ပြုတ်ရန် ဝါသနာပါသော မည်သူမဆိုအတွက် အကောင်းဆုံးသောနေရာတစ်ခု ဖြစ်ပါသည်။ကျွန်ုမတို့၏ရည်မှန်းချက်မှာ ချက်ပြုတ်ခြင်းအနုပညာကို ပိုမိုကောင်းမွန်စေရန်၊ပညာပေးရန်နှင့် အရသာရှိသော ချက်ပြုတ်နည်းများကို မျှဝေရန် ဖြစ်သည်။" : "Welcome to Myanmar Cuisine, your ultimate destination for all things culinary. We are dedicated to bringing together food enthusiasts, home cooks, and professional chefs to celebrate the art of cooking. Our mission is to inspire, educate, and delight your taste buds with a diverse array of recipes, cooking tips, and nutritional information"}
+          
           </p>
         </div>
 
        
 
-        <div id="fourth" className="reveal">
-          <h2 style={{ color: "white" }}>TECHNOLOGY INDEX</h2>
-          <h1 style={{ color: "white" }}>
-            Real Time Monitoring Your Infrstracture Branded Degital Solutions
-          </h1>
-          <div id="fourth_cards">
-            <div>
-              <img
-                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/data-analysis-27-681042.png"
-                alt=" "
-              />
-              <p>DATA ANALYTICS</p>
-            </div>
-            <div>
-              <img
-                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/ui-ux-designer-2755964-2289563.png"
-                alt=" "
-              />
-              <p>UI/UX DESIGN</p>
-            </div>
-            <div>
-              <img
-                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/web-development-3-478143.png"
-                alt=" "
-              />
-              <p>WEB DEVELOPEMENT</p>
-            </div>
-            <div>
-              <img
-                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/qa-testing-3919162-3246433.png"
-                alt=" "
-              />
-              <p>Q&A TESTING</p>
-            </div>
-            <div>
-              <img
-                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/team-135-386667.png"
-                alt=" "
-              />
-              <p>DEDICATED TEAM</p>
-            </div>
-          </div>
-        </div>
 
         <div id="second" className="reveal">
           <div className="container">
             <div>
-              <h1>WE PROVIDE</h1>
-              <h2>Remote Employee</h2>
-              <p>
-                A huge pool of talent from every domain available for your
-                office. Solve your freelancing problems by letting us help you
-                find the most suitable employee or a whole team that won't let
-                you down. Everything is managed by Indirect Employee staff!
+              <h1 className="title2"> {isMya ? "Myanmar Cuisineမှပေးနိုင်သည့်အရာ " : "What We Offer"}</h1>
+         
+              <p className="body1">
+              {isMya ? "ကျွန်ုမတို့၏ အဆင့်ဆင့်လမ်းညွှန်ချက်များသည် လူကြီးမင်းအနေနဲ့ဟင်းပွဲတစ်ခုစီကို ယုံကြည်မှုအပြည့်ဖြင့် ပြန်လည်ဖန်တီးနိုင်စေရန် ရည်ရွယ်ပါသည်။ကျွန်ုမတို့၏ချက်ပြုတ်နည်းများ၊သင်ခန်းစာများမှတဆင့် အကောင်းဆုံးလေ့လာပါ။ချက်ပြုတ်ခြင်းအနုပညာကို ကျွမ်းကျင်အောင်လေ့လာပြီး လူကြီးမင်း၏မီးဖိုချောင်ကျွမ်းကျင်မှုကို မြှင့်တင်ပါ။" : "Find recipes for every occasion, dietary preference, and skill level. Our step-by-step guides ensure you can recreate each dish with confidence.Learn from the best with our cooking tips, techniques, and tutorials. Master the art of cooking and elevate your kitchen skills.Stay updated with the latest in the culinary world. From new ingredients to emerging food trends, we bring you the freshest insights.Join a community of food lovers. Share your own recipes, leave reviews, and connect with others who share your passion for great food."}
               </p>
             </div>
             <img
@@ -144,14 +100,11 @@ export default function FooterAboutUs() {
             />
           </div>
           <div className="container">
-            <div>
-              <h1>WE HAVE</h1>
-              <h2>Global Partnership</h2>
-              <p>
-                Our Global parters are spread 12 countries and our client base
-                is growing day by day . Many of my clients are repeat customers
-                and several have come to us through high recommendation and
-                referrals . Our client hail from different domains
+          <div>
+              <h1 className="title2"> {isMya ? "ဘာကြောင့်Myanmar Cuisineကိုလေ့လာသင့်တာလဲ" : "Why should you study Myanmar Cuisine?"}</h1>
+         
+              <p className="body1">
+              {isMya ? "ချက်ပြုတ်နည်းပေါင်းများစွာကို တစ်နေရာထဲမှာ ရှာဖွေနိုင်ခြင်း။ရာသီစာများနှင့် တိုင်းရင်းသားအစားအစာများကို လွယ်လွယ်ကူကူကြည့်ပီး သင်ယူနိုင်ပါတယ်။လွယ်ကူမြန်ဆန်သောနည်းလမ်းများကို လမ်းညွှန်ပေးနိုင်ခြင်းနှင့် အချက်အပြုတ်စွမ်းရည်ကို တိုးမြှင့်ပေးနိုင်တဲ့အတွက် လေ့လာသင့်သောဝဘ်ဆိုဒ်တခုဖြစ်ပါတယ်" : "You can find many recipes in one place.You can easily learn about seasonal and ethnic foods It's a website you should learn because it can guide you on quick and easy methods and improve your cooking skills."}
               </p>
             </div>
             <img
@@ -161,18 +114,11 @@ export default function FooterAboutUs() {
             />
           </div>
           <div className="container">
-            <div>
-              <h1>OUR GOAL</h1>
-              <h2>Same Quality at Low Cost</h2>
-              <p>
-                We have unique and revolutionary business principle, ‘Same
-                quality but significantly lower cost’. we aims to fulfill the
-                long-standing outsourcing vacuum felt by Small Medium
-                Enterprises across the country who, till now, were dependent
-                mostly on offshore freelancers.The hired professionals match
-                their western counterparts in skills, qualifications and
-                experience alongwith the added advantage of attractive low
-                costs.
+          <div>
+              <h1 className="title2"> {isMya ? "Myanmar Cuisine၏ကတိကဝတ်များ" : "Our Promise"}</h1>
+         
+              <p className="body1">
+              {isMya ? " အရည်အသွေးသည် ကျွန်ုပ်တို့လုပ်သမျှ၏ အရေးအကြီးဆုံးကဏ္ဏတွင်ပါဝင်သည်။ သင့်ချက်ပြုတ်မှုအတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေမည့် ယုံကြည်စိတ်ချရသော အရည်အသွေးမြင့် အကြောင်းအရာများကို ပေးအပ်ရန် ကျွန်ုပ်တို့ကတိပြုပါသည်။ကျွန်ုပ်တို့၏ အားလုံးသော လုပ်ဆောင်ချက်များတွင် အရည်အသွေးကို အထူး ဂရုစိုက်ပါသည်။အကောင်းဆုံးအချက်အပြုတ်နည်းလမ်းများကိုသေချာစေရန်နှင့် ပိုမိုကောင်းမွန်အောင် ဆန်းသစ်တီထွင်ရန် ကျွန်ုပ်တို့ စဉ်ဆက်မပြတ် ကြိုးစားနေပါသည်။ " : "Quality is at the heart of everything we do. We are committed to providing you with reliable, high-quality content that enhances your cooking experience.We care about quality in all our activities.We continuously strive to improve and innovate, ensuring that you have access to the latest and best in the culinary world."}
               </p>
             </div>
             <img
@@ -181,58 +127,13 @@ export default function FooterAboutUs() {
               alt=""
             />
           </div>
-          <div className="container">
-            <div>
-              <h1>OUR STRENGTHS</h1>
-              <h2>Intelligent Use of Technology and Human Resource</h2>
-              <p>
-                We provide every client with a dedicated, full-time work from
-                home from their comfortable place. To successfully achieve this
-                objective, we relay on management, infrastructure, hardware and
-                the latest technology to bridge physical distance and time zone
-                differences.We provide experience of making employees to work
-                from home for the company as real as they work in the company.
-              </p>
-            </div>
-            <img
-              src="https://cdni.iconscout.com/illustration/premium/thumb/teamwork-3560853-2989144.png"
-              alt=""
-            />
-          </div>
+          
         </div>
 
-        <div id="third" className="reveal">
-          <h3 style={{ textAlign: "center" }}>OUR PROCESS</h3>
-          <h1 style={{ textAlign: "center" }}>
-            Driving Client Results Utilizing New Innovation Points of view
-          </h1>
-          <div id="third_cards">
-            <div>
-              <h2>End to End Solutions and Services Guaranteed</h2>
-              <p>
-                Fusce nec tellus sed augue semper porta. Mauris massa.
-                Vestibulum lacinia arcu eget nulla. per inceptos himenaeos.
-              </p>
-            </div>
-            <div>
-              <h2>Ahead of The Curve We Future-proof Your IT</h2>
-              <p>
-                Fusce nec tellus sed augue semper porta. Mauris massa.
-                Vestibulum lacinia arcu eget nulla. per inceptos himenaeos.
-              </p>
-            </div>
-            <div>
-              <h2>Experience Certainty Every Project Executed Successful</h2>
-              <p>
-                Fusce nec tellus sed augue semper porta. Mauris massa.
-                Vestibulum lacinia arcu eget nulla. per inceptos himenaeos.
-              </p>
-            </div>
-          </div>
-        </div>
+        
 
         <div id="fifth" className="reveal">
-          <h1>ECERA SYSTEM</h1>
+          <h1 className="title1">{isMya ? "ဆက်သွယ်ရန်" : "Contact"}</h1>
           <div>
             <a href={{}}>
               <img
@@ -240,8 +141,8 @@ export default function FooterAboutUs() {
                 alt=" "
               />
               <span>
-                <h3>Address</h3>
-                <p>4813 Woodland Ave Royal Oak, Michigan - 48073, USA</p>
+                <h3 className="body1">{isMya ? "လိပ်စာ" : "Address"}</h3>
+                <p className="body1">{isMya ? "ကွန်ပျူတာတက္ကသိုလ်(သထုံ)" : "Computer University Thaton"}</p>
               </span>
             </a>
             <a href={{}}>
@@ -250,8 +151,8 @@ export default function FooterAboutUs() {
                 alt=" "
               />
               <span>
-                <h3>Phone</h3>
-                <p>+1 248 672 1972</p>
+                <h3 className="body1">{isMya ? "ဖုန်း" : "Phone"}</h3>
+                <p className="body1">{isMya ? "+၀၉၉၇၉၃၁၈၇၈၉၁" : "+959793187891"}</p>
               </span>
             </a>
             <a href={{}}>
@@ -260,8 +161,8 @@ export default function FooterAboutUs() {
                 alt=" "
               />
               <span>
-                <h3>E-mail</h3>
-                <p>Sales@Ecerasystem.com</p>
+                <h3 className="body1">{isMya ? "အီးမေးလ်" : "E-mail"}</h3>
+                <p className="body1">{isMya ? "linnwe3487@gmail.com" : "linnwe3487@gmail.com"}</p>
               </span>
             </a>
           </div>

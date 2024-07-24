@@ -20,11 +20,18 @@ import Aboutus from "../components/Aboutus";
 import LearnMore from "../components/LearnMore";
 import CustomerReview from "./pages/CustomerReview";
 import axios from "axios";
+import { useAuth } from '../Auth/AuthContext';
 
 const Home = (props, item, handleClick) => {
   const aboutRef = useRef(null);
   const [favorites, setFavorites] = useState([]);
+  const {  isMya, setIsMya } = useAuth();
 
+//   const handleLanguage = async (lang) => {
+//     setIsMya(lang === 'mm');
+//     await localStorage.setItem('language', lang);
+//     console.log("state", lang);
+// };
 
   const handleGet = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -65,16 +72,16 @@ const Home = (props, item, handleClick) => {
           />
         </div>
         <div className="home-text-section md:p-10">
-          <h1 className="primary">
-            Golden Land Receipes...
+          <h1 className="primary title1">
+          {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
-          <p data-aos="fade-up" className="primary-text">Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Rem impedit necessitatibus officia in incidunt,
-            perferendis totam odio reiciendis harum quae cumque distinctio blanditiis praesentium ipsa. Labore sint voluptas suscipit obcaecati.</p>
+          <p data-aos="fade-up" className="primary-text body1">
+          {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
+           </p>
           <div className="secondary-button">
             <button onClick={handleGet}>
-              Get Started
-              <ArrowForwardIcon className="ml-3" />
+            {isMya ? "စတင်ရန်" : " Get Started"}
+             <ArrowForwardIcon className="ml-3" />
             </button>
           </div>
         </div>
