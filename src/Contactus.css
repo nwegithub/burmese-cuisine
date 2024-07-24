@@ -51,8 +51,9 @@
 .contact_form {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Reduced gap /
-  max-width: 150px; / Reduced width */
+
+  gap: 8px; /* Reduced gap */
+  max-width: 150px; /* Reduced width */
 }
 
 .submit {
@@ -95,7 +96,6 @@
     padding: 0;
   }
 }
-
 
 
 
