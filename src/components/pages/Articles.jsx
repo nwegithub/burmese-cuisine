@@ -73,49 +73,53 @@ const Articles = () => {
                 </div>
             </div>
 
-            <Grid container spacing={2} style={{ marginTop: '10px', padding: '30px' }}>
-                {article.map((item, index) => {
-                    const reverse = index % 2 !== 0;
-                    const truncatedDescription = truncateText(item.description, 30);
+            <Grid container spacing={2} style={{ marginTop: '10px', padding: '30px', justifyContent: 'center' }}>
+    {article.map((item, index) => {
+        const reverse = index % 2 !== 0;
+        const truncatedDescription = truncateText(item.description, 30);
 
-                    return (
-                        <Grid
-                            container
-                            item
-                            xs={12}
-                            spacing={2}
-                            key={item.id}
-                            direction={reverse ? "row-reverse" : "row"}
-                            style={{ marginTop: '50px' }}
-                            data-aos="fade-up"
-                            data-aos-delay={index * 500}
-                        >
-                            <Grid item xs={6} style={{ marginTop: '20px' }}>
-                            <img src={`http://localhost:4000/${item.image}`} alt={item.name} style={{width:200,height:200}}/>
-                            </Grid>
-                            <Grid
-                                item
-                                xs={6}
-                                style={{ paddingRight: '20px', justifyContent: 'center', alignItems: 'center' }}
-                            >
-                                <p className="header">{item.name}</p>
-                                <p className="subheader" style={{ marginTop: 10, marginBottom: 10 }}>
-                                    {truncatedDescription}
-                                   
-                                </p>
-                                <button
-                                    className='px-6 py-1 text-brightColor hover:bg-brightColor hover:text-white transition-all btn info rounded flex items-center'
-                                    style={{ borderRadius: '20px', backgroundColor: "#fe9e0d" }}
-                                    onClick={() => handleClick(item)}
-                                >
-                                    Read More
-                                    <ArrowForwardIcon className="ml-2" />
-                                </button>
-                            </Grid>
-                        </Grid>
-                    );
-                })}
+        return (
+            <Grid
+                container
+                item
+                xs={12}
+                spacing={2}
+                key={item.id}
+                direction={reverse ? "row-reverse" : "row"}
+                style={{ marginTop: '50px', alignItems: 'center' }}
+                data-aos="fade-up"
+                data-aos-delay={index * 500}
+            >
+                <Grid
+                    item
+                    xs={6}
+                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}
+                >
+                    <img src={`http://localhost:4000/${item.image}`} alt={item.name} style={{ width: 200, height: 200 }} />
+                </Grid>
+                <Grid
+                    item
+                    xs={6}
+                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingRight: '20px' }}
+                >
+                    <p className="header" style={{ textAlign: 'center' }}>{item.name}</p>
+                    <p className="subheader" style={{ textAlign: 'justify', marginTop: 10, marginBottom: 10 }}>
+                        {truncatedDescription}
+                    </p>
+                    <button
+                        className='px-6 py-1 text-brightColor hover:bg-brightColor hover:text-white transition-all btn info rounded flex items-center'
+                        style={{ borderRadius: '20px', backgroundColor: "#fe9e0d" }}
+                        onClick={() => handleClick(item)}
+                    >
+                        Read More
+                        <ArrowForwardIcon className="ml-2" />
+                    </button>
+                </Grid>
             </Grid>
+        );
+    })}
+</Grid>
+
         </div>
     );
 };
