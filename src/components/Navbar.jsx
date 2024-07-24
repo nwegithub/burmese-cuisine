@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Stack } from '@mui/material';
 import CartModals from '../carts/CartModals';
 import { useAuth } from '../Auth/AuthContext';
-import { Button, Menu, MenuItem, styled } from '@mui/material';
+import { Button, MenuItem, styled, Avatar, Menu, } from '@mui/material';
 import axios from 'axios';
 
 const CustomMenu = styled(Menu)({
@@ -60,7 +60,7 @@ const Navbar = () => {
         };
     }, []);
 
-    console.log("userid",user)
+    console.log("userid", user)
 
 
     const handleClick = (event) => {
@@ -105,6 +105,16 @@ const Navbar = () => {
             setMessage('Error updating profile image');
         }
     };
+
+    const getInitials = (name) => {
+        return name
+            .split(' ')
+            .map((word) => word[0])
+            .join('');
+    };
+
+    const userName = user ? JSON.parse(user).name : '';
+    const initials = getInitials(userName);
 
 
     return (
@@ -323,7 +333,7 @@ const Navbar = () => {
                                 onClick={() => { handleLanguage('eng'); closeMenu(); }}
                                 className={`${getLinkClassName('eng')} transition-all cursor-pointer`}
                             >
-                                {isMya ? "အင်္ဂလိပ်" : "English"}
+                                <p className='body2 hover:text-red-500'> {isMya ? "အင်္ဂလိပ်" : "English"}</p>
                             </Link>
                         </li>
                         <li>
@@ -331,74 +341,71 @@ const Navbar = () => {
                                 onClick={() => { handleLanguage('mm'); closeMenu(); }}
                                 className={`${getLinkClassName('mm')} transition-all cursor-pointer`}
                             >
-                                {isMya ? "မြန်မာ" : "Myanmar"}
-                            </Link>
+                                <p className="body2 hover:text-red-500">
+                                    {isMya ? "မြန်မာ" : "Myanmar"}
+                                </p>                            </Link>
                         </li>
                     </ul>
                 </div>
                 {user ? (
-                    <>
-                       
-                    </>
+
+                    <div
+                        className='relative group'
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '40px',
+                            height: '40px',
+                            borderRadius: '50%',
+                            backgroundColor: 'gray',
+                            color: 'white',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        {initials}
+                        <ul
+                            className='absolute hidden space-y-5 group-hover:block bg-white border border-gray-300 rounded-lg p-5'
+                            style={{
+                                top: '100%', // Positions the dropdown at the bottom
+                                left: '50%', // Centers the dropdown horizontally
+                                transform: 'translateX(-50%)', // Adjusts the horizontal centering
+                                zIndex: 10, // Ensures the dropdown appears above other elements
+                            }}
+                        >
+                            <li>
+                                <Link
+                                         to='/favorite'
+                                         spy="true"
+                                         smooth="true"
+                                         duration={500}
+                                         className={`${getLinkClassName('/favorite')} transition-all cursor-pointer`}
+                                         onClick={closeMenu}
+                                >
+                                    <p className='body2 hover:text-red-500'>
+                                        {isMya ? "ကြိုက်နှစ်သက်သော" : "Favorite"}
+                                    </p>
+                                </Link>
+                            </li>
+                            <li>
+                                <button onClick={logout} >
+
+                                    <p className='body2 hover:text-red-500'>
+                                    {isMya ? 'ထွက်ရန်' : 'Logout'}                                    
+                                    </p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+
                 ) : (
                     <>
                         <Link to="/Login" onClick={closeMenu}>{isMya ? 'ဝင်ရန်' : 'Login'}</Link>
                         <Link to="/SignUp" onClick={closeMenu}>{isMya ? 'စာရင်းသွင်းရန်' : 'Sign Up'}</Link>
                     </>
                 )}
-                <div>
-                    <Button
-                        aria-controls="profile-settings-menu"
-                        aria-haspopup="true"
-                        onClick={handleClick}
-                        style={{ borderRadius: '8px', }}
-                    >
-                        {user && (
-                            <>
-                                {JSON.parse(user).profileImage ? (
-                                    <img
-                                        src={`http://localhost:4000/${JSON.parse(user).profileImage}`}
-                                        alt="Profile"
-                                        // onClick={handleProfileClick}
-                                        style={{ cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%' }}
-                                    />
-                                ) : (
-                                    <FaUserCircle style={{ cursor: 'pointer', fontSize: '40px' }} />
-                                )}
 
-                            </>
-                        ) }
-                    </Button>
-                    <CustomMenu
-                        id="profile-settings-menu"
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                    >
-                        <MenuItem onClick={() => handleMenuItemClick('account')}>{user && JSON.parse(user).name}</MenuItem>
-                        <MenuItem onClick={() => handleMenuItemClick('privacy')}>
-                            <form onSubmit={handleSubmit}>
-                                <div>
-                                    <label>Profile Image</label>
-                                    <input
-                                        type="file"
-                                        onChange={handleImageChange}
-                                        required
-                                    />
-                                </div>
-                                <button type="submit">Upload Image</button>
-                            </form>
-                            {message && <p>{message}
-                                </p>}
-                        </MenuItem>
-                        <MenuItem onClick={() => handleMenuItemClick('logout')}>
-                            <button onClick={logout} >
-                                {isMya ? 'ထွက်ရန်' : 'Logout'}
-                            </button>
-                        </MenuItem>
-                    </CustomMenu>
-                </div>
             </nav>
             {/* <CartModals /> */}
         </Stack >
@@ -407,3 +414,20 @@ const Navbar = () => {
 
 export default Navbar;
 
+{/* <CustomMenu
+                            id="profile-settings-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={() => handleMenuItemClick('account')}>
+                                <Avatar sx={{ bgcolor: 'gray', mr: 1 }}>{initials}</Avatar>
+                                {userName}
+                            </MenuItem>
+                            <MenuItem onClick={() => handleMenuItemClick('logout')}>
+                                <button onClick={logout} >
+                                    {isMya ? 'ထွက်ရန်' : 'Logout'}
+                                </button>
+                            </MenuItem>
+                        </CustomMenu> */}

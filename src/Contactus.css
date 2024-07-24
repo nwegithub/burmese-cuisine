@@ -28,12 +28,11 @@
 }
 
 .form_control input {
-  height: 25px; /* Reduced height */
+  height: 25px; /* Reduced height /
   border: 1px solid black;
-  margin-top: 10px; /* Reduced margin */
-  padding-left: 20px; /* Reduced padding */
+  margin-top: 10px; / Reduced margin /
+  padding-left: 20px; / Reduced padding */
 }
-
 .form_control label {
   position: absolute;
   top: 1px;
@@ -42,15 +41,16 @@
 }
 
 .form_control textarea {
-  margin-top: 10px; /* Reduced margin */
-  height: 70px; /* Reduced height */
-  padding-left: 15px; /* Reduced padding */
-  padding-top: 5px; /* Reduced padding */
+  margin-top: 10px; /* Reduced margin /
+  height: 70px; / Reduced height /
+  padding-left: 15px; / Reduced padding /
+  padding-top: 5px; / Reduced padding */
 }
 
 .contact_form {
   display: flex;
   flex-direction: column;
+
   gap: 8px; /* Reduced gap */
   max-width: 150px; /* Reduced width */
 }
@@ -64,15 +64,14 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  max-height: 100%; /* Reduced height */
+  max-height: 100%; /* Reduced height /
   width: 100%;
-  padding: 0; /* Reduced padding */
+  padding: 0; / Reduced padding */
   box-sizing: border-box;}
   html, body {
     height: 100%;
@@ -99,25 +98,24 @@
 
 
 
-
-/* Button styles */
+/* Button styles /
 .primary_btn {
-  padding: 5px 5px; /* Reduced padding */
+  padding: 5px 5px; / Reduced padding /
   background-color: rgba(247, 212, 57, 0.63);
   color: black;
-  min-height: 25px; /* Reduced height */
-  min-width: 150px; /* Reduced width */
+  min-height: 25px; / Reduced height /
+  min-width: 150px; / Reduced width /
   border: none;
   display: flex;
   align-items: center;
-  gap: 5px; /* Reduced gap */
-  font-size: 8px; /* Reduced font size */
+  gap: 5px; / Reduced gap /
+  font-size: 8px; / Reduced font size /
   justify-content: center;
-  margin-top: 10px; /* Reduced margin */
+  margin-top: 10px; / Reduced margin /
   text-align: center;
   cursor: pointer;
-  box-shadow: 10px solid black; /* Adjusted shadow */
-}
+  box-shadow: 10px solid black; / Adjusted shadow */
+
 
 .primary_btn:hover {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
@@ -125,19 +123,19 @@
 }
 
 .outline_btn {
-  padding: 5px 5px; /* Reduced padding */
+  padding: 5px 5px; /* Reduced padding /
   background-color: transparent;
   color: black;
-  min-height: 25px; /* Reduced height */
-  min-width: 250px; /* Reduced width */
+  min-height: 25px; / Reduced height /
+  min-width: 250px; / Reduced width /
   border: 1px solid black;
   display: flex;
   align-items: center;
-  gap: 5px; /* Reduced gap */
+  gap: 5px; / Reduced gap /
   font-weight: 800;
-  font-size: 12px; /* Reduced font size */
+  font-size: 12px; / Reduced font size /
   justify-content: center;
-  margin-top: 10px; /* Reduced margin */
+  margin-top: 10px; / Reduced margin */
   text-align: center;
   cursor: pointer;
 }
@@ -156,8 +154,8 @@
 }
 
 .contact_section p {
-  font-size: 8px; /* Reduced font size */
-  font-weight: 450; /* Standardized font weight */
+  font-size: 8px; /* Reduced font size /
+  font-weight: 450; / Standardized font weight */
   margin: 0px;
   text-transform: uppercase;
 }

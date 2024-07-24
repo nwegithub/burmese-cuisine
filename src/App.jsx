@@ -18,6 +18,7 @@ import Ethnicalfood from './components/Ethnicalfood';
 import Contactus from './components/pages/Contactus';
 import FooterAboutUs from './components/FooterAboutUs';
 import FavoritesScreen from './components/pages/FavouriteScreen';
+import Receipe from './components/pages/Receipe';
 
 
 const App = () => {
@@ -45,7 +46,7 @@ const App = () => {
           <Route path="/Contactus" element={<Contactus/>}/>
           <Route path="/FooterAboutUs" element={<FooterAboutUs/>}/>
           <Route path="Favorite" element={<FavoritesScreen/>}/>
-          
+          <Route path="/Receipe" element={<Receipe/>}/>
         </Routes>
       </div>
   );

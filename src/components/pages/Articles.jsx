@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom";
 import '../../Article.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useAuth } from '../../Auth/AuthContext';
 
 const Articles = () => {
     const navigate = useNavigate();
     const [article, setArticle] = useState([]);
+    const {  isMya, setIsMya } = useAuth();
 
     const handleClick = (item) => {
         navigate("/Favorite");
@@ -59,12 +61,12 @@ const Articles = () => {
  className="promotion-banner-container bg-custom-gradient">
                 <div className="content-image-wrapper ">
                     <div className="content-container" style={{ marginLeft: '20px' }}>
-                        <p className="header" style={{ textAlign: 'center' }}>Welcome to our food blog</p>
-                        <p className="subheader">
-                            a culinary journey that celebrates the rich and diverse flavors from around the world.
-                            Here, we share mouthwatering recipes, cooking tips, and inspiring stories behind your favorite dishes.
-                            Whether you're a seasoned chef or a home cook, you'll find a treasure trove of delicious ideas to elevate your meals.
-                            Join us as we explore the art of cooking and the joy of sharing food with loved ones.
+                        <p className="header title1" style={{ textAlign: 'center' }}>
+                        {isMya ? "Myanmar Cuisineအစားအစာဘလော့ဂ်" : " Welcome to our food blog"}
+                        </p>
+                        <p className="subheader body1">
+                        {isMya ? "ပြီးပြည့်စုံပြီးအရသာရှိသော ချက်ပြုတ်နည်းများဖြင့်အရသာရှိလှသော နံနက်စာများမှသည် လက်ရာမြောက်သော ညစာများအထိ၊ ကျွန်ုပ်တို့၏ အချက်အပြုတ်ကျွမ်းကျင်ပညာရှင်များသည် အတွေ့အကြုံမရှိသေးသော အိိမ်ရှင်မများနှင့် စားဖိုမှူးများအတွက် ဟင်းလျာများကို ဖန်တီးပေးထားပါသည်။ချက်ပြုတ်နည်းတစ်ခုစီတိုင်းသည် လတ်ဆတ်ပြီး အရည်အသွေးမြင့်သော ပါဝင်ပစ္စည်းများကို အသုံးပြု၍အလွယ်ကူဆုံးနည်းဖြင့် အမြင့်ဆုံးအရသာကို ရရှိနိုင်ကြောင်း သေချာစေရန် စေ့စပ်သေချာစွာ စမ်းသပ်ထားသည်။ သင့်မိသားစုနှင့် သူငယ်ချင်းများကို အထင်ကြီးစေမည့် အမှတ်ရဖွယ်အစားအစာများကို ဖန်တီးရန် အဆင့်ဆင့်လမ်းညွှန်ချက်များ၊ ချက်ပြုတ်နည်းများနှင့် အာဟာရဆိုင်ရာ အချက်အလက်များကို စူးစမ်းလေ့လာလိုက်ပါ။ ကျွန်မတို့နှင့်ပူးပေါင်းပြီး စိတ်အားထက်သန်မှုနှင့် တီထွင်ဖန်တီးမှုဖြင့် ချက်ပြုတ်ခြင်း၏ပျော်ရွှင်မှုကို ရှာဖွေလိုက်ပါ။။" : " Delight your senses with our curated collection of gourmet recipes, perfect for every occasion. From hearty breakfasts to exquisite dinners, our culinary experts have crafted dishes that cater to both novice cooks and seasoned chefs. Each recipe is meticulously tested to ensure it delivers maximum flavor with minimal effort, using fresh, high-quality ingredients. Explore our step-by-step guides, cooking tips, and nutritional information to create memorable meals that will impress your family and friends. Join us on a culinary journey and discover the joy of cooking with passion and creativity."}
+                        
                         </p>
                     </div>
                     <div className="image-container" style={{ marginLeft: '100px' }}>
