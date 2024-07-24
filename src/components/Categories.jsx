@@ -95,7 +95,7 @@ const Categories = (item) => {
                     </Grid>
             }
             <div className="customer-review-container"
-            style={{ paddingBottom: "20%" }} >
+            style={{ paddingBottom: "20%",marginTop :50 }} >
                 <button
                     className="button-52"
                     onClick={() => handleClick(item)}>

@@ -58,11 +58,10 @@ const Ethnicalfood = () => {
         }
     };
 
-    const newArr1 = [{ category: "All",  }]
+    const newArr1 = [{ category: "All", }]
 
     const newCategoryData = newArr1.concat(product)
     const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
-
 
 
     if (!productsToDisplay) {
@@ -75,13 +74,13 @@ const Ethnicalfood = () => {
 
             <div style={styles.filterContainer}>
 
-            <Button
-        disabled={currentIndex === 0}
-        onClick={handleBack}
-        style={{ color: currentIndex === 0 ? 'red' : 'green' }}
-      >
-        <ArrowBackIosIcon />
-      </Button>
+                <Button
+                    disabled={currentIndex === 0}
+                    onClick={handleBack}
+                    style={{ color: currentIndex === 0 ? 'red' : 'green' }}
+                >
+                    <ArrowBackIosIcon />
+                </Button>
                 <div ref={flatListRef} style={styles.scrollContainer}>
                     {newCategoryData.map((item, index) => (
                         <Button
@@ -109,16 +108,18 @@ const Ethnicalfood = () => {
                 </div>
 
                 <Button
-        disabled={currentIndex === product.length - 1}
-        onClick={handleNextPress}
-        style={{ color: currentIndex === 0 ? 'red' : 'green' }}
-      >
-        <ArrowForwardIosIcon />
-        </Button>
+                    disabled={currentIndex === product.length - 1}
+                    onClick={handleNextPress}
+                    style={{ color: currentIndex === 0 ? 'red' : 'green' }}
+                >
+                    <ArrowForwardIosIcon />
+                </Button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {
+
+
                 productsToDisplay.map((item, index) => (
                     <div
                         key={index}
@@ -161,6 +162,7 @@ const Ethnicalfood = () => {
                         )}
                     </div>
                 ))}
+
             </div>
         </div>
     );
@@ -188,5 +190,5 @@ const styles = {
         width: 24,
         height: 24,
     },
-  
+
 };
