@@ -39,10 +39,8 @@ const Menu = () => {
   };
 
   return (
-
     <div className="bg-custom-gradient min-h-screen flex flex-col items-center">
     <h1 className="text-4xl font-semibold text-center pt-20 pb-5 title1">Delicioso Menus</h1>
-    
     <div 
        data-aos="fade-up"
        data-aos-delay={100}                      
