@@ -33,7 +33,6 @@
   margin-top: 10px; / Reduced margin /
   padding-left: 20px; / Reduced padding */
 }
-
 .form_control label {
   position: absolute;
   top: 1px;
@@ -65,7 +64,6 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  
 }
 
 .container {

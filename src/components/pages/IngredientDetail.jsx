@@ -6,7 +6,6 @@ import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import '../../Style.css';
 
-
 const IngredientDetail = () => {
   const location = useLocation();
   const { item } = location.state || {}; // Safeguard if state is undefined
