@@ -9,8 +9,9 @@ import girl from "../../assets/44fe4345f01fc8623c95ee77b45f9f0d-removebg-preview
 
 const IngredientDetail = () => {
   const location = useLocation();
-  const { props } = location.state;
+  const { item } = location.state;
   const { isMya } = useAuth();
+
 
   const [numPeople, setNumPeople] = useState(1);
 
@@ -26,7 +27,7 @@ const IngredientDetail = () => {
     const tableColumn = ['Ingredient', 'Quantity'];
     const tableRows = [];
 
-    props.ingredient.forEach((ingredient) => {
+    item.ingredient.forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
@@ -39,14 +40,14 @@ const IngredientDetail = () => {
   };
 
   return (
-    <div className='min-h-screen flex'>
+    <div className='min-h-screen flex bg-cusom-gradient'>
     <div className="container p-20">
   <h1 
   style={{ textAlign: 'center' }}
-  className="text-4xl font-bold mb-10">Ingredient Detail Calculator</h1>
+  className="text-4xl font-bold mb-10 title1">Ingredient Detail Calculator</h1>
   <div className="flex flex-wrap">
     <div className="w-full md:w-1/2 mb-4">
-      <label htmlFor="numPeople" className="text-3xl block font-lg font-bold text-yellow-700 mb-2">
+      <label htmlFor="numPeople" className="text-3xl block font-lg font-bold text-yellow-700 mb-2 title2">
         Number of People:
       </label>
       <input
@@ -62,10 +63,10 @@ const IngredientDetail = () => {
             style={{ width: '350px', height: '450px',paddingTop: '20px'}} />
     </div>
     <div className="w-full md:w-1/2 mb-4">
-      <h2 className="text-3xl block font-lg font-bold text-yellow-700 mb-2">Ingredients:</h2>
+      <h2 className="text-3xl block font-lg font-bold text-yellow-700 mb-2 title1">Ingredients:</h2>
       <ul className="list-disc">
-        {props.ingredient.map((ingredient) => (
-          <li key={ingredient.name} className="mb-2">
+        {item.ingredients.map((ingredient) => (
+          <li key={ingredient.name} className="mb-10 body1">
             {ingredient.name}: {ingredient.amount * numPeople} {ingredient.unit}
           </li>
         ))}
@@ -73,7 +74,7 @@ const IngredientDetail = () => {
       
       <button
         onClick={generatePDF}
-        className="mt-5 bg-yellow-300 text-black p-3 rounded-md"
+        className="mt-5 bg-yellow-300 text-black p-3 rounded-md body1"
       >
         Voucher as PDF
       </button>

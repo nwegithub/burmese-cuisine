@@ -1,76 +1,126 @@
-import React from 'react';
-import detail from "../../assets/fc739f95286b81646fa8e719a190ba41.jpg";
-import 'tailwindcss/tailwind.css';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../../Auth/AuthContext';
-import { GiSaltShaker } from 'react-icons/gi';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import 'tailwindcss/tailwind.css';
+import '../../Style.css';
+
 
 const IngredientDetail = () => {
   const location = useLocation();
-  const { props } = location.state;
-  const { isMya } = useAuth();
+  const { item } = location.state || {}; // Safeguard if state is undefined
+  const { isMya, user } = useAuth();
   const navigate = useNavigate();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const userId = user && JSON.parse(user)._id;
+
+  useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      try {
+        // Check local storage first
+        const localFavoriteStatus = localStorage.getItem(`favorite_${userId}_${item._id}`);
+        if (localFavoriteStatus !== null) {
+          setIsFavorite(JSON.parse(localFavoriteStatus));
+        } else {
+          // Fetch from the server if not in local storage
+          const response = await axios.get(`http://localhost:4000/favorites/isFavorited/${userId}/${item._id}`);
+          setIsFavorite(response.data.isFavorited);
+          localStorage.setItem(`favorite_${userId}_${item._id}`, JSON.stringify(response.data.isFavorited));
+        }
+      } catch (error) {
+        console.error('Error fetching favorite status:', error);
+      }
+    };
+
+    if (userId && item._id) {
+      checkFavoriteStatus();
+    }
+  }, [userId, item._id]);
+
+  const toggleFavorite = async () => {
+    try {
+      if (isFavorite) {
+        await axios.delete('http://localhost:4000/favorites/deleteFavorite', {
+          data: {
+            userId: userId,
+            productId: item._id
+          }
+        });
+        localStorage.removeItem(`favorite_${userId}_${item._id}`);
+        alert("Delete Successful");
+
+      } else {
+        await axios.post('http://localhost:4000/favorites/addFavorite', {
+          userId: userId, // Replace with actual userId
+          productId: item._id
+        });
+        localStorage.setItem(`favorite_${userId}_${item._id}`, JSON.stringify(true));
+        alert("added Successful");
+
+      }
+      setIsFavorite(!isFavorite);
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col ">
-      <div className="image-section flex justify-center items-center w-full">
+      <div className="image-section flex justify-center items-center w-full ">
         <div className="w-1/3">
           <img
-            src={`http://localhost:4000/${props.image}`}
+            src={`http://localhost:4000/${item.image}`}
             alt="img"
-            style={{marginTop:'5px'}}
+            style={{ marginTop: '5px' }}
           />
         </div>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-  <div style={{ textAlign: 'center', width: '50%' }}>
-    <h1>{isMya ? props.name_mm : props.name}</h1>
-    <h2 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-      {isMya ? "ပါဝင်ပစ္စည်းများ" : "Our family Secret Ingredients"}
-    </h2>
-    <div>
-      <ul>
-        {(isMya ? props.ingredient : props.ingredient_mm).map((item, index) => (
-          <li key={index} style={{ display: 'flex', alignItems: 'center', margin: '2px', borderWidth: '2px', borderColor: '#ef4444', padding: '2px', width: '100%' }}>
-            <GiSaltShaker /> {item.name} : {item.amount} {item.unit}
-          </li>
+      <h1 className='title1'>{isMya ? item.name_mm : item.name}</h1>
+      <h1 className='title2'>{isMya ? "ပါဝင်ပစ္စည်းများ" : "Our family Secret Ingredients"}</h1>
+
+      <div className="flex justify-center items-center mb-5">
+        <button
+          onClick={toggleFavorite}
+          className={`px-4 py-2 rounded ${isFavorite ? 'bg-red-500' : 'bg-green-500'} text-white`}
+        >
+          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+        </button>
+      </div>
+
+      <div style={{ padding: 100 }}>
+        {(isMya ? item.ingredients : item.ingredients_mm).map((ingredient, index) => (
+          <div
+            key={index}
+            className="border-2 border-gray-300 rounded-lg flex items-center pl-5 align-center mb-5 
+            hover:bg-gray-100 hover:shadow-lg transition duration-300 "
+            style={{
+              height: 60,
+              transition: 'transform 0.3s ease', // Smooth transition for scaling
+            }}
+          >
+            <p className='body1'>
+              {ingredient.name} : {ingredient.amount} {ingredient.unit}
+            </p>
+          </div>
         ))}
-      </ul>
-    </div>
-    <button
-      style={{ backgroundColor: '#ecc94b', color: 'black', paddingTop: '2px', paddingBottom: '2px' }}
-      onClick={() => navigate("/IngredientCalculation", { state: { props } })}>
-      Ingredients
-    </button>
-  </div>
-</div>
+      </div>
 
-
-      {/* <div style={{flex:1,padding:30}}>
-        <div style={{textAlign:'center', width:'100%',alignItems:'center'}}>
-          <h1 >{isMya ? props.name_mm : props.name}</h1>
-          <h2 style={{ fontSize:'1.875rem', fontWeight:'bold',marginBottom: '1rem'}}>
-            {isMya ? "ပါဝင်ပစ္စည်းများ" : "Our family Secret Ingredients"}
-          </h2>
-          <div>
-          <ul>
-            {(isMya ? props.ingredient : props.ingredient_mm).map((item, index) => (
-              <li key={index} style={{display:'flex',alignItems:'center',margin: '2px',borderWidth: '2px',borderColor:'#ef4444',padding: '2px',width: '100%'}}>
-                <GiSaltShaker /> {item.name} : {item.amount} {item.unit}
-              </li>
-            ))}
-          </ul></div>
-          <button
-            style={{backgroundColor:'#ecc94b',color: 'black',paddingTop: '2px',paddingBottom: '2px'}}
-            onClick={() => navigate("/IngredientCalculation", { state: { props } })}>
-            Ingredients
-          </button>
-        </div>
-      </div>  */}
+      <div className="flex justify-center items-center flex-grow mb-40 ">
+        <button
+          className='bg-custom-gradient'
+          style={{ color: 'black', paddingTop: '2px', paddingBottom: '2px', width: '350px', height: '70px',
+            borderRadius: 10,
+          }}
+          onClick={() => navigate("/IngredientCalculation", { state: { item } })} // Changed 'props' to 'item'
+        >
+          <p className='title3'>Ingredients Calculation</p>
+        </button>
+      </div>
     </div>
   );
 };
 
 export default IngredientDetail;
+

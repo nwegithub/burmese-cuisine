@@ -60,6 +60,7 @@ const Navbar = () => {
         };
     }, []);
 
+    console.log("userid",user)
 
 
     const handleClick = (event) => {
