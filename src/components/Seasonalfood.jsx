@@ -39,10 +39,6 @@ const Ethnicalfood = () => {
             setFilterProduct(product);
         }
     }, [categorySelected, product]);
-
-
-
-
     useEffect(() => {
         flatListRef.current?.scrollTo({
             left: currentIndex * 100, // Adjust 100 based on your item width
@@ -147,12 +143,11 @@ const Ethnicalfood = () => {
                             <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
                                 <Button
                                     style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-
                                     onClick={() => navigate('/IngredientDetail', { state: { item } })}>
                                     Ingredients
                                 </Button>
                                 <Button
-                                    onClick={() => console.log('Open recipe modal')} // Add your modal logic
+                                    onClick={() => navigate('/Receipe', { state: { item } })}
                                     style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                                 >
                                     Recipe

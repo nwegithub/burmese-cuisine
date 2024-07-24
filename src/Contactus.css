@@ -33,7 +33,6 @@
   margin-top: 10px; /* Reduced margin */
   padding-left: 20px; /* Reduced padding */
 }
-
 .form_control label {
   position: absolute;
   top: 1px;
@@ -51,12 +50,12 @@
 .contact_form {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Reduced gap */
+  gap: 8px; /* Reduced gap */
   max-width: 150px; /* Reduced width */
 }
 
 .submit {
-  margin-left: 150px; /* Adjusted alignment */
+  margin-left: 100px; /* Adjusted alignment */
 }
 
 .form_section {
@@ -64,7 +63,6 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  
 }
 
 .container {
@@ -95,12 +93,10 @@
     padding: 0;
   }
 }
-.contact_image img{
-  height: 300px;
-    width: 320px;
-    margin-right: 100px;
 
-}
+
+
+
 
 /* Button styles */
 .primary_btn {
