@@ -20,6 +20,7 @@ import FooterAboutUs from './components/FooterAboutUs';
 import FavoritesScreen from './components/pages/FavouriteScreen';
 import Receipe from './components/pages/Receipe';
 
+
 const App = () => {
   return (
       <div>
