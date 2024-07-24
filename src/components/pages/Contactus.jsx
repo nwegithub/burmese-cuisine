@@ -7,9 +7,9 @@ import img2 from "../../assets/image2.png";
 import Cbutton from '../../layouts/Cbutton';
 
 const Contactus = () => {
-  const [name, setName] = useState(undefined);
-  const [email, setEmail] = useState(undefined);
-  const [text, setText] = useState(undefined);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [text, setText] = useState('');
 
   const onSubmit = (event) => {
     if (event) {
@@ -17,6 +17,11 @@ const Contactus = () => {
       setName(event.target[0].value);
       setEmail(event.target[1].value);
       setText(event.target[2].value);
+
+      // Clear the text fields
+      event.target[0].value = '';
+      event.target[1].value = '';
+      event.target[2].value = '';
     }
   };
 
@@ -32,8 +37,8 @@ const Contactus = () => {
             EMAIL, OR SOCIAL MEDIA.
           </p>
         </div>
-        <section className="form_section">
-          <div style={{ padding: '0px 50px' }}>
+        <section className="form_section" style={{ padding: '0px 50px' }}>
+          <div >
             <div className="contact_form">
               <div className="top_btn">
                 <Cbutton text='VIA SUPPORT CHAT' icon={<MdMessage fontSize='20px' />} />
@@ -62,8 +67,9 @@ const Contactus = () => {
               </p>
             </form>
           </div>
-          <div className="contact_image">
-            <img src={img2} alt="image" />
+          <div className="contact_image" >
+            <img style={{height: "350px",
+    width: "330px",marginTop:"-30px",marginBottom:"30px"}} src={img2} alt="image" />
           </div>
         </section>
       </div>
