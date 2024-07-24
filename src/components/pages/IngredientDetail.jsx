@@ -7,6 +7,7 @@ import 'tailwindcss/tailwind.css';
 import '../../Style.css';
 
 
+
 const IngredientDetail = () => {
   const location = useLocation();
   const { item } = location.state || {}; // Safeguard if state is undefined
@@ -14,6 +15,7 @@ const IngredientDetail = () => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
   const userId = user && JSON.parse(user)._id;
+ 
 
   useEffect(() => {
     const checkFavoriteStatus = async () => {
@@ -115,7 +117,9 @@ const IngredientDetail = () => {
           }}
           onClick={() => navigate("/IngredientCalculation", { state: { item } })} // Changed 'props' to 'item'
         >
-          <p className='title3'>Ingredients Calculation</p>
+          <p className='title3'>
+          {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
+            </p>
         </button>
       </div>
     </div>

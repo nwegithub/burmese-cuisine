@@ -4,6 +4,7 @@ import img from '../../assets/WEB-StellaLaurino_FoodForThought_BurmeseFood-100.w
 import { useNavigate } from "react-router-dom";
 import '../../Menu.css';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useAuth } from '../../Auth/AuthContext';
 
 const SignUp = () => {
   const [formValues, setFormValues] = useState({
@@ -14,6 +15,7 @@ const SignUp = () => {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const {  isMya, setIsMya } = useAuth();
 
   useEffect(() => {
     // Optionally clear local storage if used for form data
@@ -113,7 +115,9 @@ const SignUp = () => {
           alignItems="center"
           padding="10rem"
         >
-          <h2 className="text-3xl font-semibold">Welcome To Our Myanmar Cuisine..</h2>
+          <h2 className="primary title1">
+          {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome To Our Myanmar Cuisine.."}
+            </h2>
           <form onSubmit={handleSubmit} className="w-full">
             <TextField
               name="name"
@@ -197,8 +201,9 @@ const SignUp = () => {
             />
             <button  
             type='submit'
-            className="recipe-button text-3xl font-bold text-center text-black">
-              Sign Up
+            className="recipe-button font-bold text-center text-black title3">
+               {isMya ? "စာရင်းသွင်းရန်" : " Sign Up"}
+             
             </button>
           </form>
         </Box>
