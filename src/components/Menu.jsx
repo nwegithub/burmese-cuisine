@@ -19,7 +19,7 @@ const recipes = [
     route: '/seasonalfood'
   },
   {
-    image: image3,
+    image: image2,
     buttonText: 'Ethnical Food',
     route: '/ethnicalfood'
   },

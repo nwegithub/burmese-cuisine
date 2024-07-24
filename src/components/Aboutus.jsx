@@ -46,7 +46,7 @@ const Aboutus = React.forwardRef((props,ref) => {
             </div>
         </div>
     </div>
-    <LearnMore ref={learnRef}/>
+    {/* <LearnMore ref={learnRef}/> */}
     </div>
 )
  }
