@@ -19,9 +19,12 @@ import "aos/dist/aos.css";
 import Aboutus from "../components/Aboutus";
 import LearnMore from "../components/LearnMore";
 import CustomerReview from "./pages/CustomerReview";
+import axios from "axios";
 
 const Home = (props, item, handleClick) => {
   const aboutRef = useRef(null);
+  const [favorites, setFavorites] = useState([]);
+
 
   const handleGet = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -37,6 +40,20 @@ const Home = (props, item, handleClick) => {
       once: true, // Whether animation should happen only once
     });
   }, []);
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/favorites/allFavorite');
+        setFavorites(response.data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchFavorites();
+  }, []);
+
 
   return (
     <>
@@ -73,6 +90,9 @@ const Home = (props, item, handleClick) => {
         </div>
       </div>
       <Aboutus ref={aboutRef} />
+
+
+
       <CustomerReview/>
       {/* <Swiper effect={'coverflow'} grabCursor={true}
         centeredSlides={true} loop={true} slidesPerView={'auto'}

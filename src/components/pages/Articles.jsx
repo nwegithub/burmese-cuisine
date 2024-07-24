@@ -13,7 +13,7 @@ const Articles = () => {
     const [article, setArticle] = useState([]);
 
     const handleClick = (item) => {
-        navigate("/Readmore", { state: { item } });
+        navigate("/Favorite");
     };
 
     useEffect(() => {

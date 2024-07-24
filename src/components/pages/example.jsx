@@ -143,7 +143,7 @@ const ExamplePage = () => {
           <div
             key={index}
             className="bg-white p-4 shadow-lg rounded-lg"
-            data-aos="fade-up"
+            data-aos="fade-up" 
             data-aos-delay={index * 100}
           >
             <img

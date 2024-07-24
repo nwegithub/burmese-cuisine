@@ -44,8 +44,8 @@ const ReadMore = () => {
 
 
     return (
-        <div className="container relative">
-            <div className="min-h-screen flex">
+        <div className="container relative bg-custom-gradient">
+            <div className="min-h-screen flex p-20">
                 <div className="w-2/3">
                     <div className="content-container">
                         <p className="header">Welcome to...</p>
@@ -74,9 +74,7 @@ const ReadMore = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-32">
-                <Footer />
-            </div>
+           
         </div>
     );
 };
