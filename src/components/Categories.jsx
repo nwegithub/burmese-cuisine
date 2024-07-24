@@ -61,14 +61,15 @@ const Categories = (item) => {
                         {product.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
-                                    image={item.image}
-                                    name={item.name}
-                                    name_mm={item.name_mm}
-                                    ingredient={item.ingredients}
-                                    ingredient_mm={item.ingredients_mm}
-                                    recipe={item.recipe}
-                                    recipe_mm={item.recipe_mm}
-                                    category={item.category}
+                                item={item}
+                                    // image={item.image}
+                                    // name={item.name}
+                                    // name_mm={item.name_mm}
+                                    // ingredient={item.ingredients}
+                                    // ingredient_mm={item.ingredients_mm}
+                                    // recipe={item.recipe}
+                                    // recipe_mm={item.recipe_mm}
+                                    // category={item.category}
                                 />
                             </Grid>
                         ))}
@@ -79,21 +80,22 @@ const Categories = (item) => {
                         {filterProduct.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
-                                    image={item.image}
-                                    name={item.name}
-                                    name_mm={item.name_mm}
-                                    ingredient={item.ingredients}
-                                    ingredient_mm={item.ingredients_mm}
-                                    recipe={item.recipe}
-                                    recipe_mm={item.recipe_mm}
-                                    category={item.category}
+                                item={item}
+                                    // image={item.image}
+                                    // name={item.name}
+                                    // name_mm={item.name_mm}
+                                    // ingredient={item.ingredients}
+                                    // ingredient_mm={item.ingredients_mm}
+                                    // recipe={item.recipe}
+                                    // recipe_mm={item.recipe_mm}
+                                    // category={item.category}
                                 />
                             </Grid>
                         ))}
                     </Grid>
             }
             <div className="customer-review-container"
-            style={{ paddingBottom: "20%" }} >
+            style={{ paddingBottom: "20%",marginTop :50 }} >
                 <button
                     className="button-52"
                     onClick={() => handleClick(item)}>

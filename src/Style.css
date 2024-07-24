@@ -134,7 +134,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh; }
+  height: 20vh; 
+  margin-top: 50;
+}
   /* This ensures the container takes up the full height of the viewport /
 }
 

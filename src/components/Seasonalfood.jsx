@@ -62,12 +62,12 @@ const Ethnicalfood = () => {
         }
     };
 
-    const newArr1 = [{ category: "All",  }]
+    const newArr1 = [{ category: "All", }]
 
     const newCategoryData = newArr1.concat(product)
     const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
 
-    console.log("pro",product)
+    console.log("pro", product)
 
 
     if (!productsToDisplay) {
@@ -80,13 +80,13 @@ const Ethnicalfood = () => {
 
             <div style={styles.filterContainer}>
 
-            <Button
-        disabled={currentIndex === 0}
-        onClick={handleBack}
-        style={{ color: currentIndex === 0 ? 'red' : 'green' }}
-      >
-        <ArrowBackIosIcon />
-      </Button>
+                <Button
+                    disabled={currentIndex === 0}
+                    onClick={handleBack}
+                    style={{ color: currentIndex === 0 ? 'red' : 'green' }}
+                >
+                    <ArrowBackIosIcon />
+                </Button>
                 <div ref={flatListRef} style={styles.scrollContainer}>
                     {newCategoryData.map((item, index) => (
                         <Button
@@ -114,59 +114,59 @@ const Ethnicalfood = () => {
                 </div>
 
                 <Button
-        disabled={currentIndex === product.length - 1}
-        onClick={handleNextPress}
-        style={{ color: currentIndex === 0 ? 'red' : 'green' }}
-      >
-        <ArrowForwardIosIcon />
-        </Button>
+                    disabled={currentIndex === product.length - 1}
+                    onClick={handleNextPress}
+                    style={{ color: currentIndex === 0 ? 'red' : 'green' }}
+                >
+                    <ArrowForwardIosIcon />
+                </Button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {
-                productsToDisplay.map((item, index) => (
-                    <div
-                        key={index}
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
-                        data-aos="fade-up"
-                        data-aos-delay={100}
-                        className="border-2 border-gray-300 rounded-lg"
-                        style={{
-                            height: 290,
-                            transition: 'transform 0.3s ease', // Smooth transition for scaling
-                            transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)', // Slightly larger on hover
-                        }}
-                    >
-                        <img
-                            className="w-full h-4/5 object-cover rounded-t-lg"
-                            src={`http://localhost:4000/${item.image}`}
-                            alt="img"
-                        />
-                        {hoveredIndex === index ? (
-                            <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
-                                <Button
-                                    style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
+                    productsToDisplay.map((item, index) => (
+                        <div
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                            data-aos="fade-up"
+                            data-aos-delay={100}
+                            className="border-2 border-gray-300 rounded-lg"
+                            style={{
+                                height: 290,
+                                transition: 'transform 0.3s ease', // Smooth transition for scaling
+                                transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)', // Slightly larger on hover
+                            }}
+                        >
+                            <img
+                                className="w-full h-4/5 object-cover rounded-t-lg"
+                                src={`http://localhost:4000/${item.image}`}
+                                alt="img"
+                            />
+                            {hoveredIndex === index ? (
+                                <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
+                                    <Button
+                                        style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
 
-                                    onClick={() => navigate('/IngredientDetail', { state: { item } })}>
-                                    Ingredients
-                                </Button>
-                                <Button
-                                    onClick={() => console.log('Open recipe modal')} // Add your modal logic
-                                    style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                >
-                                    Recipe
-                                </Button>
-                            </div>
-                        ) : (
-                            <div className="h-1/5 flex items-center justify-center" >
-                                <h3 className="body1 text-white">
-                                    {item.name}
-                                </h3>
-                            </div>
-                        )}
-                    </div>
-                ))}
+                                        onClick={() => navigate('/IngredientDetail', { state: { item } })}>
+                                        Ingredients
+                                    </Button>
+                                    <Button
+                                        onClick={() => console.log('Open recipe modal')} // Add your modal logic
+                                        style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
+                                    >
+                                        Recipe
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div className="h-1/5 flex items-center justify-center" >
+                                    <h3 className="body1 text-white">
+                                        {item.name}
+                                    </h3>
+                                </div>
+                            )}
+                        </div>
+                    ))}
             </div>
         </div>
     );
@@ -194,5 +194,5 @@ const styles = {
         width: 24,
         height: 24,
     },
-  
+
 };
