@@ -65,10 +65,12 @@ const SignUp = () => {
         });
         // Optionally clear local storage
         localStorage.removeItem('formValues');
-        // Redirect to login page
+        alert("Sign Up successful")
         navigate('/login');
       } else {
         console.error('Sign-up error', data);
+        alert("Sign Up failed")
+
       }
     } catch (error) {
       console.error('An error occurred during sign-up', error);

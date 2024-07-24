@@ -40,7 +40,7 @@ const IngredientDetail = () => {
   };
 
   return (
-    <div className='min-h-screen flex bg-cusom-gradient'>
+    <div className='min-h-screen flex bg-custom-gradient'>
     <div className="container p-20">
   <h1 
   style={{ textAlign: 'center' }}
