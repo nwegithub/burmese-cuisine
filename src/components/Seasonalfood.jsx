@@ -63,7 +63,6 @@ const Ethnicalfood = () => {
     const newCategoryData = newArr1.concat(product)
     const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
 
-    console.log("pro",product)
 
 
     if (!productsToDisplay) {
