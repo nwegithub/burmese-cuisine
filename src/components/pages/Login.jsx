@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Box, Grid } from '@mui/material';
+import { Container, TextField, Button, Box, InputAdornment, IconButton } from '@mui/material';
 import { useAuth } from '../../Auth/AuthContext';
-import img from '../../assets/b979662260ef514033b369b4a90e3bac.jpg';
+import img from '../../assets/chibi-girl_1093051-35.avif';
 import { useNavigate } from "react-router-dom";
-
+import '../../Menu.css';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -18,7 +19,9 @@ const Login = () => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-
+  const handleClear = (field) => {
+    setFormValues({ ...formValues, [field]: '' });
+  };
   const validate = () => {
     let tempErrors = {};
     if (!formValues.phone) tempErrors.phone = "Phone is required";
@@ -43,7 +46,7 @@ const Login = () => {
       if (data.msg === "Login success") {
         login(data.result, data.result.token);
         alert('Sign up successful!');
-        navigate('/Home')
+        navigate('/Home');
       } else {
         console.error('Login failed:', data);
       }
@@ -61,64 +64,109 @@ const Login = () => {
     e.preventDefault();
     if (validate()) {
       handleLogin(formValues);
+      setFormValues({phone:'',password:''});
     }
+    setFormValues("")
   };
+
   return (
     <Container
-      maxWidth="max-w-lg"
-      className="flex min-w-full min-h-screen bg-yellow-400 p-8"
+      maxWidth={false}
+      className="bg-custom-gradient h-screen flex items-center justify-center"
     >
-      <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div className="flex bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
-          <div className="flex justify-center items-center space-x-4 relative group w-1/2">
-            <img
-              src={img}
-              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 group-hover:blur-sm"
+      <Box display="flex" width="100%" maxWidth="1200px" height="100%">
+        {/* Image section */}
+        <Box
+          flex="1"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          position="relative"
+        >
+          <img
+            src={img}
+            alt="Login illustration"
+            className="object-cover"
+            width="450px"
+            height="450px"
+          />
+        </Box>
+
+        {/* Login form section */}
+        <Box
+          flex="1"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          padding="10rem"
+        >
+          <h2 className="text-4xl font-semibold">Welcome Back..</h2>
+          <form onSubmit={handleSubmit} className="w-full">
+            <TextField
+              name="phone"
+              variant="outlined"
+              fullWidth
+              label="Phone"
+              value={formValues.phone}
+              onChange={handleChange}
+              error={!!errors.phone}
+              helperText={errors.phone}
+              margin="normal"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="clear phone"
+                      onClick={() => handleClear('phone')}
+                      edge="end"
+                    >
+                      <ClearIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+                style:{ fontSize: '2rem' }
+              }}
+              InputLabelProps={{
+                style: { fontSize: '1.25rem' }  // Increase label text size
+              }}
             />
-            <div className="absolute inset-0 bg-opacity-25 transition-opacity duration-500 opacity-0 group-hover:opacity-100"></div>
-          </div>
-          <div className="p-8 flex flex-col justify-center w-1/2">
-            <h2 className="text-2xl font-semibold mb-2">Login</h2>
-            <form onSubmit={handleSubmit}>
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <TextField
-                    name="phone"
-                    variant="outlined"
-                    fullWidth
-                    label="Phone"
-                    value={formValues.phone}
-                    onChange={handleChange}
-                    error={!!errors.phone}
-                    helperText={errors.phone}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    name="password"
-                    variant="outlined"
-                    fullWidth
-                    label="Password"
-                    type="password"
-                    value={formValues.password}
-                    onChange={handleChange}
-                    error={!!errors.password}
-                    helperText={errors.password}
-                  />
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                sx={{ marginTop: 3 }}
-              >
-                Login
-              </Button>
-            </form>
-          </div>
-        </div>
+            <TextField
+              name="password"
+              variant="outlined"
+              fullWidth
+              label="Password"
+              type="password"
+              value={formValues.password}
+              onChange={handleChange}
+              error={!!errors.password}
+              helperText={errors.password}
+              margin="normal"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="clear password"
+                      onClick={() => handleClear('password')}
+                      edge="end"
+                    >
+                      <ClearIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+                style: { fontSize: '2rem'} 
+              }}
+              InputLabelProps={{
+                style: { fontSize: '1.25rem' }  // Increase label text size
+              }}
+            />
+            <button 
+            type='submit'
+            className="recipe-button text-3xl font-bold text-center text-black">
+              Login
+            </button>
+          </form>
+        </Box>
       </Box>
     </Container>
   );
