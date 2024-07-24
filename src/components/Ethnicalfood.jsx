@@ -142,7 +142,6 @@ const Ethnicalfood = () => {
     </Button>
   ))}
 </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {productsToDisplay.map((item, index) => (
           <div
@@ -172,7 +171,7 @@ const Ethnicalfood = () => {
                   Ingredients
                 </Button>
                 <Button
-                  onClick={() => console.log('Open recipe modal')} // Add your modal logic
+                  onClick={() => navigate('/Receipe', { state: { item:itemData } })} // Add your modal logic
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                 >
                   Recipe

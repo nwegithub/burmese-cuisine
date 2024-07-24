@@ -7,6 +7,7 @@ import categorybg from "../assets/category-bg.jpeg"
 import '../Style.css';
 import { useNavigate } from "react-router-dom";
 
+
 const Categories = (item) => {
     const navigate = useNavigate();
 
@@ -76,7 +77,6 @@ const Categories = (item) => {
                     </Grid>
                     :
                     <Grid container spacing={0}>
-
                         {filterProduct.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard

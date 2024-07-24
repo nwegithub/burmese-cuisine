@@ -25,9 +25,12 @@ const CustomerReview = () => {
     }, []);
 
 
+    console.log("fee",feedbacks)
+
+
     return (
         <div className="flex flex-col items-center bg-custom-gradient"
-            style={{ paddingLeft: '20%',paddingRight:'20%',paddingTop:20,paddingBottom:20,  width: '80%', margin: 'auto', borderTop: 'round' }}
+            style={{   width: '80%', margin: 'auto', borderTop: 'round' }}
              >
 
             <Grid container spacing={2}>
@@ -48,16 +51,7 @@ const CustomerReview = () => {
                                         {item.comment}
                                     </p>
                                 </div>
-                                <div className={index % 2 !== 0 ? 'order-1' : 'order-2'}>
-                                    <img
-                                        src={`http://localhost:4000/${item.user.profileImage}`}
-                                        // src={item.url}
-                                        className="w-20 h-20 
-                                        object-cover border-2 border-gray-200"
-                                        alt={`Customer ${index + 1}`}
-                                        style={{ borderRadius: '50%' }}
-                                    />
-                                </div>
+                               
                             </div>
                         </div>
                     </Grid>

@@ -10,7 +10,7 @@ import girl from "../../assets/44fe4345f01fc8623c95ee77b45f9f0d-removebg-preview
 const IngredientDetail = () => {
   const location = useLocation();
   const { item } = location.state;
-  const { isMya } = useAuth();
+  const {  isMya, setIsMya } = useAuth();
 
 
   const [numPeople, setNumPeople] = useState(1);
@@ -40,15 +40,18 @@ const IngredientDetail = () => {
   };
 
   return (
-    <div className='min-h-screen flex bg-cusom-gradient'>
+    <div className='min-h-screen flex bg-custom-gradient'>
     <div className="container p-20">
   <h1 
   style={{ textAlign: 'center' }}
-  className="text-4xl font-bold mb-10 title1">Ingredient Detail Calculator</h1>
+  className="text-4xl font-bold mb-10 title1">
+    {isMya ? "ပါဝင်ပစ္စည်းအသေးစိတ်တွက်စက်ရန်" : "Ingredient Detail Calculator"}
+    </h1>
   <div className="flex flex-wrap">
     <div className="w-full md:w-1/2 mb-4">
-      <label htmlFor="numPeople" className="text-3xl block font-lg font-bold text-yellow-700 mb-2 title2">
-        Number of People:
+      <label htmlFor="numPeople" className="body1">
+      {isMya ? "လူအရေအတွက်:" : "Number of People:"}
+        
       </label>
       <input
         type="number"
@@ -63,7 +66,9 @@ const IngredientDetail = () => {
             style={{ width: '350px', height: '450px',paddingTop: '20px'}} />
     </div>
     <div className="w-full md:w-1/2 mb-4">
-      <h2 className="text-3xl block font-lg font-bold text-yellow-700 mb-2 title1">Ingredients:</h2>
+      <h2 className="text-3xl block font-lg font-bold text-yellow-700 mb-2 title1">
+      {isMya ? "ပါဝင်ပစ္စည်းများ:" : " Ingredients:"}
+       </h2>
       <ul className="list-disc">
         {item.ingredients.map((ingredient) => (
           <li key={ingredient.name} className="mb-10 body1">
@@ -75,8 +80,8 @@ const IngredientDetail = () => {
       <button
         onClick={generatePDF}
         className="mt-5 bg-yellow-300 text-black p-3 rounded-md body1"
-      >
-        Voucher as PDF
+      > {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
+        
       </button>
      
     </div>
