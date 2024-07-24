@@ -31,7 +31,7 @@ const DishCard = (props) => {
                         <Button onClick={() => navigate("/IngredientDetail",{ state: { props } })}>
                             Ingredients
                         </Button>
-                        <Button onClick={() => setOpenRecipeModal(true)} style={{ paddingInline: 10, backgroundColor: 'white', color: 'black' }}>
+                        <Button onClick={() => navigate("/Recipes")} style={{ paddingInline: 10, backgroundColor: 'white', color: 'black' }}>
                             Recipe
                         </Button>
                     </div>

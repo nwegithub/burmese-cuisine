@@ -543,7 +543,7 @@ p {
 } */
 
 .tinted-blue {
-  filter: hue-rotate(#aeae69);
+  filter: hue-rotate(190deg);
 }
 
 /* index.css */

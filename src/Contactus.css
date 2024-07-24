@@ -51,12 +51,12 @@
 .contact_form {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Reduced gap */
+  gap: 8px; /* Reduced gap */
   max-width: 150px; /* Reduced width */
 }
 
 .submit {
-  margin-left: 150px; /* Adjusted alignment */
+  margin-left: 100px; /* Adjusted alignment */
 }
 
 .form_section {
@@ -95,12 +95,10 @@
     padding: 0;
   }
 }
-.contact_image img{
-  height: 300px;
-    width: 320px;
-    margin-right: 100px;
 
-}
+
+
+
 
 /* Button styles */
 .primary_btn {

@@ -17,6 +17,7 @@ import Seasonalfood from './components/Seasonalfood';
 import Ethnicalfood from './components/Ethnicalfood';
 import Contactus from './components/pages/Contactus';
 import FooterAboutUs from './components/FooterAboutUs';
+import Recipes from './components/pages/Recipes';
 import FavoritesScreen from './components/pages/FavouriteScreen';
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/FeedBack" element={<FeedBack/>}/>
           <Route path="/Contactus" element={<Contactus/>}/>
           <Route path="/FooterAboutUs" element={<FooterAboutUs/>}/>
+          <Route path='/Recipes' element={<Recipes/>} />
           <Route path="Favorite" element={<FavoritesScreen/>}/>
         </Routes>
       </div>
