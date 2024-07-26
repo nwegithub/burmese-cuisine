@@ -71,7 +71,6 @@ const Ethnicalfood = () => {
     return (
         <div className="min-h-screen p-8 bg-custom-gradient">
             <h1 className="text-4xl text-center mb-8 title1">Savor the Flavors of the Season</h1>
-
             <div style={styles.filterContainer}>
 
                 <Button
@@ -143,7 +142,7 @@ const Ethnicalfood = () => {
                             <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
                                 <Button
                                     style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                    onClick={() => navigate('/IngredientDetail', { state: { item } })}>
+                                    onClick={() => navigate('/SeasonalIngredientDetail', { state: { item } })}>
                                     Ingredients
                                 </Button>
                                 <Button

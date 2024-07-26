@@ -5,9 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import '../../Style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 
 const IngredientDetail = () => {
   const location = useLocation();
@@ -16,7 +13,6 @@ const IngredientDetail = () => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
   const userId = user && JSON.parse(user)._id;
- 
 
   useEffect(() => {
     const checkFavoriteStatus = async () => {
@@ -52,22 +48,25 @@ const IngredientDetail = () => {
         });
         localStorage.removeItem(`favorite_${userId}_${item._id}`);
         alert("Delete Successful");
+
       } else {
         await axios.post('http://localhost:4000/favorites/addFavorite', {
           userId: userId, // Replace with actual userId
           productId: item._id
         });
         localStorage.setItem(`favorite_${userId}_${item._id}`, JSON.stringify(true));
-        alert("Added Successfully");
+        alert("added Successful");
+
       }
       setIsFavorite(!isFavorite);
     } catch (error) {
       console.error('Error toggling favorite:', error);
     }
   };
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="image-section flex justify-center items-center w-full">
+    <div className="min-h-screen flex flex-col ">
+      <div className="image-section flex justify-center items-center w-full ">
         <div className="w-1/3">
           <img
             src={`http://localhost:4000/${item.image}`}
@@ -83,9 +82,9 @@ const IngredientDetail = () => {
       <div className="flex justify-center items-center mb-5">
         <button
           onClick={toggleFavorite}
-          className={`w-12 h-12 rounded-full flex items-center justify-center ${isFavorite ? 'bg-red-500' : 'bg-green-500'} text-white`}
+          className={`px-4 py-2 rounded ${isFavorite ? 'bg-red-500' : 'bg-green-500'} text-white`}
         >
-          <FontAwesomeIcon icon={isFavorite ? solidHeart : regularHeart} />
+          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
         </button>
       </div>
 
@@ -93,7 +92,8 @@ const IngredientDetail = () => {
         {(isMya ? item.ingredients : item.ingredients_mm).map((ingredient, index) => (
           <div
             key={index}
-            className="border-2 border-gray-300 rounded-lg flex items-center pl-5 align-center mb-5 hover:bg-gray-100 hover:shadow-lg transition duration-300"
+            className="border-2 border-gray-300 rounded-lg flex items-center pl-5 align-center mb-5 
+            hover:bg-gray-100 hover:shadow-lg transition duration-300 "
             style={{
               height: 60,
               transition: 'transform 0.3s ease', // Smooth transition for scaling
@@ -106,22 +106,15 @@ const IngredientDetail = () => {
         ))}
       </div>
 
-      <div className="flex justify-center items-center flex-grow mb-40">
+      <div className="flex justify-center items-center flex-grow mb-40 ">
         <button
           className='bg-custom-gradient'
-          style={{
-            color: 'black',
-            paddingTop: '2px',
-            paddingBottom: '2px',
-            width: '350px',
-            height: '70px',
+          style={{ color: 'black', paddingTop: '2px', paddingBottom: '2px', width: '350px', height: '70px',
             borderRadius: 10,
           }}
-          onClick={() => navigate("/IngredientCalculation", { state: { item } })}
+          onClick={() => navigate("/IngredientCalculation", { state: { item } })} // Changed 'props' to 'item'
         >
-          <p className='title3'>
-          {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
-            </p>
+          <p className='title3'>Ingredients Calculation</p>
         </button>
       </div>
     </div>
@@ -129,3 +122,4 @@ const IngredientDetail = () => {
 };
 
 export default IngredientDetail;
+

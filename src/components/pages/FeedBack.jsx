@@ -102,6 +102,7 @@ const FeedBack = () => {
           </div> */}
           <button type="submit" className="submit-btn">Send Feedback</button>
         </form>
+
       </div>
     </div>
   );
