@@ -30,7 +30,6 @@ const DishCard = (item) => {
             <img className="  shadow-slate-200" 
             style={{borderTopRadius: 10, width: '100%', height: isHovered ? '75%' : '80%' }} 
             src={`http://localhost:4000/${itemData.image}`} alt="img"/>
-
             {
                 isHovered ?
                     (<div className="flex justify-center space-x-1 items-center"

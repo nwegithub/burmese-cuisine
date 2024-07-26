@@ -20,6 +20,8 @@ import FooterAboutUs from './components/FooterAboutUs';
 import FavoritesScreen from './components/pages/FavouriteScreen';
 import Receipe from './components/pages/Receipe';
 import Customer from'./components/pages/Customer';
+import EthnicalIngredientDetail from './components/pages/EthnicalIngredientDetail';
+import SeasonalIngredientDeatail from './components/pages/SeasonalIngredientDetail';
 
 const App = () => {
   return (
@@ -48,6 +50,8 @@ const App = () => {
           <Route path="Favorite" element={<FavoritesScreen/>}/>
           <Route path="/Receipe" element={<Receipe/>}/>
           <Route path="/Customer" element={<Customer/>}/>
+          <Route path="/ethnicalingredientdetail" element={<EthnicalIngredientDetail/>}/>
+          <Route path="/seasonalingredientdetail" element={<SeasonalIngredientDeatail/>}/>
         </Routes>
       </div>
   );

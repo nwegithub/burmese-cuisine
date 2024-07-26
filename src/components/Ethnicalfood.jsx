@@ -167,7 +167,7 @@ const Ethnicalfood = () => {
                 <Button
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
 
-                  onClick={() => navigate("/IngredientDetail",{ state: { item } })}>
+                  onClick={() => navigate("/EthnicalIngredientDetail",{ state: { item } })}>
                   Ingredients
                 </Button>
                 <Button
