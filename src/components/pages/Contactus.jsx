@@ -26,10 +26,11 @@ const Contactus = () => {
   };
 
   return (
-    <div className="container min-h-screen">
+    <div className="container min-h-screen" style={{
+      backgroundColor: 'white'}}>
       <div className="container-section" style={{ padding: '0px 50px 50px 50px'}}>
         <div className="contact_section" style={{ padding: '0px 50px'}}>
-          <h2>CONTACT US</h2>
+          <h1>CONTACT US</h1>
           <p>
             LET'S CONNECT: WE'RE HERE TO HELP, AND WE'D LOVE TO HEAR FROM YOU! 
             WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT, YOU CAN 
