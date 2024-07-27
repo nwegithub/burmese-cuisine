@@ -24,10 +24,11 @@ const Contactus = () => {
       event.target[2].value = '';
     }
   };
-
+  
+  
   return (
     <div className="container min-h-screen" style={{
-      backgroundColor: 'white'}}>
+      backgroundColor: 'white',minHeight:"50vh"}}>
       <div className="container-section" style={{ padding: '0px 50px 50px 50px'}}>
         <div className="contact_section" style={{ padding: '0px 50px'}}>
           <h1>CONTACT US</h1>
@@ -43,21 +44,22 @@ const Contactus = () => {
             <div className="contact_form">
               <div className="top_btn">
                 <Cbutton text='VIA SUPPORT CHAT' icon={<MdMessage fontSize='20px' />} />
-                <Cbutton text='VIA CALL' icon={<FaPhoneAlt fontSize='20px' />} />
+                <a href="tel:09975315661"><Cbutton text='VIA CALL' icon={<FaPhoneAlt fontSize='20px' />} /></a>
               </div>
-              <Cbutton isOutline='true' text='VIA EMAIL FROM' icon={<HiMail fontSize='10px' />} />
+              <a href="mailto:mywethain@gmail.com" style={{ textDecoration: 'none' }}><Cbutton isOutline='true' text='VIA EMAIL FROM' icon={<HiMail fontSize='10px' />} ></Cbutton></a>
+              
             </div>
             <form onSubmit={onSubmit} className="form">
               <div className="form_control">
-                <label htmlFor="name">Name</label>
-                <input type="text" name='name' placeholder='John Peter' />
+                {/* <label htmlFor="name">Name</label> */}
+                <input type="text" name='name' placeholder='Enter your name' />
               </div>
               <div className="form_control">
-                <label htmlFor="email">Email</label>
+                {/* <label htmlFor="email">Email</label> */}
                 <input type="text" name='email' placeholder='abc@example.com' />
               </div>
               <div className="form_control">
-                <label htmlFor="text">Text</label>
+                {/* <label htmlFor="text">Text</label> */}
                 <textarea type="text" name='text' placeholder='Description' />
               </div>
               <div className="submit">
