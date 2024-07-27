@@ -7,6 +7,9 @@ import categorybg from "../assets/category-bg.jpeg"
 import '../Style.css';
 import { useNavigate } from "react-router-dom";
 
+import Home from './Home'; // Home component
+
+
 
 const Categories = (item) => {
     const navigate = useNavigate();
@@ -39,9 +42,43 @@ const Categories = (item) => {
     if (!product) {
         return <div>Loading...</div>;
     }
+
+    const handleClickHome = () => {
+        navigate('/Home');
+    };
+    const handleClickMenu = () => {
+        navigate('/Menu');
+    };
+    const handleClickCat = () => {
+        navigate('/Categories');
+    };
+
+
     return (
-        <div className=" flex-col 
-           ">
+        <div className=" flex-col bg-custom-gradient" style={{ minHeight: "60vh" }}>
+            <div className="pt-5">
+                <div className="pt-5 flex flex-row" style={{
+                    border: "2px solid #fcbf49",
+                    borderRadius: "10px", // optional: to round the corners
+                    padding: "0px 15px",
+                    backgroundColor: "#ffd670",
+                    boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.5)",
+                    width: "280px",
+                    marginRight: "5px"
+                }}>
+                    <button className="p-3" onClick={handleClickHome} type="button" >
+                        Home  /
+                    </button>
+                    <button className="p-3" onClick={handleClickMenu} type="button"
+                    >
+                        Menu /
+                    </button>
+                    <button className="p-3" onClick={handleClickCat} type="button"  >
+                        Categories
+                    </button>
+                </div>
+            </div>
+
             {/* <div className="relative " style={{ height: '40vh' }}>
                 <img
                     src={categorybg}
@@ -62,15 +99,15 @@ const Categories = (item) => {
                         {product.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
-                                item={item}
-                                    // image={item.image}
-                                    // name={item.name}
-                                    // name_mm={item.name_mm}
-                                    // ingredient={item.ingredients}
-                                    // ingredient_mm={item.ingredients_mm}
-                                    // recipe={item.recipe}
-                                    // recipe_mm={item.recipe_mm}
-                                    // category={item.category}
+                                    item={item}
+                                // image={item.image}
+                                // name={item.name}
+                                // name_mm={item.name_mm}
+                                // ingredient={item.ingredients}
+                                // ingredient_mm={item.ingredients_mm}
+                                // recipe={item.recipe}
+                                // recipe_mm={item.recipe_mm}
+                                // category={item.category}
                                 />
                             </Grid>
                         ))}
@@ -80,22 +117,22 @@ const Categories = (item) => {
                         {filterProduct.map((item) => (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
-                                item={item}
-                                    // image={item.image}
-                                    // name={item.name}
-                                    // name_mm={item.name_mm}
-                                    // ingredient={item.ingredients}
-                                    // ingredient_mm={item.ingredients_mm}
-                                    // recipe={item.recipe}
-                                    // recipe_mm={item.recipe_mm}
-                                    // category={item.category}
+                                    item={item}
+                                // image={item.image}
+                                // name={item.name}
+                                // name_mm={item.name_mm}
+                                // ingredient={item.ingredients}
+                                // ingredient_mm={item.ingredients_mm}
+                                // recipe={item.recipe}
+                                // recipe_mm={item.recipe_mm}
+                                // category={item.category}
                                 />
                             </Grid>
                         ))}
                     </Grid>
             }
             <div className="customer-review-container"
-            style={{ paddingBottom: "20%",marginTop :50 }} >
+                style={{ paddingBottom: "20%", marginTop: 50 }} >
                 <button
                     className="button-52"
                     onClick={() => handleClick(item)}>

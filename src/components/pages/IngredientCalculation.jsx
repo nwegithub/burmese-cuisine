@@ -23,19 +23,24 @@ const IngredientDetail = () => {
     const doc = new jsPDF();
     doc.text('Ingredient Detail Calculator', 20, 10);
     doc.text(`Number of People: ${numPeople}`, 20, 20);
-
+  
     const tableColumn = ['Ingredient', 'Quantity'];
     const tableRows = [];
-
-    item.ingredient.forEach((ingredient) => {
+  
+    item.ingredients.forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
       ];
       tableRows.push(ingredientData);
     });
-
-    doc.autoTable(tableColumn, tableRows, { startY: 30 });
+  
+    doc.autoTable({
+      head: [tableColumn],
+      body: tableRows,
+      startY: 30
+    });
+  
     doc.save('ingredient-details.pdf');
   };
 
@@ -54,12 +59,13 @@ const IngredientDetail = () => {
         
       </label>
       <input
-        type="number"
-        id="numPeople"
-        value={numPeople}
-        onChange={handleNumPeopleChange}
-        className="mt-1 block p-3 border border-yellow-300 rounded-md"
-      />
+  type="number"
+  id="numPeople"
+  value={numPeople}
+  onChange={handleNumPeopleChange}
+  className="mt-1 block p-4 text-4xl text-bold border border-yellow-300 rounded-md"
+/>
+
       <img
             src={girl}
             alt="img"

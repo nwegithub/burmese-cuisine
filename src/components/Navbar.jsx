@@ -132,6 +132,7 @@ const Navbar = () => {
                 <h1 className="text-xl font-semibold whitespace-nowrap">
                     {isMya ? "မြန်မာ့ရိုးရာချက်ပြုတ်နည်း" : "MyanmarCuisine"}
                 </h1>
+
             </div>
 
 
