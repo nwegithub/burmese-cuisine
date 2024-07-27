@@ -11,7 +11,7 @@ const FavoritesScreen = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchFavorites = async () => {
-      const userId = user ? JSON.parse(user)._id : null;
+      const userId = user ? user._id : null;
       if (userId) {
         try {
           const response = await axios.get(`http://localhost:4000/favorites/getFavorites/${userId}`);

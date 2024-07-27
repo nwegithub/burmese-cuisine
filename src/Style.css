@@ -1,6 +1,6 @@
 .round-image {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -39,12 +39,12 @@
   right: 0px;
   z-index: -2;
   max-width: 500px;
-  max-height: 600px;
+  max-height: 350px;
 }
 
 .home-image-section {
   max-width: 550px;
-  flex: 1;
+  flex: 0.8;
 }
 
 .home-text-section {
@@ -71,7 +71,7 @@
 
 .secondary-button {
   padding: 1rem 2.5rem;
-  background-color: #fe9e0d;
+  background-color: #e48f0f;
   font-size: 1.5rem;
   cursor: pointer;
   font-weight: 300;
@@ -87,11 +87,11 @@
 }
 
 .secondary-button:hover {
-  background-color: #e48f0f;
+  background-color: #e9f50c;
 }
 
 .about-section-container {
-  margin-top: 20rem;
+  margin-top: 10rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -193,7 +193,3 @@
     padding: 13px 50px 13px;
   }
 }
-
-
-
-

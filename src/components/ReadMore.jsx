@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Footer from './pages/Footer';
 import receipe from '../../recipie.json';
 import { Button } from 'react-scroll';
+import { useAuth } from '../Auth/AuthContext';
 
 const ReadMore = () => {
     const location = useLocation();
@@ -11,6 +12,8 @@ const ReadMore = () => {
     const [articleById,setArticleById] = useState()
     const [articleId,setArticleId] = useState()
     const [article,setArticle] = useState()
+    const {  isMya, setIsMya } = useAuth();
+
 
     useEffect(() => {
         if (item) {
@@ -51,7 +54,7 @@ const ReadMore = () => {
                         <p className="header">Welcome to...</p>
                         <img src={articleById && `http://localhost:4000/${articleById.image}`} alt={item.name} />
                         <p>
-                           {articleById && articleById.description}
+                        {articleById ? (isMya ? articleById.description_mm : articleById.description) : null}
                         </p>
                     </div>
                 </div>
@@ -66,7 +69,7 @@ const ReadMore = () => {
                                     >
                                     <img className="border-gray-300 w-1/2 transform hover:scale-105 transition duration-300" 
                                     src={`http://localhost:4000/${item.image}`} alt="img" />
-                                    <p className="ml-4 text-center">{item.name}</p>
+                                    <p className="ml-4 text-center">{isMya ? item.name_mm : item.name}</p>
                                     </Button>
                                 </div>
                             ))}

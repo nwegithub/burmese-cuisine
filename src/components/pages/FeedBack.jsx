@@ -56,7 +56,38 @@
 
 // export default Feedback;
 import React, { useState } from 'react';
-import '../../Feedback.css';// Import the CSS file
+import axios from 'axios';
+import '../../Feedback.css';
+import { useAuth } from '../../Auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+const Feedback = () => {
+  const [comment, setComment] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const { user } = useAuth();
+  const userId = user && user._id
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:4000/feedback/createFeedback', {
+        comment,
+        user: userId
+      });
+
+      if (response.status === 201) {
+        setSuccess('Feedback submitted successfully!');
+        setComment('');
+        alert('Thank you for your review')
+        navigate('/Customer');
+
+      }
+    } catch (error) {
+      setError('Failed to submit feedback');
+    }
+  };
+
 
 const FeedBack = () => {
   const [experience, setExperience] = useState('');

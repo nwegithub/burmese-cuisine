@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useAuth } from "../Auth/AuthContext";
 
 const Ethnicalfood = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -12,6 +13,7 @@ const Ethnicalfood = () => {
   const [filterProduct, setFilterProduct] = useState([]);
   const navigate = useNavigate();
   const { category } = useParams();
+  const {isMya} = useAuth();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [categorySelected, setCategorySelected] = useState('');
@@ -21,42 +23,57 @@ const Ethnicalfood = () => {
     {
       id: 1,
       img: 'https://mir-s3-cdn-cf.behance.net/projects/404/2defe6118509935.Y3JvcCwzODM1LDMwMDAsMjA4LDA.jpg',
-      category: 'Kachin'
+      category: 'Kachin',
+      category_mm:"ကချင်"
     },
     {
       id: 2,
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvNa_n2J8bw0tzvkbYNRWJjK-5lyMBGz6WpA&s',
-      category: 'Kayar'
+      category: 'Kayar',
+      category_mm:"ကယား"
+
     },
     {
       id: 3,
       img: 'https://ih1.redbubble.net/image.5232154165.6150/raf,360x360,075,t,fafafa:ca443f4786.jpg',
-      category: 'Karen'
+      category: 'Karen',
+      category_mm:"ကရင်"
+
     },
     {
       id: 4,
       img: 'https://i.pinimg.com/736x/c1/2a/9f/c12a9f27fb7046c618a37a1347d6c821.jpg',
-      category: 'Chin'
+      category: 'Chin',
+      category_mm:"ချင်း"
+
     },
     {
       id: 5,
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSErtXQnTvsGN4dnAqqpsTg5ZxKcQlDz6zQCYEJ5bOGLP3WG4b4A-KUPUCl1OEFe8IAULk&usqp=CAU',
-      category: 'Mon'
+      category: 'Mon',
+      category_mm:"မွန်"
+
     },
     {
       id: 8,
       img: 'https://i.pinimg.com/originals/84/00/ef/8400efa68538aead97e057d67fabda04.png',
-      category: 'Bamar'
+      category: 'Bamar',
+      category_mm:"ဗမာ"
+
     },
     {
       id: 6,
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzKdVu4WFrEcAuv-eAoP_DhPWGm6p7aP1MvA&s',
-      category: 'Rakhine'
+      category: 'Rakhine',
+      category_mm:"ရခိုင်"
+
     },
     {
       id: 7,
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG4UcYkPRf2ht2V7PDKf_vZA57EXo4yIuU3g&s',
-      category: 'Shan'
+      category: 'Shan',
+      category_mm:"ရှမ်း"
+
     },
    
   ];
@@ -109,6 +126,8 @@ const handleClickEthical = () => {
 
   return (
     <div className="min-h-screen p-8 bg-custom-gradient">
+      <h1 className="text-4xl text-center mb-8 title1">{isMya? "ရိုးရာဟင်းချက်နည်းများ" : "Cultural Culinary Journeys"}</h1>
+
       <div className="p-5">
                 <div className="pt-5 flex flex-row" style={{
                     border: "2px solid #fcbf49",
@@ -171,7 +190,7 @@ const handleClickEthical = () => {
         fontSize: '14px', // Adjust font size as needed
         fontWeight: 'bold'
       }}>
-        {item.category}
+        {isMya? item.category_mm: item.category}
       </span>
     </Button>
   ))}
@@ -201,20 +220,21 @@ const handleClickEthical = () => {
                 <Button
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
 
-                  onClick={() => navigate("/EthnicalIngredientDetail",{ state: { item } })}>
-                  Ingredients
+                  onClick={() => navigate("/IngredientDetail",{ state: { item } })}>
+                  {isMya? "ပါဝင်ပစ္စည်းများ" : "Ingredients"}
+
                 </Button>
                 <Button
                   onClick={() => navigate('/Receipe', { state: { item:itemData } })} // Add your modal logic
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                 >
-                  Recipe
+                  {isMya? "ချက်နည်းများ" : "Recipe"}
                 </Button>
               </div>
             ) : (
               <div className="h-1/5 flex items-center justify-center" >
                 <h3 className="body1 text-red">
-                  {item.name}
+                  {isMya? item.name_mm : item.name}
                 </h3>
               </div>
             )}

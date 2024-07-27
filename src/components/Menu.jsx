@@ -150,7 +150,7 @@ const Menu = () => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div className="bg-custom-gradient min-h-screen flex flex-col items-center">
       <h1 style={titleStyle} className='title1'>Delicioso Menus</h1>
       <div data-aos="fade-up" data-aos-delay={100} style={recipeContainerStyle}>
         {recipes.map((recipe, index) => (

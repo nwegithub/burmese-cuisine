@@ -35,31 +35,34 @@ const Login = () => {
 
   const handleLogin = async (formData) => {
     try {
-      const response = await fetch('http://localhost:4000/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+        const response = await fetch('http://localhost:4000/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
 
-      const data = await response.json();
-      if (data.msg === "Login success") {
-        login(data.result, data.result.token);
-        alert('Sign up successful!');
-        navigate('/Home');
-      } else {
-        console.error('Login failed:', data);
-      }
-      if (response.ok) {
-        console.log('Login successful', data);
-      } else {
-        console.error('Login error', data);
-      }
+        const data = await response.json();
+
+        if (response.ok) {
+            if (data.msg === "Login success") {
+                login(data.result, data.result.token);
+                alert('Login successful!');
+                navigate('/Home');
+            } else {
+                console.error('Unexpected response:', data);
+            }
+        } else {
+            alert('Login failed: ' + data.message);
+            console.error('Login error:', data);
+        }
     } catch (error) {
-      console.error('An error occurred during login', error);
+        console.error('An error occurred during login:', error);
+        alert('An error occurred. Please try again.');
     }
-  };
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,7 +76,7 @@ const Login = () => {
   return (
     <Container
       maxWidth={false}
-      className="bg-custom-gradient h-screen flex items-center justify-center"
+      className="bg-custom-gradient h-screen flex items-center justify-center "
     >
       <Box display="flex" width="100%" maxWidth="1200px" height="100%">
         {/* Image section */}

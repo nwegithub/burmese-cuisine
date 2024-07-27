@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import '../../Style.css';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
@@ -15,8 +17,8 @@ const IngredientDetail = () => {
   const { isMya, user } = useAuth();
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
-  const userId = user && JSON.parse(user)._id;
- 
+  const userId = user && user._id;
+
 
   useEffect(() => {
     const checkFavoriteStatus = async () => {
@@ -24,7 +26,7 @@ const IngredientDetail = () => {
         // Check local storage first
         const localFavoriteStatus = localStorage.getItem(`favorite_${userId}_${item._id}`);
         if (localFavoriteStatus !== null) {
-          setIsFavorite(JSON.parse(localFavoriteStatus));
+          setIsFavorite(localFavoriteStatus);
         } else {
           // Fetch from the server if not in local storage
           const response = await axios.get(`http://localhost:4000/favorites/isFavorited/${userId}/${item._id}`);
@@ -40,6 +42,7 @@ const IngredientDetail = () => {
       checkFavoriteStatus();
     }
   }, [userId, item._id]);
+
 
   const toggleFavorite = async () => {
     try {
@@ -64,7 +67,7 @@ const IngredientDetail = () => {
     } catch (error) {
       console.error('Error toggling favorite:', error);
     }
-  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <div className="image-section flex justify-center items-center w-full">
@@ -81,13 +84,24 @@ const IngredientDetail = () => {
       <h1 className='title2'>{isMya ? "ပါဝင်ပစ္စည်းများ" : "Our family Secret Ingredients"}</h1>
 
       <div className="flex justify-center items-center mb-5">
-        <button
-          onClick={toggleFavorite}
-          className={`w-12 h-12 rounded-full flex items-center justify-center ${isFavorite ? 'bg-red-500' : 'bg-green-500'} text-white`}
-        >
-          <FontAwesomeIcon icon={isFavorite ? solidHeart : regularHeart} />
-        </button>
-      </div>
+      <button
+        onClick={toggleFavorite}
+        className={`relative px-4 py-2 rounded ${isFavorite ? 'bg-red-500' : 'bg-green-500'} text-white flex items-center justify-center`}
+      >
+        {isFavorite ? (
+          <FavoriteIcon
+            style={{ fontSize: '3rem' }}
+            className="text-white"
+          />
+        ) : (
+          <FavoriteBorderIcon
+            style={{ fontSize: '3rem' }}
+            className="text-white"
+          />
+        )}
+      </button>
+    </div>
+    
 
       <div style={{ padding: 100 }}>
         {(isMya ? item.ingredients : item.ingredients_mm).map((ingredient, index) => (
@@ -110,6 +124,7 @@ const IngredientDetail = () => {
         <button
           className='bg-custom-gradient'
           style={{
+
             color: 'black',
             paddingTop: '2px',
             paddingBottom: '2px',
@@ -120,8 +135,8 @@ const IngredientDetail = () => {
           onClick={() => navigate("/IngredientCalculation", { state: { item } })}
         >
           <p className='title3'>
-          {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
-            </p>
+            {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
+          </p>
         </button>
       </div>
     </div>

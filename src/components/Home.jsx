@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Button from "../layouts/Button";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -7,12 +7,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import arr from "../../recipie.json"
-import { Container, Grid } from "@mui/material";
 import Footer from "./pages/Footer";
 import BannerBackground from "../assets/home-banner-background.png";
 import '../Style.css';
 import teasalad from '../assets/teasalad-removebg-preview.png';
-import { red } from "@mui/material/colors";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -21,17 +19,20 @@ import LearnMore from "../components/LearnMore";
 import CustomerReview from "./pages/CustomerReview";
 import axios from "axios";
 import { useAuth } from '../Auth/AuthContext';
+import { Button } from '@mui/material';
+import HomeArticle from "./pages/HomeArticle";
+
 
 const Home = (props, item, handleClick) => {
   const aboutRef = useRef(null);
   const [favorites, setFavorites] = useState([]);
-  const {  isMya, setIsMya } = useAuth();
+  const { isMya, setIsMya } = useAuth();
 
-//   const handleLanguage = async (lang) => {
-//     setIsMya(lang === 'mm');
-//     await localStorage.setItem('language', lang);
-//     console.log("state", lang);
-// };
+  //   const handleLanguage = async (lang) => {
+  //     setIsMya(lang === 'mm');
+  //     await localStorage.setItem('language', lang);
+  //     console.log("state", lang);
+  // };
 
   const handleGet = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -64,24 +65,24 @@ const Home = (props, item, handleClick) => {
 
   return (
     <>
-      <div className="home-banner-container min-h-screen flex ">
+      <div className="home-banner-container" style={{ minHeight: '50vh' }}>
         <div className="home-bannerImage-container">
           <img
-            className="tinted-blue"
+            className="tinted-color"
             src={BannerBackground}
           />
         </div>
         <div className="home-text-section md:p-10">
           <h1 className="primary title1">
-          {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
+            {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
           <p data-aos="fade-up" className="primary-text body1">
-          {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
-           </p>
+            {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
+          </p>
           <div className="secondary-button">
             <button onClick={handleGet}>
-            {isMya ? "စတင်ရန်" : " Get Started"}
-             <ArrowForwardIcon className="ml-3" />
+              {isMya ? "စတင်ရန်" : " Get Started"}
+              <ArrowForwardIcon className="ml-3" />
             </button>
           </div>
         </div>
@@ -99,8 +100,9 @@ const Home = (props, item, handleClick) => {
       <Aboutus ref={aboutRef} />
 
 
+      <HomeArticle />
 
-      <CustomerReview/>
+      <CustomerReview />
       {/* <Swiper effect={'coverflow'} grabCursor={true}
         centeredSlides={true} loop={true} slidesPerView={'auto'}
         coverflowEffect={{

@@ -26,7 +26,7 @@ const Navbar = () => {
     const [profileImage, setProfileImage] = useState(null);
     const [message, setMessage] = useState('');
     const [anchorEl, setAnchorEl] = useState(null);
-    const userId = user && JSON.parse(user)._id
+    const userId = user && user._id
 
 
     const handleLanguage = async (lang) => {
@@ -60,7 +60,6 @@ const Navbar = () => {
         };
     }, []);
 
-    console.log("userid", user)
 
 
     const handleClick = (event) => {
@@ -113,7 +112,7 @@ const Navbar = () => {
             .join('');
     };
 
-    const userName = user ? JSON.parse(user).name : '';
+    const userName = user ? user.name : '';
     const initials = getInitials(userName);
 
 
@@ -126,12 +125,16 @@ const Navbar = () => {
             sx={{ position: "sticky", top: 0, backgroundColor: "#FFFFFF", boxShadow: "0px 3px 2px -2px gray", paddingLeft: 2, paddingRight: 2 }}
             zIndex={900}
         >
-            <div className='flex flex-row items-center cursor-pointer'>
+            <div className="flex flex-row items-center cursor-pointer space-x-2">
                 <span>
                     <BiRestaurant size={32} />
                 </span>
-                <h1 className='text-xl font-semibold'>MyanmarCuisine</h1>
+                <h1 className="text-xl font-semibold whitespace-nowrap">
+                    {isMya ? "မြန်မာ့ရိုးရာချက်ပြုတ်နည်း" : "MyanmarCuisine"}
+                </h1>
+
             </div>
+
 
             {/* Menu icon for mobile view */}
             <div className='md:hidden'>
@@ -375,12 +378,12 @@ const Navbar = () => {
                         >
                             <li>
                                 <Link
-                                         to='/favorite'
-                                         spy="true"
-                                         smooth="true"
-                                         duration={500}
-                                         className={`${getLinkClassName('/favorite')} transition-all cursor-pointer`}
-                                         onClick={closeMenu}
+                                    to='/favorite'
+                                    spy="true"
+                                    smooth="true"
+                                    duration={500}
+                                    className={`${getLinkClassName('/favorite')} transition-all cursor-pointer`}
+                                    onClick={closeMenu}
                                 >
                                     <p className='body2 hover:text-red-500'>
                                         {isMya ? "ကြိုက်နှစ်သက်သော" : "Favorite"}
@@ -391,7 +394,7 @@ const Navbar = () => {
                                 <button onClick={logout} >
 
                                     <p className='body2 hover:text-red-500'>
-                                    {isMya ? 'ထွက်ရန်' : 'Logout'}                                    
+                                        {isMya ? 'ထွက်ရန်' : 'Logout'}
                                     </p>
                                 </button>
                             </li>
