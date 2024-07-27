@@ -147,14 +147,13 @@ const Ethnicalfood = () => {
 
     return (
         <div className="min-h-screen p-8 bg-custom-gradient">
-            <h1 className="text-4xl text-center mb-8 title1">{isMya? "ရာသီစာများရဲ့အရသာကိုခံစားကြည့်ပါ" : "Savor the Flavors of the Seasonal Food"}</h1>
             <div className="p-5">
                 <div className="pt-5 flex flex-row" style={{
                     border: "2px solid #fcbf49",
                     borderRadius: "10px", // optional: to round the corners
                     padding: "0px 15px",
                     backgroundColor: "#ffd670",
-                    boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.5)",
+                    // boxShadow: "0px rgba(0, 0, 0, 0.5)",
                     width: "280px",
                     marginRight: "5px"
                 }}>
@@ -170,7 +169,7 @@ const Ethnicalfood = () => {
                     </button>
                 </div>
             </div>
-            <h1 className="text-4xl text-center mb-8 title1">Savor the Flavors of the Season</h1>
+            <h1 className="text-4xl text-center mb-8 title1">{isMya? "ရာသီစာများရဲ့အရသာကိုခံစားကြည့်ပါ" : "Savor the Flavors of the Seasonal Food"}</h1>
             <div style={styles.filterContainer}>
 
                 <Button

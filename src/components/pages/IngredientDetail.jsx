@@ -142,5 +142,6 @@ const IngredientDetail = () => {
     </div>
   );
 };
+}
 
 export default IngredientDetail;
