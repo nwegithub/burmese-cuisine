@@ -680,3 +680,16 @@ footer .menu li a:hover {
   font-size: 0.875rem;
   color: #777;
 }
+
+.blurred-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -53,29 +53,30 @@ const SignUp = () => {
         },
         body: JSON.stringify(formData)
       });
+  
       const data = await response.json();
+  
       if (response.ok) {
         console.log('Sign-up successful', data);
-        // Clear form values
         setFormValues({
           name: '',
           phone: '',
           email: '',
           password: ''
         });
-        // Optionally clear local storage
         localStorage.removeItem('formValues');
-        alert("Sign Up successful")
+        alert("Sign Up successful");
         navigate('/login');
       } else {
         console.error('Sign-up error', data);
-        alert("Sign Up failed")
-
+        alert(`Sign Up failed: ${data.message || 'Unknown error'}`);
       }
     } catch (error) {
       console.error('An error occurred during sign-up', error);
+      alert('An error occurred during sign-up. Please try again.');
     }
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

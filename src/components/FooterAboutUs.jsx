@@ -1,8 +1,11 @@
 import React from 'react'
 import '../FooterAboutUs.css'
+import Chef from '../assets/chef.jpg'
+import Vegitables from '../assets/vegitables.jpg'
+import Promise from '../assets/promise.jpg'
 import { useAuth } from '../Auth/AuthContext';
 
-export default function FooterAboutUs() {
+ const  FooterAboutUs = ()  =>{
   const {  isMya, setIsMya } = useAuth();
   function fok() {
     var j = document.getElementById("arr");
@@ -10,35 +13,35 @@ export default function FooterAboutUs() {
       "url(https://cdn.iconscout.com/icon/premium/png-64-thumb/chevron-arrow-3883460-3231250.png)";
   }
 
-  function kof() {
-    var j = document.getElementById("arr");
-    j.style.backgroundImage =
-      "url(https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png)";
-  }
+  // function kof() {
+  //   var j = document.getElementById("arr");
+  //   j.style.backgroundImage =
+  //     "url(https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png)";
+  // }
 
-  function gok() {
-    let j = document.getElementById("brr");
-    j.style.backgroundImage =
-      "url(https://cdn.iconscout.com/icon/premium/png-64-thumb/chevron-arrow-3883460-3231250.png)";
-  }
+  // function gok() {
+  //   let j = document.getElementById("brr");
+  //   j.style.backgroundImage =
+  //     "url(https://cdn.iconscout.com/icon/premium/png-64-thumb/chevron-arrow-3883460-3231250.png)";
+  // }
 
-  function kog() {
-    let j = document.getElementById("brr");
-    j.style.backgroundImage =
-      "url(https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png)";
-  }
+  // function kog() {
+  //   let j = document.getElementById("brr");
+  //   j.style.backgroundImage =
+  //     "url(https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png)";
+  // }
 
-  function hok() {
-    let j = document.getElementById("crr");
-    j.style.backgroundImage =
-      "url(https://cdn.iconscout.com/icon/premium/png-64-thumb/chevron-arrow-3883460-3231250.png)";
-  }
+  // function hok() {
+  //   let j = document.getElementById("crr");
+  //   j.style.backgroundImage =
+  //     "url(https://cdn.iconscout.com/icon/premium/png-64-thumb/chevron-arrow-3883460-3231250.png)";
+  // }
 
-  function koh() {
-    let j = document.getElementById("crr");
-    j.style.backgroundImage =
-      "url(https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png)";
-  }
+  // function koh() {
+  //   let j = document.getElementById("crr");
+  //   j.style.backgroundImage =
+  //     "url(https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png)";
+  // }
 
   window.onscroll = function () {
     jet();
@@ -68,7 +71,7 @@ export default function FooterAboutUs() {
     <div className="App">
      
       <main>
-        <div id="front">
+        <div id="front" style={{minHeight : '50vh'}}>
           <h1 style={{ textAlign: "center" }} className='title1'>
           {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
@@ -85,7 +88,7 @@ export default function FooterAboutUs() {
        
 
 
-        <div id="second" className="reveal">
+        <div id="second" className="reveal" style={{width:'100%'}}>
           <div className="container">
             <div>
               <h1 className="title2"> {isMya ? "Myanmar Cuisineမှပေးနိုင်သည့်အရာ " : "What We Offer"}</h1>
@@ -95,7 +98,7 @@ export default function FooterAboutUs() {
               </p>
             </div>
             <img
-              src="https://cdni.iconscout.com/illustration/premium/thumb/men-and-woman-characters-work-together-on-project-presentation-2706075-2259871.png"
+              src={Chef}
               alt=""
             />
           </div>
@@ -108,7 +111,7 @@ export default function FooterAboutUs() {
               </p>
             </div>
             <img
-              src="https://cdni.iconscout.com/illustration/premium/thumb/business-partnership-2975816-2476892.png"
+              src={Vegitables}
               style={{ marginTop: "50px" }}
               alt=""
             />
@@ -122,25 +125,22 @@ export default function FooterAboutUs() {
               </p>
             </div>
             <img
-              src="https://cdni.iconscout.com/illustration/premium/thumb/business-goal-4352585-3618767.png"
+              src={Promise}
               style={{ marginTop: "80px" }}
               alt=""
             />
           </div>
           
         </div>
-
-        
-
         <div id="fifth" className="reveal">
           <h1 className="title1">{isMya ? "ဆက်သွယ်ရန်" : "Contact"}</h1>
           <div>
             <a href={{}}>
               <img
-                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/address-blue-circle-location-map-marker-navigation-icon-45868.png"
+                src="https://cdn.iconscout.com/icon/premium/png-64-thumb/address-blue-circlelocation-map-marker-navigation-icon-45868.png"
                 alt=" "
               />
-              <span>
+               <span>
                 <h3 className="body1">{isMya ? "လိပ်စာ" : "Address"}</h3>
                 <p className="body1">{isMya ? "ကွန်ပျူတာတက္ကသိုလ်(သထုံ)" : "Computer University Thaton"}</p>
               </span>
@@ -257,3 +257,4 @@ export default function FooterAboutUs() {
     </div>
   );
 }
+export default FooterAboutUs;

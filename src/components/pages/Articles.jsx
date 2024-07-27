@@ -8,26 +8,39 @@ import '../../Article.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useAuth } from '../../Auth/AuthContext';
+import { Button } from '@mui/material';
+
+const categoryArr = [
+    {
+        id:1,
+        category:"SUMMER",
+    },
+    {
+        id:2,
+        category:"RAINY SEASON",
+    },
+    {
+        id:3,
+        category:"WINTER",
+    },
+]
 
 const Articles = () => {
     const navigate = useNavigate();
     const [article, setArticle] = useState([]);
     const {  isMya, setIsMya } = useAuth();
+    const [categorySelected, setCategorySelected] = useState('');
+    const [filterProduct, setFilterProduct] = useState([]);
+
 
     const handleClick = (item) => {
-        navigate("/Favorite");
+        navigate("/Readmore",{ state: { item } });
     };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const countWords = (text) => {
-        if (!text) {
-            return 0;
-        }
-        return text.trim().split(/\s+/).length;
-    };
 
     const truncateText = (text, maxWords) => {
         if (!text) {
@@ -51,14 +64,28 @@ const Articles = () => {
             });
     }, []);
 
-    if (!article) {
+    useEffect(() => {
+        if (categorySelected) {
+            setFilterProduct(article.filter(item => item.category === categorySelected.category));
+        } else {
+            setFilterProduct(article);
+        }
+    }, [categorySelected, article]);
+
+    const newArr1 = [{ category: "All",}]
+
+    const newCategoryData = newArr1.concat(categoryArr)
+    const productsToDisplay = categorySelected.category === "All" ? article : filterProduct;
+
+
+    if (!productsToDisplay) {
         return <div>Loading...</div>;
     }
 
     return (
         <div >
             <div                             data-aos="fade-in"
- className="promotion-banner-container bg-custom-gradient">
+ className="promotion-banner-container bg-custom-gradient " style={{maxHeight:'60vh'}}>
                 <div className="content-image-wrapper ">
                     <div className="content-container" style={{ marginLeft: '20px' }}>
                         <p className="header title1" style={{ textAlign: 'center' }}>
@@ -75,10 +102,38 @@ const Articles = () => {
                 </div>
             </div>
 
+            <div  style={styles.scrollContainer}>
+                    {newCategoryData.map((item, index) => (
+                        <Button
+                            key={index}
+                            data-aos="fade-left"
+                            data-aos-delay={100}
+                            onClick={() => setCategorySelected(item)}
+                            style={{
+                                margin: '0 10px',
+                                backgroundColor: categorySelected === item ? '#42eff5' : '#FFFFFF',
+                                
+                                borderRadius: '10px', // Adjust the radius as needed
+                                padding: '10px',
+                                paddingRight:'20px',
+                                paddingLeft:'20px'
+
+                            }}
+                        >
+                            <span className="body1" style={{
+                                color: categorySelected === item ? 'black' : 'red'
+                            }}>
+                                {item.category}
+                            </span>
+                        </Button>
+                    ))}
+                </div>
+                
+
             <Grid container spacing={2} style={{ marginTop: '10px', padding: '30px' }}>
-                {article.map((item, index) => {
+                {productsToDisplay.map((item, index) => {
                     const reverse = index % 2 !== 0;
-                    const truncatedDescription = truncateText(item.description, 30);
+                    const truncatedDescription = truncateText(isMya ? item.description_mm : item.description, 30);
 
                     return (
                         <Grid
@@ -123,3 +178,30 @@ const Articles = () => {
 };
 
 export default Articles;
+
+
+const styles = {
+    filterContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '30px',
+    },
+    scrollContainer: {
+        display: 'flex',
+        overflowX: 'auto',
+        width: '100%',
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:80,
+    },
+    button: {
+        backgroundColor: 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+    },
+    icon: {
+        width: 24,
+        height: 24,
+    },
+
+};

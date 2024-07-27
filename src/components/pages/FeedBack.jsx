@@ -9,7 +9,7 @@ const Feedback = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const { user } = useAuth();
-  const userId = user && JSON.parse(user)._id
+  const userId = user && user._id
   const navigate = useNavigate();
 
   const handleSubmit = async () => {

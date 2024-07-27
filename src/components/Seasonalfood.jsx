@@ -5,6 +5,72 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useAuth } from "../Auth/AuthContext";
+
+const categoryArr = [
+    {
+        id: 1,
+        category: "Tagu",
+        category_mm: "တန်ခူးလ"
+    },
+    {
+        id: 2,
+        category: "Kasone",
+        category_mm: "ကဆုန်လ"
+    },
+    {
+        id: 3,
+        category: "Nayon",
+        category_mm: "နယုန်လ"
+    },
+    {
+        id: 4,
+        category: "Warso",
+        category_mm: "ဝါဆိုလ"
+    },
+    {
+        id: 5,
+        category: "Warkaung",
+        category_mm: "ဝါခေါင်လ"
+    },
+    {
+        id: 6,
+        category: "Tawthalin",
+        category_mm: "တော်တလင်းလ"
+    },
+    {
+        id: 7,
+        category: "Thadinkyut",
+        category_mm: "သီတင်းကျွတ်လ"
+    },
+    {
+        id: 8,
+        category: "Tasaungmone",
+        category_mm: "တန်ဆောင်မုန်း လ"
+    },
+    {
+        id: 9,
+        category: "Nataw",
+        category_mm: "နတ်တော်လ"
+    },
+    {
+        id: 10,
+        category: "Pyartho",
+        category_mm: "ပြာသိုလ"
+    },
+    {
+        id: 11,
+        category: "Tapohtwe",
+        category_mm: "တပို့တွဲလ"
+    },
+    {
+        id: 12,
+        category: "Tapaung",
+        category_mm: "တပေါင်းလ"
+    },
+
+]
+
 
 const Ethnicalfood = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -12,6 +78,7 @@ const Ethnicalfood = () => {
     const [filterProduct, setFilterProduct] = useState([]);
     const navigate = useNavigate();
     const { category } = useParams();
+    const { isMya } = useAuth()
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [categorySelected, setCategorySelected] = useState('');
@@ -58,10 +125,11 @@ const Ethnicalfood = () => {
         }
     };
 
-    const newArr1 = [{ category: "All", }]
+    const newArr1 = [{ category: "All", category_mm: "အားလုံး" }]
 
-    const newCategoryData = newArr1.concat(product)
+    const newCategoryData = newArr1.concat(categoryArr)
     const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
+
 
 
     if (!productsToDisplay) {
@@ -70,7 +138,7 @@ const Ethnicalfood = () => {
 
     return (
         <div className="min-h-screen p-8 bg-custom-gradient">
-            <h1 className="text-4xl text-center mb-8 title1">Savor the Flavors of the Season</h1>
+            <h1 className="text-4xl text-center mb-8 title1">{isMya? "ရာသီစာများရဲ့အရသာကိုခံစားကြည့်ပါ" : "Savor the Flavors of the Seasonal Food"}</h1>
             <div style={styles.filterContainer}>
 
                 <Button
@@ -80,7 +148,10 @@ const Ethnicalfood = () => {
                 >
                     <ArrowBackIosIcon />
                 </Button>
-                <div ref={flatListRef} style={styles.scrollContainer}>
+                <div
+                    ref={flatListRef}
+                    style={{ display: 'flex', overflowX: 'auto', padding: '10px 0' }}
+                >
                     {newCategoryData.map((item, index) => (
                         <Button
                             key={index}
@@ -90,21 +161,28 @@ const Ethnicalfood = () => {
                             style={{
                                 margin: '0 10px',
                                 backgroundColor: categorySelected === item ? '#42eff5' : '#FFFFFF',
-                                width: 200,
-                                height: 50,
-                                borderRadius: '10px', // Adjust the radius as needed
-                                padding: '10px',
-
+                                display: 'flex',
+                                borderRadius: '10px',
+                                padding: '10px 20px',
+                                whiteSpace: 'nowrap',
+                                textOverflow: 'ellipsis',
+                                overflow: 'hidden',
+                                flexShrink: 0,
+                                maxWidth: '150px', // Adjust max width as needed
                             }}
                         >
-                            <span className="body1" style={{
-                                color: categorySelected === item ? 'black' : 'red'
-                            }}>
-                                {item.category}
+                            <span
+                                className="body1"
+                                style={{
+                                    color: categorySelected === item ? 'black' : 'red'
+                                }}
+                            >
+                                {isMya ? item.category_mm : item.category}
                             </span>
                         </Button>
                     ))}
                 </div>
+
 
                 <Button
                     disabled={currentIndex === product.length - 1}
@@ -119,48 +197,48 @@ const Ethnicalfood = () => {
                 {
 
 
-                productsToDisplay.map((item, index) => (
-                    <div
-                        key={index}
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
-                        data-aos="fade-up"
-                        data-aos-delay={100}
-                        className="border-2 border-gray-300 rounded-lg"
-                        style={{
-                            height: 290,
-                            transition: 'transform 0.3s ease', // Smooth transition for scaling
-                            transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)', // Slightly larger on hover
-                        }}
-                    >
-                        <img
-                            className="w-full h-4/5 object-cover rounded-t-lg"
-                            src={`http://localhost:4000/${item.image}`}
-                            alt="img"
-                        />
-                        {hoveredIndex === index ? (
-                            <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
-                                <Button
-                                    style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                    onClick={() => navigate('/IngredientDetail', { state: { item } })}>
-                                    Ingredients
-                                </Button>
-                                <Button
-                                    onClick={() => navigate('/Receipe', { state: { item } })}
-                                    style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                >
-                                    Recipe
-                                </Button>
-                            </div>
-                        ) : (
-                            <div className="h-1/5 flex items-center justify-center" >
-                                <h3 className="body1 text-white">
-                                    {item.name}
-                                </h3>
-                            </div>
-                        )}
-                    </div>
-                ))}
+                    productsToDisplay.map((item, index) => (
+                        <div
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                            data-aos="fade-up"
+                            data-aos-delay={100}
+                            className="border-2 border-gray-300 rounded-lg"
+                            style={{
+                                height: 290,
+                                transition: 'transform 0.3s ease', // Smooth transition for scaling
+                                transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)', // Slightly larger on hover
+                            }}
+                        >
+                            <img
+                                className="w-full h-4/5 object-cover rounded-t-lg"
+                                src={`http://localhost:4000/${item.image}`}
+                                alt="img"
+                            />
+                            {hoveredIndex === index ? (
+                                <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
+                                    <Button
+                                        style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
+                                        onClick={() => navigate('/IngredientDetail', { state: { item } })}>
+                                        Ingredients
+                                    </Button>
+                                    <Button
+                                        onClick={() => navigate('/Receipe', { state: { item } })}
+                                        style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
+                                    >
+                                        Recipe
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div className="h-1/5 flex items-center justify-center" >
+                                    <h3 className="body1 text-white">
+                                        {isMya? item.name_mm :  item.name}
+                                    </h3>
+                                </div>
+                            )}
+                        </div>
+                    ))}
 
             </div>
         </div>
