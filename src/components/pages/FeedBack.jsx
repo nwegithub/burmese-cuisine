@@ -56,38 +56,7 @@
 
 // export default Feedback;
 import React, { useState } from 'react';
-import axios from 'axios';
-import '../../Feedback.css';
-import { useAuth } from '../../Auth/AuthContext';
-import { useNavigate } from 'react-router-dom';
-
-const Feedback = () => {
-  const [comment, setComment] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const { user } = useAuth();
-  const userId = user && user._id
-  const navigate = useNavigate();
-
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post('http://localhost:4000/feedback/createFeedback', {
-        comment,
-        user: userId
-      });
-
-      if (response.status === 201) {
-        setSuccess('Feedback submitted successfully!');
-        setComment('');
-        alert('Thank you for your review')
-        navigate('/Customer');
-
-      }
-    } catch (error) {
-      setError('Failed to submit feedback');
-    }
-  };
-
+import '../../Feedback.css';// Import the CSS file
 
 const FeedBack = () => {
   const [experience, setExperience] = useState('');
@@ -117,23 +86,9 @@ const FeedBack = () => {
           <div className="description">
             <textarea placeholder="Describe your experience here..." value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
           </div>
-          {/* <div className="feedback-type">
-            <label>
-              <input type="radio" value="bug" checked={feedbackType === 'bug'} onChange={(e) => setFeedbackType(e.target.value)} />
-              Bug
-            </label>
-            <label>
-              <input type="radio" value="suggestion" checked={feedbackType === 'suggestion'} onChange={(e) => setFeedbackType(e.target.value)} />
-              Suggestion
-            </label>
-            <label>
-              <input type="radio" value="others" checked={feedbackType === 'others'} onChange={(e) => setFeedbackType(e.target.value)} />
-              Others
-            </label>
-          </div> */}
+          
           <button type="submit" className="submit-btn">Send Feedback</button>
         </form>
-
       </div>
     </div>
   );

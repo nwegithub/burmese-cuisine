@@ -126,7 +126,6 @@ const handleClickEthical = () => {
 
   return (
     <div className="min-h-screen p-8 bg-custom-gradient">
-      <h1 className="text-4xl text-center mb-8 title1">{isMya? "ရိုးရာဟင်းချက်နည်းများ" : "Cultural Culinary Journeys"}</h1>
 
       <div className="p-5">
                 <div className="pt-5 flex flex-row" style={{
@@ -134,7 +133,7 @@ const handleClickEthical = () => {
                     borderRadius: "10px", // optional: to round the corners
                     padding: "0px 15px",
                     backgroundColor: "#ffd670",
-                    boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.5)",
+                    // boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.5)",
                     width: "280px",
                     marginRight: "5px"
                 }}>
@@ -150,9 +149,9 @@ const handleClickEthical = () => {
                     </button>
                 </div>
             </div>
+            <h1 className="text-4xl text-center mb-8 title1">{isMya? "ရိုးရာဟင်းချက်နည်းများ" : "Cultural Culinary Journeys"}</h1>
 
 
-      <h1 className="text-4xl text-center mb-8 title1">Cultural Culinary Journeys</h1>
 
       <div ref={flatListRef} style={styles.scrollContainer}>
   {newCategoryData.map((item, index) => (
