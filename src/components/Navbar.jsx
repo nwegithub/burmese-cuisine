@@ -130,7 +130,7 @@ const Navbar = () => {
                 <span>
                     <BiRestaurant size={32} />
                 </span>
-                <h1 className='text-xl font-semibold'>BurmeseCuisine</h1>
+                <h1 className='text-xl font-semibold'>MyanmarCuisine</h1>
             </div>
 
             {/* Menu icon for mobile view */}

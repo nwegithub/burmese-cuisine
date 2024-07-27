@@ -31,7 +31,7 @@
 .form_control input {
   height: 25px; /* Reduced height */
   border: 1px solid black;
-  margin-top: 10px; /* Reduced margin */
+  margin-top: 20px; /* Reduced margin */
   padding-left: 20px; /* Reduced padding */
   background-color: #eae0cc
 }
