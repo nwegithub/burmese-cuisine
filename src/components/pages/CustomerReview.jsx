@@ -36,8 +36,8 @@ const CustomerReview = () => {
 
     return (
         <div
-            className="flex flex-col items-center bg-custom-gradient py-12 px-4"
-            style={{ marginTop: 80, maxHeight: '100vh' }} // Adjusted value
+            className="flex flex-col items-center"
+            style={{ marginTop: 80, maxHeight: '100vh',backgroundColor:'#6FDCE3' }} // Adjusted value
         >
             <h1 className="text-3xl font-bold mb-8">
                 {isMya ? "ကြည့်ရှုသူများ၏အကြံပြုချက်များ" : "Customer Reviews"}
@@ -60,12 +60,14 @@ const CustomerReview = () => {
                     </div>
                 ))}
             </div>
+            <div className="pb-5">
             <button
                 onClick={() => navigate('/Customer')}
-                className="bg-custom-yellow text-black px-5 py-4 rounded-full font-bold hover:bg-yellow-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-10"
+                className="bg-custom-yellow text-white px-5 py-4 rounded-full font-bold hover:bg-yellow-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-10"
             >
                 {isMya ? "ကြည့်ရန်" : "View All"}
             </button>
+            </div>
         </div>
 
     );

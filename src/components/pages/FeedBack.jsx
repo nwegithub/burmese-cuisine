@@ -1,94 +1,72 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import '../../Feedback.css';
-// import { useAuth } from '../../Auth/AuthContext';
-
-// const Feedback = () => {
-//   const [comment, setComment] = useState('');
-//   const [error, setError] = useState('');
-//   const [success, setSuccess] = useState('');
-//   const { user } = useAuth();
-//   const userId = user && JSON.parse(user)._id
-
-//   const handleSubmit = async () => {
-//     try {
-//       const response = await axios.post('http://localhost:4000/feedback/createFeedback', {
-//         comment,
-//         user: userId
-//       });
-
-//       if (response.status === 201) {
-//         setSuccess('Feedback submitted successfully!');
-//         setComment('');
-//         alert('Thank you for your review')
-
-//       }
-//     } catch (error) {
-//       setError('Failed to submit feedback');
-//     }
-//   };
-
-//   console.log("user",userId)
-
-//   return (
-//     <div className="feedback-container bg-custom-gradient h-screen">
-//       <div className="modal">
-//         <div className="modal-header">
-//           <h2>We value your opinion.</h2>
-//         </div>
-//         <div className="modal-body">
-//           <p>How would you rate your overall experience?</p>
-//           <textarea
-//             value={comment}
-//             onChange={(e) => setComment(e.target.value)}
-//             placeholder="Kindly take a moment to tell us what you think."
-//           />
-//         </div>
-//         <div className="modal-footer">
-//           <button className="feedback-button" onClick={handleSubmit}>Share my feedback</button>
-//         </div>
-//         {error && <p className="error-message">{error}</p>}
-//         {success && <p className="success-message">{success}</p>}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Feedback;
 import React, { useState } from 'react';
-import '../../Feedback.css';// Import the CSS file
+import axios from 'axios';
+import '../../Feedback.css'; // Import the CSS file
+import { useAuth } from '../../Auth/AuthContext';
 
 const FeedBack = () => {
   const [experience, setExperience] = useState('');
   const [description, setDescription] = useState('');
-  const [feedbackType, setFeedbackType] = useState('');
+  const [comment, setComment] = useState(''); // Assuming comment is supposed to be description
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ experience, description, feedbackType });
-    // Handle form submission logic here
+  const { user,isMya } = useAuth();
+  
+
+  // Ensure user is parsed correctly
+  let userId;
+  try {
+    userId = user && (typeof user === 'string' ? JSON.parse(user)._id : user._id);
+  } catch (parseError) {
+    console.error('Error parsing user:', parseError);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+    try {
+      const response = await axios.post('http://localhost:4000/feedback/createFeedback', {
+        comment: description, // Assuming this is the actual feedback text
+        user: userId,
+      });
+
+      if (response.status === 201) {
+        setSuccess('Feedback submitted successfully!');
+        setDescription(''); // Clear the description after submission
+        alert('Thank you for your review');
+      }
+    } catch (error) {
+      setError('Failed to submit feedback');
+    }
   };
-
+  
+  console.log("userId:", userId);
   return (
-    <div className="feedback-form-container min-h-screen bg-custom-gradient" style={{minHeight:"50vh"}}>
+    <div className="feedback-form-container min-h-screen bg-custom-gradient" style={{minHeight: "50vh"}}>
       <div className="feedback-form">
-        <h2>Send us your feedback!</h2>
-        <p>Do you have a suggestion? Let us know in the field below.</p>
+        <h2>
+          {isMya ? "သင်၏အကြံပြုချက်ကိုပေးရန်!" : "Send us your feedback!"}
+        </h2>
+        <p>{isMya?"အကြံပြုချက်ရှိပါသလား?":"Do you have a suggestion? "}</p>
+        
         <form onSubmit={handleSubmit}>
           <div className="experience">
-            <label>How was your experience?</label>
+          <label>{isMya?"ရှိခဲ့လျှင်အောက်မှာရေးပေးပါ":" Let us know in the field below."}</label>
+         
+            {/* <label>How was your experience?</label> */}
             <div className="experience-options">
-              <p type="button" className={`experience-btn ${experience === 'good' ? 'selected' : ''}`}  style={{fontSize:"50px"}}>😊</p>
-              <p type="button" className={`experience-btn ${experience === 'neutral' ? 'selected' : ''}`}  style={{fontSize:"50px",marginLeft:"15px",marginRight:"15px"}}>😐</p>
-              <p type="button" className={`experience-btn ${experience === 'bad' ? 'selected' : ''}`}  style={{fontSize:"50px"}}>😞</p>
+              <p type="button" className={`experience-btn ${experience === 'good' ? 'selected' : ''}`} onClick={() => setExperience('good')} style={{fontSize: "50px"}}>😊</p>
+              <p type="button" className={`experience-btn ${experience === 'neutral' ? 'selected' : ''}`} onClick={() => setExperience('neutral')} style={{fontSize: "50px", marginLeft: "15px", marginRight: "15px"}}>😐</p>
+              <p type="button" className={`experience-btn ${experience === 'bad' ? 'selected' : ''}`} onClick={() => setExperience('bad')} style={{fontSize: "50px"}}>😞</p>
             </div>
           </div>
           <div className="description">
-            <textarea placeholder="Describe your experience here..." value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+            <textarea placeholder={isMya?"ဤနေရာတွင့်သင့်အကြံပြုချက်ကိုရေးပေးပါ….":" Describe your experience here..."} value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
           </div>
-          
-          <button type="submit" className="submit-btn">Send Feedback</button>
+          <button type="submit" className="submit-btn"> {isMya?"ပေးပို့ရန်":" Send Feedback"}
+          </button>
         </form>
+        {success && <p className="success-message">{success}</p>}
+        {error && <p className="error-message">{error}</p>}
       </div>
     </div>
   );

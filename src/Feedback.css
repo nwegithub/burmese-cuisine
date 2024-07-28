@@ -43,12 +43,15 @@
 
 .experience {
   margin: 20px 0;
+  
 }
 
 .experience label {
   display: block;
   margin-bottom: 10px;
-  color: #007bff; /* Blue color for the label */
+  color: #007bff; 
+  font-weight: 400;
+  
 }
 
 .experience-options {
