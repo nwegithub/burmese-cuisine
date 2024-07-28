@@ -28,11 +28,7 @@ const Home = (props, item, handleClick) => {
   const [favorites, setFavorites] = useState([]);
   const { isMya, setIsMya } = useAuth();
 
-  //   const handleLanguage = async (lang) => {
-  //     setIsMya(lang === 'mm');
-  //     await localStorage.setItem('language', lang);
-  //     console.log("state", lang);
-  // };
+
 
   const handleGet = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -80,7 +76,9 @@ const Home = (props, item, handleClick) => {
             {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
           </p>
           <div className="secondary-button">
-            <button onClick={handleGet}>
+            <button 
+            onClick={handleGet}
+            >
               {isMya ? "စတင်ရန်" : " Get Started"}
               <ArrowForwardIcon className="ml-3" />
             </button>

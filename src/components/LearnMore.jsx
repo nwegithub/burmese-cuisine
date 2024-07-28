@@ -57,7 +57,7 @@ const LearnMore = React.forwardRef((props, ref) => {
                     alt={item.name}
                     className="round-image w-70 h-70"
                   />
-                  <p className='body1' style={{marginTop : '15px'}}>{isMya ? item.productId.name_mm : item.productId.name}</p>
+                  <p className='body1' style={{marginTop : '15px'} }>{isMya ? item.productId.name_mm : item.productId.name}</p>
                 </div>
               ))}
             </div>

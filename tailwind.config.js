@@ -7,6 +7,7 @@ export default {
       colors: {
         fontFamily: {
           'playfair': ['"Playfair Display"', 'serif'],
+          'regal-blue': '#243c5a'
 
         },
         brightColor: "#F4511F",

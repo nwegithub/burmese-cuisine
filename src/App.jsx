@@ -20,6 +20,7 @@ import FooterAboutUs from './components/FooterAboutUs';
 import FavoritesScreen from './components/pages/FavouriteScreen';
 import Receipe from './components/pages/Receipe';
 import Customer from'./components/pages/Customer';
+import FAQ from './components/pages/FAQ';
 import EthnicalIngredientDetail from './components/pages/EthnicalIngredientDetail';
 import SeasonalIngredientDeatail from './components/pages/SeasonalIngredientDetail';
 
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/Customer" element={<Customer/>}/>
           <Route path="/ethnicalingredientdetail" element={<EthnicalIngredientDetail/>}/>
           <Route path="/seasonalingredientdetail" element={<SeasonalIngredientDeatail/>}/>
+          <Route path="/FAQ" element={<FAQ/>}/>
         </Routes>
       </div>
   );

@@ -1,29 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { List, ListItem, ListItemIcon, ListItemText,Typography } from '@mui/material';
-import RecipeIcon from '@mui/icons-material/RestaurantMenu'; // Import a suitable icon
+import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import RecipeIcon from '@mui/icons-material/RestaurantMenu';
+import { useAuth } from '../../Auth/AuthContext';
 
 const Recipe = () => {
     const location = useLocation();
     const { item } = location.state || {};
-    
+    const { isMya } = useAuth();
+
+    // Debugging log
+    console.log("Location state item:", item);
+    console.log("Current language (isMya):", isMya);
+
+    useEffect(() => {
+        // Log changes when isMya or item changes
+        console.log("Language or item changed:", isMya, item);
+    }, [isMya, item]);
 
     // Split the recipe into an array of steps
-    const recipeSteps = item.recipe ? item.recipe.split(',') : [];
+    const recipeSteps = item
+        ? (isMya ? (item.recipe_mm ? item.recipe_mm.split(',') : []) : (item.recipe ? item.recipe.split(',') : []))
+        : [];
+
+    if (!item) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="bg-custom-gradient min-h-screen flex items-center justify-center">
             <div className="bg-white shadow-2xl rounded-lg overflow-hidden max-w-5xl">
                 <div className="p-6">
                     <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
-                        {item.name}
+                        {isMya ? item.name_mm : item.name}
                     </h1>
                     <p className="text-center font-bold italic mb-6">Myanmar Cuisine</p>
                 </div>
                 <img
                     className="object-cover object-center"
                     src={`http://localhost:4000/${item.image}`}
-                    alt={item.name}
+                    alt={isMya ? item.name_mm : item.name}
                 />
                 <div className="px-6 py-4 flex justify-between items-center bg-gray-200">
                     <div className="text-center bg-blue-100 p-4 rounded-lg shadow-md flex-1 mx-2">
@@ -46,7 +62,7 @@ const Recipe = () => {
                             {recipeSteps.map((step, index) => (
                                 <ListItem key={index}>
                                     <ListItemIcon>
-                                    <RecipeIcon fontSize="large" />{/* Use the desired icon */}
+                                        <RecipeIcon fontSize="large" />
                                     </ListItemIcon>
                                     <ListItemText
                                         primary={

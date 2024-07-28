@@ -16,6 +16,9 @@ const Footer = () => {
     const handleClick = () => {
         navigate("/Contactus");
     }
+    const handleClickFAQ = () => {
+        navigate("/FAQ");
+    }
     const handleHome = () => {
         navigate("/Home");
     }
@@ -62,6 +65,7 @@ const Footer = () => {
                         <button onClick={() => handleHome()} style={{ fontStyle: "italic" }}>Home</button>
                         <button onClick={() => handleAboutUsClick()} style={{ fontStyle: "italic" }}>About Us</button>
                         <button onClick={() => handleClick()} style={{ fontStyle: "italic" }}>Contact us</button>
+                        <button onClick={() => handleClickFAQ()} style={{ fontStyle: "italic" }}>FAQ</button>
                         <button onClick={() => handleMenu()} style={{ fontStyle: "italic" }}>Menu</button>
                     </div>
                     <div style={{display: "flex",justifyContent:"center",alignSelf: "center",paddingTop:"6px"}}>
