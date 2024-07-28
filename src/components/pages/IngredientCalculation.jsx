@@ -27,7 +27,7 @@ const IngredientDetail = () => {
     const tableColumn = ['Ingredient', 'Quantity'];
     const tableRows = [];
   
-    item.ingredients.forEach((ingredient) => {
+   isMya? item.ingredients_mm : item.ingredients.forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
@@ -44,9 +44,39 @@ const IngredientDetail = () => {
     doc.save('ingredient-details.pdf');
   };
 
+  function convertBurmeseNumerals(burmeseNumeral) {
+    const burmeseToWesternMap = {
+      '၀': '0',
+      '၁': '1',
+      '၂': '2',
+      '၃': '3',
+      '၄': '4',
+      '၅': '5',
+      '၆': '6',
+      '၇': '7',
+      '၈': '8',
+      '၉': '9',
+    };
+  
+    return burmeseNumeral
+      .split('')
+      .map(char => burmeseToWesternMap[char] || char)
+      .join('');
+  }
+
+
   return (
     <div className='min-h-screen flex bg-custom-gradient'>
     <div className="container p-20">
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div className="mt-5 bg-yellow-300 text-black p-3 rounded-md body1" style={{ width: 200 }}>
+      <h1 className="font-bold text-yellow-700 title1">
+        {isMya ? item.name_mm : item.name}
+      </h1>
+    </div>
+  </div>
+    
+
   <h1 
   style={{ textAlign: 'center' }}
   className="text-4xl font-bold mb-10 title1">
@@ -54,6 +84,7 @@ const IngredientDetail = () => {
     </h1>
   <div className="flex flex-wrap">
     <div className="w-full md:w-1/2 mb-4">
+      
       <label htmlFor="numPeople" className="body1">
       {isMya ? "လူအရေအတွက်:" : "Number of People:"}
         
@@ -71,16 +102,40 @@ const IngredientDetail = () => {
             alt="img"
             style={{ width: '350px', height: '450px',paddingTop: '20px'}} />
     </div>
+    
     <div className="w-full md:w-1/2 mb-4">
-      <h2 className="text-3xl block font-lg font-bold text-yellow-700 mb-2 title1">
+
+      <h2 className="text-5xl block font-lg " style={{fontSize:25,fontWeight:'bold',paddingBottom:20}}>
       {isMya ? "ပါဝင်ပစ္စည်းများ:" : " Ingredients:"}
        </h2>
-      <ul className="list-disc">
-        {item.ingredients.map((ingredient) => (
-          <li key={ingredient.name} className="mb-10 body1">
-            {ingredient.name}: {ingredient.amount * numPeople} {ingredient.unit}
-          </li>
-        ))}
+       
+      
+      <ul className="list-disc" style={{marginTop:10}}>
+      {
+  isMya ? (
+    <>
+    {item.ingredients_mm.map((ingredient) => {
+      const amount = parseFloat(convertBurmeseNumerals(ingredient.amount));
+      return (
+        <li key={ingredient.name} className="mb-10 body1">
+          {ingredient.name}: {amount * numPeople} {ingredient.unit}
+        </li>
+      );
+    })}
+  </>
+  ) : (
+    <>
+      {item.ingredients.map((ingredient) => (
+        <li key={ingredient.name} className="mb-10 body1">
+          {ingredient.name}: {ingredient.amount * numPeople} {ingredient.unit}
+        </li>
+      ))}
+    </>
+  )
+}
+
+    
+          
       </ul>
       
       <button

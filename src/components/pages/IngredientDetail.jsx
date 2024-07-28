@@ -67,7 +67,6 @@ const IngredientDetail = () => {
     } catch (error) {
       console.error('Error toggling favorite:', error);
     }
-
   return (
     <div className="min-h-screen flex flex-col">
       <div className="image-section flex justify-center items-center w-full">

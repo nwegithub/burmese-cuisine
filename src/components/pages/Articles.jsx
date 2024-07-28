@@ -146,10 +146,14 @@ const Articles = () => {
                             style={{ marginTop: '50px' }}
                             data-aos="fade-up"
                             data-aos-delay={index * 500}
+                            
                         >
-                            <Grid item xs={6} style={{ marginTop: '20px' }}>
-                            <img src={`http://localhost:4000/${item.image}`} alt={item.name} style={{width:200,height:200}}/>
-                            </Grid>
+                           <Grid item xs={6} style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    
+        <img src={`http://localhost:4000/${item.image}`} alt={item.name} style={{ width: 200, height: 200 }} />
+    
+</Grid>
+
                             <Grid
                                 item
                                 xs={6}

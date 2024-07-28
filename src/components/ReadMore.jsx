@@ -55,6 +55,7 @@ const ReadMore = () => {
                         />
                         <p className='body1 justify-content-center pt-10' style={{ textAlign: "justify" }}>
                             {articleById ? (isMya ? articleById.description_mm : articleById.description) : null}
+
                         </p>
                     </div>
                 </div>
@@ -64,6 +65,7 @@ const ReadMore = () => {
                         <div className="space-y-8 p-8">
                             {articles && articles.map((article, index) => (
                                 <div key={index} className="md:w-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg flex flex-col items-center hover:bg-gray-100 hover:shadow-lg transition duration-300">
+
                                     <Button
                                         onClick={() => setArticleId(article._id)}
                                     >
@@ -74,6 +76,7 @@ const ReadMore = () => {
                                             alt="img"
                                         />
                                         <p className="ml-4 text-center pt-3">{isMya ? article.name_mm : article.name}</p>
+
                                     </Button>
                                 </div>
                             ))}

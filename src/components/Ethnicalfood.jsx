@@ -219,7 +219,7 @@ const handleClickEthical = () => {
                 <Button
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
 
-                  onClick={() => navigate("/IngredientDetail",{ state: { item } })}>
+                  onClick={() => navigate("/ethnicalingredientdetail",{ state: { item } })}>
                   {isMya? "ပါဝင်ပစ္စည်းများ" : "Ingredients"}
 
                 </Button>
