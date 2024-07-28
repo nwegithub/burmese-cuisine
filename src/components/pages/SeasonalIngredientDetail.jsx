@@ -12,7 +12,7 @@ const IngredientDetail = () => {
   const { isMya, user } = useAuth();
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
-  const userId = user && JSON.parse(user)._id;
+  const userId = user && user._id;
 
   useEffect(() => {
     const checkFavoriteStatus = async () => {
@@ -20,7 +20,7 @@ const IngredientDetail = () => {
         // Check local storage first
         const localFavoriteStatus = localStorage.getItem(`favorite_${userId}_${item._id}`);
         if (localFavoriteStatus !== null) {
-          setIsFavorite(JSON.parse(localFavoriteStatus));
+          setIsFavorite(localFavoriteStatus);
         } else {
           // Fetch from the server if not in local storage
           const response = await axios.get(`http://localhost:4000/favorites/isFavorited/${userId}/${item._id}`);
@@ -63,6 +63,7 @@ const IngredientDetail = () => {
       console.error('Error toggling favorite:', error);
     }
   };
+  console.log("ssss",item);
 
   return (
     <div className="min-h-screen flex flex-col ">

@@ -47,20 +47,20 @@ const ReadMore = () => {
 
 
     return (
-        <div className="container relative bg-custom-gradient">
+        <div className="container relative " style={{backgroundColor:'white'}}>
             <div className="min-h-screen flex p-20">
                 <div className="w-2/3">
                     <div className="content-container">
-                        <p className="header">Welcome to...</p>
+                        <p className="header title1">Welcome to...</p>
                         <img src={articleById && `http://localhost:4000/${articleById.image}`} alt={item.name} />
-                        <p>
+                        <p className='body1'>
                         {articleById ? (isMya ? articleById.description_mm : articleById.description) : null}
                         </p>
                     </div>
                 </div>
                 <div className="w-1/2">
                     <div className="content-container pr-0">
-                        <h1 className="primary-heading">Recommended</h1>
+                        <h1 className="primary-heading title2">Recommended</h1>
                         <div className="space-y-2">
                             {article && article.map((item, index) => (
                                 <div key={index} className="w-full md:w-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg flex items-center hover:bg-gray-100 hover:shadow-lg transition duration-300">
@@ -69,7 +69,7 @@ const ReadMore = () => {
                                     >
                                     <img className="border-gray-300 w-1/2 transform hover:scale-105 transition duration-300" 
                                     src={`http://localhost:4000/${item.image}`} alt="img" />
-                                    <p className="ml-4 text-center">{isMya ? item.name_mm : item.name}</p>
+                                    <p className="ml-4 text-center body1">{isMya ? item.name_mm : item.name}</p>
                                     </Button>
                                 </div>
                             ))}
