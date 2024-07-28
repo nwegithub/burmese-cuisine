@@ -251,7 +251,7 @@ const Ethnicalfood = () => {
                                 <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
                                     <Button
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                        onClick={() => navigate('/IngredientDetail', { state: { item } })}>
+                                        onClick={() => navigate('/seasonalingredientdetail', { state: { item } })}>
                                         Ingredients
                                     </Button>
                                     <Button
