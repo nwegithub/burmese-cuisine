@@ -46,7 +46,7 @@ const HomeArticle = () => {
   }, [article]);
 
   if (!article.length) {
-    return <div>Loading...</div>;
+    return null
   }
 
   return (
@@ -144,7 +144,7 @@ const HomeArticle = () => {
             transition: 'background-color 0.3s ease',
             marginTop: '0px' 
           }}
-          onClick={() => navigate("/allArticles")}
+          onClick={() => navigate("/articles")}
         >
           {isMya? "ဆောင်းပါးအားလုံးကြည့်ရန်" : "View all Articles"}
           <ArrowForwardIcon style={{ marginLeft: '8px', fontSize: '1rem' }} />

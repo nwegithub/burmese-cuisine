@@ -26,13 +26,15 @@ const CustomerReview = () => {
         fetchFeedbacks();
     }, []);
 
-    // Exclude the last feedback
     const feedbacksToDisplay = feedbacks.slice(0, -1);
 
     const indexOfLastFeedback = currentPage * feedbacksPerPage;
     const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage;
     const currentFeedbacks = feedbacksToDisplay.slice(indexOfFirstFeedback, indexOfLastFeedback);
 
+    if (currentFeedbacks.length === 0) {
+        return null;
+    }
 
     return (
         <div

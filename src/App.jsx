@@ -23,11 +23,14 @@ import Customer from'./components/pages/Customer';
 import FAQ from './components/pages/FAQ';
 import EthnicalIngredientDetail from './components/pages/EthnicalIngredientDetail';
 import SeasonalIngredientDeatail from './components/pages/SeasonalIngredientDetail';
+import { AuthProvider } from './Auth/AuthContext';
+import { ItemProvider } from './Auth/ItemProvider';
 
 
 const App = () => {
   return (
-      <div>
+      <AuthProvider>
+        <ItemProvider>
         <Navbar />
         <Routes>
           <Route path="/"  element={<Home />} />
@@ -56,7 +59,8 @@ const App = () => {
           <Route path="/seasonalingredientdetail" element={<SeasonalIngredientDeatail/>}/>
           <Route path="/FAQ" element={<FAQ/>}/>
         </Routes>
-      </div>
+        </ItemProvider>
+      </AuthProvider>
   );
 };
 export default App;

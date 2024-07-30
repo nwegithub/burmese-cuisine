@@ -3,30 +3,26 @@ import { useLocation } from 'react-router-dom';
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import RecipeIcon from '@mui/icons-material/RestaurantMenu';
 import { useAuth } from '../../Auth/AuthContext';
+import { useItem } from '../../Auth/ItemProvider';
 
 const Recipe = () => {
-    const location = useLocation();
-    const { item } = location.state || {};
+
+    const { item } = useItem();
     const { isMya } = useAuth();
-
-    // Debugging log
-    console.log("Location state item:", item);
-    console.log("Current language (isMya):", isMya);
-
+  
     useEffect(() => {
-        // Log changes when isMya or item changes
-        console.log("Language or item changed:", isMya, item);
+      console.log("Language or item changed:", isMya, item);
     }, [isMya, item]);
-
-    // Split the recipe into an array of steps
+  
     const recipeSteps = item
-        ? (isMya ? (item.recipe_mm ? item.recipe_mm.split(',') : []) : (item.recipe ? item.recipe.split(',') : []))
-        : [];
-
+      ? isMya
+        ? item.recipe_mm?.split(',') || []
+        : item.recipe?.split(',') || []
+      : [];
+  
     if (!item) {
-        return <div>Loading...</div>;
+      return <div>Loading...</div>;
     }
-
     return (
         <div className="bg-custom-gradient min-h-screen flex items-center justify-center">
             <div className="bg-white shadow-2xl rounded-lg overflow-hidden max-w-5xl">

@@ -28,15 +28,13 @@ const LearnMore = React.forwardRef((props, ref) => {
     AOS.init({ duration: 1000 });
     AOS.refresh();
   }, [favorites]);
-
+if(favorites.length === 0){
+  return null
+}
   return (
     <div ref={ref} style={{ marginTop: 30 }}>
       <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
-        {loading ? (
-          <div>Loading...</div>
-        ) : favorites.length === 0 ? (
-          <div>No favorites found</div>
-        ) : (
+      
           <div>
             <h1 className='title1'>{isMya ? "လူကြိုက်များသောအစားအစာများ" : "People Most Enjoyable Food"}</h1>
             <div style={{
@@ -69,7 +67,7 @@ const LearnMore = React.forwardRef((props, ref) => {
               ))}
             </div>
           </div>
-        )}
+      
       </div>
     </div>
   );
