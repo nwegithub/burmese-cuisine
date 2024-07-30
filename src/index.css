@@ -311,6 +311,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 footer .social_icon {
@@ -430,7 +431,7 @@ footer .wave {
   height: 100px;
   background-image: url(wave.png);
   background-size: 1000px 100px;
-  filter: hue-rotate(360deg) saturate(1000%)
+  filter: hue-rotate(200deg) saturate(1000%);
 }
 
 
@@ -575,10 +576,10 @@ p {
 footer {
   position: relative;
   width: 100;
-  background:rgb(89, 174, 208);
+  background:rgb(248, 212, 150);
   min-height: 100px;
   align-items: center;
-  filter: hue-rotate(360deg) saturate(1000%)
+  filter: hue-rotate(360deg) saturate(970%)
 }
 
 footer .social_icon {
