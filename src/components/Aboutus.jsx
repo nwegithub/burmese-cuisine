@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import AboutBackground from '../assets/aboutBackground.png';
+import motehinkar from '../assets/mote_hin_kar.png'
 import noodle from '../assets/noodle.png';
 import '../Style.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -22,10 +23,13 @@ const Aboutus = React.forwardRef((props, ref) => {
                     data-aos="zoom-in"
                     data-aos-duration="300"
                     className="about-section-image-container">
-                    <img src={noodle}
+                    <img
+                        src={motehinkar}
                         alt="biryani img"
-                        className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin"
-                        data-aos-once="true" />
+                        className="w-[1000px] sm:w-[1000px] sm:scale-125 mx-auto spin"
+                        data-aos-once="true"
+                    />
+
                 </div>
                 <div
                     data-aos="fade-up"
@@ -44,7 +48,7 @@ const Aboutus = React.forwardRef((props, ref) => {
                     </div>
                 </div>
             </div>
-            <LearnMore ref={learnRef}/>
+            <LearnMore ref={learnRef} />
         </div>
     )
 

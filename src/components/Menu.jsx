@@ -1,67 +1,3 @@
-// import React,{useEffect} from 'react';
-// import '../Menu.css';
-// import image1 from '../assets/Categories.jpeg';
-// import image2 from '../assets/Season.avif';
-// import image3 from '../assets/Ethnic.jpeg';
-// import { useNavigate } from 'react-router-dom';
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
-
-// const recipes = [
-//   {
-//     image: image1,
-//     buttonText: 'Categories',
-//     route: '/categories'
-//   },
-//   {
-//     image: image2,
-//     buttonText: 'Seasonal Food',
-//     route: '/seasonalfood'
-//   },
-//   {
-//     image: image3,
-//     buttonText: 'Ethnical Food',
-//     route: '/ethnicalfood'
-//   },
-// ];
-
-
-
-// const Menu = () => {
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     AOS.init({ duration: 1000 });
-//   }, []);
-
-//   const handleClick = (route) => {
-//     navigate(route);
-//   };
-
-//   return (
-//     <div className="bg-custom-gradient min-h-screen flex flex-col items-center">
-//     <h1 className="text-4xl font-semibold text-center pt-20 pb-5 title1">Delicioso Menus</h1>
-//     <div 
-//        data-aos="fade-up"
-//        data-aos-delay={100}                      
-//     className="recipe-container flex flex-wrap justify-center">
-//       {recipes.map((recipe, index) => (
-//         <div key={index} className='recipe-card transform hover:scale-105 transition duration-300' >
-//           <img src={recipe.image} alt={recipe.buttonText} className="recipe-image" />
-//           <button onClick={() => handleClick(recipe.route)} className="recipe-button">
-//            <p className='body1 button-text'>
-//            {recipe.buttonText}
-//             </p> 
-//           </button>
-//         </div>
-//       ))}
-//     </div>
-//   </div>
-  
-//   );
-// };
-
-// export default Menu;
 
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -70,27 +6,43 @@ import 'aos/dist/aos.css';
 import image1 from '../assets/Categories.jpeg';
 import image2 from '../assets/Season.avif';
 import image3 from '../assets/Ethnic.jpeg';
+import '../Style.css';
+import { useAuth } from '../Auth/AuthContext';
 
-const recipes = [
-  {
-    image: image1,
-    buttonText: 'Categories',
-    route: '/categories'
-  },
-  {
-    image: image2,
-    buttonText: 'Seasonal Food',
-    route: '/seasonalfood'
-  },
-  {
-    image: image3,
-    buttonText: 'Ethnical Food',
-    route: '/ethnicalfood'
-  },
-];
 
-const Menu = () => {
+
+
+const Menu = (item) => {
   const navigate = useNavigate();
+  const {user,isMya} = useAuth()
+
+  const recipes = [
+    {
+      image: image1,
+      buttonText: isMya ? 'အမျိုးအစားများ' : 'Categories',
+      route: '/categories'
+    },
+    {
+      image: image2,
+      buttonText: isMya ? 'ရာသီအစားအစာများ' : 'Seasonal Food',
+      route: '/seasonalfood'
+    },
+    {
+      image: image3,
+      buttonText: isMya ? 'တိုင်းရင်းသားအစားအစာများ' : 'Ethnical Food',
+      route: '/ethnicalfood'
+    },
+  ];
+  
+
+  const handleFeedbackClick = (item) => {
+    if(user){
+      navigate("/Feedback", { state: { item } }); // Navigate and pass state
+    }else{
+      navigate("/Login", { state: { item } }); // Navigate and pass state
+    }
+    
+};
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -149,9 +101,11 @@ const Menu = () => {
     width: '225px',
   };
 
+
+
   return (
     <div className="bg-custom-gradient min-h-screen flex flex-col items-center">
-      <h1 style={titleStyle} className='title1'>Delicioso Menus</h1>
+      <h1 style={titleStyle} className='title1'>{isMya? "အရသာရှိသောစားသောက်ဖွယ်ရာမီနူးများ" : "Delicioso Menus"}</h1>
       <div data-aos="fade-up" data-aos-delay={100} style={recipeContainerStyle}>
         {recipes.map((recipe, index) => (
           <div
@@ -168,6 +122,15 @@ const Menu = () => {
           </div>
         ))}
       </div>
+
+      <div className="customer-review-container"
+                style={{ paddingBottom: "20%", marginTop: 50 }} >
+                <button
+                    className="button-52"
+                    onClick={() => handleFeedbackClick(item)}>
+                    Customer Feedback
+                </button>
+            </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useAuth } from "../Auth/AuthContext";
+import { useItem } from "../Auth/ItemProvider";
 
 const categoryArr = [
     {
@@ -79,6 +80,8 @@ const Ethnicalfood = () => {
     const navigate = useNavigate();
     const { category } = useParams();
     const { isMya } = useAuth()
+    const {setItem} = useItem()
+
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [categorySelected, setCategorySelected] = useState('');
@@ -144,6 +147,17 @@ const Ethnicalfood = () => {
     const handleClickSeason = () => {
         navigate('/Seasonalfood');
     };
+
+
+  const handleNavigateToDetail = (itemData) => {
+    setItem(itemData);
+    navigate('/seasonalingredientdetail');
+  };
+
+  const handleNavigateToRecipe = (itemData) => {
+    setItem(itemData);
+    navigate('/Receipe');
+  };  
 
     return (
         <div className="min-h-screen p-8 bg-custom-gradient">
@@ -251,11 +265,11 @@ const Ethnicalfood = () => {
                                 <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
                                     <Button
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                        onClick={() => navigate('/seasonalingredientdetail', { state: { item } })}>
+                                        onClick={() => handleNavigateToDetail(item)}>
                                         Ingredients
                                     </Button>
                                     <Button
-                                        onClick={() => navigate('/Receipe', { state: { item } })}
+                                        onClick={() => handleNavigateToRecipe(item)}
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                                     >
                                         Recipe

@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useAuth } from "../Auth/AuthContext";
+import { useItem } from "../Auth/ItemProvider";
 
 const Ethnicalfood = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -14,6 +15,7 @@ const Ethnicalfood = () => {
   const navigate = useNavigate();
   const { category } = useParams();
   const {isMya} = useAuth();
+  const {setItem} = useItem()
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [categorySelected, setCategorySelected] = useState('');
@@ -108,6 +110,16 @@ const Ethnicalfood = () => {
   const newCategoryData = newArr1.concat(categoryArr)
   const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
 
+
+  const handleNavigateToDetail = (itemData) => {
+    setItem(itemData);
+    navigate('/ethnicalingredientdetail');
+  };
+
+  const handleNavigateToRecipe = (itemData) => {
+    setItem(itemData);
+    navigate('/Receipe');
+  };  
 
 
   if (!productsToDisplay) {
@@ -219,12 +231,12 @@ const handleClickEthical = () => {
                 <Button
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
 
-                  onClick={() => navigate("/ethnicalingredientdetail",{ state: { item } })}>
+                  onClick={() => handleNavigateToDetail(item)}>
                   {isMya? "ပါဝင်ပစ္စည်းများ" : "Ingredients"}
 
                 </Button>
                 <Button
-                  onClick={() => navigate('/Receipe', { state: { item:itemData } })} // Add your modal logic
+                  onClick={() => handleNavigateToRecipe(item)} // Add your modal logic
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                 >
                   {isMya? "ချက်နည်းများ" : "Recipe"}

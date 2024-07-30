@@ -14,7 +14,7 @@ const Login = () => {
   const { login } = useAuth();
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const {  isMya, setIsMya } = useAuth();
+  const { isMya, setIsMya } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,40 +35,40 @@ const Login = () => {
 
   const handleLogin = async (formData) => {
     try {
-        const response = await fetch('http://localhost:4000/users/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
+      const response = await fetch('http://localhost:4000/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (response.ok) {
-            if (data.msg === "Login success") {
-                login(data.result, data.result.token);
-                alert('Login successful!');
-                navigate('/Home');
-            } else {
-                console.error('Unexpected response:', data);
-            }
+      if (response.ok) {
+        if (data.msg === "Login success") {
+          login(data.result, data.result.token);
+          alert('Login successful!');
+          navigate('/Home');
         } else {
-            alert('Login failed: ' + data.message);
-            console.error('Login error:', data);
+          console.error('Unexpected response:', data);
         }
+      } else {
+        alert('Login failed: ' + data.message);
+        console.error('Login error:', data);
+      }
     } catch (error) {
-        console.error('An error occurred during login:', error);
-        alert('An error occurred. Please try again.');
+      console.error('An error occurred during login:', error);
+      alert('An error occurred. Please try again.');
     }
-};
+  };
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
       handleLogin(formValues);
-      setFormValues({phone:'',password:''});
+      setFormValues({ phone: '', password: '' });
     }
     setFormValues("")
   };
@@ -106,8 +106,8 @@ const Login = () => {
           padding="10rem"
         >
           <h2 className="text-4xl font-semibold title1">
-          {isMya ? "ကြိုဆိုပါတယ်.." : "Welcome Back.."}
-           </h2>
+            {isMya ? "ကြိုဆိုပါတယ်.." : "Welcome Back.."}
+          </h2>
           <form onSubmit={handleSubmit} className="w-full">
             <TextField
               name="phone"
@@ -131,7 +131,7 @@ const Login = () => {
                     </IconButton>
                   </InputAdornment>
                 ),
-                style:{ fontSize: '2rem' }
+                style: { fontSize: '2rem' }
               }}
               InputLabelProps={{
                 style: { fontSize: '1.25rem' }  // Increase label text size
@@ -160,17 +160,28 @@ const Login = () => {
                     </IconButton>
                   </InputAdornment>
                 ),
-                style: { fontSize: '2rem'} 
+                style: { fontSize: '2rem' }
               }}
               InputLabelProps={{
                 style: { fontSize: '1.25rem' }  // Increase label text size
               }}
             />
             <button 
-            type='submit'
-            className="recipe-button text-3xl font-bold text-center text-black title3">
-               {isMya ? "ဝင်ရန်" : " Login"}
-             
+            onClick={() => navigate('/SignUp')}
+            style={{ flexDirection: 'row' }}>
+
+              <p className='body3 text-red'
+              style={{color:'red'}}
+              >{isMya ? "အကောင့်မရှိသေးဘူးလား" : "Don't have an account yet?"}  {   isMya ? "စာရင်းသွင်းလိုက်ပါ" : "Sign Up Now"}
+              
+              </p>
+            </button>
+
+            <button
+              type='submit'
+              className="recipe-button text-3xl font-bold text-center text-black title3">
+              {isMya ? "ဝင်ရန်" : " Login"}
+
             </button>
           </form>
         </Box>

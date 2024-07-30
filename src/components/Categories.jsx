@@ -6,13 +6,12 @@ import { useParams } from 'react-router-dom';
 import categorybg from "../assets/category-bg.jpeg"
 import '../Style.css';
 import { useNavigate } from "react-router-dom";
-
-import Home from './Home'; // Home component
-
+import { useAuth } from "../Auth/AuthContext";
 
 
 const Categories = (item) => {
     const navigate = useNavigate();
+    const {isMya} = useAuth()
 
     const handleClick = (item) => {
         navigate("/Feedback", { state: { item } }); // Navigate and pass state
@@ -92,7 +91,7 @@ const Categories = (item) => {
                 />
             </div> */}
             <h1 className="text-4xl font-semibold text-center pt-10 pb-5">
-                Our Categories</h1>
+                {isMya ? "အမျိုးအစားများ" : "Our Categories"}</h1>
             {
                 category === "All" ?
                     <Grid container spacing={0}>
@@ -100,14 +99,7 @@ const Categories = (item) => {
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
                                     item={item}
-                                // image={item.image}
-                                // name={item.name}
-                                // name_mm={item.name_mm}
-                                // ingredient={item.ingredients}
-                                // ingredient_mm={item.ingredients_mm}
-                                // recipe={item.recipe}
-                                // recipe_mm={item.recipe_mm}
-                                // category={item.category}
+                               
                                 />
                             </Grid>
                         ))}
@@ -118,14 +110,7 @@ const Categories = (item) => {
                             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
                                 <DishCard
                                     item={item}
-                                // image={item.image}
-                                // name={item.name}
-                                // name_mm={item.name_mm}
-                                // ingredient={item.ingredients}
-                                // ingredient_mm={item.ingredients_mm}
-                                // recipe={item.recipe}
-                                // recipe_mm={item.recipe_mm}
-                                // category={item.category}
+                               
                                 />
                             </Grid>
                         ))}
@@ -136,7 +121,7 @@ const Categories = (item) => {
                 <button
                     className="button-52"
                     onClick={() => handleClick(item)}>
-                    Customer Feedback
+                    {isMya? "အကြံပြုရန်" : "Customer Feedback"}
                 </button>
             </div>
         </div >
