@@ -126,6 +126,7 @@ const Menu = (item) => {
          </div>
    
          <Footer />
+
     </div>
   );
 };

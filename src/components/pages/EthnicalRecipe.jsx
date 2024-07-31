@@ -9,22 +9,47 @@ import axios from 'axios';
 
 const EthnicalRecipe = () => {
 
-    const { item } = useItem();
-    const { isMya } = useAuth();
+
+    const { isMya, user } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    const id = location.pathname.split('/')[2];
   
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+
     useEffect(() => {
-      console.log("Language or item changed:", isMya, item);
-    }, [isMya, item]);
+      const fetchProduct = async () => {
+        setLoading(true);
+        try {
+          const response = await axios.get(`http://localhost:4000/ethnical/ethnical/${id}`);
+          setProduct(response.data);
+          setLoading(false);
+        } catch (err) {
+          setError(err.message);
+          setLoading(false);
+        }
+      };
   
-    const recipeSteps = item
+      fetchProduct();
+    }, [id]);
+  
+    const recipeSteps = product
       ? isMya
-        ? item.recipe_mm?.split(',') || []
-        : item.recipe?.split(',') || []
+        ? product.recipe_mm?.split(',') || []
+        : product.recipe?.split(',') || []
       : [];
   
-    if (!item) {
-      return <div>Loading...</div>;
-    }
+      if (loading) {
+        return <div>..Loading</div>;
+      }
+    
+      if (error) {
+        return <div>Error: {error}</div>;
+      }
     return (
         <div className="bg-custom-gradient min-h-screen flex items-center justify-center">
             <div className="bg-white shadow-2xl rounded-lg overflow-hidden max-w-5xl">
@@ -32,14 +57,16 @@ const EthnicalRecipe = () => {
                     <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
                         {isMya ? product.name_mm : product.name}
                     </h1>
-                    {/* <p className="text-center font-bold italic mb-6">Myanmar Cuisine</p> */}
+
+                    <p className="text-center font-bold italic mb-6">Myanmar Cuisine</p>
                 </div>
                 <img
                     className="object-cover object-center"
                     src={`http://localhost:4000/${product.image}`}
                     alt={isMya ? product.name_mm : product.name}
                 />
-                {/* <div className="px-6 py-4 flex justify-between items-center bg-gray-200">
+
+                <div className="px-6 py-4 flex justify-between items-center bg-gray-200">
                     <div className="text-center bg-blue-100 p-4 rounded-lg shadow-md flex-1 mx-2">
                         <p className="font-bold text-gray-800">Prep</p>
                         <p className="text-gray-600">15 min</p>
@@ -52,7 +79,8 @@ const EthnicalRecipe = () => {
                         <p className="font-bold text-gray-800">Ready in</p>
                         <p className="text-gray-600">35 min</p>
                     </div>
-                </div> */}
+
+                </div>
                 <div className="px-6 py-4">
                     <h2 className="text-4xl text-center font-bold text-gray-800 mb-4">Directions</h2>
                     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -106,6 +134,7 @@ const EthnicalRecipe = () => {
                             </p>
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>

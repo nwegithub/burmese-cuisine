@@ -48,7 +48,8 @@ if(favorites.length === 0){
 }
   return (
     <div ref={ref} style={{ marginTop: 30 }}>
-     <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
+
+<div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
 <h1 className='title1'>{isMya ? "လူကြိုက်များသောအစားအစာများ" : "People Most Enjoyable Food"}</h1>
 
   <div style={{

@@ -122,12 +122,12 @@ console.log("id",id)
         >
 
 <div className='ext-center bg-custom-gradient p-4 rounded-lg shadow-md flex-1 mx-2'>
-          <h1 className='title1'>{isMya ? item.name_mm : item.name}</h1>
+          <h1 className='title1'>{isMya ? product.name_mm : product.name}</h1>
 
           </div>
           
             <img
-              src={`http://localhost:4000/${item.image}`}
+              src={`http://localhost:4000/${product.image}`}
               alt="img"
               style={{ marginTop: '5px', width: '100%' }}
             />
@@ -223,7 +223,7 @@ console.log("id",id)
               height: '70px',
               borderRadius: 10,
             }}
-            onClick={handleNavigateIngredientDetail}
+            onClick={() => handleNavigateToCalculation(product._id)}
           >
             <p className='title3 text-center' style={{ flex: 1 }}>
               {isMya ? "ဟင်းချက်နည်း" : "Recipes"}
