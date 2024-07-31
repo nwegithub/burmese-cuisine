@@ -53,14 +53,14 @@ const ReadMore = () => {
                             src={articleById && `http://localhost:4000/${articleById.image}`}
                             alt={item?.name}
                         />
-                        <p className='body1 justify-content-center pt-10' style={{ textAlign: "justify" }}>
+                        <p className='body1 justify-content-center pt-10 text-justify' style={{ textAlign: "justify", lineHeight: '2.5rem' }}>
                             {articleById ? (isMya ? articleById.description_mm : articleById.description) : null}
                         </p>
                     </div>
                 </div>
                 <div className="w-1/2">
                     <div className="content-container pr-0">
-                        <h1 className="primary-heading title2">Recommended</h1>
+                        <h1 className="title1">Recommended</h1>
                         <div className="space-y-8 p-8">
                             {articles && articles.map((article, index) => (
                                 <div key={index} className="md:w-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg flex flex-col items-center hover:bg-gray-100 hover:shadow-lg transition duration-300">
@@ -68,7 +68,7 @@ const ReadMore = () => {
                                         onClick={() => setArticleId(article._id)}
                                     >
                                         <img
-                                            style={{ width: "200px" }}
+                                            style={{ width: "250px" }}
                                             className="transform hover:scale-105 transition duration-300 p-5"
                                             src={`http://localhost:4000/${article.image}`}
                                             alt="img"

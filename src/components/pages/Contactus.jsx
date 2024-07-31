@@ -6,6 +6,7 @@ import axios from 'axios';
 import "../../Contactus.css";
 import img2 from "../../assets/image2.png";
 import Cbutton from '../../layouts/Cbutton';
+import axios from 'axios';
 
 const Contactus = () => {
   const [name, setName] = useState('');
@@ -87,6 +88,11 @@ const Contactus = () => {
             <img style={{ height: "350px", width: "330px", marginTop: "-30px", marginBottom: "30px" }} src={img2} alt="Contact us" />
           </div>
         </section>
+        <div style={{ padding: '0 50px' }}>
+          <p style={{ fontSize: '2rem'}}>
+            {`Name: ${name}`} <br /> {`Email: ${email}`} <br /> {`Text: ${text}`}
+          </p>
+        </div>
       </div>
     </div>
   );
