@@ -1,19 +1,15 @@
-
 import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Auth/AuthContext';
-import { useLocation } from 'react-router-dom';
 import { useItem } from '../../Auth/ItemProvider';
 
-const IngredientDetail = () => {
+const IngredientCalculation = () => {
   const { item } = useItem();
-
-  const { isMya, setIsMya } = useAuth();
-
-
+  const { isMya } = useAuth();
   const [numPeople, setNumPeople] = useState(1);
+  const navigate = useNavigate();
 
   const handleNumPeopleChange = (e) => {
     setNumPeople(e.target.value);
@@ -27,7 +23,7 @@ const IngredientDetail = () => {
     const tableColumn = ['Ingredient', 'Quantity'];
     const tableRows = [];
 
-    isMya ? item.ingredients_mm : item.ingredients.forEach((ingredient) => {
+    (isMya ? item.ingredients_mm : item.ingredients).forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
@@ -64,28 +60,28 @@ const IngredientDetail = () => {
       .join('');
   }
 
-
   return (
     <div className='min-h-screen flex bg-custom-gradient'>
-      <div className="p-20" style={{ flex: 1 }} >
-          <div className="mt-5 text-black p-3 rounded-md body1">
-            <h1 className="font-bold  title1">
-              {isMya ? item.name_mm : item.name}
-            </h1>
+      <div className="p-20 flex flex-col justify-between" style={{ flex: 1 }}>
+        <div className="mt-5 text-black p-3 rounded-md body1">
+          <h1 className="font-bold title1">
+            {isMya ? item.name_mm : item.name}
+          </h1>
         </div>
-
 
         <h1
           style={{ textAlign: 'center' }}
           className="text-4xl font-bold mb-10 title1">
           {isMya ? "ပါဝင်ပစ္စည်းများအသေးစိတ်တွက်ရန်" : "Ingredient Detail Calculator"}
         </h1>
-        <div className="flex flex-wrap" >
-          <div className="w-full md:w-1/2 mb-4">
 
+        {/* Button Container */}
+
+
+        <div className="flex flex-wrap">
+          <div className="w-full md:w-1/2 mb-4">
             <label htmlFor="numPeople" className="body1">
               {isMya ? "လူအရေအတွက်:" : "Number of People:"}
-
             </label>
             <input
               type="number"
@@ -102,52 +98,56 @@ const IngredientDetail = () => {
           </div>
 
           <div className="w-full md:w-1/2 mb-4">
-
-            <h2 className="text-5xl block font-lg " style={{ fontSize: 25, fontWeight: 'bold', paddingBottom: 20 }}>
+            <h2 className="text-5xl block font-lg" style={{ fontSize: 25, fontWeight: 'bold', paddingBottom: 20 }}>
               {isMya ? "ပါဝင်ပစ္စည်းများ:" : " Ingredients:"}
             </h2>
-
 
             <ul className="list-disc" style={{ marginTop: 10 }}>
               {
                 isMya ? (
-                  <>
-                    {item.ingredients_mm.map((ingredient) => {
-                      const amount = parseFloat(convertBurmeseNumerals(ingredient.amount));
-                      return (
-                        <li key={ingredient.name} className="mb-10 body1">
-                          {ingredient.name}: {amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
-                        </li>
-                      );
-                    })}
-                  </>
-                ) : (
-                  <>
-                    {item.ingredients.map((ingredient) => (
+                  item.ingredients_mm.map((ingredient) => {
+                    const amount = parseFloat(convertBurmeseNumerals(ingredient.amount));
+                    return (
                       <li key={ingredient.name} className="mb-10 body1">
-                        {ingredient.name}: {ingredient.amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
+                        {ingredient.name}: {amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
                       </li>
-                    ))}
-
-                  </>
+                    );
+                  })
+                ) : (
+                  item.ingredients.map((ingredient) => (
+                    <li key={ingredient.name} className="mb-10 body1">
+                      {ingredient.name}: {ingredient.amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
+                    </li>
+                  ))
                 )
               }
-
-
-
             </ul>
+            <div className="flex space-x-4 mb-10">
+              <button
+                onClick={generatePDF}
+                className="bg-green-300 text-black p-3 rounded-md body1"
+              >
+                {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
+              </button>
 
-            <button
-              onClick={generatePDF}
-              className="mt-5 bg-green-300 text-black p-3 rounded-md body1"
-            > {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
-
-            </button>
+              <button
+                onClick={() => navigate("/menu", { state: { item } })}
+                className="bg-green-300 text-black p-3 rounded-md body1"
+              >
+                {isMya ? "မီနူး" : "Menu"}
+              </button>
+            </div>
 
           </div>
+
+
         </div>
+
+
+
       </div>
     </div>
-  )
-}
-export default IngredientDetail;
+  );
+};
+
+export default IngredientCalculation;

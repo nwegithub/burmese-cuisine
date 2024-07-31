@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useAuth } from '../../Auth/AuthContext';
 import question from '../../assets/question.png';
@@ -25,18 +26,20 @@ const styles = {
     justifyContent: 'space-between',
     gap: '20px',
     flexWrap: 'wrap',
+    justifyContent: 'center',
   },
   faqColumn: {
     flex: '1',
     minWidth: '300px',
     textAlign: 'left',
+    maxWidth: '600px', 
   },
   question: {
     margin: '10px 0',
     cursor: 'pointer',
   },
   answer: {
-    fontSize: '1rem',
+    fontSize: '1.5rem',
     color: '#FF5768',
     marginTop: '5px',
   },
@@ -110,6 +113,7 @@ const FAQ = () => {
     navigate('/Contactus')
   }
 
+
   const adEspressoQuestions = [
     {
       question: {
@@ -171,8 +175,9 @@ const FAQ = () => {
         mya: "တောင်တန်းဒေသများ၊ ကမ်းရိုးတန်းဒေသများနှင့် မြစ်ချိုင့်များစသော ပထဝီဝင်ဧရိယာတစ်ခုစီသည် မတူညီသောပါဝင်ပစ္စည်းများနှင့် ချက်ပြုတ်နည်းများကို ပံ့ပိုးပေးသောကြောင့် လူမျိုးစုအစားအစာများ ကွဲပြားမှုများပြားလာစေသည်။",
       },
     },
-    
+
   ];
+
 
   const onlineAdvertisingQuestions = [
     {
@@ -234,13 +239,12 @@ const FAQ = () => {
       </h2>
       <p className='title2'>{isMya ? "ကျွန်ုပ်တို့တွင် အဖြေများ ရှိသည်" : "We have answers (well, most of the times!)"}</p>
       <img src={question} style={styles.image} alt="question" />
-
       <div style={styles.faqSection}>
         <div style={styles.faqColumn}>
           {/* <p>AdEspresso FAQs</p> */}
           {adEspressoQuestions.map((item, index) => (
             <div key={`adEspresso-${index}`}>
-              <p className='body1' style={styles.question} onClick={() => toggleAnswer(`adEspresso-${index}`)}>
+              <p className='body' style={styles.question} onClick={() => toggleAnswer(`adEspresso-${index}`)}>
                 {index + 1}. {isMya ? item.question.mya : item.question.en}
               </p>
               {visibleAnswers[`adEspresso-${index}`] && (
@@ -253,7 +257,7 @@ const FAQ = () => {
           {/* <p>Online Advertising FAQs</p> */}
           {onlineAdvertisingQuestions.map((item, index) => (
             <div key={`onlineAd-${index}`}>
-              <p className='body1' style={styles.question} onClick={() => toggleAnswer(`onlineAd-${index}`)}>
+              <p className='body' style={styles.question} onClick={() => toggleAnswer(`onlineAd-${index}`)}>
                 {index + 7}. {isMya ? item.question.mya : item.question.en}
               </p>
               {visibleAnswers[`onlineAd-${index}`] && (
@@ -265,7 +269,7 @@ const FAQ = () => {
       </div>
       <div style={styles.contact}>
         <button
-          className="body3"
+          className="body1"
           style={styles.btnStyle}
           onClick={handleClick}
         >

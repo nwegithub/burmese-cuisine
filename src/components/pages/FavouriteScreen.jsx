@@ -64,7 +64,7 @@ const FavoritesScreen = () => {
     navigate('/ethnicalingredientdetail')
   }
 
-  console.log("ehtesss",ethnicalFavorites)
+  console.log("favcfav",favorites)
 
   return (
     <div className="min-h-screen flex flex-col p-5 bg-custom-gradient">

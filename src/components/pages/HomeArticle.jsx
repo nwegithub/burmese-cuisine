@@ -7,7 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useAuth } from '../../Auth/AuthContext';
 
-const HomeArticle = () => {
+const HomeArticle = React.forwardRef((props, ref) => {
   const navigate = useNavigate();
   const [article, setArticle] = useState([]);
   const { isMya, setIsMya } = useAuth();
@@ -15,9 +15,6 @@ const HomeArticle = () => {
   const handleClick = (item) => {
     navigate("/Favorite");
   };
-
-
-
   const truncateText = (text, maxWords) => {
     if (!text) {
       return '';
@@ -50,10 +47,10 @@ const HomeArticle = () => {
   }
 
   return (
-    <div style={{ minHeight: '50vh', marginTop: '80px' }}>
+    <div ref={ref} style={{ minHeight: '50vh', marginTop: '80px' }}>
       <h1 
       data-aos="fade-left"
-      className="title1" style ={{textAlign : 'center'}}>{isMya? "လူကြိုက်များပြီးခေတ်ရှားသောဆောင်းပါးများ" : "Popular and Trend Blogs"}</h1>
+      className="title1" style ={{textAlign : 'center'}}>{isMya? "နောက်ဆုံးမျှဝေထားသော ဆောင်းပါးများ" : "Latest Shared Blogs"}</h1>
       <Grid container spacing={2} style={{ marginTop: '5px', padding: '10px', justifyContent: 'center' }}>
         {article.map((item, index) => {
           const truncatedDescription = truncateText(isMya? item.description_mm :item.description, 20);
@@ -95,7 +92,7 @@ const HomeArticle = () => {
                   objectFit: 'cover'
                 }}
               />
-              <h3 style={{ margin: '10px 0', fontSize: '1.2rem' }} className="title3">{isMya? item.name_mm : item.name}</h3>
+              <h2 style={{ margin: '10px 0', fontSize: '1.2rem' }} className="title2">{isMya? item.name_mm : item.name}</h2>
               <p 
             data-aos="fade-out"
               className="body1" style={{ margin: '10px 0', color: '#555', fontSize: '0.9rem',textAlign : 'justify' }}>
@@ -151,7 +148,7 @@ const HomeArticle = () => {
         </button>
       </div>
     </div>
-  );
-};
+   );
+  });
 
 export default HomeArticle;

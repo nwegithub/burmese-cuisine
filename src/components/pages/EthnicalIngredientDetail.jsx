@@ -143,11 +143,44 @@ const IngredientDetail = () => {
           ))}
         </div>
 
-        <div className="flex justify-center items-center flex-grow mb-40" style={{paddingTop:30,paddingBottom:30}}>
+        <div className="flex flex-col justify-center items-center flex-grow mb-40" style={{ paddingTop: 30, paddingBottom: 30 }}>
+          {/* Ingredients Calculation Button */}
           <button
-            className='bg-custom-gradient'
+            className='bg-custom-gradient flex items-center justify-between mb-4'
             style={{
+              color: 'black',
+              paddingTop: '2px',
+              paddingBottom: '2px',
+              width: '350px',
+              height: '70px',
+              borderRadius: 10,
+              fontSize: '1.5rem', // Adjust the size of the icon
+            }}
+            onClick={() => navigate("/IngredientCalculation", { state: { item } })}
+          >
+            <p className='title3 text-center' style={{ flex: 1 }}>
+              {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "Ingredients Calculation"}
+            </p>
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </button>
 
+          {/* Recipes Button */}
+          <button
+            className='bg-custom-gradient flex items-center justify-between'
+            style={{
               color: 'black',
               paddingTop: '2px',
               paddingBottom: '2px',
@@ -155,11 +188,25 @@ const IngredientDetail = () => {
               height: '70px',
               borderRadius: 10,
             }}
-            onClick={() => navigate("/IngredientCalculation", { state: { item } })}
+            onClick={() => navigate("/Receipe", { state: { item } })}
           >
-            <p className='title3'>
-              {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
+            <p className='title3 text-center' style={{ flex: 1 }}>
+              {isMya ? "ဟင်းချက်နည်း" : "Recipes"}
             </p>
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
           </button>
         </div>
       </div>

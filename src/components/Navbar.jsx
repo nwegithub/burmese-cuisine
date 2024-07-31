@@ -144,7 +144,7 @@ const Navbar = () => {
             </div>
 
             {/* Navigation menu */}
-            <nav className={`${menu ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center text-lg font-medium gap-8 nav`}
+            <nav className={`${menu ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center text-xl font-bold gap-8 nav`}
             // style = {{
             //     position : 'fixed',
             //     top : '54px',
@@ -308,15 +308,7 @@ const Navbar = () => {
                 >
                     {isMya ? "ဆောင်းပါးများ" : "Article&Blogs"}
                 </Link>
-                {/* <Link
-                    to='/shop'
-                    spy="true"
-                    smooth="true"
-                    duration={500}
-                    className={`${getLinkClassName('/Shop')} transition-all cursor-pointer`}
-                >
-                    Shop
-                </Link> */}
+                
 
                 <div className='relative group'>
                     <div className='flex gap-1'>
@@ -336,7 +328,7 @@ const Navbar = () => {
                                 onClick={() => { handleLanguage('eng'); closeMenu(); }}
                                 className={`${getLinkClassName('eng')} transition-all cursor-pointer`}
                             >
-                                <p className='body2 hover:text-red-500'> {isMya ? "အင်္ဂလိပ်" : "English"}</p>
+                                <p className='body1 hover:text-red-500'> {isMya ? "အင်္ဂလိပ်" : "English"}</p>
                             </Link>
                         </li>
                         <li>
@@ -344,12 +336,30 @@ const Navbar = () => {
                                 onClick={() => { handleLanguage('mm'); closeMenu(); }}
                                 className={`${getLinkClassName('mm')} transition-all cursor-pointer`}
                             >
-                                <p className="body2 hover:text-red-500">
+                                <p className="body1 hover:text-red-900">
                                     {isMya ? "မြန်မာ" : "Myanmar"}
                                 </p>                            </Link>
                         </li>
                     </ul>
                 </div>
+                <Link
+                    to='/FooterAboutUs'
+                    spy="true"
+                    smooth="true"
+                    duration={500}
+                    className={`${getLinkClassName('/Shop')} transition-all cursor-pointer`}
+                >
+                   {isMya ? "အကြောင်းအရာ" : "About Us"}
+                </Link>
+                <Link
+                    to='/Contactus'
+                    spy="true"
+                    smooth="true"
+                    duration={500}
+                    className={`${getLinkClassName('/Shop')} transition-all cursor-pointer`}
+                >
+                    {isMya ? "ဆက်သွယ်ရန်" : "Contact"}
+                </Link>
                 {user ? (
 
                     <div

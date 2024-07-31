@@ -11,7 +11,7 @@ import { useItem } from '../../Auth/ItemProvider';
 
 
 const IngredientDetail = () => {
-  const { item,setItem } = useItem();
+  const { item, setItem } = useItem();
   const { isMya, user } = useAuth();
 
   const navigate = useNavigate();
@@ -87,21 +87,21 @@ const IngredientDetail = () => {
         backgroundColor: 'white'
       }}>
         <div className="flex flex-col "
-        style={{width:'100%'}}
+          style={{ width: '100%' }}
         >
 
-<div className='ext-center bg-custom-gradient p-4 rounded-lg shadow-md flex-1 mx-2'>
-          <h1 className='title1'>{isMya ? item.name_mm : item.name}</h1>
+          <div className='ext-center bg-custom-gradient p-4 rounded-lg shadow-md flex-1 mx-2'>
+            <h1 className='title1'>{isMya ? item.name_mm : item.name}</h1>
 
           </div>
-          
-            <img
-              src={`http://localhost:4000/${item.image}`}
-              alt="img"
-              style={{ marginTop: '5px', width: '100%' }}
-            />
-         
-        
+
+          <img
+            src={`http://localhost:4000/${item.image}`}
+            alt="img"
+            style={{ marginTop: '5px', width: '100%' }}
+          />
+
+
           <h1 className='title2'>{isMya ? "ပါဝင်ပစ္စည်းများ" : "Our family Secret Ingredients"}</h1>
 
           <div className="flex justify-center items-center mb-5">
@@ -147,11 +147,44 @@ const IngredientDetail = () => {
           ))}
         </div>
 
-        <div className="flex justify-center items-center flex-grow mb-40" style={{paddingTop:30,paddingBottom:30}}>
+        <div className="flex flex-col justify-center items-center flex-grow mb-40" style={{ paddingTop: 30, paddingBottom: 30 }}>
+          {/* Ingredients Calculation Button */}
           <button
-            className='bg-custom-gradient'
+            className='bg-custom-gradient flex items-center justify-between mb-4'
             style={{
+              color: 'black',
+              paddingTop: '2px',
+              paddingBottom: '2px',
+              width: '350px',
+              height: '70px',
+              borderRadius: 10,
+              fontSize: '1.5rem', // Adjust the size of the icon
+            }}
+            onClick={() => navigate("/IngredientCalculation", { state: { item } })}
+          >
+            <p className='title3 text-center' style={{ flex: 1 }}>
+              {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "Ingredients Calculation"}
+            </p>
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </button>
 
+          {/* Recipes Button */}
+          <button
+            className='bg-custom-gradient flex items-center justify-between'
+            style={{
               color: 'black',
               paddingTop: '2px',
               paddingBottom: '2px',
@@ -159,11 +192,25 @@ const IngredientDetail = () => {
               height: '70px',
               borderRadius: 10,
             }}
-            onClick={handleNavigateIngredientDetail}
+            onClick={() => navigate("/Receipe", { state: { item } })}
           >
-            <p className='title3'>
-              {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
+            <p className='title3 text-center' style={{ flex: 1 }}>
+              {isMya ? "ဟင်းချက်နည်း" : "Recipes"}
             </p>
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
           </button>
         </div>
       </div>
