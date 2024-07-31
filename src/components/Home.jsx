@@ -61,11 +61,12 @@ const Home = (props, item, handleClick) => {
 
   return (
     <>
-      <div className="home-banner-container" style={{ minHeight: '50vh' }}>
+      <div className="home-banner-container" style={{ minHeight: '80vh', overflowX: 'hidden' }}>
         <div className="home-bannerImage-container">
           <img
             className="tinted-color"
             src={BannerBackground}
+            alt="Banner Background"
           />
         </div>
         <div className="home-text-section md:p-10">
@@ -76,9 +77,7 @@ const Home = (props, item, handleClick) => {
             {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
           </p>
           <div className="secondary-button">
-            <button 
-            onClick={handleGet}
-            >
+            <button onClick={handleGet}>
               {isMya ? "စတင်ရန်" : " Get Started"}
               <ArrowForwardIcon className="ml-3" />
             </button>
@@ -87,12 +86,14 @@ const Home = (props, item, handleClick) => {
         <div
           data-aos="zoom-in"
           data-aos-duration="300"
-          className="home-image-section">
+          className="home-image-section"
+        >
           <img
             src={teasalad}
             alt="biryani img"
             className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin"
-            data-aos-once="true" />
+            data-aos-once="true"
+          />
         </div>
       </div>
       <Aboutus ref={aboutRef} />
@@ -101,36 +102,7 @@ const Home = (props, item, handleClick) => {
       <HomeArticle />
 
       <CustomerReview />
-      {/* <Swiper effect={'coverflow'} grabCursor={true}
-        centeredSlides={true} loop={true} slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-        }}
-        pagination={{ el: '.swiper-pagination', clickable: true }}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          clickable: true,
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
-        className='swiper_container'
-      >
-        {
-          data.Dessert.map((item, index) =>
-            <SwiperSlide>
-              <Container>
-                <Grid item>
-                  <img src={item.url} alt="" style={{ width: 250, height: 250 }}
-                  />
-                </Grid>
-              </Container>
-            </SwiperSlide>
-          )
-        }
-      </Swiper> */}
+
       <div>
       </div>
       <Footer />

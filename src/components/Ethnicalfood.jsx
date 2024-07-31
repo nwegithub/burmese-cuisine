@@ -111,17 +111,18 @@ const Ethnicalfood = () => {
   const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
 
 
-  const handleNavigateToDetail = (itemData) => {
-    setItem(itemData);
-    navigate('/ethnicalingredientdetail');
+  const handleNavigateToDetail = (id) => {
+    navigate(`/ethnicalfood/${id}`);
   };
 
-  const handleNavigateToRecipe = (itemData) => {
-    setItem(itemData);
-    navigate('/Receipe');
+  const handleNavigateToRecipe = (id) => {
+    navigate(`/ethnicalRecipe/${id}`);
+
   };  
 
 
+  // console.log("pro",productsToDisplay)
+  
   if (!productsToDisplay) {
     return <div>Loading...</div>;
 }
@@ -231,12 +232,12 @@ const handleClickEthical = () => {
                 <Button
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
 
-                  onClick={() => handleNavigateToDetail(item)}>
+                  onClick={() => handleNavigateToDetail(item._id)}>
                   {isMya? "ပါဝင်ပစ္စည်းများ" : "Ingredients"}
 
                 </Button>
                 <Button
-                  onClick={() => handleNavigateToRecipe(item)} // Add your modal logic
+                  onClick={() => handleNavigateToRecipe(item._id)} 
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                 >
                   {isMya? "ချက်နည်းများ" : "Recipe"}

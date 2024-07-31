@@ -33,44 +33,56 @@ if(favorites.length === 0){
 }
   return (
     <div ref={ref} style={{ marginTop: 30 }}>
-      <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
-      
-          <div>
-            <h1 className='title1'>{isMya ? "လူကြိုက်များသောအစားအစာများ" : "People Most Enjoyable Food"}</h1>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              marginTop: 30,
-              padding: '5%',
-              backgroundColor: '#6FDCE3',
-              minHeight: "60vh",
-            }}>
-              {favorites.map((item, index) => (
-                <div key={index} style={{ margin: '10px', textAlign: 'center' }}>
-                  {item.productId && item.productId.image ? (
-                    <>
-                      <img
-                        src={`http://localhost:4000/${item.productId.image}`}
-                        alt={item.productId.name}
-                        className="round-image w-70 h-70"
-                      />
-                      <p className='body1' style={{ marginTop: '15px' }}>
-                        {isMya ? item.productId.name_mm : item.productId.name}
-                      </p>
-                    </>
-                  ) : (
-                    <p>Image not available</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-      
+<div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
+<h1 className='title1'>{isMya ? "လူကြိုက်များသောအစားအစာများ" : "People Most Enjoyable Food"}</h1>
+
+  <div style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    overflowX: 'auto',
+    whiteSpace: 'nowrap',
+    padding: '5%',
+    backgroundColor: '#6FDCE3',
+    minHeight: "60vh",
+    marginTop: 30,
+    scrollbarWidth: 'none', // For Firefox to hide scrollbar
+      msOverflowStyle: 'none',
+  }}>
+    {favorites.map((item, index) => (
+      <div key={index} style={{ 
+        display: 'inline-block', 
+        margin: '10px', 
+        textAlign: 'center',
+        flex: '0 0 auto', // Prevents the item from shrinking
+      }}>
+        {item.productId && item.productId.image ? (
+          <>
+            <img
+              src={`http://localhost:4000/${item.productId.image}`}
+              alt={item.productId.name}
+              className="round-image"
+              style={{ width: '150px', height: '150px', borderRadius: '50%' }} // Maintains fixed image size
+            />
+            <p className='body1' style={{ marginTop: '15px' }}>
+              {isMya ? item.productId.name_mm : item.productId.name}
+            </p>
+          </>
+        ) : (
+          <p>Image not available</p>
+        )}
       </div>
-    </div>
+    ))}
+  </div>
+
+</div>
+</div>
   );
 });
 
 export default LearnMore;
+
+
+
+

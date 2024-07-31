@@ -11,61 +11,91 @@ import { useItem } from '../../Auth/ItemProvider';
 
 
 const IngredientDetail = () => {
-  const { item,setItem } = useItem();
   const { isMya, user } = useAuth();
-
+  const location = useLocation();
   const navigate = useNavigate();
-  const [isFavorite, setIsFavorite] = useState(false);
+  
+  const id = location.pathname.split('/')[2];
+  const [isFavorite, setIsFavorite] = useState(false); 
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const userId = user && user._id;
 
 
-  const handleNavigateIngredientDetail = () => {
-    setItem(item)
-    navigate('/IngredientCalculation')
-  }
+
+  const handleNavigateToCalculation = (id) => {
+    navigate(`/seasonalCalculation/${id}`);
+
+  }; 
+
+console.log("id",id)
+
+  useEffect(() => {
+      const fetchProduct = async () => {
+          try {
+              const response = await axios.get(`http://localhost:4000/products/products/${id}`);
+              setProduct(response.data);
+              setLoading(false);
+          } catch (err) {
+              console.error('Error fetching product:', err);
+              setError('Failed to fetch product');
+              setLoading(false);
+          }
+      };
+
+      fetchProduct();
+  }, [id]);
+
 
 
   useEffect(() => {
+    if (!product || !userId) {
+      return; 
+    }
     const checkFavoriteStatus = async () => {
       try {
         // Check local storage first
-        const localFavoriteStatus = localStorage.getItem(`favorite_${userId}_${item._id}`);
+        const localFavoriteStatus = localStorage.getItem(`favorite_${userId}_${product._id}`);
         if (localFavoriteStatus !== null) {
           setIsFavorite(localFavoriteStatus);
         } else {
           // Fetch from the server if not in local storage
-          const response = await axios.get(`http://localhost:4000/favorites/isFavorited/${userId}/${item._id}`);
+          const response = await axios.get(`http://localhost:4000/favorites/isFavorited/${userId}/${product._id}`);
           setIsFavorite(response.data.isFavorited);
-          localStorage.setItem(`favorite_${userId}_${item._id}`, JSON.stringify(response.data.isFavorited));
+          localStorage.setItem(`favorite_${userId}_${product._id}`, JSON.stringify(response.data.isFavorited));
         }
       } catch (error) {
         console.error('Error fetching favorite status:', error);
       }
     };
 
-    if (userId && item._id) {
+    if (userId && product._id) {
       checkFavoriteStatus();
     }
-  }, [userId, item._id]);
+  }, [userId, product]);
 
 
   const toggleFavorite = async () => {
+    if (!product || !userId) {
+      return; 
+    }
     try {
       if (isFavorite) {
         await axios.delete('http://localhost:4000/favorites/deleteFavorite', {
           data: {
             userId: userId,
-            productId: item._id
+            productId: product._id
           }
         });
-        localStorage.removeItem(`favorite_${userId}_${item._id}`);
+        localStorage.removeItem(`favorite_${userId}_${product._id}`);
         alert("Delete Successful");
       } else {
         await axios.post('http://localhost:4000/favorites/addFavorite', {
           userId: userId, // Replace with actual userId
-          productId: item._id
+          productId: product._id
         });
-        localStorage.setItem(`favorite_${userId}_${item._id}`, JSON.stringify(true));
+        localStorage.setItem(`favorite_${userId}_${product._id}`, JSON.stringify(true));
         alert("Added Successfully");
       }
       setIsFavorite(!isFavorite);
@@ -74,9 +104,10 @@ const IngredientDetail = () => {
     }
   };
 
-  if (!item) {
-    return <div>..Loading</div>
-  }
+  console.log("prod",product)
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="min-h-screen bg-custom-gradient">
@@ -91,12 +122,12 @@ const IngredientDetail = () => {
         >
 
 <div className='ext-center bg-custom-gradient p-4 rounded-lg shadow-md flex-1 mx-2'>
-          <h1 className='title1'>{isMya ? item.name_mm : item.name}</h1>
+          <h1 className='title1'>{isMya ? product.name_mm : product.name}</h1>
 
           </div>
           
             <img
-              src={`http://localhost:4000/${item.image}`}
+              src={`http://localhost:4000/${product.image}`}
               alt="img"
               style={{ marginTop: '5px', width: '100%' }}
             />
@@ -129,7 +160,7 @@ const IngredientDetail = () => {
         </div>
 
         <div style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-          {(isMya ? item.ingredients_mm : item.ingredients).map((ingredient, index) => (
+          {(isMya ? product.ingredients_mm : product.ingredients).map((ingredient, index) => (
             <div
               key={index}
               className="border-2 border-gray-300 rounded-lg flex items-center justify-center mb-5 hover:bg-gray-100 hover:shadow-lg transition duration-300"
@@ -159,7 +190,7 @@ const IngredientDetail = () => {
               height: '70px',
               borderRadius: 10,
             }}
-            onClick={handleNavigateIngredientDetail}
+            onClick={() => handleNavigateToCalculation(product._id)}
           >
             <p className='title3'>
               {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "  Ingredients Calculation"}
