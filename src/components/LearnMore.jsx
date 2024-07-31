@@ -3,11 +3,18 @@ import axios from 'axios';
 import { useAuth } from '../Auth/AuthContext';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+// import { useNavigate } from 'react-router-dom';
+// import { useItem } from '../../Auth/ItemProvider';
+import { useNavigate } from 'react-router-dom';
+import { useItem } from '../Auth/ItemProvider';
 
 const LearnMore = React.forwardRef((props, ref) => {
   const { user, isMya } = useAuth();
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  const navigate = useNavigate();
+  const {setItem} = useItem()
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -28,12 +35,20 @@ const LearnMore = React.forwardRef((props, ref) => {
     AOS.init({ duration: 1000 });
     AOS.refresh();
   }, [favorites]);
+
+  const handleNavigateToDetail = (itemData) => {
+    setItem(itemData);
+    navigate('/seasonalingredientdetail');
+  };
+
+  console.log("fav",favorites)
+
 if(favorites.length === 0){
   return null
 }
   return (
     <div ref={ref} style={{ marginTop: 30 }}>
-<div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
+     <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
 <h1 className='title1'>{isMya ? "လူကြိုက်များသောအစားအစာများ" : "People Most Enjoyable Food"}</h1>
 
   <div style={{

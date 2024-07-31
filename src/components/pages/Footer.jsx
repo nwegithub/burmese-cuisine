@@ -23,12 +23,10 @@ const Footer = () => {
         navigate("/Home");
     }
     const handleMenu = () => {
-        navigate("/Menu");
+        navigate("/menu");
     }
 
     return (
-
-
         <div
             style={{ marginTop: 200 }}>
             <footer >
@@ -52,23 +50,20 @@ const Footer = () => {
                             accusantium corrupti iusto eligendi perspiciatis modi officia ut! Assumenda,
                             sint doloribus.
                         </p> */}
-                        <ul className="social_icon" style={{ display: "flex", justifyContent: "center", alignSelf: "center" }}>
-                            <li><a href="https://www.facebook.com/tastewindowfoodmagazinemyanmar?mibextid=LQQJ4d"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                            <li><a href="https://x.com/homevsfastfood?s=21&t=RQam9jhhLf1_6Un1a7yMJw"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                            <li><a href="https://www.instagram.com/cookwithnabeela?igsh=b251eWZyMG15bnM="><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        <ul className="social_icon" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <li><a href="mailto:your-email@example.com"><ion-icon name="mail-outline"></ion-icon></a></li>
+                            <li><a href="https://www.youtube.com/channel/UC_CHANNEL_ID"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                            <li><a href=""><ion-icon name="call-outline"></ion-icon></a></li>
                         </ul>
-
-
-
                     </div>
-                    <div style={{ display: "flex", justifyContent: "center", alignSelf: "center", gap: "15px" ,fontSize:"15px"}}>
+                    <div style={{ display: "flex", justifyContent: "center", alignSelf: "center", gap: "15px", fontSize: "15px" }}>
                         <button onClick={() => handleHome()} style={{ fontStyle: "italic" }}>Home</button>
                         <button onClick={() => handleAboutUsClick()} style={{ fontStyle: "italic" }}>About Us</button>
                         <button onClick={() => handleClick()} style={{ fontStyle: "italic" }}>Contact us</button>
                         <button onClick={() => handleClickFAQ()} style={{ fontStyle: "italic" }}>FAQ</button>
                         <button onClick={() => handleMenu()} style={{ fontStyle: "italic" }}>Menu</button>
                     </div>
-                    <div style={{display: "flex",justifyContent:"center",alignSelf: "center",paddingTop:"6px"}}>
+                    <div style={{ display: "flex", justifyContent: "center", alignSelf: "center", paddingTop: "6px" }}>
                         @2024MyanmarCuisine
                     </div>
                     {/* <div className="sec quicklinks"
@@ -98,7 +93,6 @@ const Footer = () => {
                 </div>
 
             </footer>
-
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 

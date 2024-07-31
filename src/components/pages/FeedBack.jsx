@@ -10,8 +10,7 @@ const FeedBack = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const { user,isMya } = useAuth();
-  
+  const { user, isMya } = useAuth();
 
   // Ensure user is parsed correctly
   let userId;
@@ -38,35 +37,74 @@ const FeedBack = () => {
       setError('Failed to submit feedback');
     }
   };
-  
+
   console.log("userId:", userId);
   return (
-    <div className="feedback-form-container min-h-screen bg-custom-gradient" style={{minHeight: "50vh"}}>
-      <div className="feedback-form">
-        <h2>
+    <div className="feedback-form-container min-h-screen bg-custom-gradient" style={{ minHeight: "95vh", backgroundColor: '#f0f4f8' }}> 
+      <div className="feedback-form" style={{ padding: '40px', maxWidth: '800px', margin: 'auto', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 4px 8px yellow' }}>
+        <h2 style={{ fontSize: '2rem', textAlign: 'center' }}>
           {isMya ? "သင်၏အကြံပြုချက်ကိုပေးရန်!" : "Send us your feedback!"}
         </h2>
-        <p>{isMya?"အကြံပြုချက်ရှိပါသလား?":"Do you have a suggestion? "}</p>
-        
+        <p style={{ fontSize: '1.5rem', textAlign: 'center' }}>
+          {isMya ? "အကြံပြုချက်ရှိပါသလား?" : "Do you have a suggestion?"}
+        </p>
+
         <form onSubmit={handleSubmit}>
-          <div className="experience">
-          <label>{isMya?"ရှိခဲ့လျှင်အောက်မှာရေးပေးပါ":" Let us know in the field below."}</label>
-         
-            {/* <label>How was your experience?</label> */}
-            <div className="experience-options">
-              <p type="button" className={`experience-btn ${experience === 'good' ? 'selected' : ''}`} onClick={() => setExperience('good')} style={{fontSize: "50px"}}>😊</p>
-              <p type="button" className={`experience-btn ${experience === 'neutral' ? 'selected' : ''}`} onClick={() => setExperience('neutral')} style={{fontSize: "50px", marginLeft: "15px", marginRight: "15px"}}>😐</p>
-              <p type="button" className={`experience-btn ${experience === 'bad' ? 'selected' : ''}`} onClick={() => setExperience('bad')} style={{fontSize: "50px"}}>😞</p>
+          <div className="experience" style={{ marginBottom: '20px' }}>
+            <label style={{ fontSize: '1.5rem' }}>{isMya ? "ရှိခဲ့လျှင်အောက်မှာရေးပေးပါ" : "Let us know in the field below."}</label>
+            <div className="experience-options" style={{ textAlign: 'center' }}>
+              <p
+                type="button"
+                className={`experience-btn ${experience === 'good' ? 'selected' : ''}`}
+                onClick={() => setExperience('good')}
+                style={{ fontSize: '4rem', margin: '0 10px' }}
+              >
+                😊
+              </p>
+              <p
+                type="button"
+                className={`experience-btn ${experience === 'neutral' ? 'selected' : ''}`}
+                onClick={() => setExperience('neutral')}
+                style={{ fontSize: '4rem', margin: '0 10px' }}
+              >
+                😐
+              </p>
+              <p
+                type="button"
+                className={`experience-btn ${experience === 'bad' ? 'selected' : ''}`}
+                onClick={() => setExperience('bad')}
+                style={{ fontSize: '4rem', margin: '0 10px' }}
+              >
+                😞
+              </p>
             </div>
           </div>
-          <div className="description">
-            <textarea placeholder={isMya?"ဤနေရာတွင့်သင့်အကြံပြုချက်ကိုရေးပေးပါ….":" Describe your experience here..."} value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+          <div className="description" style={{ marginBottom: '20px' }}>
+            <textarea
+              placeholder={isMya ? "ဤနေရာတွင့်သင့်အကြံပြုချက်ကိုရေးပေးပါ…." : "Describe your experience here..."}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              style={{
+                width: '100%',
+                height: '150px',
+                fontSize: '2rem',
+                padding: '10px',
+                borderRadius: '4px',
+                border: '1px solid #ccc',
+                color: 'black' // Change this color to your preferred text color
+              }}
+            />
           </div>
-          <button type="submit" className="submit-btn"> {isMya?"ပေးပို့ရန်":" Send Feedback"}
+          <button
+            type="submit"
+            className="submit-btn"
+            style={{ backgroundColor: '#42eff5', color: 'black', border: 'none', borderRadius: '5px', padding: '10px 20px', fontSize: '2rem', cursor: 'pointer' }}
+          >
+            {isMya ? "ပေးပို့ရန်" : "Send Feedback"}
           </button>
         </form>
-        {success && <p className="success-message">{success}</p>}
-        {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message" style={{ color: 'green', fontSize: '1.2rem', textAlign: 'center' }}>{success}</p>}
+        {error && <p className="error-message" style={{ color: 'red', fontSize: '1.2rem', textAlign: 'center' }}>{error}</p>}
       </div>
     </div>
   );

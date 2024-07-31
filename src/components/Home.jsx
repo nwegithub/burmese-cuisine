@@ -14,13 +14,15 @@ import teasalad from '../assets/teasalad-removebg-preview.png';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import '../Footer.css';
 import Aboutus from "../components/Aboutus";
-import LearnMore from "../components/LearnMore";
+// import LearnMore from "../components/LearnMore";
 import CustomerReview from "./pages/CustomerReview";
 import axios from "axios";
 import { useAuth } from '../Auth/AuthContext';
 import { Button } from '@mui/material';
 import HomeArticle from "./pages/HomeArticle";
+import LearnMore from "../components/LearnMore";
 
 
 const Home = (props, item, handleClick) => {
@@ -57,8 +59,6 @@ const Home = (props, item, handleClick) => {
 
     fetchFavorites();
   }, []);
-
-
   return (
     <>
       <div className="home-banner-container" style={{ minHeight: '80vh', overflowX: 'hidden' }}>
@@ -69,17 +69,19 @@ const Home = (props, item, handleClick) => {
             alt="Banner Background"
           />
         </div>
-        <div className="home-text-section md:p-10">
+        <div className="home-text-section md:p-15">
           <h1 className="primary title1">
-            {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
+            {isMya ? "Myanmar Cuisine မှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
-          <p data-aos="fade-up" className="primary-text body1">
-            {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
+          <p data-aos="fade-up" style={{ fontSize: '1.8rem', marginTop: '24px', lineHeight: '2.5rem' }} className="body1 mx-auto text-justify">   
+                     {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
           </p>
           <div className="secondary-button">
-            <button onClick={handleGet}>
+            <button 
+            onClick={handleGet}
+            >
               {isMya ? "စတင်ရန်" : " Get Started"}
-              <ArrowForwardIcon className="ml-3" />
+              <ArrowForwardIcon className="ml-6" />
             </button>
           </div>
         </div>
@@ -99,10 +101,39 @@ const Home = (props, item, handleClick) => {
       <Aboutus ref={aboutRef} />
 
 
-      <HomeArticle />
-
+      {/* <HomeArticle /> */}
+      <LearnMore />
       <CustomerReview />
-
+      {/* <Swiper effect={'coverflow'} grabCursor={true}
+        centeredSlides={true} loop={true} slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        pagination={{ el: '.swiper-pagination', clickable: true }}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+          clickable: true,
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className='swiper_container'
+      >
+        {
+          data.Dessert.map((item, index) =>
+            <SwiperSlide>
+              <Container>
+                <Grid item>
+                  <img src={item.url} alt="" style={{ width: 250, height: 250 }}
+                  />
+                </Grid>
+              </Container>
+            </SwiperSlide>
+          )
+        }
+      </Swiper> */}
       <div>
       </div>
       <Footer />

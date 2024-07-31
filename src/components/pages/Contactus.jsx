@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { MdMessage } from 'react-icons/md';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
-import axios from 'axios';
 import "../../Contactus.css";
 import img2 from "../../assets/image2.png";
 import Cbutton from '../../layouts/Cbutton';
+import axios from 'axios';
 
 const Contactus = () => {
   const [name, setName] = useState('');
@@ -27,16 +27,18 @@ const Contactus = () => {
       console.log("e",error)
     }
   };
-
+  
+  
   return (
-    <div className="container min-h-screen" style={{ backgroundColor: 'white', minHeight: "50vh" }}>
-      <div className="container-section" style={{ padding: '0px 50px 50px 50px' }}>
-        <div className="contact_section" style={{ padding: '0px 50px' }}>
+    <div className="container min-h-screen" style={{
+      backgroundColor: 'white',minHeight:"50vh"}}>
+      <div className="container-section" style={{ padding: '0px 50px 50px 50px'}}>
+        <div className="contact_section" style={{ padding: '0px 50px'}}>
           <h1>CONTACT US</h1>
           <p>
             LET'S CONNECT: WE'RE HERE TO HELP, AND WE'D LOVE TO HEAR FROM YOU! 
             WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT, YOU CAN 
-            REACH OUT TO US THROUGH THE CONTACT FORM ON THIS PAGE, OR BY PHONE, 
+            REACH OUT TO US THROUGH THE CONTACT FROM OF THIS PAGE, OR BY PHONE, 
             EMAIL, OR SOCIAL MEDIA.
           </p>
         </div>
@@ -47,46 +49,40 @@ const Contactus = () => {
                 <Cbutton text='VIA SUPPORT CHAT' icon={<MdMessage fontSize='20px' />} />
                 <a href="tel:09975315661"><Cbutton text='VIA CALL' icon={<FaPhoneAlt fontSize='20px' />} /></a>
               </div>
-              <a href="mailto:mywethain@gmail.com" style={{ textDecoration: 'none' }}><Cbutton isOutline='true' text='VIA EMAIL FROM' icon={<HiMail fontSize='10px' />} /></a>
+              <a href="mailto:mywethain@gmail.com" style={{ textDecoration: 'none' }}><Cbutton isOutline='true' text='VIA EMAIL FROM' icon={<HiMail fontSize='10px' />} ></Cbutton></a>
+              
             </div>
             <form onSubmit={onSubmit} className="form">
               <div className="form_control">
-                <input
-                  type="text"
-                  name='name'
-                  placeholder='Enter your name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
+                {/* <label htmlFor="name">Name</label> */}
+                <input type="text" name='name' placeholder='Enter your name' />
               </div>
               <div className="form_control">
-                <input
-                  type="text"
-                  name='email'
-                  placeholder='abc@example.com'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                {/* <label htmlFor="email">Email</label> */}
+                <input type="text" name='email' placeholder='abc@example.com' />
               </div>
               <div className="form_control">
-                <textarea
-                  type="text"
-                  name='text'
-                  placeholder='Description'
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                />
+                {/* <label htmlFor="text">Text</label> */}
+                <textarea type="text" name='text' placeholder='Description' />
               </div>
               <div className="submit">
                 <Cbutton text='SUBMIT' />
               </div>
-              {message && <p>{message}</p>}
+              <p>
+                {`Name: ${name}`} <br /> {`Email: ${email}`} <br /> {`Text: ${text}`}
+              </p>
             </form>
           </div>
-          <div className="contact_image">
-            <img style={{ height: "350px", width: "330px", marginTop: "-30px", marginBottom: "30px" }} src={img2} alt="Contact us" />
+          <div className="contact_image" >
+            <img style={{height: "350px",
+    width: "330px",marginTop:"-30px",marginBottom:"30px"}} src={img2} alt="image" />
           </div>
         </section>
+        <div style={{ padding: '0 50px' }}>
+          <p style={{ fontSize: '2rem'}}>
+            {`Name: ${name}`} <br /> {`Email: ${email}`} <br /> {`Text: ${text}`}
+          </p>
+        </div>
       </div>
     </div>
   );
