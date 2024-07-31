@@ -15,7 +15,8 @@ const SignUp = () => {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const {  isMya, setIsMya } = useAuth();
+  const { isMya, setIsMya } = useAuth();
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     // Optionally clear local storage if used for form data
@@ -33,18 +34,39 @@ const SignUp = () => {
 
   const validate = () => {
     let tempErrors = {};
-    if (!formValues.name) tempErrors.name = "Name is required";
-    if (!formValues.phone) tempErrors.phone = "Phone is required";
-    if (!formValues.email) tempErrors.email = "Email is required";
-    if (!/\S+@\S+\.\S+/.test(formValues.email)) tempErrors.email = "Email is invalid";
-    if (!formValues.password) tempErrors.password = "Password is required";
-    if (formValues.password.length < 6) tempErrors.password = "Password should be at least 6 characters long";
+
+    if (!formValues.name) {
+      tempErrors.name = "Name is required";
+    } else if (!/^[a-zA-Z\s-]+$/.test(formValues.name)) {
+      tempErrors.name = "Name must only contain letters";
+    }
+
+    if (!formValues.phone) {
+      tempErrors.phone = "Phone is required";
+    } else if (!/^\d{11}$/.test(formValues.phone)) {
+      tempErrors.phone = "Phone must be exactly 11 digits";
+    }
+
+    if (!formValues.email) {
+      tempErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
+      tempErrors.email = "Email is invalid";
+    }
+
+    if (!formValues.password) {
+      tempErrors.password = "Password is required";
+    } else if (formValues.password.length < 6) {
+      tempErrors.password = "Password should be at least 6 characters long";
+    }
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
+
   const signUp = async (formData) => {
+    setLoading(true)
+
     try {
       const response = await fetch('http://localhost:4000/users/register', {
         method: 'POST',
@@ -53,9 +75,9 @@ const SignUp = () => {
         },
         body: JSON.stringify(formData)
       });
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
         console.log('Sign-up successful', data);
         setFormValues({
@@ -75,8 +97,9 @@ const SignUp = () => {
       console.error('An error occurred during sign-up', error);
       alert('An error occurred during sign-up. Please try again.');
     }
+    setLoading(false)
   };
-  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,8 +142,8 @@ const SignUp = () => {
           padding="10rem"
         >
           <h2 className="primary title1">
-          {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome To Our Myanmar Cuisine.."}
-            </h2>
+            {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome To Our Myanmar Cuisine.."}
+          </h2>
           <form onSubmit={handleSubmit} className="w-full">
             <TextField
               name="name"
@@ -202,11 +225,37 @@ const SignUp = () => {
                 style: { fontSize: '1.25rem' }  // Increase label text size
               }}
             />
-            <button  
-            type='submit'
-            className="recipe-button font-bold text-center text-black title3">
-               {isMya ? "စာရင်းသွင်းရန်" : " Sign Up"}
-             
+            <button
+              type='submit'
+              className="recipe-button font-bold text-center text-black title3">
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zM2 16h2v4H2zm2-6h2v6H4zm2-6h2v6H6zm2-4h2v4H8z"
+                    ></path>
+                  </svg>
+                  Loading...
+                </div>
+              ) : (
+                isMya ? "စာရင်းသွင်းရန်" : "Sign Up"
+              )}
+
             </button>
           </form>
         </Box>

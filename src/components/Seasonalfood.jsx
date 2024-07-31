@@ -149,14 +149,13 @@ const Ethnicalfood = () => {
     };
 
 
-  const handleNavigateToDetail = (itemData) => {
-    setItem(itemData);
-    navigate('/seasonalingredientdetail');
+  const handleNavigateToDetail = (id) => {
+    navigate(`/seasonalfood/${id}`);
   };
 
-  const handleNavigateToRecipe = (itemData) => {
-    setItem(itemData);
-    navigate('/Receipe');
+
+  const handleNavigateToRecipe = (id) => {
+    navigate(`/seasonalRecipe/${id}`);
   };  
 
     return (
@@ -265,11 +264,11 @@ const Ethnicalfood = () => {
                                 <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
                                     <Button
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-                                        onClick={() => handleNavigateToDetail(item)}>
+                                        onClick={() => handleNavigateToDetail(item._id)}>
                                         Ingredients
                                     </Button>
                                     <Button
-                                        onClick={() => handleNavigateToRecipe(item)}
+                                        onClick={() => handleNavigateToRecipe(item._id)}
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                                     >
                                         Recipe

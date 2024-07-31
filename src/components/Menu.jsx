@@ -127,7 +127,7 @@ const Menu = (item) => {
                 style={{ paddingBottom: "20%", marginTop: 50 }} >
                 <button
                     className="button-52"
-                    onClick={() => handleFeedbackClick(item)}>
+                    onClick={() => navigate('/Feed')}>
                     Customer Feedback
                 </button>
             </div>

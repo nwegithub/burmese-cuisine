@@ -1,19 +1,43 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../Auth/AuthContext';
 import { useLocation } from 'react-router-dom';
-import { useItem } from '../../Auth/ItemProvider';
+import axios from 'axios';
 
-const IngredientDetail = () => {
-  const { item } = useItem();
+const EthnicalCalculation = () => {
 
-  const { isMya, setIsMya } = useAuth();
-
+    const { isMya, user } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    const id = location.pathname.split('/')[2];
+  
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
   const [numPeople, setNumPeople] = useState(1);
+
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`http://localhost:4000/products/products/${id}`);
+        setProduct(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
 
   const handleNumPeopleChange = (e) => {
     setNumPeople(e.target.value);
@@ -27,7 +51,7 @@ const IngredientDetail = () => {
     const tableColumn = ['Ingredient', 'Quantity'];
     const tableRows = [];
 
-    isMya ? item.ingredients_mm : item.ingredients.forEach((ingredient) => {
+    isMya ? product.ingredients_mm : product.ingredients.forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
@@ -65,12 +89,20 @@ const IngredientDetail = () => {
   }
 
 
+  if (loading) {
+    return <div>..Loading</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <div className='min-h-screen flex bg-custom-gradient'>
       <div className="p-20" style={{ flex: 1 }} >
           <div className="mt-5 text-black p-3 rounded-md body1">
             <h1 className="font-bold  title1">
-              {isMya ? item.name_mm : item.name}
+              {isMya ? product.name_mm : product.name}
             </h1>
         </div>
 
@@ -96,7 +128,7 @@ const IngredientDetail = () => {
             />
 
             <img
-              src={`http://localhost:4000/${item.image}`}
+              src={`http://localhost:4000/${product.image}`}
               alt="img"
               style={{ width: '350px', height: '450px', paddingTop: '20px' }} />
           </div>
@@ -112,7 +144,7 @@ const IngredientDetail = () => {
               {
                 isMya ? (
                   <>
-                    {item.ingredients_mm.map((ingredient) => {
+                    {product.ingredients_mm.map((ingredient) => {
                       const amount = parseFloat(convertBurmeseNumerals(ingredient.amount));
                       return (
                         <li key={ingredient.name} className="mb-10 body1">
@@ -123,7 +155,7 @@ const IngredientDetail = () => {
                   </>
                 ) : (
                   <>
-                    {item.ingredients.map((ingredient) => (
+                    {product.ingredients.map((ingredient) => (
                       <li key={ingredient.name} className="mb-10 body1">
                         {ingredient.name}: {ingredient.amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
                       </li>
@@ -150,4 +182,4 @@ const IngredientDetail = () => {
     </div>
   )
 }
-export default IngredientDetail;
+export default EthnicalCalculation;
