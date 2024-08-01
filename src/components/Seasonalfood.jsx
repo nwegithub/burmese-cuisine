@@ -134,6 +134,7 @@ const Ethnicalfood = () => {
     const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
 
 
+    console.log("prooo",product)
 
     if (!productsToDisplay) {
         return <div>Loading...</div>;

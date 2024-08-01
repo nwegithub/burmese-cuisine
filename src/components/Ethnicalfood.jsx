@@ -110,6 +110,7 @@ const Ethnicalfood = () => {
   const newCategoryData = newArr1.concat(categoryArr)
   const productsToDisplay = categorySelected.category === "All" ? product : filterProduct;
 
+  console.log("iiii",product)
 
   const handleNavigateToDetail = (id) => {
     navigate(`/ethnicalfood/${id}`);
