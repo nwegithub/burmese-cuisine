@@ -176,18 +176,21 @@ const SeasonalCalculation = () => {
                   </>
                 )
               }
-
-
-
             </ul>
-
-            <button
-              onClick={generatePDF}
-              className="mt-5 bg-green-300 text-black p-3 rounded-md body1"
-            > {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
-
-            </button>
-
+            <div className="flex space-x-5">
+              <button
+                onClick={() => navigate('/menu')}
+                className="bg-green-300 text-black p-3 rounded-md body1"
+              >
+                {isMya ? "မီနူး" : "Menu"}
+              </button>
+              <button
+                onClick={generatePDF}
+                className="bg-green-300 text-black p-3 rounded-md body1"
+              >
+                {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
+              </button>
+            </div>
           </div>
         </div>
       </div>

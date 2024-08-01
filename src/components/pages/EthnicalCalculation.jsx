@@ -179,7 +179,7 @@ const EthnicalCalculation = () => {
               }
             </ul>
             <div className="flex space-x-5">
-            <button
+              <button
                 onClick={() => navigate('/menu')}
                 className="bg-green-300 text-black p-3 rounded-md body1"
               >
@@ -191,9 +191,7 @@ const EthnicalCalculation = () => {
               >
                 {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
               </button>
-
             </div>
-
           </div>
         </div>
       </div>
