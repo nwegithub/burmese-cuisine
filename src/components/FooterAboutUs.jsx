@@ -41,16 +41,17 @@ const FooterAboutUs = () => {
   });
   useEffect(() => {
     AOS.init({
-      duration: 300, // Example duration for AOS animation
-      easing: 'ease-in-out', // Example easing option for AOS animation
-      once: true, // Whether animation should happen only once
+      duration: 1200, // Animation duration in milliseconds
+      easing: 'ease-in-out', // Easing function for animations
+      once: false, // Animation happens only once
+      anchorPlacement: 'top-bottom', // Defines which position of the element regarding to window should trigger the animation
     });
   }, []);
   return (
     <div className="App">
       <main>
         <div id="front" style={{ minHeight: '50vh' }}>
-          <h1 className="title1" style={{color: '#d97706',textAlign: "center"}}>
+          <h1 data-aos="fade-up" className="title1" style={{color: '#d97706',textAlign: "center"}}>
             {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
           <img
@@ -72,13 +73,15 @@ const FooterAboutUs = () => {
               </p>
             </div>
             <img
+            data-aos="fade-in"
+
               src={Chef}
             />
           </div>
           <div id='second' style={{ width: '100%' }}>
             <div>
-            <h1 data-aos="fade-up" className="title1" style={{color: '#d97706'}}> {isMya ? "ဘာကြောင့်Myanmar Cuisineကိုလေ့လာသင့်တာလဲ" : "Why should you study Myanmar Cuisine?"}</h1>
-              <p data-aos="fade-up" className="body1" style={{ fontSize: '4', lineHeight: '3rem', textAlign: 'justify' }}>
+            <h1 data-aos="fade-left" className="title1" style={{color: '#d97706'}}> {isMya ? "ဘာကြောင့်Myanmar Cuisineကိုလေ့လာသင့်တာလဲ" : "Why should you study Myanmar Cuisine?"}</h1>
+              <p data-aos="fade-right" className="body1" style={{ fontSize: '4', lineHeight: '3rem', textAlign: 'justify' }}>
                 {isMya ? "ချက်ပြုတ်နည်းပေါင်းများစွာကို တစ်နေရာထဲမှာ ရှာဖွေနိုင်ခြင်း။ရာသီစာများနှင့် တိုင်းရင်းသားအစားအစာများကို လွယ်လွယ်ကူကူကြည့်ပီး သင်ယူနိုင်ပါတယ်။လွယ်ကူမြန်ဆန်သောနည်းလမ်းများကို လမ်းညွှန်ပေးနိုင်ခြင်းနှင့် အချက်အပြုတ်စွမ်းရည်ကို တိုးမြှင့်ပေးနိုင်တဲ့အတွက် လေ့လာသင့်သောဝဘ်ဆိုဒ်တခုဖြစ်ပါတယ်" : "You can find many recipes in one place.You can easily learn about seasonal and ethnic foods It's a website you should learn because it can guide you on quick and easy methods and improve your cooking skills."}
               </p>
             </div>
@@ -91,6 +94,7 @@ const FooterAboutUs = () => {
             }}>
               <div style={{ flex: '1', minWidth: '100px', display: 'flex', justifyContent: 'center' }}>
                 <img
+                  data-aos="fade-right"
                   src={Vegitables}
                   alt="Vegetables"
                   style={{
@@ -101,10 +105,10 @@ const FooterAboutUs = () => {
                 />
               </div>
               <div style={{ flex: '1', paddingRight: '20px', paddingTop: '15%'}}>
-                <h1  data-aos="fade-up" className="title1" style={{color: '#d97706'}}>
+                <h1  data-aos="fade-left" className="title1" style={{color: '#d97706'}}>
                   {isMya ? "Myanmar Cuisine၏ကတိကဝတ်များ" : "Our Promise"}
                 </h1>
-                <p className="body1" style={{ fontSize: '1.3rem', lineHeight: '4', textAlign: 'justify' }}>
+                <p data-aos="fade-left" className="body1" style={{ fontSize: '1.3rem', lineHeight: '4', textAlign: 'justify' }}>
                   {isMya
                     ? "အရည်အသွေးသည် ကျွန်ုပ်တို့လုပ်သမျှ၏ အရေးအကြီးဆုံးကဏ္ဏတွင်ပါဝင်သည်။ သင့်ချက်ပြုတ်မှုအတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေမည့် ယုံကြည်စိတ်ချရသော အရည်အသွေးမြင့် အကြောင်းအရာများကို ပေးအပ်ရန် ကျွန်ုပ်တို့ကတိပြုပါသည်။ ကျွန်ုပ်တို့၏ အားလုံးသော လုပ်ဆောင်ချက်များတွင် အရည်အသွေးကို အထူး ဂရုစိုက်ပါသည်။ အကောင်းဆုံးအချက်အပြုတ်နည်းလမ်းများကိုသေချာစေရန်နှင့် ပိုမိုကောင်းမွန်အောင် ဆန်းသစ်တီထွင်ရန် ကျွန်ုပ်တို့ စဉ်ဆက်မပြတ် ကြိုးစားနေပါသည်။"
                     : "Quality is at the heart of everything we do. We are committed to providing you with reliable, high-quality content that enhances your cooking experience. We care about quality in all our activities. We continuously strive to improve and innovate, ensuring that you have access to the latest and best in the culinary world."

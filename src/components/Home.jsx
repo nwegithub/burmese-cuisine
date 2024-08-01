@@ -22,6 +22,7 @@ import { useAuth } from '../Auth/AuthContext';
 import { Button } from '@mui/material';
 import HomeArticle from "./pages/HomeArticle";
 import LearnMore from "../components/LearnMore";
+import EthnicalFavorite from "./EthnicalFavorite";
 
 
 const Home = (props, item, handleClick) => {
@@ -101,6 +102,7 @@ const Home = (props, item, handleClick) => {
       {/* <HomeArticle /> */}
       <LearnMore />
       <CustomerReview />
+      <EthnicalFavorite/>
 
       <div>
       </div>

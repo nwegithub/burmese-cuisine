@@ -23,15 +23,15 @@ export const categories = [
   { name: "Chin Traditional Food", icon: OndemandVideoIcon },
   { name: "Burma Taditional Food", icon: OndemandVideoIcon },
   { name: "Mon Traditional Food", icon: GraphicEqIcon },
-  { name: "Yakhine Traditional Food", icon: OndemandVideoIcon },
+  { name: "Rakhine Traditional Food", icon: OndemandVideoIcon },
   { name: "Shan Traditional Food", icon: SportsEsportsIcon },
-  { name: "Live", icon: LiveTvIcon },
-  { name: "Sport", icon: FitnessCenterIcon },
-  { name: "Fashion", icon: CheckroomIcon },
-  { name: "Beauty", icon: FaceRetouchingNaturalIcon },
-  { name: "Comedy", icon: TheaterComedyIcon },
-  { name: "Gym", icon: FitnessCenterIcon },
-  { name: "Crypto", icon: DeveloperModeIcon },
+  // { name: "Live", icon: LiveTvIcon },
+  // { name: "Sport", icon: FitnessCenterIcon },
+  // { name: "Fashion", icon: CheckroomIcon },
+  // { name: "Beauty", icon: FaceRetouchingNaturalIcon },
+  // { name: "Comedy", icon: TheaterComedyIcon },
+  // { name: "Gym", icon: FitnessCenterIcon },
+  // { name: "Crypto", icon: DeveloperModeIcon },
 ];
 
 export const demoThumbnailUrl = "https://i.ibb.co/G2L2Gwp/API-Course.png";
