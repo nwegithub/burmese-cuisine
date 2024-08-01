@@ -50,21 +50,19 @@ const FavoritesScreen = () => {
       }
     };
     ethnicalFetchFavorites();
-  }, [user]);
+  }, [user]); 
 
 
 
-  const handleNavigateToDetail = (itemData) => {
-    setItem(itemData);
-    navigate('/seasonalingredientdetail');
+  const handleNavigateToDetail = (id) => {
+    navigate(`/seasonalfood/${id}`);
+
   };
 
-  const handleNavigateToEthnicalDetail = (itemData) => {
-    setItem(itemData)
-    navigate('/ethnicalingredientdetail')
+  const handleNavigateToEthnicalDetail = (id) => {
+    navigate(`/ethnicalRecipe/${id}`);
   }
 
-  console.log("favcfav",favorites)
 
   return (
     <div className="min-h-screen flex flex-col p-5 bg-custom-gradient">
@@ -83,7 +81,7 @@ const FavoritesScreen = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {favorites.map((item) => (
             <buttton 
-            onClick={() => handleNavigateToDetail(item)}
+            onClick={() => handleNavigateToDetail(item._id)}
             key={item._id} className="relative border p-4 rounded-lg shadow-lg">
               <img
                 src={`http://localhost:4000/${item.image}`}
@@ -113,7 +111,7 @@ const FavoritesScreen = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {ethnicalFavorites.map((item) => (
             <button
-            onClick={() => handleNavigateToEthnicalDetail(item)}
+            onClick={() => handleNavigateToEthnicalDetail(item._id)}
              key={item._id} className="relative border p-4 rounded-lg shadow-lg">
               <img
                 src={`http://localhost:4000/${item.image}`}
