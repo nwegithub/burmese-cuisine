@@ -14,11 +14,11 @@ const Menu = (item) => {
   const { user, isMya } = useAuth();
 
   const recipes = [
-    {
-      image: image1,
-      buttonText: isMya ? 'အမျိုးအစားများ' : 'Categories',
-      route: '/categories'
-    },
+    // {
+    //   image: image1,
+    //   buttonText: isMya ? 'အမျိုးအစားများ' : 'Categories',
+    //   route: '/categories'
+    // },
     {
       image: image2,
       buttonText: isMya ? 'ရာသီအစားအစာများ' : 'Seasonal Food',
@@ -75,7 +75,7 @@ const Menu = (item) => {
     transition: 'transform 0.3s',
     cursor: 'pointer',
     flex: '0 0 auto', // Prevents shrinking or growing
-    width: '390px', // Increased width
+    width: '290px', // Increased width
     height: '400px', // Increased height
   };
 

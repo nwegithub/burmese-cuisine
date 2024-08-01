@@ -54,8 +54,11 @@ footer {
     height: 100px;
     background-image: url(wave.png);
     background-size: 1000px 100px;
-    filter: hue-rotate(200deg) saturate(1000%);
-  }
+    filter: hue-rotate(90deg) brightness(1.2);
+    /* Remove or adjust filters as needed */
+    /* filter: none; */ /* To completely remove filters */
+}
+
   
   
   footer .wave#wave1 {
