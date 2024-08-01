@@ -41,7 +41,6 @@ const LearnMore = React.forwardRef((props, ref) => {
     navigate('/seasonalingredientdetail');
   };
 
-  console.log("fav",favorites)
 
 if(favorites.length === 0){
   return null
@@ -60,9 +59,8 @@ if(favorites.length === 0){
     overflowX: 'auto',
     whiteSpace: 'nowrap',
     padding: '5%',
-    backgroundColor: '#6FDCE3',
+    // backgroundColor: '#e48f0f',
     minHeight: "60vh",
-    marginTop: 30,
     scrollbarWidth: 'none', // For Firefox to hide scrollbar
       msOverflowStyle: 'none',
   }}>
@@ -71,6 +69,8 @@ if(favorites.length === 0){
         display: 'inline-block', 
         margin: '10px', 
         textAlign: 'center',
+        // backgroundColor:'#e48f0f',
+        borderWidth:2,borderColor:'GrayText',padding:20,
         flex: '0 0 auto', // Prevents the item from shrinking
       }}>
         {item.productId && item.productId.image ? (
@@ -81,7 +81,7 @@ if(favorites.length === 0){
               className="round-image"
               style={{ width: '150px', height: '150px', borderRadius: '50%' }} // Maintains fixed image size
             />
-            <p className='body1' style={{ marginTop: '15px' }}>
+            <p className='body1' style={{ marginTop: '15px' ,backgroundColor:'#e48f0f',padding:5,}}>
               {isMya ? item.productId.name_mm : item.productId.name}
             </p>
           </>

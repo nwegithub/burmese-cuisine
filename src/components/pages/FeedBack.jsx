@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../Feedback.css'; // Import the CSS file
 import { useAuth } from '../../Auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const FeedBack = () => {
   const [experience, setExperience] = useState('');
@@ -9,6 +10,7 @@ const FeedBack = () => {
   const [comment, setComment] = useState(''); // Assuming comment is supposed to be description
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate()
 
   const { user, isMya } = useAuth();
 
@@ -32,6 +34,7 @@ const FeedBack = () => {
         setSuccess('Feedback submitted successfully!');
         setDescription(''); // Clear the description after submission
         alert('Thank you for your review');
+        navigate('/Customer')
       }
     } catch (error) {
       setError('Failed to submit feedback');

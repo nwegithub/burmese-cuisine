@@ -6,7 +6,6 @@ import axios from 'axios';
 import "../../Contactus.css";
 import img2 from "../../assets/image2.png";
 import Cbutton from '../../layouts/Cbutton';
-import axios from 'axios';
 
 const Contactus = () => {
   const [name, setName] = useState('');

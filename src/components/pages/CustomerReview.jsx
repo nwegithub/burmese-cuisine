@@ -26,15 +26,16 @@ const CustomerReview = () => {
         fetchFeedbacks();
     }, []);
 
-    const feedbacksToDisplay = feedbacks.slice(0, -1);
-
     const indexOfLastFeedback = currentPage * feedbacksPerPage;
     const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage;
-    const currentFeedbacks = feedbacksToDisplay.slice(indexOfFirstFeedback, indexOfLastFeedback);
+    const currentFeedbacks = feedbacks.slice(indexOfFirstFeedback, indexOfLastFeedback);
+
+    console.log("dddd",feedbacks)
 
     if (currentFeedbacks.length === 0) {
         return null;
     }
+
 
     return (
         <div
@@ -49,21 +50,24 @@ const CustomerReview = () => {
                 {currentFeedbacks.map((item, index) => (
                     <div
                         key={index}
-                        className={`bg-yellow-200 p-6 flex flex-col items-center space-y-4 rounded-lg shadow-lg transform transition-transform duration-500 ${index % 2 !== 0 ? 'rotate-2' : '-rotate-3'
+                        className={` p-6 flex flex-col items-center space-y-4 rounded-lg shadow-lg transform transition-transform duration-500 ${index % 2 !== 0 ? 'rotate-2' : '-rotate-3'
                             }`}
-                        style={{ borderRadius: '20px' }}
+                        style={{ borderRadius: '20px',width:250 ,height:250,
+                            borderColor:'#e48f0f',
+                            borderWidth:4,backgroundColor:'ButtonFace'
+                        }}
                     >
-                        <p className="text-yellow-900 font-bold text-2xl mb-2">{item.user.name}</p>
+                        <p className="text-black-900 font-bold text-2xl mb-2">{item.user.name}</p>
                         <div className="relative w-full"
                             style={{
                                 marginTop: '80px',
                                 maxHeight: '100vh',
-                                border: '1px solid yellow',
-                                borderStyle: 'solid',
-                                borderColor: 'yellow'
+                                // border: '1px solid yellow',
+                                // borderStyle: 'solid',
+                                // borderColor: 'yellow'
                             }}>
                             <div className="p-10">   
-                                <p className="text-gray-700 italic text-center">{item.comment}</p>
+                                <p className="text-black-700 italic text-center">{item.comment}</p>
                             </div>
                         </div>
                     </div>

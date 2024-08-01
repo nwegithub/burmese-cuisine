@@ -191,7 +191,7 @@ console.log("id",id)
               borderRadius: 10,
               fontSize: '1.5rem', // Adjust the size of the icon
             }}
-            onClick={() => navigate("/IngredientCalculation", { state: { item } })}
+            onClick={() => handleNavigateToCalculation(product._id)}
           >
             <p className='title3 text-center' style={{ flex: 1 }}>
               {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "Ingredients Calculation"}
