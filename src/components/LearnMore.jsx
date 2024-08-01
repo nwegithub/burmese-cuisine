@@ -17,6 +17,15 @@ const LearnMore = React.forwardRef((props, ref) => {
   const { setItem } = useItem()
 
   useEffect(() => {
+    AOS.init({
+      duration: 1200, // Animation duration in milliseconds
+      easing: 'ease-in-out', // Easing function for animations
+      once: false, // Animation happens only once
+      anchorPlacement: 'top-bottom', // Defines which position of the element regarding to window should trigger the animation
+    });
+  }, []);
+
+  useEffect(() => {
     const fetchFavorites = async () => {
       try {
         const response = await axios.get('http://localhost:4000/favorites/allFavorite');
@@ -41,18 +50,15 @@ const LearnMore = React.forwardRef((props, ref) => {
 
   };
 
-
   console.log("fff", favorites)
 
   if (favorites.length === 0) {
     return null
   }
   return (
-    <div ref={ref} style={{ marginTop: 30 }}>
-
+    <div className='min-h-screen' ref={ref} style={{ marginTop: 30 }}>
       <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
         <h1 className='title1'>{isMya ? "လူကြိုက်များသောရာသီစာများ" : "People Most Enjoyable Food"}</h1>
-
         <div style={{
           display: 'flex',
           flexDirection: 'row',

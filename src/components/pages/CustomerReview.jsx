@@ -35,8 +35,6 @@ const CustomerReview = () => {
     if (currentFeedbacks.length === 0) {
         return null;
     }
-
-
     return (
         <div
             className="flex flex-col items-center"

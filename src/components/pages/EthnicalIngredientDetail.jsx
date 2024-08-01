@@ -8,8 +8,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useItem } from '../../Auth/ItemProvider';
 import { useLocation } from 'react-router-dom';
-
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const IngredientDetail = () => {
   const { isMya, user } = useAuth();
   const location = useLocation();
