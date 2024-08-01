@@ -29,18 +29,20 @@ const LearnMore = React.forwardRef((props, ref) => {
     };
 
     fetchFavorites();
-  }, []);
+  }, []); 
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
     AOS.refresh();
   }, [favorites]);
 
-  const handleNavigateToDetail = (itemData) => {
-    setItem(itemData);
-    navigate('/seasonalingredientdetail');
+  const handleNavigateToDetail = (id) => {
+    navigate(`/seasonalfood/${id}`);
+
   };
 
+
+  console.log("fff",favorites)
 
 if(favorites.length === 0){
   return null
@@ -65,7 +67,9 @@ if(favorites.length === 0){
       msOverflowStyle: 'none',
   }}>
     {favorites.map((item, index) => (
-      <div key={index} style={{ 
+      <button 
+      onClick={() => handleNavigateToDetail(item.productId._id)}
+      key={index} style={{ 
         display: 'inline-block', 
         margin: '10px', 
         textAlign: 'center',
@@ -88,7 +92,7 @@ if(favorites.length === 0){
         ) : (
           <p>Image not available</p>
         )}
-      </div>
+      </button>
     ))}
   </div>
 
