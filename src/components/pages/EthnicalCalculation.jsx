@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../Auth/AuthContext';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import myanmarFont from '../../txt/NotoSansMyanmar-Medium.ttf'
 
 const EthnicalCalculation = () => {
 
@@ -45,42 +46,43 @@ const EthnicalCalculation = () => {
   };
 
   const generatePDF = () => {
-    const doc = new jsPDF();
+  const doc = new jsPDF();
 
-    if (!product) {
-      console.error("Product is null");
-      return;
-    }
+  if (!product) {
+    console.error("Product is null");
+    return;
+  }
 
-    console.log("Product Name:", product.name);
-    console.log("Product Name MM:", product.name_mm);
+  // Add custom Myanmar font
+  doc.addFileToVFS('MyanmarFont.ttf', myanmarFont);
+  doc.addFont('MyanmarFont.ttf', 'MyanmarFont', 'normal');
+  doc.setFont('MyanmarFont');
 
-    doc.text('Myanmar Cuisine', 20, 10); // Title
-    doc.text(`Name: ${product.name}`, 20, 20); // English name
-    doc.text(`Name (MM): ${product.name_mm}`, 20, 30); // Myanmar name
-    doc.text(`Number of People: ${numPeople}`, 20, 40); // Number of people
+  doc.text('Myanmar Cuisine', 20, 10); // Title
+  doc.text(`Name: ${product.name}`, 20, 20); // English name
+  doc.text(`Name (MM): ${product.name_mm}`, 20, 30); // Myanmar name
+  doc.text(`Number of People: ${numPeople}`, 20, 40); // Number of people
 
-    const tableColumn = ['Ingredients', 'Quantities'];
-    const tableRows = [];
+  const tableColumn = ['Ingredients', 'Quantities'];
+  const tableRows = [];
 
-    const ingredients = isMya ? product.ingredients_mm : product.ingredients;
-    ingredients.forEach((ingredient) => {
-      const ingredientData = [
-        ingredient.name,
-        `${ingredient.amount * numPeople} ${ingredient.unit}`,
-      ];
-      tableRows.push(ingredientData);
-    });
+  const ingredients = isMya ? product.ingredients_mm : product.ingredients;
+  ingredients.forEach((ingredient) => {
+    const ingredientData = [
+      ingredient.name,
+      `${ingredient.amount * numPeople} ${ingredient.unit}`,
+    ];
+    tableRows.push(ingredientData);
+  });
 
-    doc.autoTable({
-      head: [tableColumn],
-      body: tableRows,
-      startY: 30,
-    });
+  doc.autoTable({
+    head: [tableColumn],
+    body: tableRows,
+    startY: 50, // Adjusted to avoid overlap with previous text
+  });
 
-    doc.save('ingredient-details.pdf');
-  };
-
+  doc.save('ingredient-details.pdf');
+};
   function convertBurmeseNumerals(burmeseNumeral) {
     const burmeseToWesternMap = {
       '၀': '0',

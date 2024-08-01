@@ -105,10 +105,10 @@ const FooterAboutUs = () => {
                 />
               </div>
               <div style={{ flex: '1', paddingRight: '20px', paddingTop: '15%'}}>
-                <h1  data-aos="fade-left" className="title1" style={{color: '#d97706'}}>
+                <h1  data-aos="fade-out" className="title1" style={{color: '#d97706'}}>
                   {isMya ? "Myanmar Cuisine၏ကတိကဝတ်များ" : "Our Promise"}
                 </h1>
-                <p data-aos="fade-left" className="body1" style={{ fontSize: '1.3rem', lineHeight: '4', textAlign: 'justify' }}>
+                <p data-aos="fade-in" className="body1" style={{ fontSize: '1.3rem', lineHeight: '4', textAlign: 'justify' }}>
                   {isMya
                     ? "အရည်အသွေးသည် ကျွန်ုပ်တို့လုပ်သမျှ၏ အရေးအကြီးဆုံးကဏ္ဏတွင်ပါဝင်သည်။ သင့်ချက်ပြုတ်မှုအတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေမည့် ယုံကြည်စိတ်ချရသော အရည်အသွေးမြင့် အကြောင်းအရာများကို ပေးအပ်ရန် ကျွန်ုပ်တို့ကတိပြုပါသည်။ ကျွန်ုပ်တို့၏ အားလုံးသော လုပ်ဆောင်ချက်များတွင် အရည်အသွေးကို အထူး ဂရုစိုက်ပါသည်။ အကောင်းဆုံးအချက်အပြုတ်နည်းလမ်းများကိုသေချာစေရန်နှင့် ပိုမိုကောင်းမွန်အောင် ဆန်းသစ်တီထွင်ရန် ကျွန်ုပ်တို့ စဉ်ဆက်မပြတ် ကြိုးစားနေပါသည်။"
                     : "Quality is at the heart of everything we do. We are committed to providing you with reliable, high-quality content that enhances your cooking experience. We care about quality in all our activities. We continuously strive to improve and innovate, ensuring that you have access to the latest and best in the culinary world."
