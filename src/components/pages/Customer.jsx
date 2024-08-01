@@ -3,7 +3,6 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-
 const ReviewCard = ({ user, comment }) => (
   <div className="bg-white p-10 rounded-lg text-center">
     <div className="flex justify-center bg-blue-300 p-3">
@@ -37,7 +36,6 @@ const ReviewCard = ({ user, comment }) => (
       ))}
     </div>
   </div>
-
 );
 
 const CustomerReviews = () => {
@@ -49,7 +47,9 @@ const CustomerReviews = () => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get('http://localhost:4000/feedback/allFeedback');
-        setReviews(response.data);
+        // Assuming each review object has a 'date' property for sorting
+        const sortedReviews = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setReviews(sortedReviews);
       } catch (error) {
         setError(error.response ? error.response.data.message : 'Server error');
       } finally {

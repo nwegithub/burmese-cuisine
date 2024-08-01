@@ -52,7 +52,7 @@ const Footer = () => {
                         </p> */}
                         <ul className="social_icon" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <li><a href="mailto:your-email@example.com"><ion-icon name="mail-outline"></ion-icon></a></li>
-                            <li><a href="https://www.youtube.com/channel/UC_CHANNEL_ID"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                            <li><a href="https://youtube.com/@myanmarcuisine-z9j?si=8pDnUsHCFo05_1Di"><ion-icon name="logo-youtube"></ion-icon></a></li>
                             <li><a href="e"><ion-icon name="call-outline"></ion-icon></a></li>
                         </ul>
                     </div>
@@ -62,7 +62,7 @@ const Footer = () => {
                         <button onClick={() => handleClick()} style={{ fontStyle: "italic" }}>Contact us</button>
                         <button onClick={() => handleClickFAQ()} style={{ fontStyle: "italic" }}>FAQ</button>
                         <button onClick={() => handleMenu()} style={{ fontStyle: "italic" }}>Menu</button>
-                        <button onClick={() => navigate('/Feed')} style={{ fontStyle: "italic" }}>youtube</button>
+                        <button onClick={() => navigate('/Feed')} style={{ fontStyle: "italic" }}>YouTube</button>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center", alignSelf: "center", paddingTop: "6px" }}>
                         @2024MyanmarCuisine

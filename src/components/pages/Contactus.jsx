@@ -5,6 +5,7 @@ import { HiMail } from 'react-icons/hi';
 import "../../Contactus.css";
 import img2 from "../../assets/image2.png";
 import Cbutton from '../../layouts/Cbutton';
+import axios from 'axios';
 
 const Contactus = () => {
   const [name, setName] = useState('');
@@ -20,18 +21,18 @@ const Contactus = () => {
       setName('');
       setEmail('');
       setText('');
-      alert('create contact successful')
+      alert('Create contact successful')
     } catch (error) {
       setMessage('Error submitting contact request');
-      console.log("e",error)
+      console.log("e", error)
     }
   };
 
   return (
-    <div className="container min-h-screen" style={{ backgroundColor: 'white', minHeight: "50vh" }}>
+    <div className="container min-h-screen" style={{ backgroundColor: 'white', minHeight: "100vh" }}>
       <div className="container-section" style={{ padding: '0px 50px 50px 50px' }}>
         <div className="contact_section" style={{ padding: '0px 50px' }}>
-          <h1>CONTACT US</h1>
+          <h1 className='title1'>CONTACT US</h1>
           <p>
             LET'S CONNECT: WE'RE HERE TO HELP, AND WE'D LOVE TO HEAR FROM YOU! 
             WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT, YOU CAN 
@@ -40,14 +41,7 @@ const Contactus = () => {
           </p>
         </div>
         <section className="form_section" style={{ padding: '0px 50px' }}>
-          <div >
-            <div className="contact_form">
-              <div className="top_btn">
-                <Cbutton text='VIA SUPPORT CHAT' icon={<MdMessage fontSize='20px' />} />
-                <a href="tel:09975315661"><Cbutton text='VIA CALL' icon={<FaPhoneAlt fontSize='20px' />} /></a>
-              </div>
-              <a href="mailto:mywethain@gmail.com" style={{ textDecoration: 'none' }}><Cbutton isOutline='true' text='VIA EMAIL FROM' icon={<HiMail fontSize='10px' />} /></a>
-            </div>
+          <div>
             <form onSubmit={onSubmit} className="form">
               <div className="form_control">
                 <input
@@ -56,6 +50,7 @@ const Contactus = () => {
                   placeholder='Enter your name'
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  style={{ fontSize: '16px' }}
                 />
               </div>
               <div className="form_control">
@@ -65,18 +60,19 @@ const Contactus = () => {
                   placeholder='abc@example.com'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  style={{ fontSize: '16px' }}
                 />
               </div>
               <div className="form_control">
                 <textarea
-                  type="text"
                   name='text'
                   placeholder='Description'
                   value={text}
                   onChange={(e) => setText(e.target.value)}
+                  style={{ fontSize: '16px' }}
                 />
               </div>
-              <div className="submit">
+              <div className="submit" style={{ fontSize: '16px' }}>
                 <Cbutton text='SUBMIT' />
               </div>
               {message && <p>{message}</p>}
@@ -87,7 +83,7 @@ const Contactus = () => {
           </div>
         </section>
         <div style={{ padding: '0 50px' }}>
-          <p style={{ fontSize: '2rem'}}>
+          <p style={{ fontSize: '2rem' }}>
             {`Name: ${name}`} <br /> {`Email: ${email}`} <br /> {`Text: ${text}`}
           </p>
         </div>

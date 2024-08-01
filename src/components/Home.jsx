@@ -29,9 +29,6 @@ const Home = (props, item, handleClick) => {
   const aboutRef = useRef(null);
   const [favorites, setFavorites] = useState([]);
   const { isMya, setIsMya } = useAuth();
-
-
-
   const handleGet = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -69,7 +66,7 @@ const Home = (props, item, handleClick) => {
           />
         </div>
         <div className="home-text-section md:p-15 text-justify">
-          <h1 className="primary title1">
+          <h1 className="primary title1" >
             {isMya ? "Myanmar Cuisine မှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
           <p data-aos="fade-up" style={{ fontSize: '1.8rem', marginTop: '24px', lineHeight: '2.5rem',textAlign:'justify' }} className="body1 mx-auto text-justify">
