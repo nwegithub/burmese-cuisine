@@ -11,6 +11,7 @@ const ReadMore = () => {
     const [articleId, setArticleId] = useState(null);
     const [articles, setArticles] = useState([]);
     const { isMya } = useAuth();
+    const [selected,setSelected] = useState()
 
     useEffect(() => {
         if (item) {
@@ -60,12 +61,17 @@ const ReadMore = () => {
                 </div>
                 <div className="w-1/2">
                     <div className="content-container pr-0">
-                        <h1 className="title1">Recommended</h1>
-                        <div className="space-y-8 p-8">
+                        {/* <h1 className="title1">Recommended</h1> */}
+                        <div className="space-y-4 p-8">
                             {articles && articles.map((article, index) => (
-                                <div key={index} className="md:w-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg flex flex-col items-center hover:bg-gray-100 hover:shadow-lg transition duration-300">
+                                <div 
+                                style={{
+                                    backgroundColor: selected === article._id ? "#e48f0f" : null
+                                }}
+                                key={index} className="md:w-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg flex flex-col items-center hover:bg-gray-100 hover:shadow-lg transition duration-300">
                                     <Button
-                                        onClick={() => setArticleId(article._id)}
+                                        onClick={() =>{ setArticleId(article._id),setSelected(article._id)}}
+                                        
                                     >
                                         <img
                                             style={{ width: "250px" }}

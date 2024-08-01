@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CustomerReview = () => {
     const [feedbacks, setFeedbacks] = useState([]);
@@ -14,9 +16,19 @@ const CustomerReview = () => {
     const { isMya } = useAuth()
 
     useEffect(() => {
+        AOS.init({
+          duration: 1200, // Animation duration in milliseconds
+          easing: 'ease-in-out', // Easing function for animations
+          once: false, // Animation happens every time you scroll
+          anchorPlacement: 'top-bottom',
+          offset: 100, // Trigger animations when elements are 100px away from viewport
+        });
+      }, []);
+
+    useEffect(() => {
         const fetchFeedbacks = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/feedback/allFeedback');
+                const response = await axios.get('http://localhost:4000/feedback');
                 setFeedbacks(response.data);
             } catch (error) {
                 setError('Error fetching feedback. Please try again later.');
@@ -40,13 +52,14 @@ const CustomerReview = () => {
             className="flex flex-col items-center"
             style={{ marginTop: 80, maxHeight: '100vh' }} // Adjusted value
         >
-            <h1 className="text-3xl font-bold mb-8">
+            <h1 data-aos="fade-left" className="text-3xl font-bold mb-8">
                 {isMya ? "ကြည့်ရှုသူများ၏အကြံပြုချက်များ" : "Customer Reviews"}
             </h1>
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <div className="flex flex-wrap justify-center gap-20">
                 {currentFeedbacks.map((item, index) => (
                     <div
+                    data-aos="fade-right"
                         key={index}
                         className={` p-6 flex flex-col items-center space-y-4 rounded-lg shadow-lg transform transition-transform duration-500 ${index % 2 !== 0 ? 'rotate-2' : '-rotate-3'
                             }`}

@@ -51,8 +51,6 @@ const SeasonalCalculation = () => {
       return;
     }
 
-    console.log("Product Name:", product.name);
-    console.log("Product Name MM:", product.name_mm);
 
     doc.text('Myanmar Cuisine', 20, 10); // Title
     doc.text(`Name: ${product.name}`, 20, 20); // English name

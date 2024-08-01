@@ -38,11 +38,14 @@ const Home = (props, item, handleClick) => {
   };
   useEffect(() => {
     AOS.init({
-      duration: 300, // Example duration for AOS animation
-      easing: 'ease-in-out', // Example easing option for AOS animation
-      once: true, // Whether animation should happen only once
+      duration: 1200, // Animation duration in milliseconds
+      easing: 'ease-in-out', // Easing function for animations
+      once: false, // Animation happens every time you scroll
+      anchorPlacement: 'top-bottom',
+      offset: 100, // Trigger animations when elements are 100px away from viewport
     });
   }, []);
+
 
   useEffect(() => {
     const fetchFavorites = async () => {
