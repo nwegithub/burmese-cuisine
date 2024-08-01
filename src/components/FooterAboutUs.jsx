@@ -4,6 +4,9 @@ import Chef from '../assets/chef.jpg'
 import Vegitables from '../assets/c4085bdb960487ca31f85c867da0fcab.jpg'
 import { useAuth } from '../Auth/AuthContext';
 import Footer from '././pages/Footer';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 
 const FooterAboutUs = () => {
   const { isMya, setIsMya } = useAuth();
@@ -22,7 +25,6 @@ const FooterAboutUs = () => {
     ilake.style.top = "0px";
     ilake.style.position = "sticky";
   }
-
   window.addEventListener("scroll", () => {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -37,18 +39,25 @@ const FooterAboutUs = () => {
       }
     }
   });
+  useEffect(() => {
+    AOS.init({
+      duration: 300, // Example duration for AOS animation
+      easing: 'ease-in-out', // Example easing option for AOS animation
+      once: true, // Whether animation should happen only once
+    });
+  }, []);
   return (
     <div className="App">
       <main>
         <div id="front" style={{ minHeight: '50vh' }}>
-          <h1 style={{ textAlign: "center" }} className='title1'>
+          <h1 className="title1" style={{color: '#d97706',textAlign: "center"}}>
             {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
           <img
             src="https://cdni.iconscout.com/illustration/premium/thumb/about-us-1805547-1537820.png"
             alt="font"
           />
-          <p className='title1' style={{ textAlign: "center", lineHeight: '3rem' }}>
+          <p data-aos="fade-up" className='title1' style={{ textAlign: "center", lineHeight: '3rem' }}>
             {isMya ? "ကျွန်ုမတို့သည် အစားအသောက်ချစ်သူများ၊စားဖိုမှူးများနှင့်ရိုးရှင်းစွာချက်ပြုတ်ရန် ဝါသနာပါသော မည်သူမဆိုအတွက် အကောင်းဆုံးသောနေရာတစ်ခု ဖြစ်ပါသည်။ကျွန်ုမတို့၏ရည်မှန်းချက်မှာ ချက်ပြုတ်ခြင်းအနုပညာကို ပိုမိုကောင်းမွန်စေရန်၊ပညာပေးရန်နှင့် အရသာရှိသော ချက်ပြုတ်နည်းများကို မျှဝေရန် ဖြစ်သည်။" : "Welcome to Myanmar Cuisine, your ultimate destination for all things culinary. We are dedicated to bringing together food enthusiasts, home cooks, and professional chefs to celebrate the art of cooking. Our mission is to inspire, educate, and delight your taste buds with a diverse array of recipes, cooking tips, and nutritional information"}
 
           </p>
@@ -56,22 +65,20 @@ const FooterAboutUs = () => {
         <div id="second" style={{ width: '100%' }}>
           <div>
             <div>
-              <h1 className="title1 mt-10px"> {isMya ? "Myanmar Cuisineမှပေးနိုင်သည့်အရာ " : "What We Offer"}</h1>
+              <h1 data-aos="fade-up" className="title1 mt-10px" style={{color: '#d97706'}}> {isMya ? "Myanmar Cuisineမှပေးနိုင်သည့်အရာ " : "What We Offer"}</h1>
 
-              <p className="body1" style={{ fontSize: '1.3rem', lineHeight: '3' }}>
+              <p data-aos="fade-up" className="body1" style={{ fontSize: '1.3rem', lineHeight: '3' }}>
                 {isMya ? "ကျွန်ုမတို့၏ အဆင့်ဆင့်လမ်းညွှန်ချက်များသည် လူကြီးမင်းအနေနဲ့ဟင်းပွဲတစ်ခုစီကို ယုံကြည်မှုအပြည့်ဖြင့် ပြန်လည်ဖန်တီးနိုင်စေရန် ရည်ရွယ်ပါသည်။ကျွန်ုမတို့၏ချက်ပြုတ်နည်းများ၊သင်ခန်းစာများမှတဆင့် အကောင်းဆုံးလေ့လာပါ။ချက်ပြုတ်ခြင်းအနုပညာကို ကျွမ်းကျင်အောင်လေ့လာပြီး လူကြီးမင်း၏မီးဖိုချောင်ကျွမ်းကျင်မှုကို မြှင့်တင်ပါ။" : "Find recipes for every occasion, dietary preference, and skill level. Our step-by-step guides ensure you can recreate each dish with confidence.Learn from the best with our cooking tips, techniques, and tutorials. Master the art of cooking and elevate your kitchen skills.Stay updated with the latest in the culinary world. From new ingredients to emerging food trends, we bring you the freshest insights.Join a community of food lovers. Share your own recipes, leave reviews, and connect with others who share your passion for great food."}
               </p>
             </div>
             <img
               src={Chef}
-
             />
           </div>
           <div id='second' style={{ width: '100%' }}>
             <div>
-              <h1 className="title1"> {isMya ? "ဘာကြောင့်Myanmar Cuisineကိုလေ့လာသင့်တာလဲ" : "Why should you study Myanmar Cuisine?"}</h1>
-
-              <p className="body1" style={{ fontSize: '4', lineHeight: '3rem', textAlign: 'justify' }}>
+            <h1 data-aos="fade-up" className="title1" style={{color: '#d97706'}}> {isMya ? "ဘာကြောင့်Myanmar Cuisineကိုလေ့လာသင့်တာလဲ" : "Why should you study Myanmar Cuisine?"}</h1>
+              <p data-aos="fade-up" className="body1" style={{ fontSize: '4', lineHeight: '3rem', textAlign: 'justify' }}>
                 {isMya ? "ချက်ပြုတ်နည်းပေါင်းများစွာကို တစ်နေရာထဲမှာ ရှာဖွေနိုင်ခြင်း။ရာသီစာများနှင့် တိုင်းရင်းသားအစားအစာများကို လွယ်လွယ်ကူကူကြည့်ပီး သင်ယူနိုင်ပါတယ်။လွယ်ကူမြန်ဆန်သောနည်းလမ်းများကို လမ်းညွှန်ပေးနိုင်ခြင်းနှင့် အချက်အပြုတ်စွမ်းရည်ကို တိုးမြှင့်ပေးနိုင်တဲ့အတွက် လေ့လာသင့်သောဝဘ်ဆိုဒ်တခုဖြစ်ပါတယ်" : "You can find many recipes in one place.You can easily learn about seasonal and ethnic foods It's a website you should learn because it can guide you on quick and easy methods and improve your cooking skills."}
               </p>
             </div>
@@ -90,13 +97,11 @@ const FooterAboutUs = () => {
                     maxWidth: '100%',
                     height: '80%',
                     borderRadius: '8px',
-                    
                   }}
                 />
               </div>
-
-              <div style={{ flex: '1', paddingRight: '20px' }}>
-                <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
+              <div style={{ flex: '1', paddingRight: '20px', paddingTop: '15%'}}>
+                <h1  data-aos="fade-up" className="title1" style={{color: '#d97706'}}>
                   {isMya ? "Myanmar Cuisine၏ကတိကဝတ်များ" : "Our Promise"}
                 </h1>
                 <p className="body1" style={{ fontSize: '1.3rem', lineHeight: '4', textAlign: 'justify' }}>

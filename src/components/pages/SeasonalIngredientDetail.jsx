@@ -10,7 +10,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useItem } from '../../Auth/ItemProvider';
 
 
-const IngredientDetail = () => {
+const SeasonalIngredientDetail = () => {
   const { isMya, user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -26,9 +26,12 @@ const IngredientDetail = () => {
 
   const handleNavigateToCalculation = (id) => {
     navigate(`/seasonalCalculation/${id}`);
-
   }; 
 
+
+  const handleNavigateToRecipe=(id)=>{
+    navigate(`/seasonalRecipe/${id}`);
+  }
 console.log("id",id)
 
   useEffect(() => {
@@ -191,7 +194,8 @@ console.log("id",id)
               borderRadius: 10,
               fontSize: '1.5rem', // Adjust the size of the icon
             }}
-            onClick={() => handleNavigateToCalculation(product._id)}
+            onClick={() => navigate(`/seasonalCalculation/${id}`)}
+
           >
             <p className='title3 text-center' style={{ flex: 1 }}>
               {isMya ? "ပါဝင်ပစ္စည်းများတွက်ချက်ရန်" : "Ingredients Calculation"}
@@ -223,7 +227,7 @@ console.log("id",id)
               height: '70px',
               borderRadius: 10,
             }}
-            onClick={() => handleNavigateToCalculation(product._id)}
+            onClick={() => handleNavigateToRecipe(product._id)}
           >
             <p className='title3 text-center' style={{ flex: 1 }}>
               {isMya ? "ဟင်းချက်နည်း" : "Recipes"}
@@ -251,4 +255,4 @@ console.log("id",id)
 
 }
 
-export default IngredientDetail;
+export default SeasonalIngredientDetail;
