@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { MdMessage } from 'react-icons/md';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
-import axios from 'axios';
 import "../../Contactus.css";
 import img2 from "../../assets/image2.png";
 import Cbutton from '../../layouts/Cbutton';

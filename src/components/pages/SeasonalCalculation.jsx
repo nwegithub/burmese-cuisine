@@ -7,7 +7,7 @@ import { useAuth } from '../../Auth/AuthContext';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const EthnicalCalculation = () => {
+const SeasonalCalculation = () => {
 
     const { isMya, user } = useAuth();
     const location = useLocation();
@@ -182,4 +182,4 @@ const EthnicalCalculation = () => {
     </div>
   )
 }
-export default EthnicalCalculation;
+export default SeasonalCalculation;

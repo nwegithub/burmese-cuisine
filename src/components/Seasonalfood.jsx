@@ -151,6 +151,7 @@ const Ethnicalfood = () => {
 
   const handleNavigateToDetail = (id) => {
     navigate(`/seasonalfood/${id}`);
+   
   };
 
 
@@ -194,7 +195,7 @@ const Ethnicalfood = () => {
                 </Button>
                 <div
                     ref={flatListRef}
-                    style={{ display: 'flex', overflowX: 'auto', padding: '10px 0' }}
+                    style={{ display: 'flex', overflowX: 'hidden', padding: '10px 0' }}
                 >
                     {newCategoryData.map((item, index) => (
                         <Button
@@ -241,7 +242,7 @@ const Ethnicalfood = () => {
                 {
 
 
-                    productsToDisplay.map((item, index) => (
+                      productsToDisplay.map((item, index) => (
                         <div
                             key={index}
                             onMouseEnter={() => setHoveredIndex(index)}

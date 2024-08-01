@@ -66,7 +66,7 @@ const EthnicalRecipe = () => {
                     alt={isMya ? product.name_mm : product.name}
                 />
 
-                <div className="px-6 py-4 flex justify-between items-center bg-gray-200">
+                {/* <div className="px-6 py-4 flex justify-between items-center bg-gray-200">
                     <div className="text-center bg-blue-100 p-4 rounded-lg shadow-md flex-1 mx-2">
                         <p className="font-bold text-gray-800">Prep</p>
                         <p className="text-gray-600">15 min</p>
@@ -80,7 +80,7 @@ const EthnicalRecipe = () => {
                         <p className="text-gray-600">35 min</p>
                     </div>
 
-                </div>
+                </div> */}
                 <div className="px-6 py-4">
                     <h2 className="text-4xl text-center font-bold text-gray-800 mb-4">Directions</h2>
                     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -113,7 +113,7 @@ const EthnicalRecipe = () => {
                                 borderRadius: 10,
                                 fontSize: '1.5rem', // Adjust the size of the icon
                             }}
-                            onClick={() => navigate("/IngredientDetail", { state: { item } })}
+                            onClick={() =>   navigate(`/ethnicalfood/${id}`)}
                         >
                             <svg
                                 className="w-8 h-8 mr-2" // Adjust size and margin as needed

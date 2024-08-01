@@ -53,7 +53,7 @@ const Footer = () => {
                         <ul className="social_icon" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <li><a href="mailto:your-email@example.com"><ion-icon name="mail-outline"></ion-icon></a></li>
                             <li><a href="https://www.youtube.com/channel/UC_CHANNEL_ID"><ion-icon name="logo-youtube"></ion-icon></a></li>
-                            <li><a href=""><ion-icon name="call-outline"></ion-icon></a></li>
+                            <li><a href="e"><ion-icon name="call-outline"></ion-icon></a></li>
                         </ul>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center", alignSelf: "center", gap: "15px", fontSize: "15px" }}>
