@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { useNavigate } from "react-router-dom";
@@ -9,15 +9,15 @@ import axios from 'axios';
 
 const EthnicalCalculation = () => {
 
-    const { isMya, user } = useAuth();
-    const location = useLocation();
-    const navigate = useNavigate();
-    
-    const id = location.pathname.split('/')[2];
-  
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const { isMya, user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const id = location.pathname.split('/')[2];
+
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const [numPeople, setNumPeople] = useState(1);
 
@@ -27,6 +27,7 @@ const EthnicalCalculation = () => {
       setLoading(true);
       try {
         const response = await axios.get(`http://localhost:4000/ethnical/ethnical/${id}`);
+        console.log(response.data);
         setProduct(response.data);
         setLoading(false);
       } catch (err) {
@@ -45,13 +46,25 @@ const EthnicalCalculation = () => {
 
   const generatePDF = () => {
     const doc = new jsPDF();
-    doc.text('Ingredient Detail Calculator', 20, 10);
-    doc.text(`Number of People: ${numPeople}`, 20, 20);
 
-    const tableColumn = ['Ingredient', 'Quantity'];
+    if (!product) {
+      console.error("Product is null");
+      return;
+    }
+
+    console.log("Product Name:", product.name);
+    console.log("Product Name MM:", product.name_mm);
+
+    doc.text('Myanmar Cuisine', 20, 10); // Title
+    doc.text(`Name: ${product.name}`, 20, 20); // English name
+    doc.text(`Name (MM): ${product.name_mm}`, 20, 30); // Myanmar name
+    doc.text(`Number of People: ${numPeople}`, 20, 40); // Number of people
+
+    const tableColumn = ['Ingredients', 'Quantities'];
     const tableRows = [];
 
-    isMya ? product.ingredients_mm : product.ingredients.forEach((ingredient) => {
+    const ingredients = isMya ? product.ingredients_mm : product.ingredients;
+    ingredients.forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
@@ -62,7 +75,7 @@ const EthnicalCalculation = () => {
     doc.autoTable({
       head: [tableColumn],
       body: tableRows,
-      startY: 30
+      startY: 30,
     });
 
     doc.save('ingredient-details.pdf');
@@ -100,10 +113,10 @@ const EthnicalCalculation = () => {
   return (
     <div className='min-h-screen flex bg-custom-gradient'>
       <div className="p-20" style={{ flex: 1 }} >
-          <div className="mt-5 text-black p-3 rounded-md body1">
-            <h1 className="font-bold  title1">
-              {isMya ? product.name_mm : product.name}
-            </h1>
+        <div className="mt-5 text-black p-3 rounded-md body1">
+          <h1 className="font-bold  title1">
+            {isMya ? product.name_mm : product.name}
+          </h1>
         </div>
 
 
@@ -164,18 +177,13 @@ const EthnicalCalculation = () => {
                   </>
                 )
               }
-
-
-
             </ul>
-
             <button
               onClick={generatePDF}
               className="mt-5 bg-green-300 text-black p-3 rounded-md body1"
-            > {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
-
+            >
+              {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
             </button>
-
           </div>
         </div>
       </div>

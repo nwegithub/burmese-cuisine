@@ -45,13 +45,25 @@ const SeasonalCalculation = () => {
 
   const generatePDF = () => {
     const doc = new jsPDF();
-    doc.text('Ingredient Detail Calculator', 20, 10);
-    doc.text(`Number of People: ${numPeople}`, 20, 20);
 
-    const tableColumn = ['Ingredient', 'Quantity'];
+    if (!product) {
+      console.error("Product is null");
+      return;
+    }
+
+    console.log("Product Name:", product.name);
+    console.log("Product Name MM:", product.name_mm);
+
+    doc.text('Myanmar Cuisine', 20, 10); // Title
+    doc.text(`Name: ${product.name}`, 20, 20); // English name
+    
+    doc.text(`Number of People: ${numPeople}`, 20, 40); // Number of people
+
+    const tableColumn = ['Ingredients', 'Quantities'];
     const tableRows = [];
 
-    isMya ? product.ingredients_mm : product.ingredients.forEach((ingredient) => {
+    const ingredients = isMya ? product.ingredients_mm : product.ingredients;
+    ingredients.forEach((ingredient) => {
       const ingredientData = [
         ingredient.name,
         `${ingredient.amount * numPeople} ${ingredient.unit}`,
@@ -62,7 +74,7 @@ const SeasonalCalculation = () => {
     doc.autoTable({
       head: [tableColumn],
       body: tableRows,
-      startY: 30
+      startY: 30,
     });
 
     doc.save('ingredient-details.pdf');
