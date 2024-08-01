@@ -71,7 +71,7 @@ const Home = (props, item, handleClick) => {
           <h1 className="primary title1">
             {isMya ? "Myanmar Cuisine မှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>
-          <p data-aos="fade-up" style={{ fontSize: '1.8rem', marginTop: '24px', lineHeight: '2.5rem' }} className="body1 mx-auto text-justify">
+          <p data-aos="fade-up" style={{ fontSize: '1.8rem', marginTop: '24px', lineHeight: '2.5rem',textAlign:'justify' }} className="body1 mx-auto text-justify">
             {isMya ? "ကျွန်မတို့၏ဝဘ်ဆိုဒ်သည် လူကြီးမင်း၏အရသာခံနိုင်စွမ်းများကိုကျေနပ်စေရန် ချက်ပြုတ်နည်းပညာပေးခြင်းဖြင့် စိတ်ကျေနပ်မှုရရှိစေရန် ရည်ရွယ်ထားပါသည်။ ရိုးရာအစားအစာများမှတဆင့် ဆန်းသစ်သောဖန်တီးမှုများအထိ၊ ကျွမ်းကျင်သူများနှင့် အစားအသောက်ဝါသနာရှင်များကစုစည်းထားသော ချက်ပြုတ်နည်းအများအပြားကို စူးစမ်းလေ့လာနိုင်ပါသည်။" : "Discover the ultimate destination for all things culinary. Whether you're a seasoned chef or a home cook, our website is designed to inspire, educate, and satisfy your taste buds. Explore a vast collection of recipes, from classic favorites to innovative creations, curated by experts and food enthusiasts alike."}
           </p>
           <div className="secondary-button">

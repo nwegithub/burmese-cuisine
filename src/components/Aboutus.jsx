@@ -39,7 +39,7 @@ const Aboutus = React.forwardRef((props, ref) => {
                     <h1 className="primary title1 text-center">
                         {isMya ? " ယဉ်ကျေးမှုများမျှဝေခြင်း" : "Foods for sharing cultures"}
                     </h1>
-                    <p style={{ fontSize: '1.8rem', marginTop: '24px', lineHeight: '2.5rem' }} className="body1 mx-auto text-justify">
+                    <p style={{ fontSize: '1.8rem', marginTop: '24px', lineHeight: '2.5rem',textAlign:'justify' }} className="body1 mx-auto text-justify">
                         {isMya
                             ? "အစားအစာသည် စားရေးသောက်ရေးသာမကဘဲလူများစုပေါင်း၍ ယဉ်ကျေးမှုများမျှဝေရန်နှင့် ထာဝရအမှတ်တရများဖန်တီးရန် နည်းလမ်းတစ်ခုဖြစ်သည်ဟု ကျွန်ုမတို့ယုံကြည်ပါသည်။လူကြီးမင်းသည်စားဖိုမှူးသို့မဟုတ် အိမ်ရှင်မဖြစ်နေပါစေ လူကြီးမင်း၏အချက်အပြုတ်နဲ့ပတ်သက်တဲ့စွန့်စားခန်းများကို ကူညီပံ့ပိုးရန်ကျွန်မတို့ဤနေရာတွင်ရှိနေပါသည်။"
                             : "At [Myanmar Cuisine], our mission is simple: to inspire, educate, and satisfy your culinary curiosities. We believe that food is not just sustenance but a means to bring people together, share cultures, and create lasting memories. Whether you're a seasoned chef or a home cook, we're here to support your culinary adventures"}

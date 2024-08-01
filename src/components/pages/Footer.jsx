@@ -62,6 +62,7 @@ const Footer = () => {
                         <button onClick={() => handleClick()} style={{ fontStyle: "italic" }}>Contact us</button>
                         <button onClick={() => handleClickFAQ()} style={{ fontStyle: "italic" }}>FAQ</button>
                         <button onClick={() => handleMenu()} style={{ fontStyle: "italic" }}>Menu</button>
+                        <button onClick={() => navigate('/Feed')} style={{ fontStyle: "italic" }}>youtube</button>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center", alignSelf: "center", paddingTop: "6px" }}>
                         @2024MyanmarCuisine
