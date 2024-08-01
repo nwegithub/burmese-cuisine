@@ -24,14 +24,14 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
               category.name === selectedCategory ? "#e48f0f" : "#fff",
           }}
         >
-          <span
+          {/* <span
             style={{
               color: category.name === selectedCategory ? "white" : "#e48f0f",
               marginRight: "15px",
             }}
           >
             <category.icon />
-          </span>
+          </span> */}
           <span
             style={{
               opacity: category.name === selectedCategory ? "1" : "0.7",
