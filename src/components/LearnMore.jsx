@@ -58,8 +58,8 @@ const LearnMore = React.forwardRef((props, ref) => {
   return (
     <div className='min-h-screen' ref={ref} style={{ marginTop: 30 }}>
       <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
-        <h1 className='title1'>{isMya ? "လူကြိုက်များသောရာသီစာများ" : "People Most Enjoyable Food"}</h1>
-        <div style={{
+        <h1 data-aos="fade-left" className='title1'>{isMya ? "လူကြိုက်များသောရာသီစာများ" : "People Most Enjoyable Food"}</h1>
+        <div data-aos="fade-left" style={{
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'flex-start',
@@ -69,7 +69,7 @@ const LearnMore = React.forwardRef((props, ref) => {
           padding: '5%',
           // backgroundColor: '#e48f0f',
           minHeight: "60vh",
-          scrollbarWidth: 'none', // For Firefox to hide scrollbar
+          scrollbarWidth: 'none',
           msOverflowStyle: 'none',
         }}>
           {favorites.map((item, index) => (
@@ -79,13 +79,12 @@ const LearnMore = React.forwardRef((props, ref) => {
                 display: 'inline-block',
                 margin: '10px',
                 textAlign: 'center',
-                // backgroundColor:'#e48f0f',
                 padding: 20,
                 flex: '0 0 auto', // Prevents the item from shrinking
               }}>
               {item.productId && item.productId.image ? (
                 <>
-                  <div style={{ borderWidth: 2, borderColor: '#e48f0f', borderRadius: '50%' }}>
+                  <div style={{ borderRadius: '50%',justifyItems:'center'}}>
                     <img
                       src={`http://localhost:4000/${item.productId.image}`}
                       alt={item.productId.name}
@@ -94,7 +93,8 @@ const LearnMore = React.forwardRef((props, ref) => {
                         width: '150px',
                         height: '150px',
                         borderRadius: '50%',
-                        boxShadow: '0px 4px 8px rgba(228, 143, 15, 0.6)' // Adds shadow to the image
+                        boxShadow: '0px 4px 8px rgba(228, 143, 15, 0.6)', // Adds shadow to the image
+                        borderWidth:2,borderColor:'red'
                       }}
                     />
                   </div>

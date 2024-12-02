@@ -140,7 +140,8 @@ const SeasonalCalculation = () => {
             <img
               src={`http://localhost:4000/${product.image}`}
               alt="img"
-              style={{ width: '350px', height: '450px', paddingTop: '20px' }} />
+              style={{ paddingTop: '20px',borderRadius:10 }}
+               />
           </div>
 
           <div className="w-full md:w-1/2 mb-4">
@@ -174,8 +175,11 @@ const SeasonalCalculation = () => {
                   </>
                 )
               }
+             
             </ul>
+            <div style={{flex:1,justifyItems:'center'}}>
             <div className="flex space-x-5">
+
               <button
                 onClick={() => navigate('/menu')}
                 className="bg-green-300 text-black p-3 rounded-md body1"
@@ -188,8 +192,10 @@ const SeasonalCalculation = () => {
               >
                 {isMya ? "PDFအဖြစ်ဘောက်ချာထုတ်ရန်" : "Voucher as PDF"}
               </button>
+              </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

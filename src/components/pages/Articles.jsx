@@ -35,6 +35,9 @@ const Articles = () => {
     const [categorySelected, setCategorySelected] = useState('');
     const [filterProduct, setFilterProduct] = useState([]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0); 
+      }, []);
     const handleClick = (item) => {
         navigate("/Readmore", { state: { item } });
     };
@@ -155,7 +158,8 @@ const Articles = () => {
                                 xs={6}
                                 style={{ paddingRight: '20px', justifyContent: 'center', alignItems: 'center' }}
                             >
-                                <p className="header title1">{item.name}</p>
+                                <p className="header title1">{ isMya ? item.name_mm : item.name}</p>
+
                                 <p className="body1" style={{ marginTop: 10, marginBottom: 10, textAlign: "justify", lineHeight: '2.5rem' }}>
                                     {truncatedDescription}
 
@@ -169,7 +173,7 @@ const Articles = () => {
                                     }}
                                     onClick={() => handleClick(item)}
                                 >
-                                    Read More
+                                   {isMya? "ဆက်ရန်" : "Read More"} 
                                     <ArrowForwardIcon className="ml-2" />
                                 </button>
 

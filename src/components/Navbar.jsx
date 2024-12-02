@@ -125,7 +125,7 @@ const Navbar = () => {
             sx={{ position: "sticky", top: 0, backgroundColor: "#FFFFFF", boxShadow: "0px 3px 2px -2px gray", paddingLeft: 2, paddingRight: 2 }}
             zIndex={900}
         >
-            <div className="flex flex-row items-center cursor-pointer space-x-2">
+            <div className="flex flex-row items-center space-x-2">
                 <span>
                     <BiRestaurant size={32} />
                 </span>
@@ -164,7 +164,7 @@ const Navbar = () => {
                     className={`${getLinkClassName('/Home')} transition-all cursor-pointer`}
                     onClick={closeMenu}
                 >
-                    {isMya ? "ပြင်မစာမျက်နှာ" : "Home"}
+                    {isMya ? "ပင်မစာမျက်နှာ" : "Home"}
                 </Link>
 
                 <Link

@@ -46,7 +46,9 @@ const Menu = (item) => {
   const handleClick = (route) => {
     navigate(route);
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
   const containerStyle = {
     background: 'linear-gradient(to bottom, #ff7e5f, #feb47b)', // Example gradient
     minHeight: '50vh',
@@ -82,7 +84,7 @@ const Menu = (item) => {
   const recipeImageStyle = {
     width: '90%',
     height: '80%', // Adjust height as needed
-    objectFit: 'cover',
+    // objectFit: 'cover',
     borderRadius: '10px',
   };
 

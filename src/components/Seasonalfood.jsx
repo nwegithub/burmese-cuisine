@@ -69,7 +69,7 @@ const categoryArr = [
         category: "Tapaung",
         category_mm: "တပေါင်းလ"
     },
-
+   
 ]
 
 
@@ -111,7 +111,7 @@ const Ethnicalfood = () => {
     }, [categorySelected, product]);
     useEffect(() => {
         flatListRef.current?.scrollTo({
-            left: currentIndex * 100, // Adjust 100 based on your item width
+            left: currentIndex * 500, // Adjust 100 based on your item width
             behavior: 'smooth',
         });
     }, [currentIndex]);
@@ -267,13 +267,13 @@ const Ethnicalfood = () => {
                                     <Button
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                                         onClick={() => handleNavigateToDetail(item._id)}>
-                                        Ingredients
+                                        {isMya ? "ပါဝင်ပစ္စည်းမျာ:" :"Ingredients"}
                                     </Button>
                                     <Button
                                         onClick={() => handleNavigateToRecipe(item._id)}
                                         style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                                     >
-                                        Recipe
+                                        {isMya? "ဟင်းချက်နည်းများ" : "Recipes"}
                                     </Button>
                                 </div>
                             ) : (
