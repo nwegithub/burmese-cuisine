@@ -81,6 +81,7 @@ const HomeArticle = React.forwardRef((props, ref) => {
               }}
               
             >
+              <div style={{flex:1}}>
               <img
                 src={`http://localhost:4000/${item.image}`}
                 alt={item.name}
@@ -92,14 +93,16 @@ const HomeArticle = React.forwardRef((props, ref) => {
                   objectFit: 'cover'
                 }}
               />
-              <h2 style={{ margin: '10px 0', fontSize: '1.2rem' }} className="title2">{isMya? item.name_mm : item.name}</h2>
+              <h2 style={{ margin: '10px 0', fontSize: '1.8rem' }} className="title2">{isMya? item.name_mm : item.name}</h2>
               <p 
             data-aos="fade-out"
-              className="body1" style={{ margin: '10px 0', color: '#555', fontSize: '0.9rem',textAlign : 'justify' }}>
+              className="body1" style={{ margin: '10px 0', color: '#555', fontSize: '1.2rem',textAlign : 'justify' }}>
                 {truncatedDescription}
               </p>
+              </div>
+              
               <button
-                className="body3"
+                className="body2"
                 style={{
                   borderRadius: '20px',
                   backgroundColor: "#fe9e0d",
@@ -128,7 +131,7 @@ const HomeArticle = React.forwardRef((props, ref) => {
         marginTop: '20px' 
       }}>
         <button
-          className="body3"
+          className="body2"
           style={{
             borderRadius: '20px',
             backgroundColor: "#fe9e0d",

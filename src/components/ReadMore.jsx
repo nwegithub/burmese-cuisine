@@ -20,6 +20,9 @@ const ReadMore = () => {
     }, [item]);
 
     useEffect(() => {
+        window.scrollTo(0, 0); 
+      }, []);
+    useEffect(() => {
         if (articleId) {
             fetch(`http://localhost:4000/articles/${articleId}`)
                 .then(response => response.json())
@@ -48,7 +51,7 @@ const ReadMore = () => {
             <div className="min-h-screen flex p-20">
                 <div className="w-2/3">
                     <div className="content-container">
-                        <h2 className="title1">Welcome to...</h2>
+                       
                         <img
                             style={{ width: "350px" }}
                             src={articleById && `http://localhost:4000/${articleById.image}`}

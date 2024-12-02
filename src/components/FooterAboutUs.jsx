@@ -50,7 +50,7 @@ const FooterAboutUs = () => {
   return (
     <div className="App">
       <main>
-        <div id="front" style={{ minHeight: '50vh' }}>
+        <div id="front" className='bg-custom-gradient' style={{ minHeight: '50vh' }}>
           <h1 data-aos="fade-up" className="title1" style={{color: '#d97706',textAlign: "center"}}>
             {isMya ? "Myanmar Cuisineမှကြိုဆိုပါတယ်" : "Welcome to Myanmar Cuisine"}
           </h1>

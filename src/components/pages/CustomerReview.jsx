@@ -4,6 +4,8 @@ import { useAuth } from "../../Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CustomerReview = () => {
     const [feedbacks, setFeedbacks] = useState([]);
@@ -68,14 +70,13 @@ const CustomerReview = () => {
                             borderWidth:4,backgroundColor:'ButtonFace'
                         }}
                     >
+
                         <p className="text-black-900 font-bold text-2xl mb-2">{item.user.name}</p>
+                        <FontAwesomeIcon icon={faUser} className="w-16 h-16 text-gray-500 mb-2" />
+
                         <div className="relative w-full"
                             style={{
-                                marginTop: '80px',
                                 maxHeight: '100vh',
-                                // border: '1px solid yellow',
-                                // borderStyle: 'solid',
-                                // borderColor: 'yellow'
                             }}>
                             <div className="p-10">   
                                 <p className="text-black-700 italic text-center">{item.comment}</p>

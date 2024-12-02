@@ -56,8 +56,6 @@ footer .wave {
   background-size: 1000px 100px;
   filter: hue-rotate(200deg) saturate(1000%);
 }
-
-
 footer .wave#wave1 {
   z-index: 1000;
   opacity: 1;

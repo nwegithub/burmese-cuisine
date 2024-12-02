@@ -82,7 +82,7 @@ const Ethnicalfood = () => {
 
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 1});
 
     fetch('http://localhost:4000/ethnical/allProduct')
       .then(response => response.json())
@@ -144,7 +144,7 @@ const Ethnicalfood = () => {
       <div className="p-5">
         <div className="pt-5 flex flex-row" style={{
           border: "2px solid #fcbf49",
-          borderRadius: "10px", // optional: to round the corners
+          // borderRadius: "10px", // optional: to round the corners
           padding: "0px 15px",
           backgroundColor: "#ffd670",
           // boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.5)",

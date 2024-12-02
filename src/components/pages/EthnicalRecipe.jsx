@@ -52,7 +52,9 @@ const EthnicalRecipe = () => {
       }
     return (
         <div className="bg-custom-gradient min-h-screen flex items-center justify-center">
-            <div className="bg-white shadow-2xl rounded-lg overflow-hidden max-w-5xl">
+            <div className="bg-white shadow-2xl rounded-lg overflow-hidden max-w-5xl"
+            style={{ width: '100%' }}
+            >
                 <div className="p-6">
                     <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
                         {isMya ? product.name_mm : product.name}
@@ -64,23 +66,11 @@ const EthnicalRecipe = () => {
                     className="object-cover object-center"
                     src={`http://localhost:4000/${product.image}`}
                     alt={isMya ? product.name_mm : product.name}
+                    style={{ width: '100%' }}
+
                 />
 
-                {/* <div className="px-6 py-4 flex justify-between items-center bg-gray-200">
-                    <div className="text-center bg-blue-100 p-4 rounded-lg shadow-md flex-1 mx-2">
-                        <p className="font-bold text-gray-800">Prep</p>
-                        <p className="text-gray-600">15 min</p>
-                    </div>
-                    <div className="text-center bg-green-100 p-4 rounded-lg shadow-md flex-1 mx-2">
-                        <p className="font-bold text-gray-800">Cook</p>
-                        <p className="text-gray-600">20 min</p>
-                    </div>
-                    <div className="text-center bg-yellow-100 p-4 rounded-lg shadow-md flex-1 mx-2">
-                        <p className="font-bold text-gray-800">Ready in</p>
-                        <p className="text-gray-600">35 min</p>
-                    </div>
-
-                </div> */}
+                
                 <div className="px-6 py-4">
                     <h2 className="text-4xl text-center font-bold text-gray-800 mb-4">Directions</h2>
                     <div className="bg-white p-6 rounded-lg shadow-md">

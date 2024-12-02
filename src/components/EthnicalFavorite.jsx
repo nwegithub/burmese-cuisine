@@ -51,9 +51,9 @@ if(favorites.length === 0){
     <div style={{ marginTop: 30 }}>
 
 <div style={{ marginTop: "10vh", paddingTop: 10, textAlign: 'center' }}>
-<h1 className='title1'>{isMya ? "လူကြိုက်များသောတိုင်းရင်းသားအစားအစာများ" : "People Most Enjoyable Ethnical Food"}</h1>
+<h1  data-aos="fade-left" className='title1'>{isMya ? "လူကြိုက်များသောတိုင်းရင်းသားအစားအစာများ" : "People Most Enjoyable Ethnical Food"}</h1>
 
-  <div style={{
+  <div data-aos="fade-left" style={{
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -61,9 +61,8 @@ if(favorites.length === 0){
     overflowX: 'auto',
     whiteSpace: 'nowrap',
     padding: '5%',
-    // backgroundColor: '#e48f0f',
     minHeight: "60vh",
-    scrollbarWidth: 'none', // For Firefox to hide scrollbar
+    scrollbarWidth: 'none', 
       msOverflowStyle: 'none',
   }}>
     {favorites.map((item, index) => (
@@ -73,10 +72,10 @@ if(favorites.length === 0){
         display: 'inline-block', 
         margin: '10px', 
         textAlign: 'center',
-        // backgroundColor:'#e48f0f',
         borderRadius:5,
-        borderWidth:2,borderColor:'GrayText',padding:20,
-        flex: '0 0 auto', // Prevents the item from shrinking
+        borderWidth:2,borderColor:'#e48f0f',padding:20,
+        flex: '0 0 auto', 
+        justifyItems:'center'
       }}>
         {item.productId && item.productId.image ? (
           <>
