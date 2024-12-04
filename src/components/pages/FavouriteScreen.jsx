@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useItem } from '../../Auth/ItemProvider';
 
 const FavoritesScreen = () => {
-  const { user } = useAuth();
+  const { user,isMya } = useAuth();
   const [favorites, setFavorites] = useState([]);
   const [ethnicalFavorites,setEthnicalFavorites] = useState([])
   const [loading, setLoading] = useState(true);
@@ -66,7 +66,7 @@ const FavoritesScreen = () => {
 
   return (
     <div className="min-h-screen flex flex-col p-5 bg-custom-gradient">
-      <h1 className="text-3xl font-bold">My Favorites</h1>
+      <h1 className="text-3xl font-bold">{isMya?'ကြိုက်နှစ်သက်သော အစားအစာများ':'My Favorites'}</h1>
 
       {loading ? (
         <div>Loading...</div>
@@ -76,9 +76,9 @@ const FavoritesScreen = () => {
         <>
         <p className='title2' style={{
           paddingBottom:10
-        }}>Seasonal Favorite</p>
+        }}>{isMya?'လူကြိုက်များသောရာသီစာများ':'My Seasonal Favorites'}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {favorites.map((item) => (
             <buttton 
             onClick={() => handleNavigateToDetail(item._id)}
@@ -89,7 +89,7 @@ const FavoritesScreen = () => {
                 className="w-full h-50 object-cover rounded-md"
               />
               <FavoriteIcon style={{ fontSize: '3rem' }} className="absolute top-3 bottom-3 right-2 text-red-500" />
-              <h2 className="text-xl font-semibold">{item.name}</h2>
+              <h2 className="text-xl font-semibold">{isMya? item.name_mm : item.name}</h2>
               <p>{item.description}</p>
               {/* Add more item details as needed */}
             </buttton>
@@ -106,9 +106,9 @@ const FavoritesScreen = () => {
         <>
         <p className='title2' style={{
           paddingBottom:10
-        }}>Ethnical Favorite</p>
+        }}>{isMya?'လူကြိုက်များသောတိုင်းရင်းသားအစားအစာများ':'My Ethnical Favorites'}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {ethnicalFavorites.map((item) => (
             <button
             onClick={() => handleNavigateToEthnicalDetail(item._id)}
@@ -119,7 +119,7 @@ const FavoritesScreen = () => {
                 className="w-full h-50 object-cover rounded-md"
               />
               <FavoriteIcon style={{ fontSize: '3rem' }} className="absolute top-3 bottom-3 right-2 text-red-500" />
-              <h2 className="text-xl font-semibold">{item.name}</h2>
+              <h2 className="text-xl font-semibold">{isMya? item.name_mm : item.name}</h2>
               <p>{item.description}</p>
               {/* Add more item details as needed */}
             </button>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, TextField, Button, Box, InputAdornment, IconButton } from '@mui/material';
 import { useAuth } from '../../Auth/AuthContext';
-import img from '../../assets/chibi-girl_1093051-35.avif';
+import img from '../../assets/girl.png';
 import { useNavigate } from "react-router-dom";
 import '../../Menu.css';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -94,8 +94,8 @@ const Login = () => {
             src={img}
             alt="Login illustration"
             className="object-cover"
-            width="450px"
-            height="450px"
+            width="500px"
+            height="500px"
           />
         </Box>
 

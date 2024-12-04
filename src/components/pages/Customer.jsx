@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../../Auth/AuthContext';
 
 const ReviewCard = ({ user, comment }) => (
+
+
   <div className="bg-white p-10 rounded-lg text-center">
     <div className="flex justify-center bg-blue-300 p-3">
       {user.profileImage ? (
@@ -42,6 +45,7 @@ const CustomerReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const {isMya} = useAuth()
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -71,7 +75,7 @@ const CustomerReviews = () => {
   return (
     <section className="min-h-screen p-8 bg-custom-gradient">
       <div className="max-w-8xl mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center mb-8">Customer Reviews</h2>
+        <h2 className="text-4xl font-semibold text-center mb-8">{isMya?'အဖွဲ့ဝင်များရဲ့ အကြုံပြုချက်များ':'Customer Reviews'}</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {Array.isArray(reviews) && reviews.map((review) => (
             <ReviewCard
