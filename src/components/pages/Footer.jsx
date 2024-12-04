@@ -43,7 +43,7 @@ const Footer = () => {
                         <ul className="social_icon"
                             style={{ display: "flex", alignItems: "center", width: "100%" }}>
                             <li>
-                                <a href="mailto:your-email@example.com">
+                                <a href="eithinzarphyo430@gmail.com">
                                     <ion-icon name="mail-outline"></ion-icon>
                                 </a>
                             </li>

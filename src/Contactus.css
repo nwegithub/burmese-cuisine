@@ -25,7 +25,7 @@
 }
 
 .form_control:hover {
-  box-shadow: 2px 2px 2px rgba(252, 235, 3, 0.527); /* Reduced shadow */
+  box-shadow: 2px 2px 2px rgba(210, 205, 134, 0.527); /* Reduced shadow */
 }
 
 .form_control input {
@@ -79,7 +79,7 @@
   max-height: 100%; /* Reduced height */
   width: 100%;
   padding: 0; /* Reduced padding */
-  background: linear-gradient(to bottom, #ddc794, #feb47b);
+  background: linear-gradient(to bottom, #ddc794, #feef7b);
   box-sizing: border-box;}
   html, body {
     height: 100%;

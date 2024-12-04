@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, TextField, Button, Box, InputAdornment, IconButton } from '@mui/material';
-import img from '../../assets/WEB-StellaLaurino_FoodForThought_BurmeseFood-100.webp';
+import img from '../../assets/flag.png';
 import { useNavigate } from "react-router-dom";
 import '../../Menu.css';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -36,29 +36,35 @@ const SignUp = () => {
     let tempErrors = {};
 
     if (!formValues.name) {
-      tempErrors.name = "Name is required";
+      tempErrors.name = isMya ? "နာမည်လိုအပ်သည်" : "Name is required";
     } else if (!/^[a-zA-Z\s-]+$/.test(formValues.name)) {
-      tempErrors.name = "Name must only contain letters";
+      tempErrors.name = isMya
+        ? "နာမည်တွင်စာလုံးများသာ ပါဝင်ရမည်"
+        : "Name must only contain letters";
     }
 
     if (!formValues.phone) {
-      tempErrors.phone = "Phone is required";
+      tempErrors.phone = isMya ? "ဖုန်းနံပါတ်လိုအပ်သည်" : "Phone is required";
     } else if (!/^\d{11}$/.test(formValues.phone)) {
-      tempErrors.phone = "Phone must be exactly 11 digits";
+      tempErrors.phone = isMya
+        ? "ဖုန်းနံပါတ်သည် အမှန်တစ်ကယ် ၁၁ လုံးရှိရမည်"
+        : "Phone must be exactly 11 digits";
     }
-
+  
     if (!formValues.email) {
-      tempErrors.email = "Email is required";
+      tempErrors.email = isMya ? "အီးမေးလ်လိုအပ်သည်" : "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
-      tempErrors.email = "Email is invalid";
+      tempErrors.email = isMya ? "အီးမေးလ်မမှန်ကန်ပါ" : "Email is invalid";
     }
 
     if (!formValues.password) {
-      tempErrors.password = "Password is required";
+      tempErrors.password = isMya ? "စကားဝှက်လိုအပ်သည်" : "Password is required";
     } else if (formValues.password.length < 6) {
-      tempErrors.password = "Password should be at least 6 characters long";
+      tempErrors.password = isMya
+        ? "စကားဝှက်သည် အနည်းဆုံး ၆ လုံးရှိရမည်"
+        : "Password should be at least 6 characters long";
     }
-
+  
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -100,12 +106,12 @@ const SignUp = () => {
     setLoading(false)
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
       signUp(formValues);
       setFormValues({ ...formValues, [name]: value });
+
     }
   };
 
@@ -127,8 +133,8 @@ const SignUp = () => {
             src={img}
             alt="Sign Up illustration"
             className="object-cover"
-            width="500px"
-            height="500px"
+            width="600px"
+            height="600px"
           />
         </Box>
 
@@ -149,7 +155,7 @@ const SignUp = () => {
               name="name"
               variant="outlined"
               fullWidth
-              label="Name"
+              label={isMya?'နာမည်':'Name'}
               value={formValues.name}
               onChange={handleChange}
               error={!!errors.name}
@@ -177,7 +183,7 @@ const SignUp = () => {
               name="phone"
               variant="outlined"
               fullWidth
-              label="Phone"
+              label={isMya?'ဖုန်းနံပါတ်':'Phone'}
               value={formValues.phone}
               onChange={handleChange}
               error={!!errors.phone}
@@ -194,7 +200,7 @@ const SignUp = () => {
               name="email"
               variant="outlined"
               fullWidth
-              label="Email Address"
+              label={isMya?'အီးမေးလ်':'Email'}
               value={formValues.email}
               onChange={handleChange}
               error={!!errors.email}
@@ -211,7 +217,7 @@ const SignUp = () => {
               name="password"
               variant="outlined"
               fullWidth
-              label="Password"
+              label={isMya?'လျှို့ဝှက်နံပါတ်':'Password'}
               type="password"
               value={formValues.password}
               onChange={handleChange}
@@ -250,7 +256,7 @@ const SignUp = () => {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zM2 16h2v4H2zm2-6h2v6H4zm2-6h2v6H6zm2-4h2v4H8z"
                     ></path>
                   </svg>
-                  Loading...
+                  {isMya ? "တင်နေသည်..." : "Loading..."}
                 </div>
               ) : (
                 isMya ? "စာရင်းသွင်းရန်" : "Sign Up"
