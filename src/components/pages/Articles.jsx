@@ -96,7 +96,7 @@ const Articles = () => {
                         <p className="header title1" style={{ textAlign: 'center' }}>
                             {isMya ? "Myanmar Cuisine အစားအစာဘလော့ဂ်" : " Welcome to our food blog"}
                         </p>
-                        <p className="body1 text-4xl mt-4">
+                        <p className="body1 text-4xl mt-4" style={{ textAlign: 'justify' }}>
                             {isMya ? "ပြီးပြည့်စုံပြီးအရသာရှိလှသော ချက်ပြုတ်နည်းများဖြင့် အတွေ့အကြုံမရှိသေးသော အိိမ်ရှင်မများအတွက် ဟင်းလျာများကို ဖန်တီးပေးထားပါသည်။ချက်ပြုတ်နည်းတစ်ခုစီတိုင်းသည် လတ်ဆတ်အရည်အသွေးမြင့်သော ပါဝင်ပစ္စည်းများကို အသုံးပြု၍အလွယ်ကူဆုံးနည်းဖြင့် ရနိုင်ကြောင်း စမ်းသပ်ထားသည်။ အမှတ်ရဖွယ်အစားအစာများကို ဖန်တီးရန် ချက်ပြုတ်နည်းများနှင့် အာဟာရဆိုင်ရာ အချက်အလက်များကို စူးစမ်းလေ့လာလိုက်ပါ။ စိတ်အားထက်သန်မှုနှင့် တီထွင်ဖန်တီးမှုဖြင့် ချက်ပြုတ်ခြင်း၏ပျော်ရွှင်မှုကို ရှာဖွေလိုက်ပါ။။" : " Delight your senses with our curated collection of gourmet recipes, perfect for every occasion. From hearty breakfasts to exquisite dinners, our culinary experts have crafted dishes that cater to both novice cooks and seasoned chefs. Each recipe is meticulously tested to ensure it delivers maximum flavor with minimal effort, using fresh, high-quality ingredients. Explore our step-by-step guides, cooking tips, and nutritional information to create memorable meals that will impress your family and friends. Join us on a culinary journey and discover the joy of cooking with passion and creativity."}
                         </p>
                     </div>

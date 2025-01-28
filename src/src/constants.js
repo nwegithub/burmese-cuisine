@@ -25,13 +25,7 @@ export const categories = [
   { name: "Mon Traditional Food", icon: GraphicEqIcon },
   { name: "Rakhine Traditional Food", icon: OndemandVideoIcon },
   { name: "Shan Traditional Food", icon: SportsEsportsIcon },
-  // { name: "Live", icon: LiveTvIcon },
-  // { name: "Sport", icon: FitnessCenterIcon },
-  // { name: "Fashion", icon: CheckroomIcon },
-  // { name: "Beauty", icon: FaceRetouchingNaturalIcon },
-  // { name: "Comedy", icon: TheaterComedyIcon },
-  // { name: "Gym", icon: FitnessCenterIcon },
-  // { name: "Crypto", icon: DeveloperModeIcon },
+  
 ];
 
 export const demoThumbnailUrl = "https://i.ibb.co/G2L2Gwp/API-Course.png";

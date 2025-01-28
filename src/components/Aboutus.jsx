@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import AboutBackground from '../assets/aboutBackground.png';
-import motehinkar from '../assets/ca49e69b0b2abfa97516a6c2bc692910-removebg-preview.png'
+import motehinkar from '../assets/AboutBackgroud.png'
 import noodle from '../assets/noodle.png';
 import '../Style.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';

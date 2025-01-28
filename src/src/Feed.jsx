@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import Videos from "./Videos";
 import { fetchAPI } from "./fetchAPI";
 import './style.css'
+import CustomVideoComponent from "./CustomVideoComponent";
 
 
 const Feed = () => {
@@ -15,6 +16,7 @@ const Feed = () => {
       (data) => setVideos(data?.items)
     );
   }, [selectedCategory]);
+
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}
@@ -50,7 +52,8 @@ const Feed = () => {
           {selectedCategory} <span style={{ color: "#F31503" }}>Videos</span>
         </Typography>
 
-        <Videos videos={videos} />
+        {/* <Videos videos={videos} /> */}
+        <CustomVideoComponent/>
       </Box>
     </Stack>
   );

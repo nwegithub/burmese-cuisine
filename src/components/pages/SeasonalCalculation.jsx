@@ -130,6 +130,7 @@ const SeasonalCalculation = () => {
 
             </label>
             <input
+              min={1}
               type="number"
               id="numPeople"
               value={numPeople}
@@ -140,8 +141,7 @@ const SeasonalCalculation = () => {
             <img
               src={`http://localhost:4000/${product.image}`}
               alt="img"
-              style={{ paddingTop: '20px',borderRadius:10 }}
-               />
+              style={{ width: '300px', height: '400px', paddingTop: '20px' }}               />
           </div>
 
           <div className="w-full md:w-1/2 mb-4">
@@ -158,26 +158,65 @@ const SeasonalCalculation = () => {
                     {product.ingredients_mm.map((ingredient) => {
                       const amount = parseFloat(convertBurmeseNumerals(ingredient.amount));
                       return (
-                        <li key={ingredient.name} className="mb-10 body1">
-                          {ingredient.name}: {amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
-                        </li>
-                      );
+              <li
+                key={ingredient.name}
+                className="mb-10 body1 flex justify-between items-center"
+                style={{ display: 'flex', width: '100%', }}
+              >
+                <div style={{width:'40%',textAlign:'left'}}>
+                <span className="flex-1 text-left">{ingredient.name}</span>
+
+                </div>
+
+                <div style={{width:'20%'}}>
+              <span className="flex-1 text-left">- </span>
+
+              </div>
+
+                <div className="flex space-x-2" style={{width:'40%'}}>
+                  <span className="text-center" style={{width:'20%'}}>{amount * numPeople}</span>
+                  <span className="text-right" style={{ color: "green", }}>
+                    {ingredient.unit}
+                  </span>
+                </div>
+              </li>
+            );
                     })}
                   </>
                 ) : (
                   <>
-                    {product.ingredients.map((ingredient) => (
-                      <li key={ingredient.name} className="mb-10 body1">
-                        {ingredient.name}: {ingredient.amount * numPeople} <span style={{ color: 'green' }}>{ingredient.unit}</span>
-                      </li>
-                    ))}
+                    {product.ingredients.map((ingredient) => {
+                      return (
+              <li
+                key={ingredient.name}
+                className="mb-10 body1 flex justify-between items-center"
+                style={{ display: 'flex', width: '100%', }}
+              >
+                <div style={{width:'40%',textAlign:'left'}}>
+                <span className="flex-1 text-left">{ingredient.name}</span>
+
+                </div>
+
+                <div style={{width:'20%'}}>
+              <span className="flex-1 text-left">- </span>
+
+              </div>
+
+                <div className="flex space-x-2" style={{width:'40%'}}>
+                  <span className="text-center" style={{width:'20%'}}>{ingredient.amount * numPeople}</span>
+                  <span className="text-right" style={{ color: "green", }}>
+                    {ingredient.unit}
+                  </span>
+                </div>
+              </li>
+            );
+                    })}
 
                   </>
                 )
               }
              
             </ul>
-            <div style={{flex:1,justifyItems:'center'}}>
             <div className="flex space-x-5">
 
               <button
@@ -194,7 +233,6 @@ const SeasonalCalculation = () => {
               </button>
               </div>
             </div>
-          </div>
           
         </div>
       </div>
