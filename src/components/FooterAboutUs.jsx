@@ -59,7 +59,7 @@ const FooterAboutUs = () => {
             alt="font"
           />
           <p data-aos="fade-up" className='title1' style={{ textAlign: "center", lineHeight: '3rem' }}>
-            {isMya ? "ကျွန်ုမတို့သည် အစားအသောက်ချစ်သူများ၊စားဖိုမှူးများနှင့်ရိုးရှင်းစွာချက်ပြုတ်ရန် ဝါသနာပါသော မည်သူမဆိုအတွက် အကောင်းဆုံးသောနေရာတစ်ခု ဖြစ်ပါသည်။ကျွန်ုမတို့၏ရည်မှန်းချက်မှာ ချက်ပြုတ်ခြင်းအနုပညာကို ပိုမိုကောင်းမွန်စေရန်၊ပညာပေးရန်နှင့် အရသာရှိသော ချက်ပြုတ်နည်းများကို မျှဝေရန် ဖြစ်သည်။" : "Welcome to Myanmar Cuisine, your ultimate destination for all things culinary. We are dedicated to bringing together food enthusiasts, home cooks, and professional chefs to celebrate the art of cooking. Our mission is to inspire, educate, and delight your taste buds with a diverse array of recipes, cooking tips, and nutritional information"}
+            {isMya ? "ကျွန်ုမတို့သည် အစားအသောက်ချစ်သူများ၊စားဖိုမှူးများနှင့်ရိုးရှင်းစွာချက်ပြုတ်ရန် ဝါသနာပါသော မည်သူတို့အတွက်မဆို အကောင်းဆုံးသောနေရာတစ်ခု ဖြစ်ပါသည်။ကျွန်ုမတို့၏ရည်မှန်းချက်မှာ ချက်ပြုတ်ခြင်းအနုပညာကို ပိုမိုကောင်းမွန်စေရန်၊ပညာပေးရန်နှင့် အရသာရှိသော ချက်ပြုတ်နည်းများကို မျှဝေရန် ဖြစ်သည်။" : "Welcome to Myanmar Cuisine, your ultimate destination for all things culinary. We are dedicated to bringing together food enthusiasts, home cooks, and professional chefs to celebrate the art of cooking. Our mission is to inspire, educate, and delight your taste buds with a diverse array of recipes, cooking tips, and nutritional information"}
 
           </p>
         </div>
@@ -69,7 +69,7 @@ const FooterAboutUs = () => {
               <h1 data-aos="fade-up" className="title1 mt-10px" style={{color: '#d97706'}}> {isMya ? "Myanmar Cuisineမှပေးနိုင်သည့်အရာ " : "What We Offer"}</h1>
 
               <p data-aos="fade-up" className="body1" style={{ fontSize: '1.3rem', lineHeight: '3' }}>
-                {isMya ? "ကျွန်ုမတို့၏ အဆင့်ဆင့်လမ်းညွှန်ချက်များသည် လူကြီးမင်းအနေနဲ့ဟင်းပွဲတစ်ခုစီကို ယုံကြည်မှုအပြည့်ဖြင့် ပြန်လည်ဖန်တီးနိုင်စေရန် ရည်ရွယ်ပါသည်။ကျွန်ုမတို့၏ချက်ပြုတ်နည်းများ၊သင်ခန်းစာများမှတဆင့် အကောင်းဆုံးလေ့လာပါ။ချက်ပြုတ်ခြင်းအနုပညာကို ကျွမ်းကျင်အောင်လေ့လာပြီး လူကြီးမင်း၏မီးဖိုချောင်ကျွမ်းကျင်မှုကို မြှင့်တင်ပါ။" : "Find recipes for every occasion, dietary preference, and skill level. Our step-by-step guides ensure you can recreate each dish with confidence.Learn from the best with our cooking tips, techniques, and tutorials. Master the art of cooking and elevate your kitchen skills.Stay updated with the latest in the culinary world. From new ingredients to emerging food trends, we bring you the freshest insights.Join a community of food lovers. Share your own recipes, leave reviews, and connect with others who share your passion for great food."}
+                {isMya ? "ကျွန်ုမတို့၏ အဆင့်ဆင့်လမ်းညွှန်ချက်များသည် လူကြီးမင်းအနေနဲ့ဟင်းပွဲတစ်ခုစီကို ယုံကြည်မှုအပြည့်ဖြင့် ပြန်လည်ဖန်တီးနိုင်စေရန် ရည်ရွယ်ပါသည်။ကျွန်ုမတို့၏ချက်ပြုတ်နည်းများ၊သင်ခန်းစာများမှတဆင့် အကောင်းဆုံးလေ့လာပါ။ချက်ပြုတ်ခြင်းအနုပညာကို ကျွမ်းကျင်အောင်လေ့လာပြီး လူကြီးမင်း၏မီးဖိုချောင်ကျွမ်းကျင်မှုကို မြှင့်တင်လိုက်ပါ။" : "Find recipes for every occasion, dietary preference, and skill level. Our step-by-step guides ensure you can recreate each dish with confidence.Learn from the best with our cooking tips, techniques, and tutorials. Master the art of cooking and elevate your kitchen skills.Stay updated with the latest in the culinary world. From new ingredients to emerging food trends, we bring you the freshest insights.Join a community of food lovers. Share your own recipes, leave reviews, and connect with others who share your passion for great food."}
               </p>
             </div>
             <img
@@ -82,7 +82,7 @@ const FooterAboutUs = () => {
             <div>
             <h1 data-aos="fade-left" className="title1" style={{color: '#d97706'}}> {isMya ? "ဘာကြောင့်Myanmar Cuisineကိုလေ့လာသင့်တာလဲ" : "Why should you study Myanmar Cuisine?"}</h1>
               <p data-aos="fade-right" className="body1" style={{ fontSize: '4', lineHeight: '3rem', textAlign: 'justify' }}>
-                {isMya ? "ချက်ပြုတ်နည်းပေါင်းများစွာကို တစ်နေရာထဲမှာ ရှာဖွေနိုင်ခြင်း။ရာသီစာများနှင့် တိုင်းရင်းသားအစားအစာများကို လွယ်လွယ်ကူကူကြည့်ပီး သင်ယူနိုင်ပါတယ်။လွယ်ကူမြန်ဆန်သောနည်းလမ်းများကို လမ်းညွှန်ပေးနိုင်ခြင်းနှင့် အချက်အပြုတ်စွမ်းရည်ကို တိုးမြှင့်ပေးနိုင်တဲ့အတွက် လေ့လာသင့်သောဝဘ်ဆိုဒ်တခုဖြစ်ပါတယ်" : "You can find many recipes in one place.You can easily learn about seasonal and ethnic foods It's a website you should learn because it can guide you on quick and easy methods and improve your cooking skills."}
+                {isMya ? "ချက်ပြုတ်နည်းပေါင်းများစွာကို တစ်နေရာထဲမှာ ရှာဖွေနိုင်ခြင်း။ရာသီစာများနှင့် တိုင်းရင်းသားအစားအစာများကို လွယ်လွယ်ကူကူကြည့်ပီး သင်ယူနိုင်ပါတယ်။လွယ်ကူမြန်ဆန်သောနည်းလမ်းများကို လမ်းညွှန်ပေးနိုင်ခြင်းနှင့် အချက်အပြုတ်စွမ်းရည်ကို တိုးမြှင့်ပေးနိုင်တဲ့အတွက် လေ့လာသင့်သောဝက်ဘ်ဆိုဒ်တခုဖြစ်ပါတယ်" : "You can find many recipes in one place.You can easily learn about seasonal and ethnic foods It's a website you should learn because it can guide you on quick and easy methods and improve your cooking skills."}
               </p>
             </div>
             <div style={{

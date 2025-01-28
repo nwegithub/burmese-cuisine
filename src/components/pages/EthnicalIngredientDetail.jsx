@@ -172,9 +172,21 @@ const IngredientDetail = () => {
                 transition: 'transform 0.3s ease', // Smooth transition for scaling
               }}
             >
-              <p className='body1'>
-                {ingredient.name} : {ingredient.amount} {ingredient.unit}
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                <p className="body1" style={{ width:'45%',textAlign: 'left',paddingLeft:20, }}>{ingredient.name}</p>
+                <p className="body1" style={{ width:'10%', textAlign: 'left',}}>-</p>
+
+                <div style={{ display: 'flex',width:'45%', }}>
+                <p className="body1" >
+                  {ingredient.amount}
+                </p>
+                  <p className="body1" style={{color:'green',paddingLeft:5,}}>
+                   {ingredient.unit}
+                </p>
+                </div>
+              </div>
+
+
             </div>
           ))}
         </div>

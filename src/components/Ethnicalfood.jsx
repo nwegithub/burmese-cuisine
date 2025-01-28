@@ -232,21 +232,21 @@ const Ethnicalfood = () => {
               <div className="flex justify-center space-x-2 items-center" style={{ height: '20%' }}>
                 <Button
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
-
                   onClick={() => handleNavigateToDetail(item._id)}>
                   {isMya ? "ပါဝင်ပစ္စည်းများ" : "Ingredients"}
-
                 </Button>
+
                 <Button
                   onClick={() => handleNavigateToRecipe(item._id)}
                   style={{ paddingInline: 10, backgroundColor: '#42eff5', color: 'black' }}
                 >
-                  {isMya ? "ချက်နည်းများ" : "Recipe"}
+                  {isMya ? "ချက်နည်းများ" : "Recipes"}
                 </Button>
               </div>
             ) : (
               <div className="h-1/5 flex items-center justify-center" >
                 <h3 className="body1 text-red">
+                 
                   {isMya ? item.name_mm : item.name}
                 </h3>
               </div>

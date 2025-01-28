@@ -37,7 +37,7 @@ const Contactus = () => {
           <h1 className='title1'>{isMya ? "ဆက်သွယ်ရန်" : "CONTACT US"}</h1>
           <h2 className='body4'>
           {isMya
-              ? "ကျွန်ုပ်တို့နှင့်ဆက်သွယ်ပါ: မေးခွန်းတစ်ခုရှိပါက၊ မှတ်ချက်တစ်ခုရှိပါက သို့မဟုတ် စကားပြောချင်ပါက ဒီပေးသွင်းပုံဖြင့်၊ ဖုန်း၊ အီးမေးလ် သို့မဟုတ် ဆိုရှယ်မီဒီယာတစ်ခုမှ တဆင့်ဆက်သွယ်နိုင်ပါသည်။"
+              ? "မေးခွန်းတစ်ခုခု မှတ်ချက်တစ်ခုခု ရှိပါက သို့မဟုတ် ဆက်သွယ်လို့ပါက ဒီစာမျက်နှာမှတစ်ဆင့် ဖုန်း၊ အီးမေးလ် တို့မှတဆင့်ကျွန်ုပ်တို့နှင့်ဆက်သွယ်နိုင်ပါသည်။"
               : "LET'S CONNECT: WE'RE HERE TO HELP, AND WE'D LOVE TO HEAR FROM YOU! WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT, YOU CAN REACH OUT TO US THROUGH THE CONTACT FORM ON THIS PAGE, OR BY PHONE, EMAIL, OR SOCIAL MEDIA."
             }
           </h2>
@@ -52,7 +52,7 @@ const Contactus = () => {
                   placeholder={isMya ? 'သင်၏နာမည်ထည့်ပါ' : 'Enter your name'}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  style={{ fontSize: '16px' }}
+                  style={{ fontSize: '14px' }}
                 />
               </div>
               <div className="form_control">
@@ -62,7 +62,7 @@ const Contactus = () => {
                   placeholder={isMya ? 'အီးမေလ်ရိုက်ထည့်ပါ' : 'abc@example.com'}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  style={{ fontSize: '16px' }}
+                  style={{ fontSize: '14px' }}
                 />
               </div>
               <div className="form_control">
@@ -71,11 +71,11 @@ const Contactus = () => {
                   placeholder={isMya ? 'ဖော်ပြချက်' : 'Description'}
                   value={text}
                   onChange={(e) => setText(e.target.value)}
-                  style={{ fontSize: '16px' }}
+                  style={{ fontSize: '14px' }}
                 />
               </div>
               <div className="submit" style={{ fontSize: '18px' }}>
-                <Cbutton text={isMya ? 'တင်ရန်' : 'SUBMIT'}  />
+                <Cbutton text={isMya ? 'ပေးပို့ရန်' : 'SUBMIT'}  />
               </div>
               {message && <p>{message}</p>}
             </form>
@@ -84,14 +84,7 @@ const Contactus = () => {
             <img style={{ height: "350px", width: "330px", marginTop: "-30px", marginBottom: "30px" }} src={img2} alt={isMya ? 'ဆက်သွယ်ရန်' : 'Contact us'} />
           </div>
         </section>
-        <div style={{ padding: '0 50px' }}>
-          <p style={{ fontSize: '2rem' }}>
-          {isMya ? `နာမည်: ${name}` : `Name: ${name}`} <br /> <br />
-            {isMya ? `အီးမေးလ်: ${email}` : `Email: ${email}`} <br /> <br />
-            {isMya ? `ဖော်ပြချက်: ${text}` : `Text: ${text}`}
-            {/* {`Name: ${name}`} <br /> <br/>{`Email: ${email}`} <br /> <br /> {`Text: ${text}`} */}
-          </p>
-        </div>
+
       </div>
     </div>
   );

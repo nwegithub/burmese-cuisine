@@ -134,8 +134,6 @@ console.log("id",id)
               alt="img"
               style={{ marginTop: '5px', width: '100%' }}
             />
-         
-        
           <h1 className='title2'>{isMya ? "ပါဝင်ပစ္စည်းများ" : "Our family Secret Ingredients"}</h1>
 
           <div className="flex justify-center items-center mb-5">
@@ -174,9 +172,19 @@ console.log("id",id)
                 transition: 'transform 0.3s ease', // Smooth transition for scaling
               }}
             >
-              <p className='body1'>
-                {ingredient.name} : {ingredient.amount} {ingredient.unit}
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                <p className="body1" style={{ width:'45%',textAlign: 'left',paddingLeft:20, }}>{ingredient.name}</p>
+                <p className="body1" style={{ width:'10%', textAlign: 'left',}}>-</p>
+
+                <div style={{ display: 'flex',width:'45%', }}>
+                <p className="body1" >
+                  {ingredient.amount}
+                </p>
+                  <p className="body1" style={{color:'green',paddingLeft:5,}}>
+                   {ingredient.unit}
+                </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
