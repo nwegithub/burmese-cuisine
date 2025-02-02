@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAuth } from '../../Auth/AuthContext';
 import question from '../../assets/question.png';
@@ -73,7 +72,6 @@ const styles = {
     animation: 'bounce 2s infinite', // Apply bounce animation
   },
 };
-
 // Keyframes for bounce animation
 const keyframes = `
 @keyframes bounce {
